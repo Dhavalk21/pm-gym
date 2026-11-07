@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI-1 AI foundations for PMs | PM Gym</title>
+<meta name="description" content="How language models work, context and prompts, retrieval (RAG), and when to use AI at all. Four short lessons, two cases and the AI or Not? game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+<style>
+  .tokens { display: flex; flex-wrap: wrap; gap: 4px; margin: 8px 0 12px; }
+  .tokens span { padding: 3px 7px; border-radius: 4px; font-size: 15px; background: #E9ECEF; border: 1px solid var(--line); }
+  .tokens span:nth-child(3n+1) { background: #FBEAEA; }
+  .tokens span:nth-child(3n+2) { background: #E7F1FB; }
+  .tokens span:nth-child(3n) { background: #FFF4D6; }
+  .ctxbox { display: grid; gap: 6px; margin: 8px 0 12px; max-width: 640px; }
+  .ctxbox div { padding: 10px 14px; border-radius: 6px; border: 1.5px solid var(--line); background: var(--ground); font-size: 15px; }
+  .ctxbox div b { display: block; font-size: 14px; color: var(--ink-3); }
+</style>
+</head>
+<body data-station="ai-1">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / AI-1</div>
+  <div class="title">
+    <span class="plate-mark" aria-hidden="true"></span>
+    <div>
+      <h1>AI foundations for PMs</h1>
+      <p>What a language model actually does, why context is everything, how products ground AI in their own data, and how to tell when AI is the wrong tool.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 36 minutes</span><span>2 cases</span><span>AI or Not? game, 10 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional</span></h2>
+    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
+    <form class="prompt" data-persist="warmup">
+      <p>Your company wants a chatbot on the website that answers customers' questions about your products, prices and return policy. The first prototype, built on a general AI model, confidently gave a wrong return period.</p>
+      <label>1. Why did the model get it wrong?<textarea rows="2" name="a1"></textarea></label>
+      <label>2. What would you change so it answers from your real policies?<textarea rows="2" name="a2"></textarea></label>
+      <label>3. Which questions should it not answer on its own?<textarea rows="2" name="a3"></textarea></label>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a model answer</summary>
+      <div class="model">
+        <p><b>1.</b> The model has never seen your return policy. It produces the most plausible-sounding answer from patterns in its training, and "30 days" sounds plausible. It has no built-in way of knowing it's wrong.</p>
+        <p><b>2.</b> Ground it: retrieve the relevant passages from your real policy pages and product data, put them in the model's context, instruct it to answer only from those, cite the source, and say "I don't know" otherwise. Then test it against a set of real customer questions with known answers.</p>
+        <p><b>3.</b> Anything binding or high-stakes: refunds outside policy, legal or medical questions, account changes. Those go to a person, or to a fixed, checked answer.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>The idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+
+      <details class="lesson" data-lesson="1">
+        <summary><span class="ln">1</span><span class="lt"><b>What a language model actually does</b><span>It predicts the next piece of text. Everything else follows from that.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>A large language model (LLM) is trained on enormous amounts of text to predict what comes next. It reads text as <b>tokens</b>, chunks of words, and generates an answer one token at a time, each time picking a likely next token. Further training with human feedback makes it follow instructions and behave helpfully.</p>
+            <div class="tokens" aria-label="Example sentence split into tokens"><span>Product</span><span> managers</span><span> ship</span><span> outcomes</span><span>,</span><span> not</span><span> out</span><span>puts</span><span>.</span></div>
+            <p>A rough rule of thumb for English: one token is about three-quarters of a word. Models are priced and limited in tokens.</p></div>
+          <div class="part"><h4>The framework: four properties PMs must design for</h4>
+            <ol>
+              <li><b>Probabilistic:</b> the same question can get different answers. Plan for variation, not one fixed output.</li>
+              <li><b>Plausible, not verified:</b> it can state wrong things confidently ("hallucinations"). It has no built-in fact-check.</li>
+              <li><b>Frozen knowledge:</b> it knows only what was in its training data, up to a cut-off date, unless you give it more.</li>
+              <li><b>Cost and speed:</b> longer inputs and outputs, and bigger models, cost more and respond more slowly.</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>Ask a general model "What's our refund window?" and it will answer, because answering is what it predicts. It has never seen your policy, so it produces a typical-sounding period. That's not a bug you can fix with a better question; it's how the technology works. The fix is to give it the facts (lessons 2 and 3).</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>"It's just autocomplete"</b> undersells it. Predicting text well requires capturing a lot of structure: models can reason through problems, write code and follow complex instructions.</li>
+              <li><b>Precise maths and exact lookups</b> are still better done by code the model calls, not by the model itself.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="1"><p class="cq">The same prompt gives slightly different answers each time. What does that mean for your product?</p><div class="opts"><button type="button" class="opt">The model is broken</button><button type="button" class="opt">Design for variation: test many outputs, set guardrails, and avoid features that need one exact answer</button><button type="button" class="opt">Nothing; users won't notice</button></div><p class="cfb" data-ok="Right: variation is a property to design for." data-no="Variation is normal for these models. Design and test for it."></p></div>
+            <div class="check stack" data-answer="2"><p class="cq">Why might a model confidently give a wrong fact?</p><div class="opts"><button type="button" class="opt">It's lying on purpose</button><button type="button" class="opt">The internet connection dropped</button><button type="button" class="opt">It generates plausible text and has no built-in way to check facts</button></div><p class="cfb" data-ok="Right. Plausible isn't the same as true." data-no="It produces plausible text, without a built-in fact-check."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="1">Mark lesson 1 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="2">
+        <summary><span class="ln">2</span><span class="lt"><b>Context is everything</b><span>The model only knows what's in front of it. Deciding what goes there is the job.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Every time a model answers, it sees one block of text: its <b>context</b>. Whatever isn't in there, it can't use. The context window has a size limit, and every token in it costs money and time. So product quality depends heavily on what you choose to put in.</p></div>
+          <div class="part"><h4>The framework: what goes into the context</h4>
+            <div class="ctxbox">
+              <div><b>Instructions</b>Role, task, rules, tone, what to do when unsure</div>
+              <div><b>Examples</b>A few good input and output pairs</div>
+              <div><b>Facts</b>Retrieved documents, user data, tool results</div>
+              <div><b>Conversation</b>What the user and model said so far</div>
+              <div><b>Output format</b>Exactly the shape you need back</div>
+            </div>
+            <p><b>Prompting</b> is writing the instructions and examples well. <b>Context engineering</b> is the wider job: deciding, for every request, which facts, history and tools to include, and what to leave out. <a href="https://docs.claude.com/en/docs/build-with-claude/prompt-engineering/overview">A good practical guide to prompting</a>.</p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>A support assistant answers vaguely. Instead of a cleverer prompt, the team adds the customer's plan, their last three tickets and the two most relevant help articles to the context, plus the instruction "If the articles don't answer it, say so and offer a human." Answers become specific and the "I don't know" cases become visible.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>More isn't better.</b> Stuffing in everything adds cost and delay, and irrelevant text can distract the model from what matters.</li>
+              <li><b>Prompt tweaks don't fix missing facts.</b> If the information isn't in the context, no wording will produce it reliably.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="0"><p class="cq">An assistant keeps recommending products you discontinued. What's the most likely fix?</p><div class="opts"><button type="button" class="opt">Give it the current product list in its context, and tell it to recommend only from that list</button><button type="button" class="opt">Ask it more politely</button><button type="button" class="opt">Switch to a bigger model</button></div><p class="cfb" data-ok="Right: missing facts, not missing politeness." data-no="The model is missing facts. Put the current list in its context."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="2">Mark lesson 2 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="3">
+        <summary><span class="ln">3</span><span class="lt"><b>Grounding AI in your own data</b><span>Embeddings and retrieval (RAG), in plain words.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Your documents won't fit in one context, and the model wasn't trained on them. <b>Retrieval-augmented generation (RAG)</b> solves this: find the few passages relevant to each question, put them in the context, and have the model answer from them.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <div class="chain"><div><small>1. Prepare</small><b>Split documents into chunks; turn each into an embedding</b></div><div><small>2. Retrieve</small><b>Find the chunks closest in meaning to the question</b></div><div><small>3. Generate</small><b>Answer from those chunks, citing them</b></div></div>
+            <p>An <b>embedding</b> is a list of numbers that represents the meaning of a piece of text. Texts with similar meanings get similar numbers, so "How do I send something back?" lands close to a passage about returns, even with no words in common.</p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>In 2023, Morgan Stanley's wealth management division rolled out an internal assistant built on OpenAI's GPT-4. It let financial advisors ask questions in plain language and get answers drawn from the firm's large library of research and internal documents, instead of searching through them by hand.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Bad retrieval, confident answers.</b> If the wrong chunks come back, the model answers well from the wrong facts. Most RAG failures are retrieval failures.</li>
+              <li><b>Stale or messy sources.</b> RAG is only as good as the documents behind it. Outdated pages produce outdated answers.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="2"><p class="cq">Your RAG assistant gives a fluent but wrong answer. Where do you look first?</p><div class="opts"><button type="button" class="opt">Switch to a bigger model</button><button type="button" class="opt">Rewrite the tone of the prompt</button><button type="button" class="opt">Check which passages were retrieved for that question</button></div><p class="cfb" data-ok="Right. Most RAG failures are retrieval failures." data-no="Look at what was retrieved first. Most RAG failures start there."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="3">Mark lesson 3 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="4">
+        <summary><span class="ln">4</span><span class="lt"><b>When to use AI, and when not</b><span>The cost of a wrong answer decides more than the wow factor.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>AI is a great fit for some problems and a poor one for others. The best AI PMs say no to AI often. Start from the problem (M2), then check whether a model is the right tool.</p></div>
+          <div class="part"><h4>The framework: the AI fit check</h4>
+            <ol>
+              <li><b>Is the input messy?</b> Free text, images, varied phrasing: good for AI. Clean, structured data: often better with code.</li>
+              <li><b>What does a wrong answer cost?</b> Cheap or easily fixed: fine. Legal, financial, medical or irreversible: keep a human in the loop, or don't use a model for the decision.</li>
+              <li><b>Can someone check the output cheaply?</b> If yes, AI can draft and people approve.</li>
+              <li><b>Would a simple rule do?</b> If so, use the rule. It's cheaper, faster and always the same.</li>
+              <li><b>Which model?</b> Bigger models are better at hard tasks but cost more and are slower. Test smaller ones first on your real examples.</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>An invoicing product: generating a friendly payment reminder in the customer's language is a good fit (messy, low risk, easy to review). Calculating the VAT amount is not: it's exact, legally binding, and a few lines of ordinary code get it right every time.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>"Add AI" as a goal</b> is a solution in disguise (M2). The question is always which problem it solves better than the alternatives.</li>
+              <li><b>Rules can get messy too.</b> Hundreds of brittle rules for handling free text may be worse than one well-tested model.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: good fit or not?</h4>
+            <div class="check" data-answer="0"><p class="cq">Summarising long customer interview transcripts into key themes for the team.</p><div class="opts"><button type="button" class="opt">Good fit</button><button type="button" class="opt">Poor fit</button></div><p class="cfb" data-ok="Right: messy text, and a person reviews the summary." data-no="It's a good fit: messy language, and people check the themes."></p></div>
+            <div class="check" data-answer="1"><p class="cq">Deciding the exact amount to refund a customer under your terms.</p><div class="opts"><button type="button" class="opt">Good fit</button><button type="button" class="opt">Poor fit</button></div><p class="cfb" data-ok="Right: exact and binding. Use rules, maybe with AI explaining the result." data-no="It's a poor fit: exact and binding. Use rules."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="4">Mark lesson 4 done</button></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One team that grounded AI in its own knowledge, one launch where a confident error cost dearly.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Morgan Stanley's advisor assistant</h3>
+        <p>Morgan Stanley's financial advisors had a huge library of research and internal documents that was slow to search. In 2023 the firm launched an assistant on OpenAI's GPT-4 that answered advisors' questions from that library. It was internal, so experts reviewed what it said before anything reached a client.</p>
+        <p class="take">Lesson: a clear job, grounded in the firm's own documents, with expert users checking the output.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Google Bard's launch demo</h3>
+        <p>In February 2023, Google's promotional demo of its new chatbot Bard included an answer claiming the James Webb Space Telescope took the very first pictures of a planet outside our solar system. Astronomers quickly pointed out that was wrong. Alphabet's share price fell sharply the following day, wiping roughly $100 billion off its market value.</p>
+        <p class="take">Lesson: plausible isn't true. Even a carefully prepared demo needs its facts checked, because the model can't do that for you.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: AI or Not?</h2>
+    <p>Ten product tasks. Decide what should handle each one, and what a model would need to do it well. <a href="../games/ai-or-not/">Open it on its own page</a> to share.</p>
+    <div id="aion" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Apply it to your product</h2>
+    <p>Pick one AI idea for a product you know. Run the fit check and sketch the context. Your notes stay in this browser.</p>
+    <form data-persist="apply">
+      <div class="slots">
+        <label class="slot">The idea, and the problem it solves (not "add AI")<textarea rows="5" name="i"></textarea></label>
+        <label class="slot">Fit check: how messy is the input, what does a wrong answer cost, who checks it?<textarea rows="5" name="f"></textarea></label>
+        <label class="slot">What goes in the context: instructions, examples, facts, tools<textarea rows="5" name="c"></textarea></label>
+      </div>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Idea:</b> in a project tool, draft the weekly status update for each project. Problem: project leads spend about an hour every Friday writing updates nobody enjoys writing.</p>
+        <p><b>Fit check:</b> input is messy (task comments, changes, chat). A wrong sentence is cheap, because the lead reviews and edits before sending. No rule could do this. Good fit, with a human approving.</p>
+        <p><b>Context:</b> instructions (audience, length, tone, "flag risks first", "never invent dates"), two example updates the team liked, this week's task changes and comments as facts, and an output format with headings for done, next and risks.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
+    <form class="prompt" data-persist="teach">
+      <p>A stakeholder asks: "Why can't we just plug ChatGPT into our website and let it answer customers?" In three or four sentences, explain what would go wrong and what you'd do instead.</p>
+      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
+      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations mention that the model doesn't know your facts, describe grounding it in your own content, and name the questions a person should still handle.</p>
+      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
+    </form>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M1 and M2. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+      <div class="check stack" data-answer="1"><p class="cq">1. What does a language model fundamentally do?</p><div class="opts"><button type="button" class="opt">Looks answers up in a database</button><button type="button" class="opt">Generates text by repeatedly predicting a likely next token</button><button type="button" class="opt">Searches the internet for every answer</button></div><p class="cfb" data-ok="Right. That's why it can be fluent and wrong at the same time." data-no="It predicts the next token, over and over. No lookup, unless you give it tools or documents."></p></div>
+      <div class="check stack" data-answer="0"><p class="cq">2. What's the main purpose of RAG?</p><div class="opts"><button type="button" class="opt">To answer from your own, current documents by retrieving relevant passages into the context</button><button type="button" class="opt">To make the model respond faster</button><button type="button" class="opt">To retrain the model on your data every night</button></div><p class="cfb" data-ok="Right: retrieve, then generate from what was retrieved." data-no="RAG retrieves relevant passages and puts them in the context. No retraining needed."></p></div>
+      <div class="check stack" data-answer="2"><p class="cq">3. Which task is the worst fit for a language model on its own?</p><div class="opts"><button type="button" class="opt">Drafting product descriptions that editors review</button><button type="button" class="opt">Tagging support tickets by topic</button><button type="button" class="opt">Calculating payroll tax for each employee</button></div><p class="cfb" data-ok="Right: exact, binding and rule-based. Use code." data-no="Payroll tax is exact and legally binding. That's a job for code."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">4. From M1: you're about to build an AI feature. Which risk is new compared with ordinary features?</p><div class="opts"><button type="button" class="opt">None, it's the same as any feature</button><button type="button" class="opt">Output quality varies, which touches value, usability and viability at once</button><button type="button" class="opt">Only feasibility</button></div><p class="cfb" data-ok="Right. Unreliable output can kill value, confuse users and create liability." data-no="Varying output quality cuts across value, usability and viability."></p></div>
+      <div class="check stack" data-answer="0"><p class="cq">5. From M2: leadership says "we need AI in the product". What is it?</p><div class="opts"><button type="button" class="opt">A solution in disguise</button><button type="button" class="opt">A problem statement</button><button type="button" class="opt">An outcome</button></div><p class="cfb" data-ok="Right. Ask which customer problem it should solve better than today." data-no="It names a technology, not a problem. Ask which problem it should solve."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>A model predicts plausible text.</b> Design for variation and confident mistakes.</li>
+        <li><b>It only knows what's in its context.</b> Choosing what goes in is the product work.</li>
+        <li><b>Ground answers in your own data with retrieval,</b> and check what was retrieved when it goes wrong.</li>
+        <li><b>Use AI where input is messy and mistakes are cheap or checked.</b> Use code where answers must be exact.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m6/">Previous: M6 Market and competition</a><span>Next zone: Design and build, starting with M7</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/ai-or-not.js"></script>
+<script>AIOrNot(document.getElementById("aion"));</script>
+</body>
+</html>

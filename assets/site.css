@@ -226,3 +226,8 @@ footer.site > span { color: var(--ink-3); font-size: 15px; }
 .is-notes p { color: #5F6975 !important; font-size: 15px; }
 .is-notes ol { margin: 10px 0 0; padding-left: 20px; font-size: 15px; }
 .is-notes li { margin-bottom: 8px; }
+
+/* Size It */
+.si-slide { background: #F2F3F1; color: #17202A; border-radius: 8px; padding: 22px 26px; border-left: 0; box-shadow: inset 0 6px 0 #2C8350; }
+.si-slide small { display: block; font-size: 14px; color: #5F6975; font-weight: 600; }
+.si-slide p { margin: 8px 0 0; color: #17202A !important; font-family: var(--cond); font-weight: 700; font-size: 26px; line-height: 1.2; }
