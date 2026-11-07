@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Segment Sorter | PM Gym</title>
+<meta name="description" content="A 15-minute product management game. Pick the user segmentation that actually predicts behaviour, then choose a beachhead.">
+<meta property="og:title" content="Segment Sorter: a PM Gym game">
+<meta property="og:description" content="A 15-minute product management game. Pick the user segmentation that actually predicts behaviour, then choose a beachhead.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body>
+<header class="wrap top">
+  <a class="brand" href="../../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../../#floor">Gym floor</a>
+    <a href="../../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+<main class="wrap" style="padding-block: 24px 64px">
+  <p class="kicker">PM Gym, station M3: Users and segmentation</p>
+  <h1 style="font-weight: 800; font-size: clamp(2.8rem, 6vw, 4rem); margin-top: 6px">Segment Sorter</h1>
+  <p class="lead">Three datasets, each split three ways. Pick the split that actually predicts what users do, then choose a beachhead. About 15 minutes.</p>
+  <div id="riskradar" style="margin-top: 28px"></div>
+  <p style="margin-top: 28px; color: var(--ink-2)">Want the why behind it? <a href="../../m3/#lessons">Take the four short lessons in M3</a>.</p>
+</main>
+<script src="../../assets/segment-sorter.js"></script>
+<script>SegmentSorter(document.getElementById("riskradar"));</script>
+</body>
+</html>

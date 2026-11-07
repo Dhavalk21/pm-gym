@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M1 Product thinking basics | PM Gym</title>
+<meta name="description" content="Outcomes over outputs, the four product risks, reversible decisions and second-order thinking. Four short lessons, two cases and the Risk Radar game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="../assets/station.css">
+</head>
+<body data-station="m1">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M1</div>
+  <div class="title">
+    <span class="plate-mark" aria-hidden="true"></span>
+    <div>
+      <h1>Product thinking basics</h1>
+      <p>Outcomes over outputs, the four risks every idea carries, which decisions you can take back, and what happens after the first effect.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 30 minutes</span><span>2 cases</span><span>Risk Radar game, 15 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps">
+  <div class="wrap" id="stepnav"></div>
+</nav>
+
+<main class="wrap">
+
+  <!-- WARM-UP -->
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional</span></h2>
+    <p>Try the problem cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
+    <form class="prompt" id="warmup-form" data-persist="warmup">
+      <p>You're the PM at a meal-kit delivery app in Germany. The CEO says: "Our competitor just launched AI-generated weekly meal plans. We need the same feature this quarter."</p>
+      <label>1. What outcome might the CEO actually want, as opposed to the feature they asked for?
+        <textarea rows="2" name="a1"></textarea></label>
+      <label>2. What are the biggest risks, and which would you test first?
+        <textarea rows="2" name="a2"></textarea></label>
+      <label>3. Is launching this easy or hard to reverse? How does that change your speed?
+        <textarea rows="2" name="a3"></textarea></label>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" id="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a model answer</summary>
+      <div class="model">
+        <p><b>1. The outcome.</b> "Match the competitor" is not an outcome. The likely real worry is retention: subscribers skipping weeks or cancelling because choosing meals every week is a chore. A good outcome: active subscribers skip fewer weeks. The business impact follows: lower churn, more revenue per subscriber.</p>
+        <p><b>2. The risks.</b> Value first: do your subscribers want plans made for them, or do they enjoy choosing? Then feasibility (can AI respect allergies and diets every time?), viability (allergen mistakes are a safety and liability problem; cost per plan), and usability (will people trust and edit the plan?). Test value first and cheaply: have a nutritionist hand-make plans for a small group and see if they skip fewer weeks.</p>
+        <p><b>3. Reversibility.</b> A pilot for a few hundred subscribers behind a feature switch is easy to reverse, so move fast there. A big public launch, new pricing or a promise in your marketing is much harder to undo, so earn it with evidence from the pilot first.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- LESSONS -->
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill. Open one at a time.</p>
+    <div class="lessons">
+
+      <details class="lesson" data-lesson="1">
+        <summary><span class="ln">1</span><span class="lt"><b>Outcomes, not outputs</b><span>What you ship is not what you're paid for.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>An <b>output</b> is something the team makes: a feature, a redesign, a launch. An <b>outcome</b> is a change in what people do because of it. An <b>impact</b> is the business result that follows. Teams that only track outputs can ship everything on the roadmap and still change nothing.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <div class="chain"><div><small>Output</small><b>What we ship</b></div><div><small>Outcome</small><b>What people do differently</b></div><div><small>Impact</small><b>What the business gets</b></div></div>
+            <p>Write an outcome as: <b>who</b> does <b>what</b> differently, measured <b>how</b>. Then ask: if we ship this and nobody's behaviour changes, did we succeed? If the honest answer is yes, you are tracking an output.</p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>The meal-kit CEO asked for AI meal plans (output). The outcome could be "subscribers skip fewer weeks" or "new subscribers keep ordering past their second month". The impact is lower churn and more revenue. Once the outcome is clear, AI plans become one option among several: better recipes, a simpler skip flow, or reminders might move it more cheaply.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Outcomes lag.</b> Retention takes months to show. Track a leading signal that moves early, like plans accepted in week one.</li>
+              <li><b>Some work really is output.</b> A legal deadline or a contractual commitment just has to ship.</li>
+              <li><b>You don't control outcomes alone.</b> Seasons, prices and competitors move them too. Judge teams on learning, not just on the number.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: output, outcome or impact?</h4>
+            <div class="check" data-answer="0"><p class="cq">"Launch saved searches by June"</p><div class="opts"><button type="button" class="opt">Output</button><button type="button" class="opt">Outcome</button><button type="button" class="opt">Impact</button></div><p class="cfb" data-ok="Right: it's something the team ships." data-no="It's an output: something the team ships, whatever people then do."></p></div>
+            <div class="check" data-answer="1"><p class="cq">"New users place their first order within 3 days of signing up"</p><div class="opts"><button type="button" class="opt">Output</button><button type="button" class="opt">Outcome</button><button type="button" class="opt">Impact</button></div><p class="cfb" data-ok="Right: a change in what people do." data-no="It's an outcome: it describes a change in user behaviour."></p></div>
+            <div class="check" data-answer="2"><p class="cq">"Annual revenue grows by 15%"</p><div class="opts"><button type="button" class="opt">Output</button><button type="button" class="opt">Outcome</button><button type="button" class="opt">Impact</button></div><p class="cfb" data-ok="Right: the business result." data-no="It's impact: the business result that outcomes add up to."></p></div>
+            <div class="check" data-answer="1"><p class="cq">"Subscribers skip 20% fewer weeks"</p><div class="opts"><button type="button" class="opt">Output</button><button type="button" class="opt">Outcome</button><button type="button" class="opt">Impact</button></div><p class="cfb" data-ok="Right: behaviour, measurable, and it leads to impact." data-no="It's an outcome: subscribers behaving differently."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="1">Mark lesson 1 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="2">
+        <summary><span class="ln">2</span><span class="lt"><b>The four product risks</b><span>Every idea can die four ways. Test the likeliest first.</span></span><span class="lmin">10 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Marty Cagan of SVPG groups what can go wrong with any product idea into four risks. Good teams name them before building, and test the one most likely to kill the idea first, as cheaply as possible.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <div class="risk-grid">
+              <div style="border-color:#C8232B"><b>Value</b><span>Will people want it, choose it, pay for it?</span></div>
+              <div style="border-color:#E3A300"><b>Usability</b><span>Can people figure out how to use it?</span></div>
+              <div style="border-color:#1F57B0"><b>Feasibility</b><span>Can we build it with the time, skills and tech we have?</span></div>
+              <div style="border-color:#2C8350"><b>Viability</b><span>Does it work for the business: legal, finance, sales, brand, support?</span></div>
+            </div>
+            <ol>
+              <li>List your assumptions under each risk.</li>
+              <li>For each, ask: how likely is it wrong, and how bad if it is?</li>
+              <li>Test the worst one first, with the cheapest test that gives a real answer: a fake door or pre-order page for value, five-person prototype tests for usability, an engineering spike for feasibility, a review with legal or finance for viability.</li>
+            </ol>
+            <p><a href="https://www.svpg.com/four-big-risks/">Read Cagan's original short article</a></p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>AI meal plans. Value: do subscribers want plans, or enjoy choosing? Usability: will they trust and edit them? Feasibility: can the AI respect allergies every single time? Viability: an allergen mistake is a safety and liability issue, and each plan costs money to generate. Value is the likeliest killer, and it can be tested without any AI at all.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Teams test what they're comfortable with.</b> Engineers love proving feasibility; it's rarely the risk that kills consumer ideas.</li>
+              <li><b>Small, reversible changes</b> don't need a risk workshop. Ship behind a switch and measure.</li>
+              <li><b>The risks overlap.</b> With AI products, output quality touches value, usability and viability at once.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: which risk is this assumption about?</h4>
+            <div class="check" data-answer="3"><p class="cq">"Our legal team will approve storing health data in this region."</p><div class="opts"><button type="button" class="opt">Value</button><button type="button" class="opt">Usability</button><button type="button" class="opt">Feasibility</button><button type="button" class="opt">Viability</button></div><p class="cfb" data-ok="Right: legal fit is a business viability question." data-no="Viability: legal and compliance fit is about whether it works for the business."></p></div>
+            <div class="check" data-answer="0"><p class="cq">"Small agencies will pay €49 a month for automated reports."</p><div class="opts"><button type="button" class="opt">Value</button><button type="button" class="opt">Usability</button><button type="button" class="opt">Feasibility</button><button type="button" class="opt">Viability</button></div><p class="cfb" data-ok="Right: willingness to pay is value risk." data-no="Value: whether people will choose and pay for it."></p></div>
+            <div class="check" data-answer="1"><p class="cq">"First-time users will find the export button without help."</p><div class="opts"><button type="button" class="opt">Value</button><button type="button" class="opt">Usability</button><button type="button" class="opt">Feasibility</button><button type="button" class="opt">Viability</button></div><p class="cfb" data-ok="Right: can they figure it out." data-no="Usability: can people figure out how to use it."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="2">Mark lesson 2 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="3">
+        <summary><span class="ln">3</span><span class="lt"><b>One-way and two-way doors</b><span>Match your speed to how reversible the decision is.</span></span><span class="lmin">6 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>In his 2015 letter to shareholders, Jeff Bezos split decisions into two types. One-way doors are hard or impossible to reverse, so make them slowly and carefully. Two-way doors can be walked back through, so make them fast, with small groups and less process. His warning: big companies tend to treat every decision as a one-way door, and slow to a crawl.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <ol>
+              <li><b>Can we undo it?</b> And what would undoing cost: money, trust, data, time?</li>
+              <li><b>What does waiting cost?</b> A slow decision has a price too.</li>
+              <li><b>Can we turn a one-way door into a two-way one?</b> A pilot, a feature switch, a small market or a time limit often can.</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>Testing a new onboarding flow on 5% of new users behind a switch: two-way, decide this week. Raising prices for every existing customer by email: much closer to one-way, because trust and expectations don't reset when you change your mind. Test the price on a slice of new customers first.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Two-way doors harden.</b> Once customers rely on a feature, or data has migrated, "we can always roll back" stops being true.</li>
+              <li><b>Calling everything reversible</b> is an excuse to skip thinking. Be honest about what undoing really costs.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: one-way or two-way?</h4>
+            <div class="check" data-answer="1"><p class="cq">Changing a button label for 10% of users in an A/B test.</p><div class="opts"><button type="button" class="opt">One-way</button><button type="button" class="opt">Two-way</button></div><p class="cfb" data-ok="Right: trivial to roll back. Move fast." data-no="Two-way: it's trivial to roll back. Don't slow down for it."></p></div>
+            <div class="check" data-answer="0"><p class="cq">Deleting old user data to cut storage costs.</p><div class="opts"><button type="button" class="opt">One-way</button><button type="button" class="opt">Two-way</button></div><p class="cfb" data-ok="Right: deleted data doesn't come back. Slow down." data-no="One-way: deleted data can't be restored. This deserves care."></p></div>
+            <div class="check" data-answer="0"><p class="cq">Publicly committing to a launch date at a big industry conference.</p><div class="opts"><button type="button" class="opt">One-way</button><button type="button" class="opt">Two-way</button></div><p class="cfb" data-ok="Right: you can move the date, but not without losing trust." data-no="Closer to one-way: a public promise costs trust to walk back."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="3">Mark lesson 3 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="4">
+        <summary><span class="ln">4</span><span class="lt"><b>Second-order thinking</b><span>Ask "and then what?" one more time than feels natural.</span></span><span class="lmin">7 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>First-order thinking stops at the immediate effect: a discount brings sign-ups. Second-order thinking asks what that effect causes next: who signs up, what they expect, how competitors react. Most product surprises live in the second step.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <ol>
+              <li><b>Effect chain:</b> write the first effect, then ask "and then what?" twice.</li>
+              <li><b>Who else?</b> Check each group: users, the team, support, finance, partners, competitors.</li>
+              <li><b>Over time:</b> how does it look in 10 days, 10 months and 2 years?</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>A meal-kit app offers 60% off the first box. First order: sign-ups jump. Second order: many new customers came for the deal, so more of them cancel after the first box; people learn to wait for discounts; support handles more cancellations. Third order: competitors match the offer and acquisition gets more expensive for everyone. The sign-up chart looked great the whole time.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Analysis paralysis.</b> You can't trace every effect. Go deep on one-way doors; for two-way doors, ship and watch.</li>
+              <li><b>Confident chains are still guesses.</b> Turn the scariest second-order effect into a metric you watch, like retention of discounted customers.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: what's the likeliest second-order effect?</h4>
+            <div class="check stack" data-answer="1"><p class="cq">A team makes a free trial 90 days instead of 14 to boost sign-ups.</p><div class="opts"><button type="button" class="opt">Sign-ups go up</button><button type="button" class="opt">More of the people who sign up never get round to trying it properly, and fewer convert</button><button type="button" class="opt">Server costs go down</button></div><p class="cfb" data-ok="Right. More sign-ups is the first-order effect. A long trial removes urgency, so the real question is conversion." data-no="Sign-ups going up is the first-order effect. Next: with no urgency, many trials go unused and conversion can fall."></p></div>
+            <div class="check stack" data-answer="2"><p class="cq">Sales gets a bonus for every new contract signed, regardless of size or fit.</p><div class="opts"><button type="button" class="opt">More contracts get signed</button><button type="button" class="opt">Sales gets happier</button><button type="button" class="opt">Poorly fitting customers sign up, then churn and load up support</button></div><p class="cfb" data-ok="Right. You get what you pay for: contracts, not good customers." data-no="The first two are first-order. Next: badly fitting customers churn and cost support time."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="4">Mark lesson 4 done</button></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <!-- CASES -->
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One team that followed the outcome, one that solved the wrong risk.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Instagram, from Burbn</h3>
+        <p>In 2010, Kevin Systrom and Mike Krieger were building Burbn, a location check-in app with plans, points and photos. Usage showed people mostly cared about one thing: sharing photos. They cut almost everything else, rebuilt around photos and filters, and relaunched as Instagram.</p>
+        <p class="take">Lesson: they followed what users actually did (the outcome), not the product they had planned (the output).</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Juicero</h3>
+        <p>Juicero launched a Wi-Fi connected juice press in 2016 for $699, later cut to $399, selling juice packs by subscription. In 2017, Bloomberg showed the packs could be squeezed by hand about as well as the machine. The company shut down that same year.</p>
+        <p class="take">Lesson: the engineering (feasibility) was impressive. The value question, why anyone needs the machine, was never answered.</p></div>
+    </div>
+  </section>
+
+  <!-- GAME -->
+  <section id="game" class="block">
+    <h2>Game: Risk Radar</h2>
+    <p>Ten product ideas. Pick the risk most likely to kill each one, then the cheapest test that would answer it. <a href="../games/risk-radar/">Open it on its own page</a> to share.</p>
+    <div id="riskradar" style="margin-top: 24px"></div>
+  </section>
+
+  <!-- APPLY -->
+  <section id="apply" class="block">
+    <h2>Apply it to your product</h2>
+    <p>Pick a product or feature you work on, or one you use every day. Write its outcome and its riskiest assumption. Your notes stay in this browser.</p>
+    <form data-persist="apply">
+      <div class="slots">
+        <label class="slot">The outcome (who does what differently, measured how)<textarea rows="4" name="o"></textarea></label>
+        <label class="slot">Riskiest assumption, and which risk it is<textarea rows="4" name="r"></textarea></label>
+        <label class="slot">Cheapest test that would answer it<textarea rows="4" name="t"></textarea></label>
+      </div>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Product:</b> the meal-kit app from the warm-up, considering AI meal plans.</p>
+        <p><b>Outcome:</b> active subscribers skip fewer weeks, measured as weeks skipped per subscriber per month.</p>
+        <div class="scroll-x"><table class="example">
+          <thead><tr><th>Assumption</th><th>Risk</th><th>Cheapest test</th></tr></thead>
+          <tbody>
+            <tr><td>Subscribers want plans made for them rather than choosing recipes</td><td>Value</td><td>A nutritionist hand-makes plans for 50 subscribers for three weeks; compare skipped weeks with a similar group</td></tr>
+            <tr><td>People will trust a plan and edit it rather than ignore it</td><td>Usability</td><td>Show a mocked-up plan to 5 subscribers and watch what they do with it</td></tr>
+            <tr><td>Generated plans never break a stated allergy</td><td>Viability and feasibility</td><td>Run 500 test profiles with allergies through the planner and check every plan</td></tr>
+          </tbody>
+        </table></div>
+        <p style="margin-top: 12px">Riskiest: value. If hand-made plans don't reduce skipped weeks, an AI version won't either.</p>
+      </div>
+    </details>
+  </section>
+
+  <!-- SHIP -->
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
+    <form class="prompt" data-persist="teach">
+      <p>A colleague missed this station. In three or four sentences, explain the difference between an output and an outcome, and the four product risks, using a product you know.</p>
+      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
+      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations use a concrete example, name all four risks, and say which one you would test first and why.</p>
+      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
+    </form>
+  </section>
+
+  <!-- CHECK -->
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+      <div class="check stack" data-answer="2"><p class="cq">1. A team ships every roadmap feature on time, but retention doesn't move. Which risk did they most likely skip?</p><div class="opts"><button type="button" class="opt">Usability: users couldn't figure it out</button><button type="button" class="opt">Feasibility: engineering couldn't build it</button><button type="button" class="opt">Value: users didn't want what shipped</button><button type="button" class="opt">Viability: it didn't work for the business</button></div><p class="cfb" data-ok="Right. Delivery was fine; nobody checked that users wanted it." data-no="Everything shipped, so feasibility and usability held up well enough. The gap is value: nobody checked that users wanted it."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">2. Which of these is written as an outcome?</p><div class="opts"><button type="button" class="opt">Launch saved searches in Q2</button><button type="button" class="opt">Users who save a search come back twice as often within 7 days</button><button type="button" class="opt">Grow revenue 10% this year</button><button type="button" class="opt">Ship five search improvements</button></div><p class="cfb" data-ok="Right: who does what differently, and how it's measured." data-no="That's an output or an impact. The outcome describes people behaving differently: users coming back more often."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">3. You want to raise prices for all existing customers, announced by email. How should you treat it?</p><div class="opts"><button type="button" class="opt">Two-way door: send it, you can always reverse it</button><button type="button" class="opt">Close to one-way: test the new price on a slice of new customers first</button><button type="button" class="opt">Don't decide at all until competitors move</button></div><p class="cfb" data-ok="Right. Trust doesn't reset when you change your mind, so turn it into a smaller, reversible test first." data-no="Changing price for everyone is hard to walk back. Test on a slice of new customers first."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">4. A 50% first-order discount doubles sign-ups. What's the likeliest second-order effect?</p><div class="opts"><button type="button" class="opt">Customers become more loyal</button><button type="button" class="opt">A bigger share of new customers leave after the discounted order</button><button type="button" class="opt">Costs per order go down</button></div><p class="cfb" data-ok="Right. Discounts attract deal-seekers; watch the retention of discounted customers." data-no="Discounts attract deal-seekers, so retention of the new cohort is the thing to watch."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">5. Your CEO wants a feature because a competitor launched it. What's your first move?</p><div class="opts"><button type="button" class="opt">Build the fastest version to keep up</button><button type="button" class="opt">Agree the outcome it should drive, then test the riskiest assumption cheaply</button><button type="button" class="opt">Say no: copying competitors is bad strategy</button><button type="button" class="opt">Survey customers about the competitor</button></div><p class="cfb" data-ok="Right. Turn the output into an outcome, then de-risk before you build." data-no="Neither copying nor refusing works. Agree the outcome, then test the riskiest assumption cheaply."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Outputs are what you ship; outcomes are what people do differently.</b> Write goals as outcomes.</li>
+        <li><b>Every idea carries value, usability, feasibility and viability risk.</b> Test the likeliest killer first, cheaply.</li>
+        <li><b>Match speed to reversibility.</b> Fast on two-way doors; careful on one-way doors, and turn them into two-way ones where you can.</li>
+        <li><b>Ask "and then what?" twice.</b> The surprises are in the second step.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../#floor">Back to the gym floor</a><a href="../m2/">Next: M2 Problem framing</a></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/risk-radar.js"></script>
+<script>RiskRadar(document.getElementById("riskradar"));</script>
+</body>
+</html>

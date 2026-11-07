@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M2 Problem framing | PM Gym</title>
+<meta name="description" content="Symptoms versus problems, sharp problem statements, jobs to be done, and reframing. Four short lessons, two cases and the Symptom or Problem? game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m2">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M2</div>
+  <div class="title">
+    <span class="plate-mark" aria-hidden="true"></span>
+    <div>
+      <h1>Problem framing</h1>
+      <p>Telling symptoms from problems, writing a problem statement with no solution hiding in it, the job people hire your product for, and reframing when you're stuck.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 30 minutes</span><span>2 cases</span><span>Symptom or Problem? game, 10 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional</span></h2>
+    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
+    <form class="prompt" data-persist="warmup">
+      <p>You're the PM for a B2B invoicing tool. Sales forwards this from a big customer: "We need a dashboard showing all overdue invoices. Can you build it this month?"</p>
+      <label>1. What is this: a problem, a symptom, or a solution?<textarea rows="2" name="a1"></textarea></label>
+      <label>2. What would you ask the customer to find the real problem?<textarea rows="2" name="a2"></textarea></label>
+      <label>3. Write one sentence describing the problem, with no solution in it.<textarea rows="2" name="a3"></textarea></label>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a model answer</summary>
+      <div class="model">
+        <p><b>1.</b> A solution in disguise. A dashboard is one answer to a problem nobody has said out loud yet.</p>
+        <p><b>2.</b> Ask about the job, not the feature. "When you spot an overdue invoice, what do you do next? Walk me through last week. What goes wrong? What does it cost you?" You might learn that collectors chase invoices from a spreadsheet and miss the big ones.</p>
+        <p><b>3.</b> "Accounts-receivable teams at mid-sized customers can't tell which overdue invoices to chase first, so large invoices slip past 60 days and hurt their cash flow." Now a dashboard, a daily email of the top ten, or automatic reminders can all compete to solve it.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>The idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+
+      <details class="lesson" data-lesson="1">
+        <summary><span class="ln">1</span><span class="lt"><b>Symptom, problem, or solution?</b><span>Most "problems" that reach a PM are one of the other two.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Requests arrive in three disguises. A <b>symptom</b> is what you can see: a metric drops, tickets pile up, someone complains. A <b>problem</b> is the cause underneath, specific enough to work on. A <b>solution in disguise</b> is a fix stated as if it were the need: "we need a dashboard", "add live chat", "use AI". Your job is to move every request to the middle.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <div class="chain"><div><small>Symptom</small><b>What we see</b></div><div><small>Problem</small><b>Why it happens, for whom</b></div><div><small>Solutions</small><b>Several ways to fix it</b></div></div>
+            <p>Use <b>5 Whys</b>, a technique from Toyota's production system: ask "why?" repeatedly, checking each answer against data, until you reach a cause you can act on. From a solution, go up instead: "what would that let you do?"</p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>"Churn rose from 3% to 5%" is a symptom. Why? Churn is concentrated in teams that joined recently. Why? Most of them never invited a colleague. Why? A redesigned onboarding moved the invite step into settings. The problem isn't "churn"; it's a hidden invite step.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>One chain, one cause.</b> Real problems often have several causes. Draw a tree when the "whys" branch.</li>
+              <li><b>"Why" can turn into blame.</b> "Because Sam made a mistake" is never the root. Ask why the system let it happen.</li>
+              <li><b>Stories feel like answers.</b> Check each "why" against data before you take the next step.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: which is it?</h4>
+            <div class="check" data-answer="2"><p class="cq">"We need a mobile app."</p><div class="opts"><button type="button" class="opt">Symptom</button><button type="button" class="opt">Problem</button><button type="button" class="opt">Solution in disguise</button></div><p class="cfb" data-ok="Right. Ask what people can't do today without one." data-no="It's a solution in disguise: it names a fix, not what people can't do."></p></div>
+            <div class="check" data-answer="0"><p class="cq">"Average order value dropped 8% in October."</p><div class="opts"><button type="button" class="opt">Symptom</button><button type="button" class="opt">Problem</button><button type="button" class="opt">Solution in disguise</button></div><p class="cfb" data-ok="Right: a number moving, not yet a cause." data-no="It's a symptom: a number moving. The cause is still unknown."></p></div>
+            <div class="check" data-answer="1"><p class="cq">"New sellers can't upload more than 20 products at once, so big catalogues take days to list."</p><div class="opts"><button type="button" class="opt">Symptom</button><button type="button" class="opt">Problem</button><button type="button" class="opt">Solution in disguise</button></div><p class="cfb" data-ok="Right: who, what blocks them, and the consequence." data-no="It's a problem: specific people, a specific blocker, a consequence."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="1">Mark lesson 1 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="2">
+        <summary><span class="ln">2</span><span class="lt"><b>Writing a problem statement</b><span>One sentence that a whole team can aim at.</span></span><span class="lmin">7 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>A good problem statement makes it obvious who is struggling, with what, why, and how you'll know it's fixed. It never contains the solution, so the team can still find a better one.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <p style="background:var(--ground);border-radius:6px;padding:14px 16px"><b>[Who]</b> struggles to <b>[do what]</b> because <b>[obstacle]</b>, which leads to <b>[consequence, with evidence]</b>. We'll know it's solved when <b>[outcome]</b>.</p>
+            <ol>
+              <li><b>Specific who:</b> "first-time sellers", not "users".</li>
+              <li><b>No solution words:</b> no "app", "dashboard", "AI", "button".</li>
+              <li><b>Evidence:</b> a number, a quote, a pattern you saw.</li>
+              <li><b>Outcome:</b> the behaviour change from M1.</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>Weak: "Users need better search." Strong: "First-time buyers on mobile struggle to find a product when they don't know its exact name, because search only matches exact titles, so 30% of mobile searches return nothing and those sessions end. We'll know it's solved when fewer than 10% of searches come back empty."</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Written backwards.</b> A statement crafted to justify a solution already chosen. Tell-tale sign: the obstacle is "because we don't have [our feature]".</li>
+              <li><b>Too broad or too narrow.</b> "People struggle to stay healthy" is a mission. "The save button is grey" is a task.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: which statement is strongest?</h4>
+            <div class="check stack" data-answer="2"><p class="cq">Pick the best problem statement.</p><div class="opts"><button type="button" class="opt">Users want a dark mode.</button><button type="button" class="opt">Our app is not good enough for night use, because we don't have dark mode.</button><button type="button" class="opt">Night-shift nurses struggle to check schedules during night rounds because the bright screen disturbs patients, so many stop using the app at night.</button></div><p class="cfb" data-ok="Right. Specific people, a real obstacle, a consequence, and dark mode is only one possible fix." data-no="The strongest names specific people, the obstacle and the consequence, and doesn't assume the fix."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="2">Mark lesson 2 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="3">
+        <summary><span class="ln">3</span><span class="lt"><b>Jobs to be done</b><span>People don't buy products. They hire them to make progress.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Clayton Christensen's theory: when people buy something, they "hire" it to get a job done in a particular situation. Understand the job, and you understand both who your real competitors are and what "better" means.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <p style="background:var(--ground);border-radius:6px;padding:14px 16px">When <b>[situation]</b>, I want to <b>[motivation]</b>, so I can <b>[expected outcome]</b>.</p>
+            <p>This "job story" format focuses on the situation, not the person. Every job has three layers: <b>functional</b> (get it done), <b>emotional</b> (how I want to feel) and <b>social</b> (how I want to be seen).</p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>Christensen's best-known story, told in <a href="https://hbr.org/2016/09/know-your-customers-jobs-to-be-done">Harvard Business Review</a>: a fast-food chain wanted to sell more milkshakes. Asking customers about flavours went nowhere. Watching buyers showed that many bought one early in the morning, alone, for a long, boring commute. The shake was hired to make the drive less dull and keep them full until lunch. Its real competitors were bananas, bagels and boredom, not other milkshakes.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Jobs written too abstractly.</b> "Be happy" isn't a job you can design for.</li>
+              <li><b>It's a lens, not proof.</b> A job story is still a hypothesis until real people confirm it.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="1"><p class="cq">Which is a well-formed job story?</p><div class="opts"><button type="button" class="opt">As a user, I want a calendar sync button.</button><button type="button" class="opt">When a client moves a meeting at short notice, I want my day to rearrange itself, so I can still get my deep work done.</button><button type="button" class="opt">Busy people want to save time.</button></div><p class="cfb" data-ok="Right: situation, motivation, outcome, and no feature named." data-no="The job story names a situation, a motivation and an outcome, without naming a feature."></p></div>
+            <div class="check stack" data-answer="2"><p class="cq">For the commuter milkshake, which is the real competitor?</p><div class="opts"><button type="button" class="opt">Another chain's milkshake</button><button type="button" class="opt">A cheaper milkshake</button><button type="button" class="opt">A banana or a podcast</button></div><p class="cfb" data-ok="Right: anything else hired for the same job." data-no="Competitors are anything hired for the same job: keeping a boring commute bearable."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="3">Mark lesson 3 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="4">
+        <summary><span class="ln">4</span><span class="lt"><b>Issue trees and reframing</b><span>Break a big problem down, or look at it from a new side.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Two tools for when a problem is too big or too stuck. An <b>issue tree</b> breaks it into smaller parts that together cover it fully, so nothing is missed. <b>Reframing</b> changes the question itself, which often reveals a cheaper fix.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <ol>
+              <li><b>Issue tree:</b> split the problem into branches that don't overlap and leave nothing out. Revenue = customers × revenue per customer. Customers = new + kept − lost. Then check which branch actually moved.</li>
+              <li><b>Reframe:</b> ask "what else could the problem be?" Look outside the frame, question the goal, look at the people involved, look for bright spots where it already works.</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>A classic reframing story, told by Thomas Wedell-Wedellsborg in <a href="https://hbr.org/2017/01/are-you-solving-the-right-problems">Harvard Business Review</a>: tenants complain that the lift is too slow. Framed as "the lift is slow", the fixes are expensive: faster motors, new algorithms. Reframed as "the wait is annoying", a cheap fix appears: put mirrors next to the lift. People check themselves out, and complaints drop.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Trees built from guesses.</b> A neat tree can still miss the real branch. Check branches with data.</li>
+              <li><b>Clever reframes can dodge the real issue.</b> Mirrors are fine for a lift; they aren't fine if the lift is unsafe.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="1"><p class="cq">Subscription revenue is down 10%. Which first split covers the problem completely?</p><div class="opts"><button type="button" class="opt">Mobile users versus desktop users, and marketing</button><button type="button" class="opt">Fewer paying customers, or less revenue per customer</button><button type="button" class="opt">Pricing, competitors and the economy</button></div><p class="cfb" data-ok="Right: the two branches don't overlap and together explain all revenue." data-no="Revenue = customers × revenue per customer. Those two branches cover it completely, with no overlap."></p></div>
+            <div class="check stack" data-answer="0"><p class="cq">Users complain a report takes 40 seconds to load. Which is a reframe?</p><div class="opts"><button type="button" class="opt">Why do they open the report? If it's to check one number, send that number by email each morning.</button><button type="button" class="opt">Buy bigger servers.</button><button type="button" class="opt">Add a loading spinner.</button></div><p class="cfb" data-ok="Right: it questions the goal behind the request." data-no="A reframe questions the goal. If people only need one number, they may not need the report at all."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="4">Mark lesson 4 done</button></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One team that found the real problem by going to it, one that built a solution and went looking for a problem.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Airbnb's photos</h3>
+        <p>In 2009, Airbnb was barely growing. The founders noticed that their New York listings had poor, dark phone photos. Instead of guessing at fixes from San Francisco, they flew to New York, rented a camera and photographed hosts' homes themselves. Bookings in the city rose quickly, and professional photography later became a programme.</p>
+        <p class="take">Lesson: "growth is slow" was the symptom. "Guests can't trust what they can't see" was the problem, found by going to it.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Google Glass</h3>
+        <p>Google Glass launched to early "Explorers" in 2013 as a head-mounted computer. It was impressive technology without a clear everyday problem for consumers to solve, and it raised privacy worries for the people around the wearer. Google stopped selling the consumer Explorer edition in 2015 and later refocused Glass on workplace uses, where hands-free jobs were clear.</p>
+        <p class="take">Lesson: a solution looking for a problem. It found a better fit once it was framed around specific jobs, like workers needing instructions with their hands full.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Symptom or Problem?</h2>
+    <p>Round 1: sort nine statements. Round 2: follow a churn spike to its root cause. <a href="../games/symptom-or-problem/">Open it on its own page</a> to share.</p>
+    <div id="sop" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Apply it to your product</h2>
+    <p>Take a request you received recently, or one from a product you know. Turn it into a problem statement and a job story. Your notes stay in this browser.</p>
+    <form data-persist="apply">
+      <div class="slots">
+        <label class="slot">The request as it arrived (symptom, problem or solution?)<textarea rows="4" name="q"></textarea></label>
+        <label class="slot">Problem statement: who struggles to do what, because of what, leading to what<textarea rows="4" name="p"></textarea></label>
+        <label class="slot">Job story: when..., I want to..., so I can...<textarea rows="4" name="j"></textarea></label>
+      </div>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Request:</b> "Add a calendar view to the meeting-room booking app." A solution in disguise.</p>
+        <p><b>Problem statement:</b> Team leads at a 300-person office struggle to find a free room for 6 to 8 people at short notice, because the app only lists rooms one at a time, so they book the wrong size or give up and meet in the kitchen. We'll know it's solved when most same-day bookings for groups take under a minute.</p>
+        <p><b>Job story:</b> When my team's plans change that morning, I want to grab a room that fits us, so I can keep the meeting instead of moving it.</p>
+        <p><b>Now compare fixes:</b> a calendar view, a "find a room for 8 now" button, or showing size filters first. The cheapest may win.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
+    <form class="prompt" data-persist="teach">
+      <p>A colleague brings you a request: "We need a mobile app." In three or four sentences, explain how you would turn it into a real problem before anyone builds anything.</p>
+      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
+      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations name the request as a solution in disguise, show the questions you would ask, and end with a one-sentence problem statement.</p>
+      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
+    </form>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+      <div class="check stack" data-answer="2"><p class="cq">1. A stakeholder says "we need a dashboard". What's your best first question?</p><div class="opts"><button type="button" class="opt">Which charts do you want on it?</button><button type="button" class="opt">When do you need it by?</button><button type="button" class="opt">What decision are you trying to make, and what goes wrong today?</button></div><p class="cfb" data-ok="Right. Go from the solution up to the problem." data-no="Charts and dates assume the solution. Ask what decision they're making and what goes wrong today."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">2. What's the biggest weakness of 5 Whys?</p><div class="opts"><button type="button" class="opt">It takes too long</button><button type="button" class="opt">It pushes you towards one neat chain and one cause, when there may be several</button><button type="button" class="opt">It only works in factories</button></div><p class="cfb" data-ok="Right. Branch into a tree when the whys split, and check each step with data." data-no="The risk is one tidy chain when reality has several causes. Branch into a tree and check with data."></p></div>
+      <div class="check stack" data-answer="0"><p class="cq">3. Which problem statement has a solution hiding in it?</p><div class="opts"><button type="button" class="opt">Customers churn because we don't have a loyalty programme.</button><button type="button" class="opt">Customers who order once rarely order a second time within 60 days.</button><button type="button" class="opt">Repeat customers struggle to reorder because their past orders are hard to find.</button></div><p class="cfb" data-ok="Right. 'Because we don't have X' is a solution wearing a problem's clothes." data-no="'Because we don't have a loyalty programme' assumes the fix. That's the one."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">4. Commuters "hire" a morning milkshake. What does jobs-to-be-done suggest you improve?</p><div class="opts"><button type="button" class="opt">More flavours</button><button type="button" class="opt">Make it last the whole drive and quicker to buy in the morning</button><button type="button" class="opt">A lower price</button></div><p class="cfb" data-ok="Right. Improve it for the job: a long, boring drive, with no time to spare." data-no="Design for the job: lasting the whole commute, and being fast to buy at 7am."></p></div>
+      <div class="check stack" data-answer="2"><p class="cq">5. Tenants say the lift is too slow. Which response reframes the problem?</p><div class="opts"><button type="button" class="opt">Replace the motor</button><button type="button" class="opt">Add a second lift</button><button type="button" class="opt">Make the wait less annoying, for example with mirrors</button></div><p class="cfb" data-ok="Right. 'The wait is annoying' opens up cheap options." data-no="Motors and lifts accept the frame. 'The wait is annoying' is the reframe, and mirrors are cheap."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Move every request to the problem:</b> from a symptom, ask why; from a solution, ask what it would let people do.</li>
+        <li><b>Problem statements name who, what, why and the consequence,</b> and never the fix.</li>
+        <li><b>People hire products for jobs.</b> Your real competitors are anything else hired for the same job.</li>
+        <li><b>Stuck? Break it down with an issue tree, or reframe the question.</b></li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m1/">Previous: M1 Product thinking basics</a><a href="../m3/">Next: M3 Users and segmentation</a></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/symptom-or-problem.js"></script>
+<script>SymptomOrProblem(document.getElementById("sop"));</script>
+</body>
+</html>

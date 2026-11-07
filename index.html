@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>PM Gym: a product management gym</title>
+<meta name="description" content="A product management gym: 23 stations, one game each. Test your max, explore the gym floor, and play.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/site.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body>
+
+<header class="wrap top">
+  <a class="brand" href="#test">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="#floor">Gym floor</a>
+    <a href="#session">The session</a>
+    <a href="#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<main>
+  <section id="test" class="wrap test">
+    <div>
+      <p class="kicker">A product management gym: 23 stations, one game each.</p>
+      <h1>Test your max</h1>
+      <p class="lead">Six questions, one per stage of the gym. Every right answer loads a plate. About a minute.</p>
+      <div id="quiz" aria-live="polite"></div>
+    </div>
+    <div class="bar-side">
+      <svg id="barbell" viewBox="60 0 780 220" role="img" aria-label="Empty barbell">
+        <rect x="10" y="105" width="880" height="10" rx="5" fill="#B7BEC6"/>
+        <rect x="300" y="102" width="300" height="16" rx="3" fill="#CDD2D8"/>
+        <rect x="292" y="90" width="10" height="40" rx="2" fill="#5F6975"/>
+        <rect x="598" y="90" width="10" height="40" rx="2" fill="#5F6975"/>
+        <g id="plates"></g>
+      </svg>
+      <div class="kg"><span id="kg">20 kg</span><span>Bar: 20 kg. Each right answer adds 2 plates.</span></div>
+    </div>
+  </section>
+
+  <section id="floor" class="band">
+    <div class="wrap">
+      <div class="head-row">
+        <div>
+          <h2 class="h-section">The gym floor</h2>
+          <p class="lead">The full roadmap, laid out as a floor plan. Six zones in the order a product gets built. Tap any station to see what it trains.</p>
+        </div>
+        <div class="legend">
+          <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#17202A"/></svg>Done</span>
+          <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="#fff" stroke="#C8232B" stroke-width="3"/></svg>You are here</span>
+          <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#5F6975" stroke-dasharray="3 2"/></svg>Not started</span>
+          <span><svg width="16" height="16" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="4" fill="#5F6975"/></svg>AI station</span>
+        </div>
+      </div>
+      <div class="floor" id="floorplan"></div>
+      <div class="detail" id="detail" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section id="session" class="wrap session">
+    <h2 class="h-section">The session</h2>
+    <p class="lead">Every station runs the same interval session. Width is time, height is effort. Tap an interval.</p>
+    <div class="scroll">
+      <div class="scroll-inner">
+        <div class="bars" id="bars"></div>
+        <div class="labels" id="labels"></div>
+      </div>
+    </div>
+    <div class="step-detail" id="step" aria-live="polite"></div>
+  </section>
+
+  <section id="rack" class="rack">
+    <div class="wrap">
+      <h2 class="h-section">Playground</h2>
+      <p class="lead">The equipment rack. One game per station, each 10 to 20 minutes, each ending in a real decision. Weight shows difficulty.</p>
+      <div class="shelf" id="shelf"></div>
+    </div>
+  </section>
+</main>
+
+<footer class="wrap site">
+  <span>PM Gym by Dhaval Kareliya, Munich.</span>
+  <span class="links">
+    <a class="btn" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+    <a class="btn" href="https://github.com/Dhavalk21">GitHub</a>
+    <a class="btn solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+  </span>
+</footer>
+
+<script src="assets/plan.js"></script>
+<script>
+(function () {
+  var P = window.PMGYM, COL = P.colors, ON = P.onColors, ZN = P.zones;
+  var $ = function (id) { return document.getElementById(id); };
+  var esc = function (s) { return String(s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); };
+
+  /* ---------------- Test your max ---------------- */
+  var Q = [
+    { z: 0, t: "A stakeholder asks you for a new dashboard. What do you clarify first?", o: ["Which chart types to use", "The decision the dashboard should help them make", "Where the data comes from", "The deadline"], a: 1, why: "Start from the decision. The chart, data and date all follow from what someone needs to decide." },
+    { z: 1, t: "People keep missing the Save button in a new flow. What is the fastest way to find out why?", o: ["Run an A/B test for two weeks", "Watch five people use it", "Send a survey", "Ask engineering"], a: 1, why: "A handful of usability sessions shows the problem in an afternoon. A test tells you that, not why." },
+    { z: 2, t: "An A/B test shows +3% conversion with p = 0.20. What now?", o: ["Ship it, 3% is a win", "Treat it as inconclusive, not a win", "Keep checking daily until p drops below 0.05", "Report it as a trend"], a: 1, why: "At p = 0.20 the lift may well be noise. Peeking until it crosses 0.05 inflates false positives." },
+    { z: 3, t: "Which number best shows new users got real value?", o: ["Sign-ups", "Activation: reaching the first moment of value", "Page views", "App downloads"], a: 1, why: "Sign-ups and downloads show interest. Activation shows people actually got what they came for." },
+    { z: 4, t: "Which of these is a strategy, not a goal?", o: ["Grow revenue 30% this year", "Be the best tool on the market", "Win small agencies first with one-click reporting, and skip enterprise for now", "Ship 10 features this quarter"], a: 2, why: "A strategy makes a choice and a trade-off. The others are targets, slogans or output." },
+    { z: 5, t: "Engineering says a launch date is at risk. Your first move?", o: ["Ask the team to work weekends", "Tell stakeholders now, with options: cut scope or move the date", "Wait a week to be sure", "Quietly cut testing time"], a: 1, why: "Bad news early, with options, keeps trust and keeps the choice with the people who own it." }
+  ];
+  var qs = { q: 0, answers: [], fb: false };
+  var startCodes = ["M1", "M7", "M9", "M12", "M14", "M17"];
+
+  function renderQuiz() {
+    var box = $("quiz");
+    if (qs.q >= Q.length) {
+      var right = Q.map(function (q, i) { return qs.answers[i] === q.a; });
+      var score = right.filter(Boolean).length;
+      var weak = right.indexOf(false), startZ = weak === -1 ? 0 : Q[weak].z;
+      var verdict = score === 6 ? "A clean sweep. Start at the beginning anyway and go fast: the games get harder than this."
+        : score >= 4 ? "Strong base. Start with the first stage you missed and move quickly through the rest."
+        : "Plenty of room to grow. Start at your first missed stage and take the stations in order.";
+      box.innerHTML = '<div class="result"><div class="score">You lifted ' + score + ' of 6</div><p>' + verdict + '</p><div class="breakdown">' +
+        Q.map(function (q, i) { return '<div style="border-color:' + (right[i] ? COL[q.z] : "#5F6975") + '"><small>Stage ' + (q.z + 1) + '</small><b>' + ZN[q.z] + '</b><span>' + (right[i] ? "Lifted" : "Train here") + '</span></div>'; }).join("") +
+        '</div><div class="actions"><a class="btn light solid" href="#floor" id="go">Go to ' + startCodes[startZ] + ' on the floor</a><button type="button" class="btn light" id="retake">Retake</button></div></div>';
+      $("go").onclick = function () { selectStation(startCodes[startZ]); };
+      $("retake").onclick = function () { qs = { q: 0, answers: [], fb: false }; renderQuiz(); renderPlates(); };
+      return;
+    }
+    var cur = Q[qs.q], picked = qs.answers[qs.q];
+    var html = '<div class="card"><div class="qmeta"><span class="chip" style="background:' + COL[cur.z] + ';color:' + ON[cur.z] + '">Stage ' + (cur.z + 1) + ': ' + ZN[cur.z] + '</span><span>Lift ' + (qs.q + 1) + ' of 6</span></div>' +
+      '<p class="qtext">' + esc(cur.t) + '</p><div class="opts">' +
+      cur.o.map(function (o, i) {
+        var cls = "opt";
+        if (qs.fb) cls += i === cur.a ? " right" : i === picked ? " wrong" : " dim";
+        return '<button type="button" class="' + cls + '" data-i="' + i + '"' + (qs.fb ? " disabled" : "") + '>' + esc(o) + '</button>';
+      }).join("") + '</div>';
+    if (qs.fb) {
+      var ok = picked === cur.a;
+      html += '<div class="fb"><p><strong style="color:' + (ok ? "#2C8350" : "#B0202A") + '">' + (ok ? "Good lift." : "Missed.") + '</strong> ' + esc(cur.why) + '</p>' +
+        '<button type="button" class="btn solid" id="next">' + (qs.q === Q.length - 1 ? "See my result" : "Next lift") + '</button></div>';
+    }
+    box.innerHTML = html + '</div>';
+    box.querySelectorAll(".opt").forEach(function (b) {
+      b.onclick = function () { qs.answers[qs.q] = +b.dataset.i; qs.fb = true; renderQuiz(); renderPlates(true); var n = $("next"); if (n) n.focus(); };
+    });
+    if ($("next")) $("next").onclick = function () { qs.q++; qs.fb = false; renderQuiz(); var f = box.querySelector(".opt, .result a"); if (f) f.focus(); };
+  }
+
+  function renderPlates(animate) {
+    var g = $("plates"), NS = "http://www.w3.org/2000/svg", k = 0;
+    var before = g.childNodes.length;
+    g.innerHTML = "";
+    Q.forEach(function (q, i) {
+      if (qs.answers[i] !== q.a) return;
+      var h = 168 - k * 6, w = 22, y = 110 - h / 2;
+      [[290 - (k + 1) * (w + 3), -40], [610 + k * (w + 3), 40]].forEach(function (pos) {
+        var r = document.createElementNS(NS, "rect");
+        r.setAttribute("x", pos[0]); r.setAttribute("y", y); r.setAttribute("width", w); r.setAttribute("height", h); r.setAttribute("rx", 4);
+        r.setAttribute("fill", COL[q.z]); r.setAttribute("class", "plate");
+        g.appendChild(r);
+      });
+      k++;
+    });
+    var n = g.childNodes.length;
+    if (animate && n > before) {
+      for (var j = before; j < n; j++) { var p = g.childNodes[j]; p.style.transform = "translateX(" + (j % 2 ? 40 : -40) + "px)"; p.classList.add("enter"); }
+      requestAnimationFrame(function () { requestAnimationFrame(function () {
+        for (var j = before; j < n; j++) { g.childNodes[j].style.transform = ""; g.childNodes[j].classList.remove("enter"); }
+      }); });
+    }
+    $("kg").textContent = (20 + n * 10) + " kg";
+    $("barbell").setAttribute("aria-label", n ? "Barbell loaded with " + n + " plates, " + (20 + n * 10) + " kilograms" : "Empty barbell");
+  }
+
+  /* ---------------- Gym floor ---------------- */
+  var selected = (P.modules.filter(function (m) { return m.status === "now"; })[0] || P.modules[0]).code;
+  var FLEX = ["7 1 520px", "5 1 260px", "5 1 400px", "3 1 220px", "4 1 320px", "4 1 320px"];
+
+  // On the dark floor, the black (Decide) plate is drawn in chalk white so it stays visible.
+  function floorCol(z) { return z === 4 ? "#C3C9D0" : COL[z]; }
+  function disc(m) {
+    var c = floorCol(m.zone), st = m.status || "todo";
+    if (st === "done") return "background:" + c + ";color:" + (m.zone === 4 ? "#17202A" : ON[m.zone]) + ";border:3px solid " + c;
+    if (st === "now") return "background:#fff;color:#17202A;border:4px solid " + c;
+    return "background:#2B3036;color:#F2F3F1;border:2px dashed " + c;
+  }
+
+  function renderFloor() {
+    var html = '<div class="entrance"><b>Entrance</b><span>' + P.setup.code + ' ' + P.setup.name + ', ' + (P.setup.status === "done" ? "done" : "in progress") + '</span></div>';
+    ZN.forEach(function (name, zi) {
+      html += '<div class="zone" style="flex:' + FLEX[zi] + '"><div class="stripe" style="background:' + floorCol(zi) + '"></div>' +
+        '<div class="zone-head"><h3>' + name + '</h3><span>Zone ' + (zi + 1) + '</span></div><div class="stations">' +
+        P.modules.filter(function (m) { return m.zone === zi; }).map(function (m) {
+          var ai = m.code.indexOf("AI") === 0;
+          return '<button type="button" class="station" data-code="' + m.code + '" aria-pressed="' + (m.code === selected) + '" aria-label="' + esc(m.code + " " + m.name) + '">' +
+            '<span class="disc' + (ai ? " ai" : "") + '" style="' + disc(m) + '">' + m.code + '</span><small>' + esc(m.short) + '</small></button>';
+        }).join("") + '</div></div>';
+    });
+    html += '<div class="platform"><small>Competition platform</small><button type="button" data-code="Cap" aria-pressed="' + (selected === "Cap") + '">Capstone: ship an AI feature end to end</button></div>';
+    $("floorplan").innerHTML = html;
+    $("floorplan").querySelectorAll("[data-code]").forEach(function (b) { b.onclick = function () { selectStation(b.dataset.code); }; });
+    renderDetail();
+  }
+
+  function selectStation(code) { selected = code; renderFloor(); }
+
+  function renderDetail() {
+    var m = selected === "Cap" ? P.capstone : P.modules.filter(function (x) { return x.code === selected; })[0];
+    var st = m.status === "now" ? "In progress, you are here" : m.status === "done" ? "Done" : "Not started";
+    $("detail").innerHTML = '<div class="swatch" style="background:' + COL[m.zone] + '"></div>' +
+      '<div class="main"><small>Zone ' + (m.zone + 1) + ', ' + ZN[m.zone] + '</small><h3>' + (m.code === "Cap" ? "" : m.code + " ") + esc(m.name) + '</h3><p>' + esc(m.desc) + '</p></div>' +
+      '<div class="side"><div><small>Game</small><b>' + esc(m.game) + '</b></div><div><small>Status</small><b style="color:' + (m.status === "now" ? "#B0202A" : "#17202A") + '">' + st + '</b></div>' +
+      (m.page ? '<a class="btn solid" href="' + m.page + '">Enter this station</a>' : "") + '</div>';
+  }
+
+  /* ---------------- Session ---------------- */
+  var S = [
+    ["Warm-up", 5, 30, "Try the station’s core problem cold, before any lesson.", "A baseline answer to compare against at the end."],
+    ["Lessons", 30, 50, "Three to five lessons, ten minutes at most: concept, framework, real example, and where it breaks.", "The frameworks, with their limits."],
+    ["Cases", 10, 45, "One product that got it right, one that got it wrong, five minutes each.", "Two stories you can retell in an interview or a meeting."],
+    ["Game", 20, 75, "Make the calls yourself in an interactive scenario, scored on judgement.", "A score, and the decisions you would make differently."],
+    ["Apply", 30, 100, "Use the skill on a product you work on, or on the worked example.", "A real artefact: a problem statement, a metric tree, a test plan."],
+    ["Teach", 20, 65, "Explain the idea in your own words, as if to a colleague who missed it.", "Proof you understand it, not just recognise it."],
+    ["Check", 10, 55, "A short quiz, mixed with earlier stations and repeated later.", "Proof it stuck, and a reminder when it fades."]
+  ];
+  var stepOn = 4;
+  function renderSession() {
+    $("bars").innerHTML = S.map(function (s, i) {
+      return '<button type="button" data-i="' + i + '" aria-pressed="' + (i === stepOn) + '" aria-label="' + s[0] + ', ' + s[1] + ' minutes" style="flex:' + s[1] + ' 1 0;min-width:96px;height:' + s[2] + '%"></button>';
+    }).join("");
+    $("labels").innerHTML = S.map(function (s, i) {
+      return '<div class="' + (i === stepOn ? "on" : "") + '" style="flex:' + s[1] + ' 1 0;min-width:96px"><b>' + s[0] + '</b><span>' + s[1] + ' min</span></div>';
+    }).join("");
+    var s = S[stepOn];
+    $("step").innerHTML = '<div><small>Interval ' + (stepOn + 1) + ' of 7, ' + s[1] + ' minutes</small><h3>' + s[0] + '</h3><p>' + s[3] + '</p></div>' +
+      '<div><small>You walk away with</small><p class="out">' + s[4] + '</p></div>';
+    $("bars").querySelectorAll("button").forEach(function (b) { b.onclick = function () { stepOn = +b.dataset.i; renderSession(); $("bars").children[stepOn].focus(); }; });
+  }
+
+  /* ---------------- Rack ---------------- */
+  var GAMES = [
+    { code: "M1", name: "Risk Radar", kg: 40, min: 15, n: 1, desc: "Ten product ideas. Spot the riskiest assumption in each, then pick the cheapest way to test it.", status: "Play now", href: "games/risk-radar/" },
+    { code: "M2", name: "Symptom or Problem?", kg: 60, min: 10, n: 2, desc: "Sort complaints, tickets and requests into symptoms and root problems, against the clock.", status: "Play now", href: "games/symptom-or-problem/" },
+    { code: "M3", name: "Segment Sorter", kg: 80, min: 20, n: 3, desc: "Cluster realistic behaviour data into segments that actually predict what users do.", status: "Play now", href: "games/segment-sorter/" }
+  ];
+  function renderRack() {
+    $("shelf").innerHTML = GAMES.map(function (g) {
+      var m = P.modules.filter(function (x) { return x.code === g.code; })[0], c = COL[m.zone], plates = "";
+      for (var i = 0; i < g.n; i++) { var h = 44 - i * 6, y = 30 - h / 2; plates += '<rect x="' + (36 - i * 11) + '" y="' + y + '" width="9" height="' + h + '" rx="2" fill="' + c + '"/><rect x="' + (75 + i * 11) + '" y="' + y + '" width="9" height="' + h + '" rx="2" fill="' + c + '"/>'; }
+      return '<div class="game"><svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><rect x="0" y="27" width="120" height="6" rx="3" fill="#8A939D"/>' + plates + '</svg>' +
+        '<small>' + g.code + ', ' + g.kg + ' kg, ' + g.min + ' minutes</small><h3>' + g.name + '</h3><p>' + g.desc + '</p>' + (g.href ? '<a class="btn light solid" style="align-self:flex-start;margin-top:6px" href="' + g.href + '">' + g.status + '</a>' : '<span class="status">' + g.status + '</span>') + '</div>';
+    }).join("");
+  }
+
+  renderQuiz(); renderPlates(); renderFloor(); renderSession(); renderRack();
+})();
+</script>
+</body>
+</html>

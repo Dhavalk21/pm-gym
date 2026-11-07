@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M3 Users and segmentation | PM Gym</title>
+<meta name="description" content="Segments that predict behaviour, personas and their limits, finding segments in data, and picking a beachhead. Four short lessons, two cases and the Segment Sorter game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m3">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M3</div>
+  <div class="title">
+    <span class="plate-mark" aria-hidden="true"></span>
+    <div>
+      <h1>Users and segmentation</h1>
+      <p>Segments that predict what people do, personas that help instead of decorate, finding segments in your data, and choosing who to serve first.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 32 minutes</span><span>2 cases</span><span>Segment Sorter game, 15 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional</span></h2>
+    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
+    <form class="prompt" data-persist="warmup">
+      <p>You're the PM for a language-learning app. Marketing proposes three target segments for next quarter: "Gen Z", "Millennials" and "Gen X".</p>
+      <label>1. What's the weakness of segmenting this way?<textarea rows="2" name="a1"></textarea></label>
+      <label>2. Suggest a split that would better predict who keeps learning.<textarea rows="2" name="a2"></textarea></label>
+      <label>3. How would you choose which segment to focus on first?<textarea rows="2" name="a3"></textarea></label>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a model answer</summary>
+      <div class="model">
+        <p><b>1.</b> Generations describe people; they rarely predict what people do. A 22-year-old and a 45-year-old moving to Spain next month have more in common, for this app, than two random 22-year-olds.</p>
+        <p><b>2.</b> Split by need and situation: "moving abroad soon", "exam or job requirement", "travel next summer", "hobby learner". Then check in the data which group keeps practising after 30 days.</p>
+        <p><b>3.</b> Pick the segment with the sharpest pain and a deadline, that you can reach cheaply, and whose members talk to each other. People with an exam date often fit, and you can find them where they prepare.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>The idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+
+      <details class="lesson" data-lesson="1">
+        <summary><span class="ln">1</span><span class="lt"><b>Segments that predict behaviour</b><span>Describing people is easy. Predicting them is useful.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>A segment is a group of users you treat differently because they behave differently. If two groups would get the same product, message and price, splitting them is just a label.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <div class="risk-grid">
+              <div style="border-color:#8A939D"><b>Descriptive</b><span>Age, country, company size, job title. Easy to get, weak at predicting.</span></div>
+              <div style="border-color:#1F57B0"><b>Behavioural</b><span>What people do: features used, how often, what they buy. Strong at predicting.</span></div>
+              <div style="border-color:#C8232B"><b>Needs-based</b><span>The job, situation and goal. Strongest for deciding what to build.</span></div>
+            </div>
+            <p>A good segment passes four tests: <b>different</b> behaviour or needs, <b>big enough</b> to matter, <b>reachable</b> through some channel, and <b>actionable</b>: you'd change something for them.</p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>A project tool sees 6% monthly churn. Split by company size, churn barely changes. Split by "invited a teammate in their first week", it's roughly 2% versus 10%. Only the second split tells the team what to do: get people to invite someone early.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Too many segments.</b> If you can't name a different action for each one, merge them.</li>
+              <li><b>Behaviour can be a result, not a cause.</b> Power users use more features because they're engaged; forcing features on others won't make them engaged. Test before you act.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: what kind of segment is this?</h4>
+            <div class="check" data-answer="1"><p class="cq">"Users who exported a report in their first week"</p><div class="opts"><button type="button" class="opt">Descriptive</button><button type="button" class="opt">Behavioural</button><button type="button" class="opt">Needs-based</button></div><p class="cfb" data-ok="Right: it's something they did." data-no="It's behavioural: defined by what they did."></p></div>
+            <div class="check" data-answer="2"><p class="cq">"Freelancers who need to send invoices from their phone between client visits"</p><div class="opts"><button type="button" class="opt">Descriptive</button><button type="button" class="opt">Behavioural</button><button type="button" class="opt">Needs-based</button></div><p class="cfb" data-ok="Right: situation and goal." data-no="It's needs-based: defined by their situation and goal."></p></div>
+            <div class="check" data-answer="0"><p class="cq">"Companies with 50 to 200 employees in Germany"</p><div class="opts"><button type="button" class="opt">Descriptive</button><button type="button" class="opt">Behavioural</button><button type="button" class="opt">Needs-based</button></div><p class="cfb" data-ok="Right: it describes them, but doesn't say what they do or need." data-no="It's descriptive: size and country, nothing about behaviour or need."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="1">Mark lesson 1 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="2">
+        <summary><span class="ln">2</span><span class="lt"><b>Personas and their limits</b><span>A persona should change a decision, or it's decoration.</span></span><span class="lmin">7 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>A persona turns a segment into a person the team can picture. Done well, it keeps real users in the room. Done badly, it's a stock photo, a made-up name and a hobby list that nobody uses.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <ol>
+              <li><b>Start from research,</b> not imagination. A persona invented in a workshop is a hypothesis; label it as one.</li>
+              <li><b>Lead with the job and situation</b> (M2), then behaviours, then frustrations. Put demographics last, or leave them out.</li>
+              <li><b>Add what would change their mind:</b> what they use today, and what makes them switch.</li>
+              <li><b>Test it:</b> does it help decide between two options? If not, cut it.</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>Weak: "Marketing Mary, 34, likes yoga and lattes." Strong: "Agency account manager who reports to five clients every Monday. Builds reports by hand from three tools, which takes four hours. Would switch if reports were client-ready without editing." The second one tells you what to build first.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Personas freeze.</b> Users change; a persona from two years ago may now be wrong.</li>
+              <li><b>Stereotypes creep in.</b> Irrelevant details like age, gender or hobbies invite bias without adding insight.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="2"><p class="cq">Which persona detail is most useful for product decisions?</p><div class="opts"><button type="button" class="opt">She's 34 and lives in Hamburg</button><button type="button" class="opt">She enjoys hiking at weekends</button><button type="button" class="opt">She rebuilds the same client report by hand every Monday, and it takes four hours</button></div><p class="cfb" data-ok="Right: a behaviour and a pain you can design for." data-no="Age, city and hobbies don't change what you build. The Monday report does."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="2">Mark lesson 2 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="3">
+        <summary><span class="ln">3</span><span class="lt"><b>Finding segments in your data</b><span>Let behaviour show you who your best users are.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Your users have already sorted themselves by what they do. Find the group that gets the most value, understand what they have in common, then find and build for more people like them.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <ol>
+              <li><b>Cut by behaviour:</b> how recently and how often people use the product, and what they spend or do. Compare retention for each group.</li>
+              <li><b>Ask the people who love it.</b> Rahul Vohra at Superhuman used Sean Ellis's question: "How would you feel if you could no longer use this product?" Ellis suggests that if around 40% or more say "very disappointed", you're near product-market fit.</li>
+              <li><b>Profile that group:</b> what jobs, roles and situations do they share? That's your sharpest segment.</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>As Vohra described in <a href="https://review.firstround.com/how-superhuman-built-an-engine-to-find-product-market-fit/">First Round Review</a>, Superhuman's first survey came in well below 40% "very disappointed". Instead of averaging everyone, the team looked at who answered "very disappointed", described them precisely, and focused the roadmap on what those users loved and what held back the "somewhat disappointed" users who looked like them. The score climbed over the following quarters.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Small numbers lie.</b> With a few dozen answers, a segment can look strong by chance.</li>
+              <li><b>Survivors only.</b> Surveying current users ignores everyone who already left. Interview churned users too.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="1"><p class="cq">22% of surveyed users say they'd be "very disappointed" without your product. Best next step?</p><div class="opts"><button type="button" class="opt">Add the features most requested by everyone</button><button type="button" class="opt">Find out who the 22% are and what they share, then focus on serving that group and the users most like them</button><button type="button" class="opt">Run a discount to raise the number</button></div><p class="cfb" data-ok="Right. Narrow to who loves it, then build for them and their lookalikes." data-no="Averaging everyone's requests dilutes the product. Find who loves it, and build for them."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="3">Mark lesson 3 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="4">
+        <summary><span class="ln">4</span><span class="lt"><b>Choosing a beachhead</b><span>Win one segment completely before you try to serve everyone.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Geoffrey Moore's <i>Crossing the Chasm</i> borrows a military metaphor: land on one beach, win it completely, then expand. A small segment that loves you and recommends you beats a big one that's lukewarm.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <p>Score each candidate segment on:</p>
+            <ol>
+              <li><b>Pain:</b> how badly do they need this, and how soon?</li>
+              <li><b>Reach:</b> can you find them cheaply?</li>
+              <li><b>Willingness to pay or engage.</b></li>
+              <li><b>References:</b> do they talk to each other, so one win leads to the next?</li>
+              <li><b>Next beach:</b> does winning here make the next segment easier?</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>Facebook launched in 2004 for Harvard students only, then expanded school by school before opening to everyone in 2006. Each campus was dense with people who knew each other, so the product was useful immediately and spread by word of mouth.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>A beach too small</b> to sustain the business, with no obvious next one.</li>
+              <li><b>Staying too long.</b> The beachhead is a start, not a strategy. Plan the next segment early.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="0"><p class="cq">Which beachhead is strongest for a new tool that helps clinics manage appointment no-shows?</p><div class="opts"><button type="button" class="opt">Dental clinics in one city, with a local association they all belong to</button><button type="button" class="opt">All healthcare providers in Europe</button><button type="button" class="opt">Hospitals, because they have the biggest budgets</button></div><p class="cfb" data-ok="Right: real pain, reachable, and they talk to each other." data-no="Big and broad isn't a beachhead. A dense, reachable group with real pain that talks to each other is."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="4">Mark lesson 4 done</button></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One team that narrowed down to the users who loved it, one that bet big on a segment it never checked.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Superhuman</h3>
+        <p>Superhuman, a premium email app, measured how many users would be "very disappointed" without it. Rather than build for everyone, the team defined the users who loved it most, then prioritised features that served them and the users most like them. Its score rose substantially over the next year.</p>
+        <p class="take">Lesson: a sharp segment beats an average of everyone.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Quibi</h3>
+        <p>Quibi raised about $1.75 billion to make premium, short episodes for people watching on their phones on the go. It launched in April 2020, as lockdowns kept people at home, and competed with free short video on TikTok and YouTube. It shut down about six months later.</p>
+        <p class="take">Lesson: the target segment, "busy people with spare minutes on the move", was assumed, not proven, and it vanished overnight.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Segment Sorter</h2>
+    <p>Three datasets, each split three ways. Pick the split that predicts behaviour. Then choose a beachhead. <a href="../games/segment-sorter/">Open it on its own page</a> to share.</p>
+    <div id="ss" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Apply it to your product</h2>
+    <p>Pick a product you work on or know well. Choose its first segment, describe them as a useful persona, and say who you'd leave out for now. Your notes stay in this browser.</p>
+    <form data-persist="apply">
+      <div class="slots">
+        <label class="slot">Primary segment, and why it's the beachhead<textarea rows="4" name="s"></textarea></label>
+        <label class="slot">Persona: job, situation, behaviour, frustration, what makes them switch<textarea rows="4" name="p"></textarea></label>
+        <label class="slot">Who you're deliberately not serving yet<textarea rows="4" name="n"></textarea></label>
+      </div>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Product:</b> a language-learning app.</p>
+        <p><b>Segment:</b> people moving abroad within six months. A real deadline, findable in relocation and expat groups, and they recommend what worked to each other.</p>
+        <p><b>Persona:</b> a software engineer who has accepted a job in Madrid, starting in four months. Practises on the train for 15 minutes a day. Has tried two apps and quit both because the lessons felt like games, not like the conversations she'll actually have. Would switch to anything that gets her through a flat viewing and a doctor's appointment.</p>
+        <p><b>Not yet:</b> hobby learners and students. They need different motivation and are less likely to pay. Serve them once the first segment loves the product.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
+    <form class="prompt" data-persist="teach">
+      <p>A teammate says: "Our target users are millennials." In three or four sentences, explain why that's weak and what a better segment would look like.</p>
+      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
+      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations say why demographics rarely predict behaviour, offer a behavioural or needs-based alternative, and say how you'd check it in data.</p>
+      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
+    </form>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M1 and M2. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+      <div class="check stack" data-answer="1"><p class="cq">1. Which segmentation is most useful for reducing churn in a team tool?</p><div class="opts"><button type="button" class="opt">By company size</button><button type="button" class="opt">By whether the account added a second active user in week one</button><button type="button" class="opt">By the customer's country</button></div><p class="cfb" data-ok="Right: behavioural, predictive and actionable." data-no="Size and country describe customers. Adding a second active user is behaviour you can influence."></p></div>
+      <div class="check stack" data-answer="2"><p class="cq">2. What makes a persona useful?</p><div class="opts"><button type="button" class="opt">A realistic photo and a name</button><button type="button" class="opt">Age, family and hobbies</button><button type="button" class="opt">The job, the situation and the frustration, based on research, so it helps choose between options</button></div><p class="cfb" data-ok="Right. If it doesn't change a decision, it's decoration." data-no="A persona earns its place by changing decisions: job, situation, frustration, from research."></p></div>
+      <div class="check stack" data-answer="0"><p class="cq">3. Which beachhead criterion did Facebook's Harvard launch satisfy best?</p><div class="opts"><button type="button" class="opt">A dense group who know each other, so the product was useful at once and spread by word of mouth</button><button type="button" class="opt">The highest willingness to pay</button><button type="button" class="opt">The biggest possible market</button></div><p class="cfb" data-ok="Right: density and references." data-no="It wasn't size or money. A dense, connected group made the product useful immediately, and it spread."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">4. From M2: "Users churn because we don't have a mobile app." What's wrong with this problem statement?</p><div class="opts"><button type="button" class="opt">Nothing, it's specific</button><button type="button" class="opt">The solution is hiding in it</button><button type="button" class="opt">It's too short</button></div><p class="cfb" data-ok="Right. 'Because we don't have X' assumes the fix." data-no="It assumes the fix. What can't people do today, and when?"></p></div>
+      <div class="check stack" data-answer="2"><p class="cq">5. From M1: a new segment looks promising. Which risk should you test first before building for them?</p><div class="opts"><button type="button" class="opt">Feasibility: can we build it?</button><button type="button" class="opt">Viability: does legal approve?</button><button type="button" class="opt">Value: does this segment actually want it enough to use or pay?</button></div><p class="cfb" data-ok="Right. A new segment is first a value question." data-no="With a new segment, the likeliest killer is value: do they really want it?"></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Segment by what people do and need,</b> not only by who they are.</li>
+        <li><b>A segment is real only if you'd treat it differently.</b></li>
+        <li><b>Personas are research, not fiction.</b> Lead with the job, situation and frustration.</li>
+        <li><b>Win one dense, reachable beachhead first,</b> and plan the next beach early.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m2/">Previous: M2 Problem framing</a><span>Next: M4 Behavioural psychology</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/segment-sorter.js"></script>
+<script>SegmentSorter(document.getElementById("ss"));</script>
+</body>
+</html>
