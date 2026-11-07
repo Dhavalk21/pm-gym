@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M5 Product discovery | PM Gym</title>
+<meta name="description" content="Interviews without leading questions, opportunity solution trees, assumption mapping and cheap tests. Four short lessons, two cases and the Interview Simulator game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m5">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M5</div>
+  <div class="title">
+    <span class="plate-mark" aria-hidden="true"></span>
+    <div>
+      <h1>Product discovery</h1>
+      <p>Interviews that get the truth instead of compliments, mapping opportunities before solutions, finding your riskiest assumptions, and testing them cheaply.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 35 minutes</span><span>2 cases</span><span>Interview Simulator game, 10 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional</span></h2>
+    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
+    <form class="prompt" data-persist="warmup">
+      <p>You're exploring an idea: a tool that helps restaurant owners plan staff shifts. You have a 30-minute call with an owner tomorrow.</p>
+      <label>1. Write your first question.<textarea rows="2" name="a1"></textarea></label>
+      <label>2. Which questions would you avoid, and why?<textarea rows="2" name="a2"></textarea></label>
+      <label>3. After five calls, how would you decide whether to build anything?<textarea rows="2" name="a3"></textarea></label>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a model answer</summary>
+      <div class="model">
+        <p><b>1.</b> "Tell me about the last time you made the staff rota. Walk me through it." A specific, recent, real moment.</p>
+        <p><b>2.</b> Avoid pitching ("Would you use a tool that..."), leading ("That must be stressful, right?"), the future ("Would you pay..."), and asking them to design ("What features would you want?"). They all produce polite opinions instead of facts.</p>
+        <p><b>3.</b> Look for patterns across the stories: the same pain, a workaround they've already built or paid for, and a cost they can put a number on. Then test the riskiest assumption cheaply, like a concierge pilot where you make the rota for two restaurants by hand for a month, before building.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>The idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+
+      <details class="lesson" data-lesson="1">
+        <summary><span class="ln">1</span><span class="lt"><b>Interviews that get the truth</b><span>Ask about their life, in the past, specifically. Never about your idea.</span></span><span class="lmin">10 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>People are kind. Ask whether they like your idea and they'll say yes. Rob Fitzpatrick's <i>The Mom Test</i> is built on that: ask questions even your mum couldn't lie to you about. Facts about what people did, not opinions about what they might do.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <ol>
+              <li><b>Talk about their life, not your idea.</b> Don't pitch until the learning is done, if at all.</li>
+              <li><b>Ask about specific past events,</b> not general habits or the future. Teresa Torres calls this story-based interviewing: "Tell me about the last time you..."</li>
+              <li><b>Dig into what they say:</b> "What happened next? What did that cost you? What have you tried?"</li>
+              <li><b>Listen more than you talk,</b> and write down what they did, not what they said they'd do.</li>
+            </ol>
+            <p>Weak questions to catch yourself on: "Would you use...?", "How much would you pay...?", "Don't you think...?", "What features do you want?"</p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>"Would you use an app to track your hours?" gets "Sure!" "Tell me about the last time you invoiced a client" gets "I scrolled through my calendar for 20 minutes and probably forgot some hours." The second answer tells you where the pain is and roughly what it costs.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Interviews find problems, not solutions.</b> Users rarely know what to build; they know what hurts.</li>
+              <li><b>Small samples mislead.</b> Look for patterns across several interviews, and back them with data where you can.</li>
+              <li><b>Memory is imperfect.</b> Recent, specific events are more reliable than "usually".</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: good question or weak?</h4>
+            <div class="check" data-answer="1"><p class="cq">"Would you pay €10 a month for this?"</p><div class="opts"><button type="button" class="opt">Good</button><button type="button" class="opt">Weak</button></div><p class="cfb" data-ok="Right: a hypothetical about the future. Ask what they spend today instead." data-no="It's weak: a hypothetical. Ask what they already pay or have tried."></p></div>
+            <div class="check" data-answer="0"><p class="cq">"What did you do the last time a client paid late?"</p><div class="opts"><button type="button" class="opt">Good</button><button type="button" class="opt">Weak</button></div><p class="cfb" data-ok="Right: a specific past event." data-no="It's good: a specific past event, so you get facts, not opinions."></p></div>
+            <div class="check" data-answer="1"><p class="cq">"Isn't it frustrating to plan shifts by hand?"</p><div class="opts"><button type="button" class="opt">Good</button><button type="button" class="opt">Weak</button></div><p class="cfb" data-ok="Right: it's leading. You've told them the answer." data-no="It's leading: the question tells them what to feel."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="1">Mark lesson 1 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="2">
+        <summary><span class="ln">2</span><span class="lt"><b>Opportunity solution trees</b><span>Map the problem space before you fall for a solution.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Teresa Torres, in <i>Continuous Discovery Habits</i>, gives teams a simple visual: start from the outcome, map the opportunities (needs, pains, desires) you've heard in interviews, then generate several solutions per opportunity, and test each with small experiments. <a href="https://www.producttalk.org/opportunity-solution-trees/">Read her overview</a>.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <div class="chain"><div><small>Outcome</small><b>The change you want (M1)</b></div><div><small>Opportunities</small><b>Needs and pains from interviews</b></div><div><small>Solutions</small><b>Several per opportunity</b></div><div><small>Tests</small><b>Small experiments</b></div></div>
+            <ol>
+              <li>Opportunities come from what customers said and did, not from what the team imagines.</li>
+              <li>Pick one opportunity at a time, and compare at least three solutions for it.</li>
+              <li>Test assumptions behind the solutions, not the whole solution at once.</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>Outcome: freelancers bill more of the hours they work. Opportunities from interviews: "I forget to record hours", "I don't know which client a task belongs to", "chasing late payers is awkward". For "I forget to record hours": a timer, automatic tracking from the calendar, or a Friday prompt to confirm the week. Three solutions to compare, not one to defend.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>It becomes a diagram for its own sake.</b> The value is in the conversations it forces, not the drawing.</li>
+              <li><b>Opportunities phrased as solutions</b> ("needs a timer") sneak back in. Write them as the customer's words.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="2"><p class="cq">Which is written as an opportunity, not a solution?</p><div class="opts"><button type="button" class="opt">Add a timer to the app</button><button type="button" class="opt">Build calendar integration</button><button type="button" class="opt">"I don't notice I've forgotten hours until I'm writing the invoice"</button></div><p class="cfb" data-ok="Right: a need in the customer's words." data-no="Opportunities are needs and pains in the customer's words. The others are solutions."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="2">Mark lesson 2 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="3">
+        <summary><span class="ln">3</span><span class="lt"><b>Mapping your assumptions</b><span>Find the beliefs that matter most and that you know least about.</span></span><span class="lmin">7 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Every solution rests on assumptions. Most teams test the ones that are easy to test. Instead, test the ones that would sink the idea if wrong and that you have the least evidence for. David Bland and Alex Osterwalder's <i>Testing Business Ideas</i> calls this assumption mapping.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <ol>
+              <li><b>List assumptions</b> under the four risks from M1: value, usability, feasibility, viability.</li>
+              <li><b>Place each on two axes:</b> how important is it to success, and how much evidence do we have?</li>
+              <li><b>Test the top-left corner first:</b> very important, little evidence. Those are your leap-of-faith assumptions.</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>A Friday "confirm your hours" prompt for freelancers. "Freelancers want to bill all their hours" is important but well evidenced. "They'll take two minutes every Friday to confirm" is important and unproven. Test that one first: send the prompt by email by hand to ten freelancers for three weeks and count replies.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Scoring by gut.</b> "Evidence" should mean things people did, not things they said.</li>
+              <li><b>Assumptions hide inside other assumptions.</b> Keep asking "what would have to be true for this to work?"</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="0"><p class="cq">Which assumption should you test first?</p><div class="opts"><button type="button" class="opt">Critical to success, and nobody has seen any evidence for it yet</button><button type="button" class="opt">Critical to success, and backed by usage data</button><button type="button" class="opt">Minor, and easy to test</button></div><p class="cfb" data-ok="Right: high importance, low evidence. That's a leap of faith." data-no="Test what's critical and unproven first. Easy tests on minor assumptions feel productive but change little."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="3">Mark lesson 3 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="4">
+        <summary><span class="ln">4</span><span class="lt"><b>Cheap tests</b><span>Learn in days what building would teach you in months.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Before building, fake it, do it by hand, or show it. The goal is the cheapest test that would change your decision.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <div class="risk-grid">
+              <div style="border-color:#C8232B"><b>Fake door</b><span>A button or page for something that doesn't exist yet. Measures real interest.</span></div>
+              <div style="border-color:#E3A300"><b>Concierge</b><span>Deliver the service by hand, openly, for a few customers.</span></div>
+              <div style="border-color:#1F57B0"><b>Wizard of Oz</b><span>It looks automated to the user; a person does the work behind it.</span></div>
+              <div style="border-color:#2C8350"><b>Prototype test</b><span>A clickable mock-up with five target users. Tests usability.</span></div>
+            </div>
+            <p>Before running any test, write down what result would make you stop, change course or continue.</p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>Before Dropbox had a product people could use, founder Drew Houston posted a short demo video showing how file syncing would work. The beta waiting list reportedly jumped from about 5,000 to 75,000 people overnight. Value tested, with almost no product built.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Fake doors cost trust</b> if used carelessly. Tell people honestly what happens next and keep it small.</li>
+              <li><b>Interest isn't usage.</b> A sign-up proves curiosity; retention needs a real product.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: which test fits?</h4>
+            <div class="check stack" data-answer="1"><p class="cq">You want to know if restaurants will value weekly rota planning, before writing any code.</p><div class="opts"><button type="button" class="opt">Build a minimum version in three months</button><button type="button" class="opt">Concierge: plan rotas by hand for three restaurants for a month</button><button type="button" class="opt">A survey asking if they'd like rota software</button></div><p class="cfb" data-ok="Right: real value delivered by hand, with real behaviour to observe." data-no="A concierge pilot delivers the value by hand and shows real behaviour. A survey only collects opinions."></p></div>
+            <div class="check stack" data-answer="0"><p class="cq">You want to know if people can use a new checkout flow.</p><div class="opts"><button type="button" class="opt">A prototype test with five target users</button><button type="button" class="opt">A fake door</button><button type="button" class="opt">A concierge service</button></div><p class="cfb" data-ok="Right: usability is tested by watching people use it." data-no="Usability questions are answered by watching people try a prototype."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="4">Mark lesson 4 done</button></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One team that tested demand before building, one that tested the wrong thing very thoroughly.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Dropbox's demo video</h3>
+        <p>Building reliable file syncing was hard and slow. Before it was ready, Drew Houston made a short video showing how it would work, aimed at early tech adopters. The beta waiting list reportedly grew from about 5,000 to 75,000 people overnight.</p>
+        <p class="take">Lesson: the cheapest test of value was showing, not building.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>New Coke</h3>
+        <p>In 1985, Coca-Cola replaced its formula after very large blind taste tests showed people preferred the sweeter new version. The tests measured taste in a sip. They didn't measure what the original meant to people. The backlash was so strong that the original returned as "Coca-Cola Classic" within three months.</p>
+        <p class="take">Lesson: a careful test of the wrong question. Discovery has to find what people value, not just what they prefer in a lab.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Interview Simulator</h2>
+    <p>Interview a freelancer about invoicing. Good questions unlock insights; leading ones get polite, useless answers. <a href="../games/interview-simulator/">Open it on its own page</a> to share.</p>
+    <div id="isim" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Apply it to your product</h2>
+    <p>Plan one week of discovery for a question you have on a product you know. Your notes stay in this browser.</p>
+    <form data-persist="apply">
+      <div class="slots">
+        <label class="slot">Who you'll talk to, and your first three questions<textarea rows="5" name="q"></textarea></label>
+        <label class="slot">Your riskiest assumption (important, little evidence)<textarea rows="5" name="a"></textarea></label>
+        <label class="slot">Cheapest test, and the result that would change your mind<textarea rows="5" name="t"></textarea></label>
+      </div>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Product:</b> a shift-planning tool for restaurants. <b>Talk to:</b> five owners of independent restaurants with 10 to 30 staff.</p>
+        <p><b>Questions:</b> "Tell me about the last time you made the rota." "What went wrong that week?" "What have you tried to make it easier?"</p>
+        <p><b>Riskiest assumption:</b> owners will hand rota decisions to software rather than keep control themselves. Important, and no evidence yet.</p>
+        <p><b>Test:</b> concierge for a month. Make the rota by hand for three restaurants and send it as a draft they approve. Continue only if at least two approve it with minor edits by week three.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
+    <form class="prompt" data-persist="teach">
+      <p>A new teammate is about to run their first customer interview and has written "Would you use our new feature?" as question one. In three or four sentences, coach them.</p>
+      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
+      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations say why the question fails, give a better one about a specific past event, and suggest how to dig deeper.</p>
+      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
+    </form>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M1 and M4. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+      <div class="check stack" data-answer="2"><p class="cq">1. Which interview question gets the most reliable information?</p><div class="opts"><button type="button" class="opt">Would you use a tool that automates this?</button><button type="button" class="opt">How often do you usually do this?</button><button type="button" class="opt">Tell me about the last time you did this.</button></div><p class="cfb" data-ok="Right: a specific, recent, real event." data-no="Specific past events beat hypotheticals and generalisations."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">2. In an opportunity solution tree, where do opportunities come from?</p><div class="opts"><button type="button" class="opt">The team's brainstorm of features</button><button type="button" class="opt">What customers said and did in interviews and data</button><button type="button" class="opt">Competitors' roadmaps</button></div><p class="cfb" data-ok="Right. Opportunities are customer needs, found, not invented." data-no="Opportunities come from customers' own stories and behaviour."></p></div>
+      <div class="check stack" data-answer="0"><p class="cq">3. You think hotels would pay for an AI concierge. What's a sensible first test?</p><div class="opts"><button type="button" class="opt">Wizard of Oz: staff answer guests' messages behind a simple chat for two weeks, measuring use</button><button type="button" class="opt">Train a custom model first</button><button type="button" class="opt">Ask hotel managers if they like AI</button></div><p class="cfb" data-ok="Right: test the value before building the AI." data-no="Test whether guests use it, with people behind the chat, before building the AI."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">4. From M1: your test shows strong sign-ups but you're unsure people can complete setup. Which risk is next?</p><div class="opts"><button type="button" class="opt">Value</button><button type="button" class="opt">Usability</button><button type="button" class="opt">Viability</button></div><p class="cfb" data-ok="Right. Interest is shown; now, can they actually use it?" data-no="Sign-ups suggest value. Completing setup is a usability question."></p></div>
+      <div class="check stack" data-answer="2"><p class="cq">5. From M4: a fake-door test shows a "Coming soon" button. What keeps it honest?</p><div class="opts"><button type="button" class="opt">Hiding that it doesn't exist yet</button><button type="button" class="opt">Showing it to every user for months</button><button type="button" class="opt">Saying clearly it's not ready, offering to notify them, and keeping it small and short</button></div><p class="cfb" data-ok="Right: honest, small and brief." data-no="Be clear it isn't ready, offer a notification, and keep the test small."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Ask about their life, in the past, specifically.</b> Never ask if they like your idea.</li>
+        <li><b>Map opportunities before solutions,</b> and compare several solutions for each.</li>
+        <li><b>Test what's critical and unproven first,</b> not what's easy to test.</li>
+        <li><b>Fake it, do it by hand, or show it</b> before you build it.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m4/">Previous: M4 Behavioural psychology</a><span>Next: M6 Market and competition</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/interview-simulator.js"></script>
+<script>InterviewSimulator(document.getElementById("isim"));</script>
+</body>
+</html>

@@ -211,3 +211,18 @@ footer.site > span { color: var(--ink-3); font-size: 15px; }
 .ss-dots { display: flex; gap: 4px; grid-column: span 2; }
 .ss-dots i { width: 14px; height: 14px; border-radius: 50%; border: 1.5px solid #8A939D; }
 .ss-dots i.on { background: #E3A300; border-color: #E3A300; }
+
+/* Interview Simulator */
+.is-chat { display: flex; flex-direction: column; gap: 8px; margin-bottom: 8px; }
+.is-q, .is-a { max-width: 80%; padding: 10px 14px; border-radius: 10px; font-size: 16px; }
+.is-q { align-self: flex-end; background: #F2F3F1; color: #17202A; }
+.is-a { align-self: flex-start; background: #353B42; color: #F2F3F1; }
+.is-q small, .is-a small { display: block; font-size: 12px; font-weight: 600; opacity: .7; }
+.is-tag { align-self: flex-end; font-size: 13px; margin-bottom: 8px; }
+.is-tag.good { color: #7FD3A2; }
+.is-tag.weak { color: #F08A8F; }
+.is-notes { flex: 0 1 300px; min-width: 240px; background: #F2F3F1; color: #17202A; border-radius: 8px; padding: 18px 20px; align-self: flex-start; }
+.is-notes b { font-family: var(--cond); font-size: 22px; }
+.is-notes p { color: #5F6975 !important; font-size: 15px; }
+.is-notes ol { margin: 10px 0 0; padding-left: 20px; font-size: 15px; }
+.is-notes li { margin-bottom: 8px; }

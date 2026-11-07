@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M4 Behavioural psychology | PM Gym</title>
+<meta name="description" content="What makes people act, how habits form, the biases product teams use, and where a nudge becomes a dark pattern. Four short lessons, two cases and the Nudge or Sludge game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m4">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M4</div>
+  <div class="title">
+    <span class="plate-mark" aria-hidden="true"></span>
+    <div>
+      <h1>Behavioural psychology</h1>
+      <p>Why people act or don't, how habits form, the biases every product uses whether it means to or not, and where a nudge turns into a dark pattern.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 33 minutes</span><span>2 cases</span><span>Nudge or Sludge game, 10 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional</span></h2>
+    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
+    <form class="prompt" data-persist="warmup">
+      <p>A budgeting app: 70% of new users connect their bank account, but only 15% open the app again in their second week. The growth team wants to send three push notifications a day.</p>
+      <label>1. Why might people stop coming back, even though they wanted the app?<textarea rows="2" name="a1"></textarea></label>
+      <label>2. What could you change other than adding more notifications?<textarea rows="2" name="a2"></textarea></label>
+      <label>3. Where would more notifications cross the line from helpful to harmful?<textarea rows="2" name="a3"></textarea></label>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a model answer</summary>
+      <div class="model">
+        <p><b>1.</b> Motivation was high at sign-up and fades. Checking a budget is effort (low ability), and nothing in the app gives a reason to come back at the right moment (no useful prompt). People also avoid looking at money when it feels bad, so opening the app can feel like a small loss.</p>
+        <p><b>2.</b> Raise ability and fix the prompt instead: one useful message at a natural moment, like "Your salary arrived. Here's what's left for the month after bills." Make the first screen show one simple, reassuring number rather than a full report.</p>
+        <p><b>3.</b> When messages serve the app's metrics rather than the user's goal: frequent pings with no new information, alarming wording to force opens, or making notifications hard to turn off. Watch opt-out and uninstall rates as guardrails.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>The idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+
+      <details class="lesson" data-lesson="1">
+        <summary><span class="ln">1</span><span class="lt"><b>What makes people act</b><span>Motivation, ability and a prompt, at the same moment.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Stanford researcher BJ Fogg's model says a behaviour happens when three things meet at the same moment: enough <b>motivation</b>, enough <b>ability</b> (it's easy enough), and a <b>prompt</b>. When people don't act, one of the three is missing.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <div class="risk-grid">
+              <div style="border-color:#C8232B"><b>Motivation</b><span>Do they want to, right now? It rises and falls, and it's hard to raise on purpose.</span></div>
+              <div style="border-color:#E3A300"><b>Ability</b><span>How easy is it? Time, money, effort, thinking, habit. The most reliable lever.</span></div>
+              <div style="border-color:#1F57B0"><b>Prompt</b><span>What reminds them, at the moment they're able and willing?</span></div>
+            </div>
+            <p>When something isn't happening, diagnose in this order: is there a prompt? Is it easy enough? Only then: are they motivated? Making a behaviour easier usually beats trying to motivate people more. <a href="https://behaviormodel.org">See the model</a>.</p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>A fitness app sees people skip workouts. Pushing motivational quotes (motivation) does little. Cutting the default workout from 30 minutes to 7 (ability), and reminding people at the time they said they'd train (prompt), does far more.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>It explains a moment, not a habit.</b> Getting someone to act once is different from getting them to keep acting.</li>
+              <li><b>Easy isn't always right.</b> For important choices, like a big payment or deleting data, some friction protects people.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: what's missing?</h4>
+            <div class="check" data-answer="1"><p class="cq">People want to export their data, and know it's possible, but it takes 12 steps. Most give up.</p><div class="opts"><button type="button" class="opt">Motivation</button><button type="button" class="opt">Ability</button><button type="button" class="opt">Prompt</button></div><p class="cfb" data-ok="Right: they want it, but it's too hard." data-no="It's ability: they want to, but 12 steps is too hard."></p></div>
+            <div class="check" data-answer="2"><p class="cq">Users love the weekly report when they see it, but it's only available if they remember to open a menu.</p><div class="opts"><button type="button" class="opt">Motivation</button><button type="button" class="opt">Ability</button><button type="button" class="opt">Prompt</button></div><p class="cfb" data-ok="Right: nothing reminds them at the right moment." data-no="It's the prompt: they'd value it, but nothing reminds them."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="1">Mark lesson 1 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="2">
+        <summary><span class="ln">2</span><span class="lt"><b>How habits form</b><span>Trigger, action, reward, investment. And when not to bother.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Some products are used because people decide to; others because it has become a habit. Nir Eyal's Hook Model describes the loop behind habit-forming products.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <ol>
+              <li><b>Trigger:</b> first external (a notification), later internal (boredom, worry, a feeling).</li>
+              <li><b>Action:</b> the simplest thing done in expectation of a reward.</li>
+              <li><b>Variable reward:</b> something useful or pleasing, not identical every time.</li>
+              <li><b>Investment:</b> the user puts something in (data, effort, progress) that makes the next round better and leaving costlier.</li>
+            </ol></div>
+          <div class="part"><h4>Real example</h4>
+            <p>A language app: a reminder at your usual time (trigger), one short lesson (action), a mix of progress, praise and surprise (reward), and a streak and learning history you don't want to lose (investment). Duolingo has said publicly that streaks are one of its strongest drivers of daily use.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Not every product should be a habit.</b> Tax software, insurance, a mortgage: people want them to work well and rarely. Measure success there in jobs done, not visits.</li>
+              <li><b>Habit for whose benefit?</b> If the loop helps the business but not the user, it's a compulsion. Eyal himself suggests asking whether you would use it, and whether it improves users' lives.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="2"><p class="cq">In a note-taking app, which is the "investment" step?</p><div class="opts"><button type="button" class="opt">A daily reminder to write</button><button type="button" class="opt">Opening a blank note</button><button type="button" class="opt">Hundreds of linked notes that make the app more useful every time you add one</button></div><p class="cfb" data-ok="Right: stored value that makes the next visit better." data-no="Investment is what users put in that makes the next round better: their growing library of notes."></p></div>
+            <div class="check stack" data-answer="0"><p class="cq">For which product is building a daily habit the wrong goal?</p><div class="opts"><button type="button" class="opt">An app for filing your annual tax return</button><button type="button" class="opt">A language-learning app</button><button type="button" class="opt">A team chat app</button></div><p class="cfb" data-ok="Right. Success there is a correct return with minimal effort, once a year." data-no="Tax filing should be quick, correct and rare. A daily habit would be a failure."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="2">Mark lesson 2 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="3">
+        <summary><span class="ln">3</span><span class="lt"><b>Biases your product already uses</b><span>Defaults, losses, anchors and other people.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>Every screen frames a choice. There is no neutral design: something is the default, something is shown first, something is compared to something else. Better to choose these on purpose.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <div class="risk-grid">
+              <div style="border-color:#C8232B"><b>Defaults</b><span>Most people keep what's pre-selected. Choose defaults that serve users.</span></div>
+              <div style="border-color:#E3A300"><b>Loss aversion</b><span>Losses feel bigger than equal gains (Kahneman and Tversky). "Don't lose your progress" beats "keep going".</span></div>
+              <div style="border-color:#1F57B0"><b>Anchoring</b><span>The first number seen shapes how others feel. Prices are judged against what's next to them.</span></div>
+              <div style="border-color:#2C8350"><b>Social proof</b><span>People do what similar people do, especially when unsure.</span></div>
+            </div></div>
+          <div class="part"><h4>Real example</h4>
+            <p>Defaults are the strongest of all. A well-known 2003 study by Johnson and Goldstein in <i>Science</i> found organ donor consent was far higher in European countries where people were donors unless they opted out than in countries where they had to opt in. Same people, same choice, different default. In products, the pre-selected plan, the notification settings at install and the privacy toggle are all defaults doing the same work.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>Effects vary a lot by context.</b> Some famous nudge results haven't held up when repeated. Treat a bias as a hypothesis and A/B test it.</li>
+              <li><b>Users notice.</b> Repeated tricks erode trust, and trust is slow to rebuild.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill: which bias?</h4>
+            <div class="check stack" data-answer="1"><p class="cq">"You'll lose your 340 saved recipes if you cancel."</p><div class="opts"><button type="button" class="opt">Social proof</button><button type="button" class="opt">Loss aversion</button><button type="button" class="opt">Anchoring</button></div><p class="cfb" data-ok="Right: it frames leaving as a loss. Fine if true, sludge if it's a scare." data-no="It's loss aversion: leaving is framed as losing something."></p></div>
+            <div class="check stack" data-answer="2"><p class="cq">A wine list puts a €120 bottle at the top, so the €45 bottle feels reasonable.</p><div class="opts"><button type="button" class="opt">Default</button><button type="button" class="opt">Social proof</button><button type="button" class="opt">Anchoring</button></div><p class="cfb" data-ok="Right: the first price sets the reference." data-no="It's anchoring: the first price shapes how the others feel."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="3">Mark lesson 3 done</button></div>
+        </div>
+      </details>
+
+      <details class="lesson" data-lesson="4">
+        <summary><span class="ln">4</span><span class="lt"><b>Nudge or sludge: ethics and dark patterns</b><span>The same lever can help people or work against them.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary>
+        <div class="lbody">
+          <div class="part"><h4>The idea</h4>
+            <p>A <b>nudge</b> makes it easier for people to do what they themselves want. <b>Sludge</b>, a term popularised by economist Richard Thaler, is friction that works against them. Designer Harry Brignull named the worst cases <a href="https://www.deceptive.design">dark patterns</a>: interfaces built to trick people.</p></div>
+          <div class="part"><h4>The framework</h4>
+            <ol>
+              <li><b>Whose goal does it serve?</b> If only the company's, look harder.</li>
+              <li><b>Would you show users exactly how it works?</b> If you'd be embarrassed, it's sludge.</li>
+              <li><b>Is leaving as easy as joining?</b> Symmetry is a quick test for subscriptions.</li>
+            </ol>
+            <p>Common dark patterns: hard-to-cancel subscriptions, "No thanks, I don't like saving money" decline links (confirmshaming), pre-ticked add-ons, fake scarcity and countdowns, and hidden costs that appear at checkout.</p></div>
+          <div class="part"><h4>Real example</h4>
+            <p>The law is catching up. The EU's Digital Services Act bans online platforms from designing interfaces that deceive or manipulate users. In the US, the Federal Trade Commission sued Amazon in 2023 over Prime sign-up and cancellation flows it said were designed to trap people, and Amazon agreed in 2025 to pay $2.5 billion to settle.</p></div>
+          <div class="part"><h4>Where it breaks</h4>
+            <ul>
+              <li><b>The line can be grey.</b> Offering a pause or a discount before someone cancels is fine, as long as cancelling stays equally easy.</li>
+              <li><b>Short-term metrics reward sludge.</b> Retention looks better this quarter. Add guardrail metrics: complaints, refunds, reviews.</li>
+            </ul></div>
+          <div class="part drill"><h4>Drill</h4>
+            <div class="check stack" data-answer="1"><p class="cq">Which retention flow is acceptable?</p><div class="opts"><button type="button" class="opt">Cancel is three screens deep, with the button in grey text</button><button type="button" class="opt">A clear cancel button, with a one-tap option to pause instead</button><button type="button" class="opt">Cancelling requires a phone call</button></div><p class="cfb" data-ok="Right: an honest alternative, and leaving stays easy." data-no="The acceptable one keeps cancelling easy and offers a pause as a genuine option."></p></div>
+          </div>
+          <div class="lfoot"><button type="button" class="btn solid" data-mark="4">Mark lesson 4 done</button></div>
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One habit loop built around the learner's own goal, one sign-up and cancel flow that ended in court.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Duolingo streaks</h3>
+        <p>Duolingo built its daily habit around a streak: a count of consecutive days practised, with reminders and "streak freezes" that let you miss a day without losing it. The company has said publicly that streaks are among its biggest drivers of daily engagement.</p>
+        <p class="take">Lesson: loss aversion and a small daily action, pointed at something learners already want. The freeze matters: it eases the anxiety the streak itself creates.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Amazon Prime cancellation</h3>
+        <p>In 2023 the US Federal Trade Commission sued Amazon, alleging that Prime sign-up flows enrolled people without clear consent and that cancelling meant getting through a long, confusing sequence of pages. In 2025 Amazon agreed to pay $2.5 billion to settle the case.</p>
+        <p class="take">Lesson: sludge can lift a retention chart for years, and then cost far more than it earned, in money and trust.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Nudge or Sludge</h2>
+    <p>Ten real-looking designs. Decide whether each helps users or works against them, then name the lever. <a href="../games/nudge-or-sludge/">Open it on its own page</a> to share.</p>
+    <div id="nos" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Apply it to your product</h2>
+    <p>Pick one behaviour you want more of in a product you know. Diagnose it and design an honest nudge. Your notes stay in this browser.</p>
+    <form data-persist="apply">
+      <div class="slots">
+        <label class="slot">The behaviour, and which of motivation, ability or prompt is missing<textarea rows="4" name="b"></textarea></label>
+        <label class="slot">Your nudge: what changes, and which lever it uses<textarea rows="4" name="n"></textarea></label>
+        <label class="slot">Guardrail: how you'd know it had turned into sludge<textarea rows="4" name="g"></textarea></label>
+      </div>
+      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
+    </form>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Product:</b> a team task app. <b>Behaviour:</b> team members update their task status before the Monday meeting. Motivation is fine; ability is low (status is buried in a side panel) and there's no prompt.</p>
+        <p><b>Nudge:</b> on Monday at 9:00, a message lists each person's three open tasks with one-tap status buttons (prompt and ability). Show "6 of 8 teammates have updated" (social proof, true numbers only).</p>
+        <p><b>Guardrail:</b> watch how many people mute the message and whether updates are real or just tapped through. If mutes rise, cut the frequency.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
+    <form class="prompt" data-persist="teach">
+      <p>A colleague proposes adding "Only 3 left!" to every product page because it lifted conversion in a competitor's test. In three or four sentences, explain how you'd respond.</p>
+      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
+      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations name the lever, separate true scarcity from fake scarcity, and suggest a guardrail metric.</p>
+      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
+    </form>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M2 and M3. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+      <div class="check stack" data-answer="1"><p class="cq">1. Users say they want to log their meals, but few do. Which change is most likely to work first?</p><div class="opts"><button type="button" class="opt">Motivational messages about health</button><button type="button" class="opt">Logging a meal in one tap from recent meals, with a reminder at their usual lunchtime</button><button type="button" class="opt">A leaderboard of top loggers</button></div><p class="cfb" data-ok="Right: raise ability and add a well-timed prompt before trying to raise motivation." data-no="Make it easier and prompt at the right moment. Motivation is the hardest lever to move."></p></div>
+      <div class="check stack" data-answer="2"><p class="cq">2. Which is a dark pattern?</p><div class="opts"><button type="button" class="opt">Pre-selecting the plan most customers choose, with prices clearly shown</button><button type="button" class="opt">A reminder email three days before a trial converts to paid</button><button type="button" class="opt">A decline link that reads "No thanks, I prefer paying full price"</button></div><p class="cfb" data-ok="Right: that's confirmshaming." data-no="The shaming decline link is the dark pattern. The other two serve the user."></p></div>
+      <div class="check stack" data-answer="0"><p class="cq">3. When is building a daily habit the right goal?</p><div class="opts"><button type="button" class="opt">When frequent use is how users get the value they came for, like learning a language</button><button type="button" class="opt">Always: more daily users is always better</button><button type="button" class="opt">When the company needs higher engagement numbers</button></div><p class="cfb" data-ok="Right. Habits should follow the user's goal, not the dashboard's." data-no="A habit is right only when frequent use is how users get value."></p></div>
+      <div class="check stack" data-answer="1"><p class="cq">4. From M2: "We need push notifications." What is it?</p><div class="opts"><button type="button" class="opt">A problem</button><button type="button" class="opt">A solution in disguise</button><button type="button" class="opt">A symptom</button></div><p class="cfb" data-ok="Right. Ask what people fail to do today, and when." data-no="It names a fix. Ask what people fail to do today, and when."></p></div>
+      <div class="check stack" data-answer="2"><p class="cq">5. From M3: which segment best predicts who builds a lasting habit in a fitness app?</p><div class="opts"><button type="button" class="opt">Age group</button><button type="button" class="opt">Phone type</button><button type="button" class="opt">Users who completed three workouts in their first week</button></div><p class="cfb" data-ok="Right: early behaviour predicts later behaviour." data-no="Early behaviour, like three workouts in week one, predicts habits far better than who people are."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Behaviour needs motivation, ability and a prompt at the same moment.</b> Make it easier before you try to motivate.</li>
+        <li><b>Build habits only where frequent use is the user's own goal.</b></li>
+        <li><b>There's no neutral screen.</b> Choose defaults, anchors and framing on purpose.</li>
+        <li><b>Nudges serve users; sludge works against them.</b> If you wouldn't show users how it works, don't ship it.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m3/">Previous: M3 Users and segmentation</a><a href="../m5/">Next: M5 Product discovery</a></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/nudge-or-sludge.js"></script>
+<script>NudgeOrSludge(document.getElementById("nos"));</script>
+</body>
+</html>
