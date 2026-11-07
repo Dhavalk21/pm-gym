@@ -9,7 +9,7 @@
       { q: "Invoicing is really annoying, isn't it?", good: false, kind: "Leading", a: "Yeah, I guess. All admin is annoying." }
     ],
     [
-      { q: "How do you keep track of the hours you work for each client?", good: true, kind: "Digging into her process", a: "Honestly, I don't, as I go. At the end of the month I scroll through my calendar and Slack. Some weeks I forget things, so I'm sure I under-bill.", ins: "She under-bills when hours aren't captured. That's real money lost." },
+      { q: "How do you keep track of the hours you work for each client?", good: true, kind: "Digging into her process", a: "Honestly, not as I go. At the end of the month I scroll through my calendar and Slack. Some weeks I forget things, so I'm sure I under-bill.", ins: "She under-bills when hours aren't captured. That's real money lost." },
       { q: "What features would you want in an invoicing tool?", good: false, kind: "Asking the user to design", a: "Hmm. Templates? Reminders? Maybe dark mode?" },
       { q: "How much would you pay for an invoicing tool?", good: false, kind: "Hypothetical price", a: "Maybe ten euros a month? Hard to say." }
     ],
