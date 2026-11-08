@@ -16,7 +16,7 @@
 
 <header class="wrap top">
   <a class="brand" href="../">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
     PM Gym
   </a>
   <nav aria-label="Main">
@@ -34,8 +34,9 @@
 <section class="wrap" style="padding-block: 24px 40px">
   <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M1</div>
   <div class="title">
-    <span class="plate-mark" aria-hidden="true"></span>
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#E3A82B"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M1</text></svg>
     <div>
+      <span class="zone-tag"><i style="background:#E3A82B"></i>Zone 1, Understand</span>
       <h1>Product thinking basics</h1>
       <p>Outcomes over outputs, the four risks every idea carries, which decisions you can take back, and what happens after the first effect.</p>
     </div>
@@ -51,26 +52,18 @@
 
   <!-- WARM-UP -->
   <section id="warmup" class="block">
-    <h2>Warm-up <span class="tag">Optional</span></h2>
-    <p>Try the problem cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
-    <form class="prompt" id="warmup-form" data-persist="warmup">
-      <p>You're the PM at a meal-kit delivery app in Germany. The CEO says: "Our competitor just launched AI-generated weekly meal plans. We need the same feature this quarter."</p>
-      <label>1. What outcome might the CEO actually want, as opposed to the feature they asked for?
-        <textarea rows="2" name="a1"></textarea></label>
-      <label>2. What are the biggest risks, and which would you test first?
-        <textarea rows="2" name="a2"></textarea></label>
-      <label>3. Is launching this easy or hard to reverse? How does that change your speed?
-        <textarea rows="2" name="a3"></textarea></label>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" id="saved" role="status"></span></div>
-    </form>
-    <details class="reveal">
-      <summary>Show a model answer</summary>
-      <div class="model">
-        <p><b>1. The outcome.</b> "Match the competitor" is not an outcome. The likely real worry is retention: subscribers skipping weeks or cancelling because choosing meals every week is a chore. A good outcome: active subscribers skip fewer weeks. The business impact follows: lower churn, more revenue per subscriber.</p>
-        <p><b>2. The risks.</b> Value first: do your subscribers want plans made for them, or do they enjoy choosing? Then feasibility (can AI respect allergies and diets every time?), viability (allergen mistakes are a safety and liability problem; cost per plan), and usability (will people trust and edit the plan?). Test value first and cheaply: have a nutritionist hand-make plans for a small group and see if they skip fewer weeks.</p>
-        <p><b>3. Reversibility.</b> A pilot for a few hundred subscribers behind a feature switch is easy to reverse, so move fast there. A big public launch, new pricing or a promise in your marketing is much harder to undo, so earn it with evidence from the pilot first.</p>
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>You're the PM at a meal-kit app in Germany. The CEO walks over:</p>
+        <div class="quote">"Our competitor just launched AI meal plans. We need the same feature this quarter."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
       </div>
-    </details>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What does the CEO most likely want underneath this request?", "o": ["Subscribers skipping fewer weeks and staying longer", "Feature parity with the competitor", "More AI in the product", "Press coverage"], "a": 0, "why": "Matching a competitor is an output. The worry behind it is usually retention: people skipping weeks or cancelling."}, {"q": "Which risk would you test first?", "o": ["Usability: can they edit a plan?", "Feasibility: can AI handle allergies?", "Viability: what does each plan cost?", "Value: do subscribers want plans made for them?"], "a": 3, "why": "Value is the likeliest killer, and you can test it without building any AI."}, {"q": "Launching AI plans to every subscriber with a big marketing campaign is...", "o": ["Hard to reverse: the promise and the trust are public", "Easy to reverse: just turn it off"], "a": 0, "why": "Public promises don't reset. A small pilot behind a switch is the reversible version."}]}</script>
   </section>
 
   <!-- LESSONS -->
@@ -112,9 +105,9 @@
             <p>Marty Cagan of SVPG groups what can go wrong with any product idea into four risks. Good teams name them before building, and test the one most likely to kill the idea first, as cheaply as possible.</p></div>
           <div class="part"><h4>The framework</h4>
             <div class="risk-grid">
-              <div style="border-color:#C8232B"><b>Value</b><span>Will people want it, choose it, pay for it?</span></div>
-              <div style="border-color:#E3A300"><b>Usability</b><span>Can people figure out how to use it?</span></div>
-              <div style="border-color:#1F57B0"><b>Feasibility</b><span>Can we build it with the time, skills and tech we have?</span></div>
+              <div style="border-color:#E3A82B"><b>Value</b><span>Will people want it, choose it, pay for it?</span></div>
+              <div style="border-color:#2A9D8F"><b>Usability</b><span>Can people figure out how to use it?</span></div>
+              <div style="border-color:#4C7BD9"><b>Feasibility</b><span>Can we build it with the time, skills and tech we have?</span></div>
               <div style="border-color:#2C8350"><b>Viability</b><span>Does it work for the business: legal, finance, sales, brand, support?</span></div>
             </div>
             <ol>

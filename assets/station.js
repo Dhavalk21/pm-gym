@@ -151,7 +151,7 @@
   var applyCfgEl = $("apply-config");
   if (applyCfgEl) {
     var A = JSON.parse(applyCfgEl.textContent), akey = "pmgym-" + station + "-card", vals = store.get(akey) || {};
-    var RISKS = [["Value", "#C8232B"], ["Usability", "#E3A300"], ["Feasibility", "#1F57B0"], ["Viability", "#2C8350"]];
+    var RISKS = [["Value", "#E3A82B"], ["Usability", "#2A9D8F"], ["Feasibility", "#4C7BD9"], ["Viability", "#2C8350"]];
     var TESTS = { Value: "A fake door, a pre-order page or a hand-run pilot with a few customers.", Usability: "Watch five target users try a clickable prototype.", Feasibility: "A one-week engineering spike on the hardest part.", Viability: "A short review with legal or finance, using real numbers." };
     var host = $("builder");
     host.innerHTML = '<div>' + A.fields.map(function (f, i) {
@@ -219,6 +219,55 @@
     paintTeach();
   }
 
+  /* ---------- Warm-up: predict, rate confidence, lock in ---------- */
+  var wcfgEl = $("warmup-config"), wkey = "pmgym-" + station + "-predict", W = null, ws = null;
+  if (wcfgEl) {
+    W = JSON.parse(wcfgEl.textContent);
+    ws = store.get(wkey) || { picks: {}, conf: {}, locked: false, reveal: false };
+    var wroot = $("warmup-ui");
+    var renderWarm = function () {
+      var ready = W.questions.every(function (_, i) { return ws.picks[i] !== undefined && ws.conf[i]; });
+      var h = W.questions.map(function (q, i) {
+        var p = ws.picks[i];
+        return '<div class="pq"><div class="qh"><span>Prediction ' + (i + 1) + " of " + W.questions.length + "</span>" + (ws.locked ? "<span>" + esc(ws.conf[i] || "") + "</span>" : "") + '</div><p class="q">' + esc(q.q) + '</p><div class="choices">' +
+          q.o.map(function (o, k) {
+            var cls = "choice"; if (ws.reveal) cls += k === q.a ? " right" : k === p ? " wrong" : "";
+            return '<button type="button" class="' + cls + '" data-q="' + i + '" data-k="' + k + '" aria-pressed="' + (p === k) + '"' + (ws.locked ? " disabled" : "") + ">" + esc(o) + "</button>";
+          }).join("") + "</div>" +
+          (ws.locked ? (ws.reveal ? '<p class="why"><b>' + (p === q.a ? "You predicted it." : "Not this time.") + "</b> " + esc(q.why) + "</p>" : "") :
+            '<div class="conf"><span>How sure are you?</span><div class="seg" role="group" aria-label="Confidence for prediction ' + (i + 1) + '">' + ["Guessing", "Fairly sure", "Certain"].map(function (c) {
+              return '<button type="button" data-cq="' + i + '" data-c="' + c + '" aria-pressed="' + (ws.conf[i] === c) + '">' + c + "</button>";
+            }).join("") + "</div></div>") + "</div>";
+      }).join("");
+      if (!ws.locked) h += '<div class="lockbar"><p>' + (ready ? "All set. Lock in your predictions and go to the lessons." : "Pick an answer and how sure you are for each prediction.") + '</p><button type="button" class="btn solid" id="wlock"' + (ready ? "" : " disabled") + ">Lock in and start lessons</button></div>";
+      else if (!ws.reveal) h += '<div class="locked"><b>Predictions locked in.</b><p>The lessons answer all three. You’ll see how you did at the end of the station, next to your mastery check.</p><div class="row-actions"><a class="btn solid" href="#lessons">Go to the lessons</a><button type="button" class="btn" id="wreveal">Reveal answers now</button></div></div>';
+      else h += '<div class="locked"><b>Answers revealed.</b><p>Your predictions will still be compared with your mastery check at the end.</p><button type="button" class="btn" id="wreset">Start the warm-up again</button></div>';
+      wroot.innerHTML = h;
+      wroot.querySelectorAll("[data-q]").forEach(function (b) { b.onclick = function () { ws.picks[+b.dataset.q] = +b.dataset.k; store.set(wkey, ws); renderWarm(); }; });
+      wroot.querySelectorAll("[data-cq]").forEach(function (b) { b.onclick = function () { ws.conf[+b.dataset.cq] = b.dataset.c; store.set(wkey, ws); renderWarm(); }; });
+      var l = $("wlock"); if (l) l.onclick = function () { ws.locked = true; store.set(wkey, ws); renderWarm(); var lt = $("lessons"); if (lt) lt.scrollIntoView({ behavior: "smooth" }); };
+      var r = $("wreveal"); if (r) r.onclick = function () { ws.reveal = true; store.set(wkey, ws); renderWarm(); };
+      var z = $("wreset"); if (z) z.onclick = function () { ws = { picks: {}, conf: {}, locked: false, reveal: false }; store.set(wkey, ws); renderWarm(); };
+    };
+    renderWarm();
+  }
+  function warmCompare(masteryRight, masteryOf) {
+    if (!W || !ws || !ws.locked) return '<div class="compare"><div class="cmp"><small>Warm-up</small><p>Make your three predictions before the lessons next time, and you’ll see how much you moved.</p></div></div>';
+    var n = W.questions.length, right = 0, sure = 0, sureRight = 0, guess = 0, guessRight = 0;
+    W.questions.forEach(function (q, i) {
+      var ok = ws.picks[i] === q.a; if (ok) right++;
+      if (ws.conf[i] === "Guessing") { guess++; if (ok) guessRight++; } else { sure++; if (ok) sureRight++; }
+    });
+    var cal, calText;
+    if (sure && sureRight / sure < 0.67) { cal = "A bit overconfident"; calText = "You were sure about " + sure + " and got " + sureRight + " of those right. Worth noticing."; }
+    else if (guess && guessRight / guess >= 0.67) { cal = "A bit underconfident"; calText = "You guessed on " + guess + " and got " + guessRight + " right. You knew more than you thought."; }
+    else { cal = "Well calibrated"; calText = "Your confidence matched your answers. That's a real skill."; }
+    var delta = masteryRight / masteryOf - right / n;
+    return '<div class="compare"><div class="cmp"><small>Warm-up, before the lessons</small><b>' + right + " of " + n + "</b><p>" + (right === n ? "You knew this already." : "Your first instincts.") + "</p></div>" +
+      '<div class="cmp"><small>Mastery check, after</small><b>' + masteryRight + " of " + masteryOf + "</b><p>" + (delta > 0.15 ? "A clear jump. The lessons landed." : delta >= -0.15 ? "About the same as your instincts." : "Lower than your warm-up. Worth a second pass.") + "</p></div>" +
+      '<div class="cmp cal"><small>Calibration</small><b>' + cal + "</b><p>" + calText + "</p></div></div>";
+  }
+
   /* ---------- Mastery check: one question at a time ---------- */
   var mbox = $("mastery");
   if (mbox) {
@@ -243,9 +292,9 @@
       navEl.innerHTML = "";
       if (finished) {
         var right = qs.filter(function (_, i) { return picks[i]; }).length, pct = right / qs.length, C = 2 * Math.PI * 50, pass = pct >= 0.8;
-        result.innerHTML = '<svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50" fill="none" stroke="#E4E7EA" stroke-width="12"/><circle cx="60" cy="60" r="50" fill="none" stroke="' + (pass ? "#2C8350" : "#1F57B0") + '" stroke-width="12" stroke-linecap="round" stroke-dasharray="' + (C * pct).toFixed(1) + " " + C.toFixed(1) + '" transform="rotate(-90 60 60)"/><text x="60" y="68" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="30" fill="#17202A">' + right + "/" + qs.length + "</text></svg>" +
+        result.innerHTML = '<svg class="ring" viewBox="0 0 120 120" aria-hidden="true"><circle cx="60" cy="60" r="50" fill="none" stroke="#E4E7EA" stroke-width="12"/><circle cx="60" cy="60" r="50" fill="none" stroke="' + (pass ? "#2E7D4F" : "#155E63") + '" stroke-width="12" stroke-linecap="round" stroke-dasharray="' + (C * pct).toFixed(1) + " " + C.toFixed(1) + '" transform="rotate(-90 60 60)"/><text x="60" y="68" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="30" fill="#17202A">' + right + "/" + qs.length + "</text></svg>" +
           '<div><b>' + (pass ? "Station passed" : "Not yet") + '</b><p>' + (pass ? "These questions come back, mixed in, at later stations." : "Retry the ones you missed, or revisit those lessons first.") + "</p>" +
-          (right < qs.length ? '<button type="button" class="btn solid" id="mretry">Retry the ones I missed</button>' : "") + "</div>";
+          (right < qs.length ? '<button type="button" class="btn solid" id="mretry">Retry the ones I missed</button>' : "") + "</div>" + warmCompare(right, qs.length);
         store.set("pmgym-" + station + "-mastery", { right: right, of: qs.length, at: new Date().toISOString() });
         var r = $("mretry");
         if (r) r.onclick = function () {
@@ -276,7 +325,7 @@
   /* ---------- Key takeaways: plates load when the section comes into view ---------- */
   var tk = document.querySelector(".takeaways");
   if (tk) {
-    var colors = ["#C8232B", "#E3A300", "#1F57B0", "#2C8350", "#8A939D"];
+    var colors = ["#E3A82B", "#2A9D8F", "#4C7BD9", "#6BA368", "#9B6BB0"];
     var items = tk.querySelectorAll("li");
     items.forEach(function (li, i) {
       li.style.transitionDelay = (0.15 + i * 0.15) + "s";

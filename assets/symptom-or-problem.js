@@ -1,9 +1,9 @@
 // Symptom or Problem?: a PM Gym game for M2. Mount with SymptomOrProblem(element)
 (function () {
   var BINS = [
-    { id: "symptom", name: "Symptom", hint: "What you can see: a signal, a number, a complaint", color: "#E3A300" },
-    { id: "problem", name: "Problem", hint: "Why it happens: a cause you can work on", color: "#C8232B" },
-    { id: "solution", name: "Solution in disguise", hint: "An answer dressed up as a problem", color: "#1F57B0" }
+    { id: "symptom", name: "Symptom", hint: "What you can see: a signal, a number, a complaint", color: "#2A9D8F" },
+    { id: "problem", name: "Problem", hint: "Why it happens: a cause you can work on", color: "#E3A82B" },
+    { id: "solution", name: "Solution in disguise", hint: "An answer dressed up as a problem", color: "#4C7BD9" }
   ];
   var CARDS = [
     { t: "Support tickets about late deliveries doubled last month.", a: "symptom", w: "A signal that something is wrong. It doesn't say why deliveries are late." },

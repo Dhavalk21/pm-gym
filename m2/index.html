@@ -16,7 +16,7 @@
 
 <header class="wrap top">
   <a class="brand" href="../">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
     PM Gym
   </a>
   <nav aria-label="Main">
@@ -34,8 +34,9 @@
 <section class="wrap" style="padding-block: 24px 40px">
   <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M2</div>
   <div class="title">
-    <span class="plate-mark" aria-hidden="true"></span>
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#E3A82B"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M2</text></svg>
     <div>
+      <span class="zone-tag"><i style="background:#E3A82B"></i>Zone 1, Understand</span>
       <h1>Problem framing</h1>
       <p>Telling symptoms from problems, writing a problem statement with no solution hiding in it, the job people hire your product for, and reframing when you're stuck.</p>
     </div>
@@ -48,23 +49,18 @@
 <main class="wrap">
 
   <section id="warmup" class="block">
-    <h2>Warm-up <span class="tag">Optional</span></h2>
-    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
-    <form class="prompt" data-persist="warmup">
-      <p>You're the PM for a B2B invoicing tool. Sales forwards this from a big customer: "We need a dashboard showing all overdue invoices. Can you build it this month?"</p>
-      <label>1. What is this: a problem, a symptom, or a solution?<textarea rows="2" name="a1"></textarea></label>
-      <label>2. What would you ask the customer to find the real problem?<textarea rows="2" name="a2"></textarea></label>
-      <label>3. Write one sentence describing the problem, with no solution in it.<textarea rows="2" name="a3"></textarea></label>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
-    </form>
-    <details class="reveal">
-      <summary>Show a model answer</summary>
-      <div class="model">
-        <p><b>1.</b> A solution in disguise. A dashboard is one answer to a problem nobody has said out loud yet.</p>
-        <p><b>2.</b> Ask about the job, not the feature. "When you spot an overdue invoice, what do you do next? Walk me through last week. What goes wrong? What does it cost you?" You might learn that collectors chase invoices from a spreadsheet and miss the big ones.</p>
-        <p><b>3.</b> "Accounts-receivable teams at mid-sized customers can't tell which overdue invoices to chase first, so large invoices slip past 60 days and hurt their cash flow." Now a dashboard, a daily email of the top ten, or automatic reminders can all compete to solve it.</p>
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>You're the PM for a B2B invoicing tool. Sales forwards this from a big customer:</p>
+        <div class="quote">"We need a dashboard showing all overdue invoices. Can you build it this month?"</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
       </div>
-    </details>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "This request is...", "o": ["A problem", "A symptom", "A solution in disguise"], "a": 2, "why": "A dashboard is one possible answer to a problem nobody has said out loud yet."}, {"q": "What's the best first question to the customer?", "o": ["Do you need it on mobile too?", "When you spot an overdue invoice, what do you do next, and what goes wrong?", "Which charts do you want on it?"], "a": 1, "why": "Ask about the job, not the feature. That's where the real problem shows up."}, {"q": "Which is a real problem statement?", "o": ["Collectors can't tell which overdue invoices to chase first, so large ones slip past 60 days.", "Customers need an overdue-invoices dashboard.", "Our product lacks reporting."], "a": 0, "why": "It names who, the obstacle and the consequence, and leaves the fix open."}]}</script>
   </section>
 
   <section id="lessons" class="block">

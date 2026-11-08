@@ -41,7 +41,7 @@
         h += '<div class="rr-top"><span>Design ' + (s.i + 1) + ' of ' + CARDS.length + '</span><span>Score ' + s.score + '</span></div>' +
           '<div class="rr-main" style="max-width:820px"><p class="rr-idea">' + esc(c.t) + '</p>' +
           '<p class="rr-ask">1. Nudge or sludge?</p><div class="rr-opts rr-4">' +
-          [["nudge", "Nudge", "#2C8350"], ["sludge", "Sludge", "#C8232B"]].map(function (o) {
+          [["nudge", "Nudge", "#2C8350"], ["sludge", "Sludge", "#D07A45"]].map(function (o) {
             var cls = "rr-opt"; if (s.v !== null) cls += o[0] === c.v ? " ok" : o[0] === s.v ? " no" : " dim";
             return '<button type="button" class="' + cls + '" data-v="' + o[0] + '"' + (s.v !== null ? " disabled" : "") + '><i style="background:' + o[2] + '"></i>' + o[1] + '</button>';
           }).join("") + '</div>';

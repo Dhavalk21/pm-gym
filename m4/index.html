@@ -16,7 +16,7 @@
 
 <header class="wrap top">
   <a class="brand" href="../">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
     PM Gym
   </a>
   <nav aria-label="Main">
@@ -34,8 +34,9 @@
 <section class="wrap" style="padding-block: 24px 40px">
   <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M4</div>
   <div class="title">
-    <span class="plate-mark" aria-hidden="true"></span>
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#E3A82B"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M4</text></svg>
     <div>
+      <span class="zone-tag"><i style="background:#E3A82B"></i>Zone 1, Understand</span>
       <h1>Behavioural psychology</h1>
       <p>Why people act or don't, how habits form, the biases every product uses whether it means to or not, and where a nudge turns into a dark pattern.</p>
     </div>
@@ -48,23 +49,18 @@
 <main class="wrap">
 
   <section id="warmup" class="block">
-    <h2>Warm-up <span class="tag">Optional</span></h2>
-    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
-    <form class="prompt" data-persist="warmup">
-      <p>A budgeting app: 70% of new users connect their bank account, but only 15% open the app again in their second week. The growth team wants to send three push notifications a day.</p>
-      <label>1. Why might people stop coming back, even though they wanted the app?<textarea rows="2" name="a1"></textarea></label>
-      <label>2. What could you change other than adding more notifications?<textarea rows="2" name="a2"></textarea></label>
-      <label>3. Where would more notifications cross the line from helpful to harmful?<textarea rows="2" name="a3"></textarea></label>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
-    </form>
-    <details class="reveal">
-      <summary>Show a model answer</summary>
-      <div class="model">
-        <p><b>1.</b> Motivation was high at sign-up and fades. Checking a budget is effort (low ability), and nothing in the app gives a reason to come back at the right moment (no useful prompt). People also avoid looking at money when it feels bad, so opening the app can feel like a small loss.</p>
-        <p><b>2.</b> Raise ability and fix the prompt instead: one useful message at a natural moment, like "Your salary arrived. Here's what's left for the month after bills." Make the first screen show one simple, reassuring number rather than a full report.</p>
-        <p><b>3.</b> When messages serve the app's metrics rather than the user's goal: frequent pings with no new information, alarming wording to force opens, or making notifications hard to turn off. Watch opt-out and uninstall rates as guardrails.</p>
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>A budgeting app: 70% of new users connect their bank, but only 15% come back in week two. The growth team proposes:</p>
+        <div class="quote">"Let's send three push notifications a day."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
       </div>
-    </details>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What's most likely missing for those users?", "o": ["Ability and a well-timed prompt: checking feels like effort and nothing brings them back at the right moment", "Motivation: they don't care about money", "Nothing, this is normal"], "a": 0, "why": "They wanted it at sign-up. Make it easier and prompt at the right moment before trying to motivate."}, {"q": "Which change is most likely to help?", "o": ["Three notifications a day", "A leaderboard of top savers", "One useful message at a natural moment, like payday, with one simple number"], "a": 2, "why": "Same goal, far less friction: a timely prompt that's worth opening."}, {"q": "Three pushes a day is most likely...", "o": ["A nudge", "Sludge: it serves the app's metrics more than the users"], "a": 1, "why": "When frequency serves the dashboard, not the user, it's sludge. Watch opt-outs and uninstalls."}]}</script>
   </section>
 
   <section id="lessons" class="block">
@@ -79,9 +75,9 @@
             <p>Stanford researcher BJ Fogg's model says a behaviour happens when three things meet at the same moment: enough <b>motivation</b>, enough <b>ability</b> (it's easy enough), and a <b>prompt</b>. When people don't act, one of the three is missing.</p></div>
           <div class="part"><h4>The framework</h4>
             <div class="risk-grid">
-              <div style="border-color:#C8232B"><b>Motivation</b><span>Do they want to, right now? It rises and falls, and it's hard to raise on purpose.</span></div>
-              <div style="border-color:#E3A300"><b>Ability</b><span>How easy is it? Time, money, effort, thinking, habit. The most reliable lever.</span></div>
-              <div style="border-color:#1F57B0"><b>Prompt</b><span>What reminds them, at the moment they're able and willing?</span></div>
+              <div style="border-color:#E3A82B"><b>Motivation</b><span>Do they want to, right now? It rises and falls, and it's hard to raise on purpose.</span></div>
+              <div style="border-color:#2A9D8F"><b>Ability</b><span>How easy is it? Time, money, effort, thinking, habit. The most reliable lever.</span></div>
+              <div style="border-color:#4C7BD9"><b>Prompt</b><span>What reminds them, at the moment they're able and willing?</span></div>
             </div>
             <p>When something isn't happening, diagnose in this order: is there a prompt? Is it easy enough? Only then: are they motivated? Making a behaviour easier usually beats trying to motivate people more. <a href="https://behaviormodel.org">See the model</a>.</p></div>
           <div class="part"><h4>Real example</h4>
@@ -133,9 +129,9 @@
             <p>Every screen frames a choice. There is no neutral design: something is the default, something is shown first, something is compared to something else. Better to choose these on purpose.</p></div>
           <div class="part"><h4>The framework</h4>
             <div class="risk-grid">
-              <div style="border-color:#C8232B"><b>Defaults</b><span>Most people keep what's pre-selected. Choose defaults that serve users.</span></div>
-              <div style="border-color:#E3A300"><b>Loss aversion</b><span>Losses feel bigger than equal gains (Kahneman and Tversky). "Don't lose your progress" beats "keep going".</span></div>
-              <div style="border-color:#1F57B0"><b>Anchoring</b><span>The first number seen shapes how others feel. Prices are judged against what's next to them.</span></div>
+              <div style="border-color:#E3A82B"><b>Defaults</b><span>Most people keep what's pre-selected. Choose defaults that serve users.</span></div>
+              <div style="border-color:#2A9D8F"><b>Loss aversion</b><span>Losses feel bigger than equal gains (Kahneman and Tversky). "Don't lose your progress" beats "keep going".</span></div>
+              <div style="border-color:#4C7BD9"><b>Anchoring</b><span>The first number seen shapes how others feel. Prices are judged against what's next to them.</span></div>
               <div style="border-color:#2C8350"><b>Social proof</b><span>People do what similar people do, especially when unsure.</span></div>
             </div></div>
           <div class="part"><h4>Real example</h4>

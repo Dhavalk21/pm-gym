@@ -26,7 +26,7 @@
 
 <header class="wrap top">
   <a class="brand" href="../">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
     PM Gym
   </a>
   <nav aria-label="Main">
@@ -44,8 +44,9 @@
 <section class="wrap" style="padding-block: 24px 40px">
   <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / AI-1</div>
   <div class="title">
-    <span class="plate-mark" aria-hidden="true"></span>
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#E3A82B"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="14" fill="#17202A">AI-1</text></svg>
     <div>
+      <span class="zone-tag"><i style="background:#E3A82B"></i>Zone 1, Understand</span>
       <h1>AI foundations for PMs</h1>
       <p>What a language model actually does, why context is everything, how products ground AI in their own data, and how to tell when AI is the wrong tool.</p>
     </div>
@@ -58,23 +59,18 @@
 <main class="wrap">
 
   <section id="warmup" class="block">
-    <h2>Warm-up <span class="tag">Optional</span></h2>
-    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
-    <form class="prompt" data-persist="warmup">
-      <p>Your company wants a chatbot on the website that answers customers' questions about your products, prices and return policy. The first prototype, built on a general AI model, confidently gave a wrong return period.</p>
-      <label>1. Why did the model get it wrong?<textarea rows="2" name="a1"></textarea></label>
-      <label>2. What would you change so it answers from your real policies?<textarea rows="2" name="a2"></textarea></label>
-      <label>3. Which questions should it not answer on its own?<textarea rows="2" name="a3"></textarea></label>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
-    </form>
-    <details class="reveal">
-      <summary>Show a model answer</summary>
-      <div class="model">
-        <p><b>1.</b> The model has never seen your return policy. It produces the most plausible-sounding answer from patterns in its training, and "30 days" sounds plausible. It has no built-in way of knowing it's wrong.</p>
-        <p><b>2.</b> Ground it: retrieve the relevant passages from your real policy pages and product data, put them in the model's context, instruct it to answer only from those, cite the source, and say "I don't know" otherwise. Then test it against a set of real customer questions with known answers.</p>
-        <p><b>3.</b> Anything binding or high-stakes: refunds outside policy, legal or medical questions, account changes. Those go to a person, or to a fixed, checked answer.</p>
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>Your company's new website chatbot, built on a general AI model, just told a customer:</p>
+        <div class="quote">"You can return any item within 30 days." Your policy says 14.</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
       </div>
-    </details>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "Why did it get this wrong?", "o": ["It has never seen your policy, so it produced a plausible guess", "The model is broken", "The customer asked badly"], "a": 0, "why": "Models produce plausible text. Without your facts in front of it, it guesses."}, {"q": "What's the best fix?", "o": ["Use a bigger model", "Ask it to be more careful", "Retrieve your real policy text into its context and tell it to answer only from that"], "a": 2, "why": "Ground it in your own content, and test it on real questions."}, {"q": "Which question should it not answer on its own?", "o": ["Where's the size guide?", "Can I get a refund outside the return window?", "What are your opening hours?"], "a": 1, "why": "Exceptions with money attached go to a person."}]}</script>
   </section>
 
   <section id="lessons" class="block">

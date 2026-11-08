@@ -1,9 +1,9 @@
 // Risk Radar: a PM Gym game for M1. Mount with RiskRadar(document.getElementById("..."))
 (function () {
   var RISKS = [
-    { id: "value", name: "Value", q: "Will people want it, choose it, pay for it?", color: "#C8232B" },
-    { id: "usability", name: "Usability", q: "Can people figure out how to use it?", color: "#E3A300" },
-    { id: "feasibility", name: "Feasibility", q: "Can we build it, with our time, skills and tech?", color: "#1F57B0" },
+    { id: "value", name: "Value", q: "Will people want it, choose it, pay for it?", color: "#E3A82B" },
+    { id: "usability", name: "Usability", q: "Can people figure out how to use it?", color: "#2A9D8F" },
+    { id: "feasibility", name: "Feasibility", q: "Can we build it, with our time, skills and tech?", color: "#4C7BD9" },
     { id: "viability", name: "Viability", q: "Does it work for the business: legal, finance, sales, brand?", color: "#2C8350" }
   ];
   var IDEAS = [
@@ -62,7 +62,7 @@
         var qi = ["value", "viability", "feasibility", "usability"].indexOf(l.pick);
         var ang = (-90 + qi * 90 + 20 + (k % 3) * 25) * Math.PI / 180, rad = 30 + (k % 4) * 14;
         var x = 100 + Math.cos(ang) * rad, y = 100 + Math.sin(ang) * rad;
-        return '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="6" fill="' + (l.riskOk ? "#2C8350" : "#C8232B") + '" stroke="#17202A" stroke-width="1.5"/>';
+        return '<circle cx="' + x.toFixed(1) + '" cy="' + y.toFixed(1) + '" r="6" fill="' + (l.riskOk ? "#2C8350" : "#E3A82B") + '" stroke="#17202A" stroke-width="1.5"/>';
       }).join("");
       return '<svg viewBox="0 0 200 200" width="180" height="180" role="img" aria-label="Radar of your answers so far: ' + s.log.filter(function (l) { return l.riskOk; }).length + ' right out of ' + s.log.length + '">' +
         '<circle cx="100" cy="100" r="90" fill="none" stroke="#5F6975"/><circle cx="100" cy="100" r="60" fill="none" stroke="#3E4A57"/><circle cx="100" cy="100" r="30" fill="none" stroke="#3E4A57"/>' +

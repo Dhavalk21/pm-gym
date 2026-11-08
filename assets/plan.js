@@ -2,8 +2,8 @@
 // To update progress: set a module's status to "done" or "now" (one "now" at a time),
 // and set page to its station page once it exists.
 window.PMGYM = {
-  colors: ["#C8232B", "#E3A300", "#1F57B0", "#2C8350", "#1E1E1E", "#8A939D"],
-  onColors: ["#FFFFFF", "#17202A", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#17202A"],
+  colors: ["#E3A82B", "#2A9D8F", "#4C7BD9", "#6BA368", "#9B6BB0", "#D07A45"],
+  onColors: ["#17202A", "#17202A", "#17202A", "#17202A", "#17202A", "#17202A"],
   zones: ["Understand", "Design and build", "Measure", "Grow", "Decide", "Ship and lead"],
   setup: { code: "M0", name: "Setup", status: "done" },
   modules: [

@@ -16,7 +16,7 @@
 
 <header class="wrap top">
   <a class="brand" href="../">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
     PM Gym
   </a>
   <nav aria-label="Main">
@@ -34,8 +34,9 @@
 <section class="wrap" style="padding-block: 24px 40px">
   <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M3</div>
   <div class="title">
-    <span class="plate-mark" aria-hidden="true"></span>
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#E3A82B"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M3</text></svg>
     <div>
+      <span class="zone-tag"><i style="background:#E3A82B"></i>Zone 1, Understand</span>
       <h1>Users and segmentation</h1>
       <p>Segments that predict what people do, personas that help instead of decorate, finding segments in your data, and choosing who to serve first.</p>
     </div>
@@ -48,23 +49,18 @@
 <main class="wrap">
 
   <section id="warmup" class="block">
-    <h2>Warm-up <span class="tag">Optional</span></h2>
-    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
-    <form class="prompt" data-persist="warmup">
-      <p>You're the PM for a language-learning app. Marketing proposes three target segments for next quarter: "Gen Z", "Millennials" and "Gen X".</p>
-      <label>1. What's the weakness of segmenting this way?<textarea rows="2" name="a1"></textarea></label>
-      <label>2. Suggest a split that would better predict who keeps learning.<textarea rows="2" name="a2"></textarea></label>
-      <label>3. How would you choose which segment to focus on first?<textarea rows="2" name="a3"></textarea></label>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
-    </form>
-    <details class="reveal">
-      <summary>Show a model answer</summary>
-      <div class="model">
-        <p><b>1.</b> Generations describe people; they rarely predict what people do. A 22-year-old and a 45-year-old moving to Spain next month have more in common, for this app, than two random 22-year-olds.</p>
-        <p><b>2.</b> Split by need and situation: "moving abroad soon", "exam or job requirement", "travel next summer", "hobby learner". Then check in the data which group keeps practising after 30 days.</p>
-        <p><b>3.</b> Pick the segment with the sharpest pain and a deadline, that you can reach cheaply, and whose members talk to each other. People with an exam date often fit, and you can find them where they prepare.</p>
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>You're the PM for a language-learning app. Marketing proposes three target segments for next quarter:</p>
+        <div class="quote">"Gen Z, Millennials and Gen X."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
       </div>
-    </details>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What's the main weakness of these segments?", "o": ["Generations are hard to reach online", "Age describes people but rarely predicts who keeps learning", "There are too few segments"], "a": 1, "why": "Two people moving to Spain next month have more in common, for this app, than two random 25-year-olds."}, {"q": "Which split is most likely to predict who keeps learning?", "o": ["Their reason for learning, like moving abroad soon or an exam date", "Phone type", "Country"], "a": 0, "why": "Needs and deadlines predict behaviour far better than who people are."}, {"q": "Which is the best first segment?", "o": ["Everyone interested in languages", "Retirees with free time", "People moving abroad within six months"], "a": 2, "why": "Real pain, a deadline, and they gather in the same relocation groups."}]}</script>
   </section>
 
   <section id="lessons" class="block">
@@ -80,8 +76,8 @@
           <div class="part"><h4>The framework</h4>
             <div class="risk-grid">
               <div style="border-color:#8A939D"><b>Descriptive</b><span>Age, country, company size, job title. Easy to get, weak at predicting.</span></div>
-              <div style="border-color:#1F57B0"><b>Behavioural</b><span>What people do: features used, how often, what they buy. Strong at predicting.</span></div>
-              <div style="border-color:#C8232B"><b>Needs-based</b><span>The job, situation and goal. Strongest for deciding what to build.</span></div>
+              <div style="border-color:#4C7BD9"><b>Behavioural</b><span>What people do: features used, how often, what they buy. Strong at predicting.</span></div>
+              <div style="border-color:#E3A82B"><b>Needs-based</b><span>The job, situation and goal. Strongest for deciding what to build.</span></div>
             </div>
             <p>A good segment passes four tests: <b>different</b> behaviour or needs, <b>big enough</b> to matter, <b>reachable</b> through some channel, and <b>actionable</b>: you'd change something for them.</p></div>
           <div class="part"><h4>Real example</h4>

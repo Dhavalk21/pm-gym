@@ -16,7 +16,7 @@
 
 <header class="wrap top">
   <a class="brand" href="../">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
     PM Gym
   </a>
   <nav aria-label="Main">
@@ -34,8 +34,9 @@
 <section class="wrap" style="padding-block: 24px 40px">
   <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M5</div>
   <div class="title">
-    <span class="plate-mark" aria-hidden="true"></span>
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#E3A82B"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M5</text></svg>
     <div>
+      <span class="zone-tag"><i style="background:#E3A82B"></i>Zone 1, Understand</span>
       <h1>Product discovery</h1>
       <p>Interviews that get the truth instead of compliments, mapping opportunities before solutions, finding your riskiest assumptions, and testing them cheaply.</p>
     </div>
@@ -48,23 +49,18 @@
 <main class="wrap">
 
   <section id="warmup" class="block">
-    <h2>Warm-up <span class="tag">Optional</span></h2>
-    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
-    <form class="prompt" data-persist="warmup">
-      <p>You're exploring an idea: a tool that helps restaurant owners plan staff shifts. You have a 30-minute call with an owner tomorrow.</p>
-      <label>1. Write your first question.<textarea rows="2" name="a1"></textarea></label>
-      <label>2. Which questions would you avoid, and why?<textarea rows="2" name="a2"></textarea></label>
-      <label>3. After five calls, how would you decide whether to build anything?<textarea rows="2" name="a3"></textarea></label>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
-    </form>
-    <details class="reveal">
-      <summary>Show a model answer</summary>
-      <div class="model">
-        <p><b>1.</b> "Tell me about the last time you made the staff rota. Walk me through it." A specific, recent, real moment.</p>
-        <p><b>2.</b> Avoid pitching ("Would you use a tool that..."), leading ("That must be stressful, right?"), the future ("Would you pay..."), and asking them to design ("What features would you want?"). They all produce polite opinions instead of facts.</p>
-        <p><b>3.</b> Look for patterns across the stories: the same pain, a workaround they've already built or paid for, and a cost they can put a number on. Then test the riskiest assumption cheaply, like a concierge pilot where you make the rota for two restaurants by hand for a month, before building.</p>
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>You're exploring a shift-planning tool for restaurants. You have a 30-minute call with an owner tomorrow.</p>
+        <div class="quote">"Sure, I can give you half an hour."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
       </div>
-    </details>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What's the best opening question?", "o": ["Would you use a tool that plans shifts for you?", "How much would you pay for this?", "Tell me about the last time you made the staff rota."], "a": 2, "why": "A specific past moment gets facts. Hypotheticals get polite yeses."}, {"q": "Which answer is the strongest evidence?", "o": ["\"Other owners would love this.\"", "\"Last month the rota took four hours and I still had two no-shows on Saturday.\"", "\"That sounds great, I'd try it.\""], "a": 1, "why": "A real story with a cost is evidence. Opinions about the future aren't."}, {"q": "After five calls, what should you do before building anything?", "o": ["Test the riskiest assumption cheaply, like making rotas by hand for two restaurants", "Build the full product", "Send a survey to 1,000 owners"], "a": 0, "why": "A concierge pilot shows real behaviour in weeks, with nothing built."}]}</script>
   </section>
 
   <section id="lessons" class="block">
@@ -160,9 +156,9 @@
             <p>Before building, fake it, do it by hand, or show it. The goal is the cheapest test that would change your decision.</p></div>
           <div class="part"><h4>The framework</h4>
             <div class="risk-grid">
-              <div style="border-color:#C8232B"><b>Fake door</b><span>A button or page for something that doesn't exist yet. Measures real interest.</span></div>
-              <div style="border-color:#E3A300"><b>Concierge</b><span>Deliver the service by hand, openly, for a few customers.</span></div>
-              <div style="border-color:#1F57B0"><b>Wizard of Oz</b><span>It looks automated to the user; a person does the work behind it.</span></div>
+              <div style="border-color:#E3A82B"><b>Fake door</b><span>A button or page for something that doesn't exist yet. Measures real interest.</span></div>
+              <div style="border-color:#2A9D8F"><b>Concierge</b><span>Deliver the service by hand, openly, for a few customers.</span></div>
+              <div style="border-color:#4C7BD9"><b>Wizard of Oz</b><span>It looks automated to the user; a person does the work behind it.</span></div>
               <div style="border-color:#2C8350"><b>Prototype test</b><span>A clickable mock-up with five target users. Tests usability.</span></div>
             </div>
             <p>Before running any test, write down what result would make you stop, change course or continue.</p></div>

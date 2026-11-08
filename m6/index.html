@@ -16,7 +16,7 @@
 
 <header class="wrap top">
   <a class="brand" href="../">
-    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#C8232B"/></svg>
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
     PM Gym
   </a>
   <nav aria-label="Main">
@@ -34,8 +34,9 @@
 <section class="wrap" style="padding-block: 24px 40px">
   <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 1, Understand / M6</div>
   <div class="title">
-    <span class="plate-mark" aria-hidden="true"></span>
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#E3A82B"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M6</text></svg>
     <div>
+      <span class="zone-tag"><i style="background:#E3A82B"></i>Zone 1, Understand</span>
       <h1>Market and competition</h1>
       <p>Sizing a market from buyers you can count, seeing who you really compete with, positioning so the right people get it at once, and asking why now.</p>
     </div>
@@ -48,23 +49,18 @@
 <main class="wrap">
 
   <section id="warmup" class="block">
-    <h2>Warm-up <span class="tag">Optional</span></h2>
-    <p>Try it cold, or skip straight to the lessons. The model answer is here whenever you want it.</p>
-    <form class="prompt" data-persist="warmup">
-      <p>A founder pitches a booking app for independent hair salons in Germany: "The beauty market is worth billions, and we have no competitors."</p>
-      <label>1. How would you size this market more honestly?<textarea rows="2" name="a1"></textarea></label>
-      <label>2. Who are the real competitors, even if no app does exactly this?<textarea rows="2" name="a2"></textarea></label>
-      <label>3. What would make now the right time for this, or not?<textarea rows="2" name="a3"></textarea></label>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my answers</button><a class="btn" href="#lessons">Skip to lessons</a><span class="saved" role="status"></span></div>
-    </form>
-    <details class="reveal">
-      <summary>Show a model answer</summary>
-      <div class="model">
-        <p><b>1.</b> Bottom-up: count independent salons you could reach, multiply by a realistic monthly price, then estimate the share you could win in a few years. The beauty market's total says nothing about what salons pay for software.</p>
-        <p><b>2.</b> "No competitors" is never true. Salons already book by phone, paper diaries, WhatsApp, Instagram messages, and general booking platforms. Those habits are the competition, and they're free.</p>
-        <p><b>3.</b> A good "why now": customers increasingly expect to book online at any hour, and salons struggle with no-shows they could cut with reminders and deposits. A weak "why now": "apps are popular".</p>
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>A founder pitches a booking app for independent hair salons:</p>
+        <div class="quote">"The beauty market is worth billions, and we have no competitors."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
       </div>
-    </details>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What's the better way to size this market?", "o": ["Use the founder's estimate", "Count reachable salons and multiply by what they'd pay per year", "Take 1% of the beauty market"], "a": 1, "why": "Bottom-up from buyers you can count, at a price they'd really pay."}, {"q": "Who is the real competitor?", "o": ["Phone calls, paper diaries and Instagram messages", "Nobody, as the founder says", "Hair-product brands"], "a": 0, "why": "Customers always have an alternative. Free, familiar habits are the toughest."}, {"q": "Which is the strongest \"why now\"?", "o": ["Apps are popular", "The founder loves salons", "Customers expect to book online at any hour, and no-shows cost salons real money"], "a": 2, "why": "A real change in behaviour, with a cost attached, is a why now."}]}</script>
   </section>
 
   <section id="lessons" class="block">
@@ -101,9 +97,9 @@
             <p>Customers compare you with whatever they'd do if you didn't exist. That's usually not the product most like yours. It's the job from M2: anything else hired for it.</p></div>
           <div class="part"><h4>The framework</h4>
             <div class="risk-grid">
-              <div style="border-color:#C8232B"><b>Direct</b><span>Products like yours, solving the same job the same way.</span></div>
-              <div style="border-color:#E3A300"><b>Indirect</b><span>Different products for the same job: a general tool, an agency, a freelancer.</span></div>
-              <div style="border-color:#1F57B0"><b>Substitutes</b><span>Spreadsheets, email, paper, WhatsApp. Cheap, familiar, good enough.</span></div>
+              <div style="border-color:#E3A82B"><b>Direct</b><span>Products like yours, solving the same job the same way.</span></div>
+              <div style="border-color:#2A9D8F"><b>Indirect</b><span>Different products for the same job: a general tool, an agency, a freelancer.</span></div>
+              <div style="border-color:#4C7BD9"><b>Substitutes</b><span>Spreadsheets, email, paper, WhatsApp. Cheap, familiar, good enough.</span></div>
               <div style="border-color:#2C8350"><b>Doing nothing</b><span>Living with the problem. Often the hardest to beat.</span></div>
             </div>
             <p>Then map them on the two dimensions customers care about most, which you learn in interviews (M5), not the ones that flatter you.</p></div>
