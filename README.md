@@ -1,30 +1,119 @@
 # PM Gym
 
-A free practice gym for product managers, built and maintained by [Dhaval Kareliya](https://www.linkedin.com/in/dhavalk21/).
+**Free practice for product managers.** Short lessons, real decisions, and a game for every station.
 
-Most PM learning is passive: long courses, saved articles, frameworks that are read once and forgotten. PM Gym is the opposite. Every station is short, built around practice, and ends with a game that asks you to make real product decisions.
+**[Open PM Gym](https://pmgym.netlify.app/)** · [Play a game](https://pmgym.netlify.app/#rack) · [See the gym floor](https://pmgym.netlify.app/#floor)
 
-The format follows the learning techniques with the strongest evidence: trying a problem before the lesson, testing yourself instead of re-reading, spacing practice over time, and mixing related topics.
+---
 
-**Live site:** https://pmgym.netlify.app/
+## Why PM Gym
 
-## What's inside
+Most product management learning is passive. People take long courses and save articles, then forget most of the frameworks within a week. When a real decision comes up, they reach for whichever framework they remember, not the one that fits.
 
-- **The gym floor:** 23 stations across six zones, in the order a product gets built: understand, design and build, measure, grow, decide, ship and lead. AI stations sit right after the foundations they build on.
-- **Each station:** a warm-up, four short lessons with drills, a success and a failure case, a game, a task to apply it to your own product, a prompt to explain it in your own words, and a mastery check.
-- **The playground:** every game also works on its own page, so you can share it with your team.
+PM Gym takes the opposite approach. Each station is about two hours of practice, split into short sessions:
 
-## Project structure
+- you **predict** before you learn
+- you **decide** in a realistic scenario
+- you **apply** the idea to a product you know
+- you **check** what stuck
 
-- `index.html`: home page with the gym floor, the session format and the playground
-- `m1/`, `m2/` and so on: one page per station
-- `games/`: standalone pages for each game
-- `assets/`: shared styles, the station script, the games, and `plan.js`, which lists every station and its status
+Everything is free, needs no sign-up, and works in the browser.
 
-## Running it
+## How a station works
 
-Plain HTML, CSS and JavaScript with no build step. Open `index.html` in a browser, or serve the folder with any static host.
+Every station follows the same seven-step session:
+
+| Step | What you do | Time |
+| --- | --- | --- |
+| Warm-up | Make three quick predictions and rate how sure you are | 3 min |
+| Lessons | Four short lessons: the idea, the framework, a real example, where it breaks, and a drill | about 30 min |
+| Cases | One product that got it right, one that got it wrong | 10 min |
+| Game | Make the calls yourself in an interactive scenario | 10 to 20 min |
+| Apply | Build a card for your own product: an outcome, a problem, a segment, a test plan | 15 min |
+| Teach | Pick the best explanation, then write your own in 280 characters | 10 min |
+| Check | Five questions, one at a time, plus a comparison with your warm-up | 10 min |
+
+## The science behind it
+
+The format is built on the study techniques with the strongest research behind them:
+
+- **Pretesting:** attempting a question before the lesson improves learning, even when the first guess is wrong. That's the warm-up.
+- **Retrieval practice:** testing yourself beats re-reading. That's the drills, games and mastery checks.
+- **Spacing and interleaving:** questions from earlier stations come back, mixed in, at later ones.
+- **Calibration:** rating your confidence, then comparing it with your results, trains you to notice what you don't know yet.
+- **Generation and teaching:** explaining an idea in your own words shows whether you really understand it.
+
+Further reading: [Dunlosky et al., 2013, *Improving Students' Learning With Effective Learning Techniques*](https://doi.org/10.1177/1529100612453266) and [Donoghue and Hattie, 2021, *A Meta-Analysis of Ten Learning Techniques*](https://www.doi.org/10.3389/feduc.2021.581216).
+
+## The gym floor
+
+23 stations in six zones, in the order a product gets built. The AI stations come right after the foundations they build on.
+
+| Zone | Stations | Status |
+| --- | --- | --- |
+| **Understand** | [M1 Product thinking basics](https://pmgym.netlify.app/m1/), [M2 Problem framing](https://pmgym.netlify.app/m2/), [M3 Users and segmentation](https://pmgym.netlify.app/m3/), [M4 Behavioural psychology](https://pmgym.netlify.app/m4/), [M5 Product discovery](https://pmgym.netlify.app/m5/), [M6 Market and competition](https://pmgym.netlify.app/m6/), [AI-1 AI foundations for PMs](https://pmgym.netlify.app/ai-1/) | Live |
+| **Design and build** | M7 UX and design basics, M8 Technical foundations | Coming next |
+| **Measure** | M9 Metrics and North Star, M10 Instrumentation and data analysis, M11 Experimentation, AI-2 Evals and AI economics | Planned |
+| **Grow** | M12 Growth, M13 Business models and pricing | Planned |
+| **Decide** | M14 Vision and strategy, M15 Prioritisation, M16 Roadmaps and OKRs | Planned |
+| **Ship and lead** | M17 Execution and delivery, M18 Communication and influence, AI-3 Agents and responsible AI | Planned |
+| **Capstone** | Ship an AI feature end to end | Planned |
+
+## The playground
+
+Every game also has its own page, so you can share it with a colleague or play it in a team meeting.
+
+| Game | Station | What you practise | Time |
+| --- | --- | --- | --- |
+| [Risk Radar](https://pmgym.netlify.app/games/risk-radar/) | M1 | Spot the risk most likely to kill a product idea, then pick the cheapest test | 15 min |
+| [Symptom or Problem?](https://pmgym.netlify.app/games/symptom-or-problem/) | M2 | Tell symptoms, problems and solutions in disguise apart; trace a churn spike to its root cause | 10 min |
+| [Segment Sorter](https://pmgym.netlify.app/games/segment-sorter/) | M3 | Pick the segmentation that actually predicts behaviour; choose a beachhead | 15 min |
+| [Nudge or Sludge](https://pmgym.netlify.app/games/nudge-or-sludge/) | M4 | Judge whether a design helps users or works against them, and name the lever | 10 min |
+| [Interview Simulator](https://pmgym.netlify.app/games/interview-simulator/) | M5 | Interview a user without leading or pitching, and collect real insights | 10 min |
+| [Size It](https://pmgym.netlify.app/games/size-it/) | M6 | Spot the flaws in market-sizing claims and size a market from the bottom up | 8 min |
+| [AI or Not?](https://pmgym.netlify.app/games/ai-or-not/) | AI-1 | Decide when a language model fits, when a human must check it, and when code is better | 10 min |
+
+## Using PM Gym with your team
+
+- **Team warm-up:** play one game together at the start of a product meeting and discuss the answers you disagreed on.
+- **Onboarding:** give new PMs the Understand zone in their first two weeks.
+- **Coaching:** use a station's "Build your card" step as the agenda for a one-to-one about a real product.
+- **Interview practice:** many warm-up and mastery questions mirror the judgement calls asked in product interviews.
+
+## Built on the work of
+
+The lessons credit their sources. Key ideas come from Marty Cagan (the four product risks), Teresa Torres (opportunity solution trees and story-based interviewing), Rob Fitzpatrick (*The Mom Test*), Clayton Christensen (jobs to be done), Jeff Bezos (one-way and two-way doors), BJ Fogg (the behaviour model), Nir Eyal (the Hook Model), April Dunford (positioning) and Geoffrey Moore (*Crossing the Chasm*). Case studies draw on public reporting. Where numbers in a game are made up for teaching, the game says so.
+
+## Running it locally
+
+Plain HTML, CSS and JavaScript. There's no build step and nothing to install.
+
+```bash
+git clone https://github.com/Dhavalk21/pm-gym.git
+cd pm-gym
+python3 -m http.server 8000   # or open index.html directly in a browser
+```
+
+### Project structure
+
+```
+index.html            Home: Test your max, the gym floor, the session, the playground
+m1/ … m6/, ai-1/      One page per station
+games/                A standalone page for each game
+assets/
+  plan.js             Every station, its zone, game and status
+  site.css            Colours, type and shared components
+  station.css         Station page layout
+  station.js          Warm-up, lessons, card builder, teach, mastery check, takeaways
+  *.js                One file per game
+```
+
+Progress and notes are saved only in the visitor's own browser. PM Gym has no accounts, no backend and doesn't collect anyone's answers.
 
 ## Feedback
 
-Spotted something wrong, or have an idea for a game? Message me on [LinkedIn](https://www.linkedin.com/in/dhavalk21/).
+Found something wrong, have a better example, or want a station on a topic? Message me on [LinkedIn](https://www.linkedin.com/in/dhavalk21/) or [open an issue](https://github.com/Dhavalk21/pm-gym/issues).
+
+---
+
+Built and maintained by **[Dhaval Kareliya](https://www.linkedin.com/in/dhavalk21/)**, Senior Product Manager building AI products.
