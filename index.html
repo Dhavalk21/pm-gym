@@ -59,7 +59,7 @@
         </div>
         <div class="legend">
           <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#17202A"/></svg>Done</span>
-          <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="#fff" stroke="#C8232B" stroke-width="3"/></svg>You are here</span>
+          <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="#fff" stroke="#1F57B0" stroke-width="3"/></svg>You are here</span>
           <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#5F6975" stroke-dasharray="3 2"/></svg>Not started</span>
           <span><svg width="16" height="16" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="4" fill="#5F6975"/></svg>AI station</span>
         </div>
@@ -189,7 +189,7 @@
   function disc(m) {
     var c = floorCol(m.zone), st = m.status || "todo";
     if (st === "done") return "background:" + c + ";color:" + (m.zone === 4 ? "#17202A" : ON[m.zone]) + ";border:3px solid " + c;
-    if (st === "now") return "background:#fff;color:#17202A;border:4px solid " + c;
+    if (st === "now") return "background:#fff;color:#17202A;border:4px solid #1F57B0";
     return "background:#2B3036;color:#F2F3F1;border:2px dashed " + c;
   }
 
@@ -217,7 +217,7 @@
     var st = m.status === "now" ? "In progress, you are here" : m.status === "done" ? "Done" : "Not started";
     $("detail").innerHTML = '<div class="swatch" style="background:' + COL[m.zone] + '"></div>' +
       '<div class="main"><small>Zone ' + (m.zone + 1) + ', ' + ZN[m.zone] + '</small><h3>' + (m.code === "Cap" ? "" : m.code + " ") + esc(m.name) + '</h3><p>' + esc(m.desc) + '</p></div>' +
-      '<div class="side"><div><small>Game</small><b>' + esc(m.game) + '</b></div><div><small>Status</small><b style="color:' + (m.status === "now" ? "#B0202A" : "#17202A") + '">' + st + '</b></div>' +
+      '<div class="side"><div><small>Game</small><b>' + esc(m.game) + '</b></div><div><small>Status</small><b style="color:' + (m.status === "now" ? "#1F57B0" : "#17202A") + '">' + st + '</b></div>' +
       (m.page ? '<a class="btn solid" href="' + m.page + '">Enter this station</a>' : "") + '</div>';
   }
 

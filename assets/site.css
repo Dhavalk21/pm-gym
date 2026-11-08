@@ -12,6 +12,10 @@
   --red-text: #B0202A;
   --green: #2C8350;
   --blue: #1F57B0;
+  --accent: #1F57B0;      /* progress, current step, selection */
+  --accent-soft: #E7F1FB;
+  --ok: #2C8350;          /* correct, done */
+  --bad: #C8232B;         /* wrong answers and errors only */
   --cond: "Barlow Condensed", "Arial Narrow", sans-serif;
 }
 * { box-sizing: border-box; }
@@ -114,10 +118,10 @@ h1, h2, h3 { font-family: var(--cond); margin: 0; line-height: 1; }
 .bars { display: flex; align-items: flex-end; gap: 6px; height: 230px; margin-top: 40px; border-bottom: 2px solid var(--ink); }
 .bars button { border: 0; padding: 0; cursor: pointer; border-radius: 4px 4px 0 0; background: var(--ink-3); transition: background 150ms; }
 .bars button:hover { background: var(--ink-2); }
-.bars button[aria-pressed="true"] { background: var(--red); }
+.bars button[aria-pressed="true"] { background: var(--accent); }
 .labels { display: flex; gap: 6px; margin-top: 10px; }
 .labels b { display: block; font-family: var(--cond); font-weight: 700; font-size: 20px; }
-.labels .on b { color: var(--red-text); }
+.labels .on b { color: var(--accent); }
 .labels span { font-size: 14px; color: var(--ink-3); }
 .step-detail { margin-top: 28px; display: flex; flex-wrap: wrap; gap: 24px 48px; padding: 26px 28px; background: #fff; border-radius: 8px; }
 .step-detail > div { flex: 1 1 300px; min-width: 0; }

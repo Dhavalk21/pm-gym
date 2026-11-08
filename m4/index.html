@@ -201,16 +201,10 @@
   </section>
 
   <section id="apply" class="block">
-    <h2>Apply it to your product</h2>
-    <p>Pick one behaviour you want more of in a product you know. Diagnose it and design an honest nudge. Your notes stay in this browser.</p>
-    <form data-persist="apply">
-      <div class="slots">
-        <label class="slot">The behaviour, and which of motivation, ability or prompt is missing<textarea rows="4" name="b"></textarea></label>
-        <label class="slot">Your nudge: what changes, and which lever it uses<textarea rows="4" name="n"></textarea></label>
-        <label class="slot">Guardrail: how you'd know it had turned into sludge<textarea rows="4" name="g"></textarea></label>
-      </div>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
-    </form>
+    <h2>Build your nudge card</h2>
+    <p>Pick one behaviour you want more of in a product you know. Diagnose it, design an honest nudge, and set a guardrail. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Nudge card", "sentence": "To get people to {behaviour}, fix the missing {missing}: {nudge}.", "rows": [{"label": "Guardrail", "text": "{guardrail}"}], "fields": [{"id": "behaviour", "label": "Which behaviour do you want more of?", "placeholder": "For example: update task status before Monday's meeting", "blank": "do what"}, {"id": "missing", "label": "What's missing: motivation, ability or prompt?", "placeholder": "Tap one below", "blank": "piece", "chips": ["motivation", "ability", "prompt"]}, {"id": "nudge", "label": "What will you change?", "placeholder": "For example: a Monday 9:00 message with one-tap status buttons", "blank": "your nudge"}, {"id": "guardrail", "label": "How will you know it turned into sludge?", "placeholder": "For example: mute rate rises above 10%", "blank": "the warning sign", "chips": ["opt-outs rise", "complaints rise", "uninstalls rise"]}]}</script>
     <details class="reveal">
       <summary>Show a worked example</summary>
       <div class="model">
@@ -223,13 +217,9 @@
 
   <section id="teach" class="block">
     <h2>Teach it</h2>
-    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
-    <form class="prompt" data-persist="teach">
-      <p>A colleague proposes adding "Only 3 left!" to every product page because it lifted conversion in a competitor's test. In three or four sentences, explain how you'd respond.</p>
-      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
-      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations name the lever, separate true scarcity from fake scarcity, and suggest a guardrail metric.</p>
-      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
-    </form>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A colleague wants \"Only 3 left!\" on every product page because it worked for a competitor. Which reply would you send?", "options": ["\"Do it; scarcity always works.\"", "\"If stock really is low, showing it helps people decide. If it isn't, it's fake scarcity: it misleads people and regulators act on it. Let's show real stock only and watch returns and complaints.\"", "\"Never use any psychology in design.\""], "best": 1, "ok": "It separates an honest nudge from sludge and adds a guardrail.", "no": "The second one: true scarcity is fine, fake scarcity is sludge, and it adds a guardrail.", "prompt": "Explain the difference between a nudge and sludge, with an example.", "checks": [{"k": "nudge", "label": "Explains a nudge"}, {"k": "sludge|dark pattern|against", "label": "Explains sludge"}, {"k": "user.?s? (want|goal|interest)|help", "label": "Says whose goal it serves"}, {"k": "guardrail|complain|opt.?out|metric|watch", "label": "Mentions a guardrail"}, {"k": "for example|e\\.g\\.|like |such as", "label": "Uses an example"}]}</script>
   </section>
 
   <section id="check" class="block" style="border-bottom: 0">

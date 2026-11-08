@@ -201,16 +201,10 @@
   </section>
 
   <section id="apply" class="block">
-    <h2>Apply it to your product</h2>
-    <p>Pick a product you work on or know well. Choose its first segment, describe them as a useful persona, and say who you'd leave out for now. Your notes stay in this browser.</p>
-    <form data-persist="apply">
-      <div class="slots">
-        <label class="slot">Primary segment, and why it's the beachhead<textarea rows="4" name="s"></textarea></label>
-        <label class="slot">Persona: job, situation, behaviour, frustration, what makes them switch<textarea rows="4" name="p"></textarea></label>
-        <label class="slot">Who you're deliberately not serving yet<textarea rows="4" name="n"></textarea></label>
-      </div>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
-    </form>
+    <h2>Build your segment card</h2>
+    <p>Pick a product you know. Choose its first segment and who you're leaving out for now. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Segment card", "sentence": "First segment: {segment}, who {need}.", "rows": [{"label": "Where to find them", "text": "{reach}"}, {"label": "Not yet", "text": "{notyet}"}], "fields": [{"id": "segment", "label": "Who is the first segment? Describe what they do or need, not their age", "placeholder": "For example: people moving abroad within six months", "blank": "who"}, {"id": "need", "label": "What do they need, and how soon?", "placeholder": "For example: need everyday conversations before a hard deadline", "blank": "need what"}, {"id": "reach", "label": "Where can you reach them cheaply?", "placeholder": "For example: relocation and expat groups", "blank": "where", "chips": ["Online communities", "An association they belong to", "Partners who already serve them"]}, {"id": "notyet", "label": "Who are you deliberately not serving yet?", "placeholder": "For example: hobby learners and students", "blank": "who not"}]}</script>
     <details class="reveal">
       <summary>Show a worked example</summary>
       <div class="model">
@@ -224,13 +218,9 @@
 
   <section id="teach" class="block">
     <h2>Teach it</h2>
-    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
-    <form class="prompt" data-persist="teach">
-      <p>A teammate says: "Our target users are millennials." In three or four sentences, explain why that's weak and what a better segment would look like.</p>
-      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
-      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations say why demographics rarely predict behaviour, offer a behavioural or needs-based alternative, and say how you'd check it in data.</p>
-      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
-    </form>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A teammate says: \"Our target users are millennials.\" Which reply would you send?", "options": ["\"Great, millennials are a big market.\"", "\"Age describes people, but it rarely predicts what they'll do. Could we segment by need or behaviour, like people moving abroad soon?\"", "\"Let's target everyone so we don't miss anyone.\""], "best": 1, "ok": "It explains why demographics are weak and offers a better cut.", "no": "The second one: it explains the weakness and suggests a behaviour or need-based segment.", "prompt": "Explain why \"millennials\" is a weak segment, and what a better one looks like.", "checks": [{"k": "predict|describ", "label": "Says demographics don't predict"}, {"k": "behaviou?r|do |does |usage|use ", "label": "Suggests behaviour"}, {"k": "need|job|situation|goal", "label": "Suggests needs or situation"}, {"k": "data|check|test|measure", "label": "Says how you'd check it"}, {"k": "for example|e\\.g\\.|like |such as", "label": "Uses an example"}]}</script>
   </section>
 
   <section id="check" class="block" style="border-bottom: 0">

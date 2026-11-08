@@ -218,16 +218,10 @@
 
   <!-- APPLY -->
   <section id="apply" class="block">
-    <h2>Apply it to your product</h2>
-    <p>Pick a product or feature you work on, or one you use every day. Write its outcome and its riskiest assumption. Your notes stay in this browser.</p>
-    <form data-persist="apply">
-      <div class="slots">
-        <label class="slot">The outcome (who does what differently, measured how)<textarea rows="4" name="o"></textarea></label>
-        <label class="slot">Riskiest assumption, and which risk it is<textarea rows="4" name="r"></textarea></label>
-        <label class="slot">Cheapest test that would answer it<textarea rows="4" name="t"></textarea></label>
-      </div>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
-    </form>
+    <h2>Build your outcome card</h2>
+    <p>Pick a product you know. Three short answers and one risk, and your card is ready. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Outcome card", "sentence": "{who} {what}, measured by {how}.", "rows": [], "fields": [{"id": "who", "label": "Who should behave differently?", "placeholder": "For example: new subscribers", "blank": "Who", "chips": ["New users", "Subscribers", "Team leads", "Trial users"]}, {"id": "what", "label": "Doing what, differently?", "placeholder": "For example: skip fewer weeks", "blank": "do what differently", "chips": ["come back in week two", "finish setup on day one", "skip fewer weeks"]}, {"id": "how", "label": "Measured how?", "placeholder": "For example: weeks skipped per month", "blank": "how", "chips": ["weekly active rate", "setup completion rate", "weeks skipped per month"]}, {"id": "risk", "type": "risk", "label": "What's most likely to kill it? Pick one, then name the assumption", "placeholder": "For example: people want plans made for them"}]}</script>
     <details class="reveal">
       <summary>Show a worked example</summary>
       <div class="model">
@@ -249,13 +243,9 @@
   <!-- SHIP -->
   <section id="teach" class="block">
     <h2>Teach it</h2>
-    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
-    <form class="prompt" data-persist="teach">
-      <p>A colleague missed this station. In three or four sentences, explain the difference between an output and an outcome, and the four product risks, using a product you know.</p>
-      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
-      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations use a concrete example, name all four risks, and say which one you would test first and why.</p>
-      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
-    </form>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A colleague asks: \"What's the difference between an output and an outcome?\"", "options": ["\"Outputs are deliverables in the execution layer; outcomes are value-realisation metrics aligned to strategic OKRs.\"", "\"An output is what we ship, like a new checkout. An outcome is what people do differently because of it, like more people finishing their order.\"", "\"They're the same thing: an outcome is just a finished output.\""], "best": 1, "ok": "Plain words and a concrete example. That's the bar.", "no": "The second one: plain words and an example. The first hides behind jargon; the third is wrong.", "prompt": "Explain outcomes and the four product risks, using a product you know.", "checks": [{"k": "outcome|behaviou?r|do differently|change", "label": "Says what changes for people"}, {"k": "value|want", "label": "Mentions value risk"}, {"k": "usab|figure out|use it", "label": "Mentions usability risk"}, {"k": "feasib|build", "label": "Mentions feasibility risk"}, {"k": "viab|business|legal|cost", "label": "Mentions viability risk"}, {"k": "for example|e\\.g\\.|like |such as", "label": "Uses an example"}]}</script>
   </section>
 
   <!-- CHECK -->

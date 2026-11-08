@@ -197,16 +197,10 @@
   </section>
 
   <section id="apply" class="block">
-    <h2>Apply it to your product</h2>
-    <p>Pick a product you know. Size it bottom-up, list its real alternatives, and write its "why now". Your notes stay in this browser.</p>
-    <form data-persist="apply">
-      <div class="slots">
-        <label class="slot">Bottom-up size: buyers × price, then what you can reach and win<textarea rows="5" name="s"></textarea></label>
-        <label class="slot">Competitive alternatives, including substitutes and doing nothing<textarea rows="5" name="c"></textarea></label>
-        <label class="slot">Why now: what changed, and when<textarea rows="5" name="w"></textarea></label>
-      </div>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
-    </form>
+    <h2>Build your market card</h2>
+    <p>Pick a product you know. Size it from buyers you can count, and name what it really competes with. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Market card", "sentence": "{buyers} × {price} is the total market. Realistic in three years: {som}.", "rows": [{"label": "Real alternative", "text": "{alt}"}, {"label": "Why now", "text": "{why}"}], "fields": [{"id": "buyers", "label": "How many buyers can you count?", "placeholder": "For example: 60,000 independent restaurants", "blank": "Buyers"}, {"id": "price", "label": "At what price per year?", "placeholder": "For example: €480 a year", "blank": "price"}, {"id": "som", "label": "What share could you realistically win in three years?", "placeholder": "For example: 2% of those you can reach", "blank": "your share"}, {"id": "alt", "label": "What do they use if you don't exist?", "placeholder": "For example: a spreadsheet and a WhatsApp group", "blank": "the alternative", "chips": ["A spreadsheet", "Email and chat", "Paper", "Doing nothing"]}, {"id": "why", "label": "Why now? What changed, and when?", "placeholder": "For example: a new rule takes effect next year", "blank": "the shift", "chips": ["New technology", "A new regulation", "A change in behaviour", "A change in costs"]}]}</script>
     <details class="reveal">
       <summary>Show a worked example</summary>
       <div class="model">
@@ -220,13 +214,9 @@
 
   <section id="teach" class="block">
     <h2>Teach it</h2>
-    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
-    <form class="prompt" data-persist="teach">
-      <p>A founder tells you: "Our market is €50 billion and we have no competitors." In three or four sentences, explain what's wrong with both halves of that sentence.</p>
-      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
-      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations suggest a bottom-up sizing, name at least two real alternatives, and explain why "no competitors" is a warning sign.</p>
-      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
-    </form>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A founder says: \"Our market is €50 billion and we have no competitors.\" Which reply would you send?", "options": ["\"Impressive. That's a huge opportunity.\"", "\"Let's size it from buyers you can count and what they pay. And customers always have an alternative, even if it's a spreadsheet or doing nothing.\"", "\"Then you should raise a big round quickly.\""], "best": 1, "ok": "It fixes both halves: bottom-up sizing and real alternatives.", "no": "The second one: size bottom-up, and name the real alternatives.", "prompt": "Explain what's wrong with \"€50 billion market, no competitors\".", "checks": [{"k": "bottom.?up|count|buyers|customers? (you|we) can", "label": "Suggests bottom-up sizing"}, {"k": "price|pay|per (year|month)", "label": "Mentions price"}, {"k": "spreadsheet|excel|whatsapp|email|paper|nothing|habit|altern", "label": "Names a real alternative"}, {"k": "reach|realistic|share|serve", "label": "Talks about what you can reach"}, {"k": "why now|timing|changed", "label": "Mentions why now"}]}</script>
   </section>
 
   <section id="check" class="block" style="border-bottom: 0">

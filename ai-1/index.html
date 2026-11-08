@@ -211,16 +211,10 @@
   </section>
 
   <section id="apply" class="block">
-    <h2>Apply it to your product</h2>
-    <p>Pick one AI idea for a product you know. Run the fit check and sketch the context. Your notes stay in this browser.</p>
-    <form data-persist="apply">
-      <div class="slots">
-        <label class="slot">The idea, and the problem it solves (not "add AI")<textarea rows="5" name="i"></textarea></label>
-        <label class="slot">Fit check: how messy is the input, what does a wrong answer cost, who checks it?<textarea rows="5" name="f"></textarea></label>
-        <label class="slot">What goes in the context: instructions, examples, facts, tools<textarea rows="5" name="c"></textarea></label>
-      </div>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
-    </form>
+    <h2>Build your AI fit card</h2>
+    <p>Pick one AI idea for a product you know. Run the fit check before anyone builds it. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "AI fit card", "sentence": "{idea}, to solve: {problem}.", "rows": [{"label": "If it's wrong", "text": "{wrong}"}, {"label": "Who checks it", "text": "{check}"}, {"label": "What goes in the context", "text": "{context}"}], "fields": [{"id": "idea", "label": "The AI idea", "placeholder": "For example: draft weekly project status updates", "blank": "Your AI idea"}, {"id": "problem", "label": "The problem it solves (not \"add AI\")", "placeholder": "For example: leads spend an hour every Friday writing them", "blank": "which problem"}, {"id": "wrong", "label": "What does a wrong answer cost?", "placeholder": "Tap one or describe it", "blank": "cost of a mistake", "chips": ["Little: easy to fix", "Some: annoying or embarrassing", "A lot: money, legal or safety"]}, {"id": "check", "label": "Who checks the output, and how?", "placeholder": "For example: the lead edits before sending", "blank": "who checks", "chips": ["A person approves every output", "Spot checks on a sample", "Nobody: so keep it low-risk"]}, {"id": "context", "label": "What does the model need in its context?", "placeholder": "For example: this week's task changes and two example updates", "blank": "instructions, examples, facts", "chips": ["Clear instructions and examples", "Our own documents (retrieval)", "Live data through tools"]}]}</script>
     <details class="reveal">
       <summary>Show a worked example</summary>
       <div class="model">
@@ -233,13 +227,9 @@
 
   <section id="teach" class="block">
     <h2>Teach it</h2>
-    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
-    <form class="prompt" data-persist="teach">
-      <p>A stakeholder asks: "Why can't we just plug ChatGPT into our website and let it answer customers?" In three or four sentences, explain what would go wrong and what you'd do instead.</p>
-      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
-      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations mention that the model doesn't know your facts, describe grounding it in your own content, and name the questions a person should still handle.</p>
-      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
-    </form>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A stakeholder asks: \"Why can't we just plug ChatGPT into the website to answer customers?\" Which reply would you send?", "options": ["\"We can, it knows everything.\"", "\"It doesn't know our policies or prices, so it would guess, confidently. We'd give it our own help content to answer from, test it on real questions, and keep refunds and account changes with a person.\"", "\"AI is too risky; let's never use it.\""], "best": 1, "ok": "It names the gap, the fix and where a human stays in the loop.", "no": "The second one: ground it in your own content, test it, and keep high-stakes cases with people.", "prompt": "Explain to a stakeholder what it takes to use AI to answer customers safely.", "checks": [{"k": "doesn.?t know|guess|halluc|plausible|wrong", "label": "Says it can be confidently wrong"}, {"k": "our (own )?(docs|documents|content|policies|data)|retriev|rag|ground", "label": "Grounds it in your own content"}, {"k": "test|eval|check", "label": "Says you'd test it"}, {"k": "human|person|agent|review|approve", "label": "Keeps a person in the loop"}, {"k": "refund|legal|account|price|exact", "label": "Names what AI shouldn't decide"}]}</script>
   </section>
 
   <section id="check" class="block" style="border-bottom: 0">

@@ -194,16 +194,10 @@
   </section>
 
   <section id="apply" class="block">
-    <h2>Apply it to your product</h2>
-    <p>Take a request you received recently, or one from a product you know. Turn it into a problem statement and a job story. Your notes stay in this browser.</p>
-    <form data-persist="apply">
-      <div class="slots">
-        <label class="slot">The request as it arrived (symptom, problem or solution?)<textarea rows="4" name="q"></textarea></label>
-        <label class="slot">Problem statement: who struggles to do what, because of what, leading to what<textarea rows="4" name="p"></textarea></label>
-        <label class="slot">Job story: when..., I want to..., so I can...<textarea rows="4" name="j"></textarea></label>
-      </div>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
-    </form>
+    <h2>Build your problem card</h2>
+    <p>Take a request you received recently. Turn it into a problem with no solution hiding in it. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Problem card", "sentence": "{who} struggle to {task} because {obstacle}, so {impact}.", "rows": [{"label": "We'll know it's solved when", "text": "{solved}"}], "fields": [{"id": "who", "label": "Who is struggling?", "placeholder": "For example: first-time sellers", "blank": "Who", "chips": ["First-time users", "Team leads", "Finance teams", "Mobile shoppers"]}, {"id": "task", "label": "To do what?", "placeholder": "For example: list a big catalogue", "blank": "do what", "chips": ["find the right product", "finish setup", "get paid on time"]}, {"id": "obstacle", "label": "Because of what obstacle?", "placeholder": "For example: uploads stop at 20 items", "blank": "what obstacle"}, {"id": "impact", "label": "Leading to what consequence?", "placeholder": "For example: listings take days and sellers give up", "blank": "what consequence"}, {"id": "solved", "label": "We'll know it's solved when...", "placeholder": "For example: most sellers list everything on day one", "blank": "what changes"}]}</script>
     <details class="reveal">
       <summary>Show a worked example</summary>
       <div class="model">
@@ -217,13 +211,9 @@
 
   <section id="teach" class="block">
     <h2>Teach it</h2>
-    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
-    <form class="prompt" data-persist="teach">
-      <p>A colleague brings you a request: "We need a mobile app." In three or four sentences, explain how you would turn it into a real problem before anyone builds anything.</p>
-      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
-      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations name the request as a solution in disguise, show the questions you would ask, and end with a one-sentence problem statement.</p>
-      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
-    </form>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A colleague says: \"Sales wants a mobile app. What's the problem?\" Which reply would you send?", "options": ["\"Let's just build it; sales knows the customers.\"", "\"An app is a solution. Let's ask what customers can't do today without one, when it happens, and what it costs them.\"", "\"Mobile is a trend, so it's probably right.\""], "best": 1, "ok": "It moves from the solution up to the problem, with the right questions.", "no": "The second one: it treats the app as a solution and asks for the real problem.", "prompt": "Explain how you'd turn \"we need a mobile app\" into a real problem.", "checks": [{"k": "solution|disguise", "label": "Calls the request a solution"}, {"k": "why|what.*can.?t|struggl", "label": "Asks what people can't do"}, {"k": "who|users?|customers?|people", "label": "Names who has the problem"}, {"k": "because|obstacle|since", "label": "States the obstacle"}, {"k": "so |leads to|cost|consequence|result", "label": "Names the consequence"}]}</script>
   </section>
 
   <section id="check" class="block" style="border-bottom: 0">

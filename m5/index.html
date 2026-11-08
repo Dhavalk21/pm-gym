@@ -203,16 +203,10 @@
   </section>
 
   <section id="apply" class="block">
-    <h2>Apply it to your product</h2>
-    <p>Plan one week of discovery for a question you have on a product you know. Your notes stay in this browser.</p>
-    <form data-persist="apply">
-      <div class="slots">
-        <label class="slot">Who you'll talk to, and your first three questions<textarea rows="5" name="q"></textarea></label>
-        <label class="slot">Your riskiest assumption (important, little evidence)<textarea rows="5" name="a"></textarea></label>
-        <label class="slot">Cheapest test, and the result that would change your mind<textarea rows="5" name="t"></textarea></label>
-      </div>
-      <div class="row-actions"><button type="submit" class="btn solid">Save my notes</button><span class="saved" role="status"></span></div>
-    </form>
+    <h2>Build your discovery card</h2>
+    <p>Plan one week of discovery for a question you have about a product you know. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Discovery card", "sentence": "Talk to {who}. Start with: “{question}”", "rows": [{"label": "Riskiest assumption", "text": "{assumption}"}, {"label": "Cheapest test", "text": "{test}"}, {"label": "We'll change course if", "text": "{signal}"}], "fields": [{"id": "who", "label": "Who will you talk to?", "placeholder": "For example: five owners of independent restaurants", "blank": "whom"}, {"id": "question", "label": "Your first question, about a specific past event", "placeholder": "Tell me about the last time you...", "blank": "Tell me about the last time you...", "chips": ["Tell me about the last time you...", "Walk me through what happened when...", "What have you tried to fix..."]}, {"id": "assumption", "label": "Your riskiest assumption (important, little evidence)", "placeholder": "For example: owners will let software draft the rota", "blank": "assumption"}, {"id": "test", "label": "The cheapest test that would answer it", "placeholder": "For example: draft rotas by hand for three restaurants for a month", "blank": "test", "chips": ["A concierge pilot", "A fake door", "A Wizard of Oz test", "A prototype test with five users"]}, {"id": "signal", "label": "What result would change your mind?", "placeholder": "For example: fewer than two of three approve the draft by week three", "blank": "signal"}]}</script>
     <details class="reveal">
       <summary>Show a worked example</summary>
       <div class="model">
@@ -226,13 +220,9 @@
 
   <section id="teach" class="block">
     <h2>Teach it</h2>
-    <p>Explaining an idea in your own words is the fastest way to find out whether you really understand it. Your answer stays in this browser.</p>
-    <form class="prompt" data-persist="teach">
-      <p>A new teammate is about to run their first customer interview and has written "Would you use our new feature?" as question one. In three or four sentences, coach them.</p>
-      <label>Your explanation<textarea rows="5" name="t"></textarea></label>
-      <p style="margin-top:14px;font-size:16px;color:var(--ink-2)">Good explanations say why the question fails, give a better one about a specific past event, and suggest how to dig deeper.</p>
-      <div class="row-actions"><button type="submit" class="btn solid">Save</button><span class="saved" role="status"></span></div>
-    </form>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A new teammate's first interview question is \"Would you use our new feature?\" Which coaching would you send?", "options": ["\"Good question, it's direct.\"", "\"People are kind, so they'll say yes. Ask about a real recent moment instead: 'Tell me about the last time you...', then dig into what happened and what it cost.\"", "\"Ask them how much they'd pay instead.\""], "best": 1, "ok": "It explains why the question fails and gives a better one.", "no": "The second one: hypotheticals get polite yeses; past events get facts.", "prompt": "Coach a teammate on how to run their first customer interview.", "checks": [{"k": "last time|past|specific|recent", "label": "Ask about a specific past event"}, {"k": "pitch|idea|lead|would you", "label": "Don't pitch or lead"}, {"k": "listen|dig|follow|what happened|why", "label": "Dig deeper and listen"}, {"k": "pattern|several|more than one|interviews", "label": "Look for patterns across interviews"}, {"k": "test|experiment|prototype|concierge|fake door", "label": "Mentions a cheap test"}]}</script>
   </section>
 
   <section id="check" class="block" style="border-bottom: 0">
