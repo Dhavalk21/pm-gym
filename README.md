@@ -52,7 +52,7 @@ Further reading: [Dunlosky et al., 2013, *Improving Students' Learning With Effe
 | Zone | Stations | Status |
 | --- | --- | --- |
 | **Understand** | [M1 Product thinking basics](https://pmgym.netlify.app/m1/), [M2 Problem framing](https://pmgym.netlify.app/m2/), [M3 Users and segmentation](https://pmgym.netlify.app/m3/), [M4 Behavioural psychology](https://pmgym.netlify.app/m4/), [M5 Product discovery](https://pmgym.netlify.app/m5/), [M6 Market and competition](https://pmgym.netlify.app/m6/), [AI-1 AI foundations for PMs](https://pmgym.netlify.app/ai-1/) | Live |
-| **Design and build** | M7 UX and design basics, M8 Technical foundations | Coming next |
+| **Design and build** | [M7 UX and design basics](https://pmgym.netlify.app/m7/), [M8 Technical foundations](https://pmgym.netlify.app/m8/) | Live |
 | **Measure** | M9 Metrics and North Star, M10 Instrumentation and data analysis, M11 Experimentation, AI-2 Evals and AI economics | Planned |
 | **Grow** | M12 Growth, M13 Business models and pricing | Planned |
 | **Decide** | M14 Vision and strategy, M15 Prioritisation, M16 Roadmaps and OKRs | Planned |
@@ -72,6 +72,8 @@ Every game also has its own page, so you can share it with a colleague or play i
 | [Interview Simulator](https://pmgym.netlify.app/games/interview-simulator/) | M5 | Interview a user without leading or pitching, and collect real insights | 10 min |
 | [Size It](https://pmgym.netlify.app/games/size-it/) | M6 | Spot the flaws in market-sizing claims and size a market from the bottom up | 8 min |
 | [AI or Not?](https://pmgym.netlify.app/games/ai-or-not/) | AI-1 | Decide when a language model fits, when a human must check it, and when code is better | 10 min |
+| [Heuristic Hunt](https://pmgym.netlify.app/games/heuristic-hunt/) | M7 | Spot which usability rule a screen breaks, then see the fix | 8 min |
+| [Request Journey](https://pmgym.netlify.app/games/request-journey/) | M8 | Follow one tap through app, server and database, and diagnose incidents | 8 min |
 
 ## Using PM Gym with your team
 
@@ -98,7 +100,7 @@ python3 -m http.server 8000   # or open index.html directly in a browser
 
 ```
 index.html            Home: Test your max, the gym floor, the session, the playground
-m1/ … m6/, ai-1/      One page per station
+m1/ … m8/, ai-1/      One page per station
 games/                A standalone page for each game
 assets/
   plan.js             Every station, its zone, game and status

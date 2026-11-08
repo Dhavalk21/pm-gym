@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M8 Technical foundations | PM Gym</title>
+<meta name="description" content="How web apps work, APIs, data, speed and scale, tech debt, and build or buy. Four short lessons, two cases and the Request Journey game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m8">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 2, Design and build / M8</div>
+  <div class="title">
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#2A9D8F"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M8</text></svg>
+    <div>
+      <span class="zone-tag"><i style="background:#2A9D8F"></i>Zone 2, Design and build</span>
+      <h1>Technical foundations</h1>
+      <p>What happens when someone taps a button, APIs as contracts and dependencies, why speed and scale are product decisions, and when to build or buy.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 33 minutes</span><span>2 cases</span><span>Request Journey game, 8 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>Engineering gives two estimates for next quarter:</p>
+        <div class="quote">"Apple Pay: two sprints. Live order tracking: six months."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
+      </div>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "Why might live tracking take so much longer?", "o": ["Apple Pay is easier to design", "It needs new live data from couriers, new infrastructure and handling many users at once", "The engineers are slow"], "a": 1, "why": "Apple Pay plugs into an existing payment flow. Tracking needs data you don't collect yet, at scale."}, {"q": "Your tracking depends on a maps provider's API, which doubles its prices. What kind of risk is that?", "o": ["A dependency and viability risk", "A usability risk", "No risk; it's their problem"], "a": 0, "why": "When their price or uptime changes, your costs and features change too."}, {"q": "Should a small team build its own payment processing?", "o": ["Yes: it saves fees", "Only if users ask for it", "No: buy it. Payments are standard and heavily regulated"], "a": 2, "why": "Build what makes you different. Payments, login and email are usually better bought."}]}</script>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+<details class="lesson" data-lesson="1"><summary><span class="ln">1</span><span class="lt"><b>How a web app works</b><span>What actually happens when someone taps a button.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Almost every product has three layers. The <b>client</b> (the app or browser) shows things and takes input. The <b>server</b> runs the logic. The <b>database</b> remembers things. They talk through <b>requests and responses</b>: the client asks, the server answers.</p></div><div class="part"><h4>The framework</h4><div class="chain"><div><small>Client</small><b>App or browser</b></div><div><small>Server</small><b>Logic and rules</b></div><div><small>Database</small><b>Stored data</b></div></div><p>For any feature, ask three questions: what does the client need to show, what does the server need to decide, and what has to be stored or looked up?</p></div><div class="part"><h4>Real example</h4><p>A customer taps "Pay €42". The app sends the order to the server. The server checks the basket, asks a payment provider to charge the card, saves the order in the database, then tells the app to show "Order confirmed". Each arrow in that story is a place things can be slow or fail.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Real systems have many more boxes:</b> caches, queues, background jobs, dozens of services. The three layers are a map, not the territory.</li><li><b>"Just a small UI change"</b> sometimes isn't: if the screen needs data that isn't stored yet, the work is in the other layers.</li></ul></div><div class="part drill"><h4>Drill: which layer?</h4><div class="check stack" data-answer="2"><p class="cq">Users want to see their order history from three years ago, but it was never saved. Where's the work?</p><div class="opts"><button type="button" class="opt">Only the app screen</button><button type="button" class="opt">Only the server logic</button><button type="button" class="opt">Mostly in the data: it has to be stored before it can be shown</button></div><p class="cfb" data-ok="Right: you can't show what was never stored." data-no="The data doesn't exist yet. The work starts in what gets stored."></p></div></div></div></details>
+<details class="lesson" data-lesson="2"><summary><span class="ln">2</span><span class="lt"><b>APIs</b><span>The contracts that let systems, and companies, work together.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>An <b>API</b> (application programming interface) is a contract: send this request, get this response. Your app talks to your server through APIs, and your server talks to other companies' services the same way: payments, maps, email, AI models.</p></div><div class="part"><h4>The framework</h4><ol><li><b>The contract:</b> what you send, what you get back, what errors look like.</li><li><b>Limits:</b> how many requests per minute, and what it costs per call.</li><li><b>Versions:</b> APIs change. Good providers announce it; you still have to update.</li><li><b>Dependency:</b> when their API is down, your feature is down.</li></ol></div><div class="part"><h4>Real example</h4><p>A delivery app uses a maps provider's API to show couriers on a map. When the provider raises its prices per map load, the cost of every order goes up overnight. When the API has an outage, tracking disappears for every customer. Neither is an engineering bug; both are product risks you can plan for.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>"There's an API for that"</b> doesn't mean it's easy. Edge cases, limits and costs still need work.</li><li><b>Too many third-party dependencies</b> make you fragile. Know which ones are critical and what happens when they fail.</li></ul></div><div class="part drill"><h4>Drill: spot the risk</h4><div class="check stack" data-answer="1"><p class="cq">Your app's most important feature depends on one external AI model API. What should a PM ask first?</p><div class="opts"><button type="button" class="opt">What colour is their logo?</button><button type="button" class="opt">What happens to our users when that API is slow, down, or changes its price?</button><button type="button" class="opt">Can we call it more often?</button></div><p class="cfb" data-ok="Right: plan for failure and cost changes." data-no="Ask what happens when it's slow, down or more expensive. That's your real exposure."></p></div></div></div></details>
+<details class="lesson" data-lesson="3"><summary><span class="ln">3</span><span class="lt"><b>Data, speed and scale</b><span>Slow is a feature, and it's a bad one.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Three technical qualities show up directly in the user experience: whether the right <b>data</b> exists and is correct, how fast things respond (<b>latency</b>), and whether it still works with many more users (<b>scale</b>).</p></div><div class="part"><h4>The framework</h4><ol><li><b>Data model:</b> what things you store and how they relate, like users, orders and products. Hard to change later, so think early.</li><li><b>Latency budget:</b> decide how fast each key action must feel, and design for it.</li><li><b>Scale:</b> ask "what if ten times more people did this at once?" before a big launch or sale.</li></ol></div><div class="part"><h4>Real example</h4><p>Speed changes behaviour. Google's research with mobile sites found that as page load time goes from one second to three, the probability of a visitor bouncing increases by 32%. For a PM, "make it faster" can be a bigger win than a new feature.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Premature optimisation</b> wastes time. Make the slow things that matter fast, not everything.</li><li><b>Averages hide pain.</b> Look at the slowest 5% of requests too; that's where people give up.</li></ul></div><div class="part drill"><h4>Drill: which matters most?</h4><div class="check stack" data-answer="0"><p class="cq">A flash sale is planned for 10x normal traffic. What's the PM's most useful question?</p><div class="opts"><button type="button" class="opt">"What breaks first at 10x traffic, and what do users see when it does?"</button><button type="button" class="opt">"Can we add more colours to the sale banner?"</button><button type="button" class="opt">"Do we need a new logo for the sale?"</button></div><p class="cfb" data-ok="Right: scale is a product risk." data-no="Ask what breaks at 10x and what users see then. Scale is a product question, not just an engineering one."></p></div></div></div></details>
+<details class="lesson" data-lesson="4"><summary><span class="ln">4</span><span class="lt"><b>Tech debt, and build or buy</b><span>Shortcuts have interest. Not everything is worth building.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p><b>Technical debt</b>, a metaphor from programmer Ward Cunningham, means shortcuts taken now that make future changes slower, like interest on a loan. Some debt is a smart choice to ship faster; unpaid debt eventually slows everything down. <b>Build or buy</b> is the related question: should we make this ourselves, or use an existing product?</p></div><div class="part"><h4>The framework</h4><ol><li><b>Make debt visible:</b> list it, estimate its "interest" (how much it slows work), and pay down the expensive ones.</li><li><b>Build</b> what makes you different. <b>Buy</b> what's standard: payments, email, login, analytics.</li><li><b>Count the full cost:</b> building means maintaining it forever, not just shipping it once.</li></ol></div><div class="part"><h4>Real example</h4><p>A start-up builds its own login system to save a subscription fee. Two years later, two engineers spend part of every month on password resets, security updates and two-factor login. A login provider would have cost less than one engineer's time, and been more secure.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Buying creates lock-in</b> and dependency (lesson 2). Check exit costs before you commit.</li><li><b>"We'll fix it later"</b> rarely happens without a plan. Reserve regular time for paying down debt.</li></ul></div><div class="part drill"><h4>Drill: build or buy?</h4><div class="check stack" data-answer="1"><p class="cq">A small team wants to build its own payment processing to avoid provider fees.</p><div class="opts"><button type="button" class="opt">Build it: fees are expensive</button><button type="button" class="opt">Buy it: payments aren't what makes you different, and providers handle security and compliance</button><button type="button" class="opt">Ask users which they prefer</button></div><p class="cfb" data-ok="Right: buy the standard, build the special." data-no="Payments are standard and heavily regulated. Buy them; build what makes you different."></p></div></div></div></details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One company whose internal APIs became a business, one deployment that destroyed a firm in under an hour.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Amazon's API mandate</h3><p>Around 2002, Jeff Bezos reportedly required every Amazon team to share data and features only through service interfaces, APIs designed as if outsiders might use them. It was painful at first. It also meant Amazon's infrastructure was built as reusable services, which helped it offer those services to other companies as Amazon Web Services.</p><p class="take">Lesson: clean contracts between systems let you move faster, and can open new products.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Knight Capital</h3><p>On 1 August 2012, the trading firm Knight Capital deployed new software, but one of its servers still ran old, unused code that the update accidentally switched back on. In about 45 minutes it sent millions of unintended orders and lost around $440 million. The firm needed a rescue and was acquired within months.</p><p class="take">Lesson: tech debt (old code left in place) plus a risky deployment process can be fatal. Release safely, and be able to switch things off.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Request Journey</h2>
+    <p>Put the six steps of one "Pay" click in order, then diagnose five real-looking incidents. <a href="../games/request-journey/">Open it on its own page</a> to share.</p>
+    <div id="gamebox" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Build your tech brief card</h2>
+    <p>Pick a feature you're planning. Map what it touches, its biggest technical risk, and what to build or buy. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Tech brief card", "sentence": "{feature} touches {systems}.", "rows": [{"label": "Biggest technical risk", "text": "{risk}"}, {"label": "Build or buy", "text": "{buy}"}, {"label": "First question for engineering", "text": "{question}"}], "fields": [{"id": "feature", "label": "Which feature are you planning?", "placeholder": "For example: live order tracking", "blank": "Your feature"}, {"id": "systems", "label": "Which parts does it touch?", "placeholder": "Tap or describe", "blank": "which systems", "chips": ["the app and our server", "our database", "a third-party API", "a background job"]}, {"id": "risk", "label": "What's the biggest technical risk?", "placeholder": "Tap or describe", "blank": "which risk", "chips": ["Speed under load", "Data we don't have yet", "Depending on a third party", "Privacy and security"]}, {"id": "buy", "label": "Build it, or buy it? Why?", "placeholder": "For example: buy the maps, build the delivery-time prediction", "blank": "build or buy"}, {"id": "question", "label": "Your first question for engineering", "placeholder": "For example: what breaks first at 10x traffic?", "blank": "your question", "chips": ["What breaks first at 10x traffic?", "What data do we need that we don't have?", "What happens when the external API is down?"]}]}</script>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Feature:</b> live order tracking for a grocery delivery app. It touches the app, the server, the database and a maps API, plus courier phones sending location every 30 seconds.</p>
+        <p><b>Biggest risk:</b> speed and cost at scale. Thousands of couriers send locations at once, and every map load costs money.</p>
+        <p><b>Build or buy:</b> buy the maps and routing; build the delivery-time prediction, because that's what customers notice.</p>
+        <p><b>First question for engineering:</b> "If we update locations every 30 seconds instead of every 5, what do we save, and what do customers lose?"</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A sales colleague asks: \"What's an API, and why do engineers keep worrying about them?\" Which reply would you send?", "options": ["\"It's a REST-based interface exposing endpoints with JSON payloads over HTTPS.\"", "\"It's a contract that lets two systems talk, like a waiter taking an order to the kitchen. When another company's API is slow or changes price, our feature is slow or costs more too, so we plan for that.\"", "\"It's a kind of database.\""], "best": 1, "ok": "Plain words, an analogy, and why it matters for the product.", "no": "The second one: a simple analogy, plus why it matters for the product.", "prompt": "Explain to a non-technical colleague what happens when a customer taps \"Pay\".", "checks": [{"k": "app|browser|client|phone", "label": "Mentions the app"}, {"k": "server", "label": "Mentions the server"}, {"k": "database|store|save", "label": "Mentions storing data"}, {"k": "api|provider|third.?party|payment company", "label": "Mentions an external API"}, {"k": "fail|slow|down|error|wrong", "label": "Says where it can go wrong"}]}</script>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M1 and AI-1. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+<div class="check stack" data-answer="2"><p class="cq">A customer taps "Pay" and gets charged, but no order appears. Where did it most likely break?</p><div class="opts"><button type="button" class="opt">Before the request left the app</button><button type="button" class="opt">At the payment provider</button><button type="button" class="opt">After the charge, when the order should have been saved</button></div><p class="cfb" data-ok="Right: the charge worked, the saving didn't." data-no="The charge succeeded, so look at the step after it: saving the order."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">What's an API, in one line?</p><div class="opts"><button type="button" class="opt">A contract that says what one system can ask another, and what it gets back</button><button type="button" class="opt">A type of database</button><button type="button" class="opt">A design tool</button></div><p class="cfb" data-ok="Right: a contract between systems." data-no="An API is a contract between systems: this request, that response."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">Pages load in four seconds instead of one. Why should a PM care?</p><div class="opts"><button type="button" class="opt">Only engineers care about speed</button><button type="button" class="opt">Slower pages lose visitors; speed directly affects conversion</button><button type="button" class="opt">It only matters for search engines</button></div><p class="cfb" data-ok="Right: latency is part of the user experience." data-no="Slow pages lose people. Speed is a product issue."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">From M1: building your own login system to save a fee is mainly which risk?</p><div class="opts"><button type="button" class="opt">Usability</button><button type="button" class="opt">Value</button><button type="button" class="opt">Viability: ongoing cost, security and maintenance</button></div><p class="cfb" data-ok="Right: the full cost to the business." data-no="It's viability: building means maintaining and securing it forever."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">From AI-1: your AI feature calls an external model API. What should you plan for?</p><div class="opts"><button type="button" class="opt">Nothing, it will always work</button><button type="button" class="opt">Slow or failed responses, changing prices, and what users see when that happens</button><button type="button" class="opt">Only the prompt wording</button></div><p class="cfb" data-ok="Right: plan for failure and cost." data-no="Plan for slow or failed calls and price changes, and design what users see then."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Every feature crosses client, server and data.</b> Ask what each layer needs.</li>
+        <li><b>APIs are contracts and dependencies.</b> Plan for them being slow, down or pricier.</li>
+        <li><b>Speed and scale are product decisions,</b> not just engineering ones.</li>
+        <li><b>Build what makes you different; buy what's standard.</b> Keep tech debt visible.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m7/">Previous: M7 UX and design basics</a><span>Next zone: Measure, starting with M9</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/request-journey.js"></script>
+<script>RequestJourney(document.getElementById("gamebox"));</script>
+</body>
+</html>

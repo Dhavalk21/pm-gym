@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M7 UX and design basics | PM Gym</title>
+<meta name="description" content="User flows, usability heuristics, prototype testing and accessibility. Four short lessons, two cases and the Heuristic Hunt game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m7">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 2, Design and build / M7</div>
+  <div class="title">
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#2A9D8F"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M7</text></svg>
+    <div>
+      <span class="zone-tag"><i style="background:#2A9D8F"></i>Zone 2, Design and build</span>
+      <h1>UX and design basics</h1>
+      <p>Flows with an obvious next step, the usability rules that catch most problems, testing prototypes with five people, and accessibility.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 34 minutes</span><span>2 cases</span><span>Heuristic Hunt game, 8 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>Your sign-up form loses 60% of people on mobile. The designer proposes:</p>
+        <div class="quote">"Let's do a complete redesign of the whole app."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
+      </div>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What's the best first move?", "o": ["Change the button colours and A/B test them", "Watch five people try to sign up on their phones", "Start the full redesign"], "a": 1, "why": "Find out where people get stuck before deciding what to change. Five sessions usually show it."}, {"q": "The form shows \"Invalid input\" when something is wrong. Which rule does that break?", "o": ["Explain errors and how to fix them", "Keep things consistent", "Cut the clutter"], "a": 0, "why": "Say what's wrong and how to fix it: \"Phone numbers need a country code, like +49.\""}, {"q": "How many users does one round of usability testing typically need to find most problems?", "o": ["About a hundred", "At least a thousand", "About five"], "a": 2, "why": "Small rounds, fix, test again. Big numbers are for measuring rates, not finding problems."}]}</script>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+<details class="lesson" data-lesson="1"><summary><span class="ln">1</span><span class="lt"><b>User flows and hierarchy</b><span>Every screen should make the next step obvious.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A <b>user flow</b> is the path someone takes to get a job done: every screen, choice and wait in between. <b>Visual hierarchy</b> is how a screen tells people what matters most. Most usability problems are a flow with an unclear next step.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Start from the job</b> (M2): what is the person trying to finish?</li><li><b>Map the happy path,</b> then the edge cases: errors, empty states, going back.</li><li><b>One primary action per screen.</b> Make it the most visible thing.</li><li><b>Remove steps that don't help the user decide or act.</b></li></ol></div><div class="part"><h4>Real example</h4><p>A food app's checkout has five screens: basket, address, delivery time, payment, review. Watching users shows people re-check the address on the review screen anyway. Merging address and time into one screen, with the address pre-filled, cuts a step and the doubt that came with it.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Fewer steps isn't always better.</b> A clear three-step flow beats a crowded single page. Optimise for clarity, not click count.</li><li><b>Flows drift.</b> Every new feature adds a branch. Re-walk your key flows every quarter.</li></ul></div><div class="part drill"><h4>Drill: what's the problem?</h4><div class="check stack" data-answer="1"><p class="cq">A settings page has eight buttons of the same size and colour. People can't find "Save". What's wrong?</p><div class="opts"><button type="button" class="opt">The flow has too many steps</button><button type="button" class="opt">There's no clear primary action, so nothing stands out</button><button type="button" class="opt">The page needs a tutorial</button></div><p class="cfb" data-ok="Right: give the main action the strongest visual weight." data-no="The issue is hierarchy: one primary action should stand out."></p></div></div></div></details>
+<details class="lesson" data-lesson="2"><summary><span class="ln">2</span><span class="lt"><b>Usability heuristics</b><span>Ten rules of thumb that catch most problems fast.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>In 1994, Jakob Nielsen published <a href="https://www.nngroup.com/articles/ten-usability-heuristics/">ten usability heuristics</a>: broad rules that good interfaces follow. A <b>heuristic review</b>, walking a screen against them, finds many problems in an hour, before any user testing.</p></div><div class="part"><h4>The framework</h4><div class="risk-grid"><div style="border-color:#E3A82B"><b>Show what's happening</b><span>Progress, status, confirmation.</span></div><div style="border-color:#2A9D8F"><b>Speak the user's language</b><span>Their words, formats and order.</span></div><div style="border-color:#4C7BD9"><b>Let people undo and leave</b><span>Exits, undo, cancel.</span></div><div style="border-color:#6BA368"><b>Prevent errors, then explain them</b><span>Constraints first; clear, fixable messages second.</span></div></div><p>The others: keep things consistent, show options instead of making people remember them, offer shortcuts for experts, cut clutter, and provide help where it's needed.</p></div><div class="part"><h4>Real example</h4><p>A banking app shows "Error 0x83" when a transfer fails. Two heuristics fail at once: it doesn't speak the user's language, and it doesn't help them recover. "Your daily limit is €1,000. Send €600 today and the rest tomorrow, or raise your limit" fixes both.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Heuristics find problems, not priorities.</b> A review can list 40 issues; users decide which five matter.</li><li><b>Experts miss things real users hit.</b> Use reviews to clean up before testing, not instead of it.</li></ul></div><div class="part drill"><h4>Drill: which heuristic?</h4><div class="check stack" data-answer="0"><p class="cq">A long form loses everything you typed if you press the browser's back button.</p><div class="opts"><button type="button" class="opt">Let people undo and leave</button><button type="button" class="opt">Speak the user's language</button><button type="button" class="opt">Cut the clutter</button></div><p class="cfb" data-ok="Right: people need a safe way back." data-no="It's about undo and leaving: going back shouldn't destroy their work."></p></div></div></div></details>
+<details class="lesson" data-lesson="3"><summary><span class="ln">3</span><span class="lt"><b>Prototypes and usability tests</b><span>Watch five people try it before you build it.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A <b>prototype</b> is a cheap, fake version of a design, from paper sketches to clickable mock-ups. A <b>usability test</b> gives real users realistic tasks with that prototype and watches where they struggle.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Match fidelity to the question.</b> Sketches for the flow, clickable mock-ups for the details.</li><li><b>Give tasks, not questions:</b> "Book a table for four on Friday," not "Do you like this?"</li><li><b>Ask people to think aloud,</b> and stay quiet when they struggle.</li><li><b>Test with about five people</b> per round and per user type, then fix and test again.</li></ol></div><div class="part"><h4>Real example</h4><p>Nielsen Norman Group's research found that about <a href="https://www.nngroup.com/articles/why-you-only-need-to-test-with-5-users/">five users uncover most of a design's usability problems</a> in one round of testing. Several small rounds, fixing in between, find more than one big study.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Five users is for finding problems, not proving numbers.</b> To measure a rate, like completion, you need far more people, or an A/B test (M11).</li><li><b>Prototypes can't test everything.</b> Performance, real data and long-term habits only show up in the real product.</li></ul></div><div class="part drill"><h4>Drill: which approach?</h4><div class="check stack" data-answer="2"><p class="cq">You want to know if people can complete a new checkout flow. What's best?</p><div class="opts"><button type="button" class="opt">Ask 200 users if they like the new design</button><button type="button" class="opt">Show it in a team meeting</button><button type="button" class="opt">Give five target users a clickable prototype and the task "buy this jacket", and watch</button></div><p class="cfb" data-ok="Right: realistic tasks, real users, and you watch." data-no="Watch real users attempt a realistic task. Opinions and meetings don't show where people get stuck."></p></div></div></div></details>
+<details class="lesson" data-lesson="4"><summary><span class="ln">4</span><span class="lt"><b>Accessibility</b><span>Design for everyone, including people with disabilities. It's also the law.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Accessible products work for people who see, hear, move or think differently: screen-reader users, people who can't use a mouse, people with low vision or colour blindness. It helps everyone, like captions in a noisy train, and in the EU it's increasingly a legal requirement.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Contrast:</b> body text at least 4.5:1 against its background.</li><li><b>Keyboard:</b> everything works without a mouse, with a visible focus.</li><li><b>Labels and alt text:</b> every input labelled, every meaningful image described.</li><li><b>Never colour alone:</b> pair colour with text or icons.</li></ol><p>These come from the <a href="https://www.w3.org/WAI/standards-guidelines/wcag/">Web Content Accessibility Guidelines (WCAG)</a>, published by the W3C.</p></div><div class="part"><h4>Real example</h4><p>The European Accessibility Act has applied since 28 June 2025 to many consumer digital products and services in the EU, including e-commerce, banking and e-books. A shop whose checkout can't be completed with a keyboard or screen reader now has a compliance problem, not just a design one.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Checklists aren't the whole story.</b> A page can pass automated checks and still be hard to use. Test with disabled users where you can.</li><li><b>Retrofitting is expensive.</b> Build it in from the first design, not after launch.</li></ul></div><div class="part drill"><h4>Drill: spot the issue</h4><div class="check stack" data-answer="1"><p class="cq">Form errors are shown only by turning the field border red.</p><div class="opts"><button type="button" class="opt">Fine, red is universal</button><button type="button" class="opt">A problem: colour alone fails colour-blind and screen-reader users. Add a text message.</button><button type="button" class="opt">Only a problem on mobile</button></div><p class="cfb" data-ok="Right: never rely on colour alone." data-no="Colour alone fails many people. Add a clear text message next to the field."></p></div></div></div></details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One team that made a whole government simpler, one redesign that users rejected loudly.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>GOV.UK</h3><p>In 2012, the UK's Government Digital Service replaced hundreds of separate government websites with one: GOV.UK. Its design principles started with user needs and "do the hard work to make it simple": plain language, one clear path per task, and accessibility from the start. The site won the Design Museum's Design of the Year award in 2013.</p><p class="take">Lesson: simplicity is work. Clear flows and plain words beat clever features.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Snapchat's 2018 redesign</h3><p>In early 2018, Snapchat reorganised its app, mixing friends' stories with publishers' content in new places. Many users found it confusing. Over a million signed a petition asking for the old design back, and Snap reversed parts of the change later that year.</p><p class="take">Lesson: changing a flow millions of people use by habit needs testing with those people first, and a gradual rollout.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Heuristic Hunt</h2>
+    <p>Eight screen mock-ups, each breaking one usability rule. Spot which one, then see the fix. <a href="../games/heuristic-hunt/">Open it on its own page</a> to share.</p>
+    <div id="gamebox" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Build your flow card</h2>
+    <p>Pick a product you know. Map one job, find its hardest step, and plan a test. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Flow card", "sentence": "To {job}, people take {steps} steps today. The hardest one: {friction}.", "rows": [{"label": "Rule it breaks", "text": "{rule}"}, {"label": "Test", "text": "{test}"}], "fields": [{"id": "job", "label": "What job is the person trying to finish?", "placeholder": "For example: book a table for four on Friday", "blank": "do what"}, {"id": "steps", "label": "How many steps or screens does it take today?", "placeholder": "For example: 6", "blank": "how many"}, {"id": "friction", "label": "Which step is hardest, and why?", "placeholder": "For example: picking a time, because full slots still look clickable", "blank": "which step"}, {"id": "rule", "label": "Which usability rule does it break?", "placeholder": "Tap one or describe it", "blank": "which rule", "chips": ["Show what's happening", "Speak the user's language", "Let people undo and leave", "Prevent errors", "Cut the clutter"]}, {"id": "test", "label": "How will you test a fix?", "placeholder": "For example: five regular guests try a clickable prototype", "blank": "how", "chips": ["Five users try a clickable prototype", "A quick heuristic review first", "Check it with a screen reader and keyboard"]}]}</script>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Product:</b> a restaurant booking app. <b>Job:</b> book a table for four on Friday evening. Six steps today.</p>
+        <p><b>Hardest step:</b> choosing a time. Full slots look exactly like free ones until you tap them, so people tap three or four times and give up. That breaks "show what's happening" and "prevent errors".</p>
+        <p><b>Test:</b> a clickable prototype that greys out full slots and suggests the nearest free time, tried by five regular guests with the task "book for four this Friday".</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A designer says: \"It looks clean. Users will figure it out.\" Which reply would you send?", "options": ["\"Agreed, clean is always better.\"", "\"Let's check, cheaply: five target users, one realistic task each, and we watch where they get stuck. If they sail through, we ship with confidence.\"", "\"Let's add a long tutorial to be safe.\""], "best": 1, "ok": "It replaces opinion with a cheap, fast test.", "no": "The second one: test with five users on a realistic task, instead of arguing opinions.", "prompt": "Explain how you'd check that a new design is easy to use, before it's built.", "checks": [{"k": "five|5 |few (users|people)", "label": "Test with about five users"}, {"k": "task", "label": "Give realistic tasks"}, {"k": "watch|observe|think aloud|see where", "label": "Watch, don't ask for opinions"}, {"k": "prototype|mock|sketch|clickable", "label": "Use a prototype"}, {"k": "access|keyboard|screen reader|contrast", "label": "Mentions accessibility"}]}</script>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M4 and M5. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+<div class="check stack" data-answer="1"><p class="cq">Which change most improves a screen where people can't find the main action?</p><div class="opts"><button type="button" class="opt">Add more explanatory text</button><button type="button" class="opt">Make one primary action clearly the most visible element</button><button type="button" class="opt">Add a second, similar button</button></div><p class="cfb" data-ok="Right: hierarchy guides the eye." data-no="Make one primary action stand out; more text or buttons add noise."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">A file upload shows nothing for two minutes. Which heuristic does it break?</p><div class="opts"><button type="button" class="opt">Show what's happening</button><button type="button" class="opt">Speak the user's language</button><button type="button" class="opt">Keep things consistent</button></div><p class="cfb" data-ok="Right: show progress and an estimate." data-no="People need to see progress. Show a bar and an estimate."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">What do five-user usability tests do well?</p><div class="opts"><button type="button" class="opt">Prove that conversion will rise</button><button type="button" class="opt">Measure exact completion rates</button><button type="button" class="opt">Find most of the problems that block people, quickly and cheaply</button></div><p class="cfb" data-ok="Right: finding problems, not measuring rates." data-no="They find problems fast. Measuring rates needs many more people or an A/B test."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">From M4: a cancel flow hides the button three screens deep. Besides being sludge, which usability rule does it break?</p><div class="opts"><button type="button" class="opt">Speak the user's language</button><button type="button" class="opt">Let people undo and leave</button><button type="button" class="opt">Cut the clutter</button></div><p class="cfb" data-ok="Right: leaving should be easy." data-no="It breaks &quot;let people undo and leave&quot;. Leaving should be as easy as joining."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">From M5: in a usability test, which is the best thing to say to a participant?</p><div class="opts"><button type="button" class="opt">"Do you like this design?"</button><button type="button" class="opt">"Would you use this?"</button><button type="button" class="opt">"Please book a table for four on Friday, and think aloud as you go."</button></div><p class="cfb" data-ok="Right: a realistic task, and you watch." data-no="Give a realistic task and ask them to think aloud, rather than asking for opinions."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Every screen needs one obvious next step.</b> Design flows from the job, not the feature list.</li>
+        <li><b>Usability heuristics catch many problems in an hour.</b> Run a review before you test.</li>
+        <li><b>Watch five people try a prototype</b> before you build. Give tasks, not questions.</li>
+        <li><b>Accessibility is part of the design,</b> and in the EU, part of the law.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../ai-1/">Previous: AI-1 AI foundations for PMs</a><a href="../m8/">Next: M8 Technical foundations</a></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/heuristic-hunt.js"></script>
+<script>HeuristicHunt(document.getElementById("gamebox"));</script>
+</body>
+</html>
