@@ -154,7 +154,7 @@
     var RISKS = [["Value", "#E3A82B"], ["Usability", "#2A9D8F"], ["Feasibility", "#4C7BD9"], ["Viability", "#2C8350"]];
     var TESTS = { Value: "A fake door, a pre-order page or a hand-run pilot with a few customers.", Usability: "Watch five target users try a clickable prototype.", Feasibility: "A one-week engineering spike on the hardest part.", Viability: "A short review with legal or finance, using real numbers." };
     var host = $("builder");
-    host.innerHTML = '<div>' + A.fields.map(function (f, i) {
+    host.innerHTML = '<div class="bslider"><div class="slide-top"><span id="bstepn"></span><div class="sdots" id="bdots" role="group" aria-label="Card steps"></div></div>' + A.fields.map(function (f, i) {
       var inner;
       if (f.type === "risk") {
         inner = '<div class="riskpick">' + RISKS.map(function (r) { return '<button type="button" data-risk="' + r[0] + '" aria-pressed="false"><i style="background:' + r[1] + '"></i>' + r[0] + "</button>"; }).join("") + "</div>" +
@@ -164,7 +164,7 @@
           (f.chips ? '<div class="chips">' + f.chips.map(function (c) { return '<button type="button" class="chip-btn" data-fill="' + f.id + '">' + esc(c) + "</button>"; }).join("") + "</div>" : "");
       }
       return '<div class="bstep"><label for="bf-' + f.id + (f.type === "risk" ? "-note" : "") + '">' + (i + 1) + ". " + esc(f.label) + "</label>" + inner + "</div>";
-    }).join("") + "</div>" +
+    }).join("") + '<div class="slide-nav" id="bnav"></div><p class="slide-hint" id="bhint"></p></div>' +
       '<div class="card-out" aria-live="polite"><small>' + esc(A.title) + '</small><div class="big"></div><div class="rows"></div>' +
       '<div class="actions"><button type="button" class="btn light solid" id="copycard">Copy card</button><button type="button" class="btn light" id="clearcard">Clear</button><span class="copied" id="cardmsg"></span></div></div>';
 
@@ -193,7 +193,32 @@
     host.querySelectorAll("[data-risk]").forEach(function (b) { b.onclick = function () { vals.risk = b.dataset.risk; save(); paintCard(); }; });
     $("copycard").onclick = function () { copyText(A.title + "\n" + host.querySelector(".card-out .big").innerText + "\n" + host.querySelector(".card-out .rows").innerText, $("cardmsg")); };
     $("clearcard").onclick = function () { vals = {}; save(); host.querySelectorAll("input[type=text]").forEach(function (i) { i.value = ""; }); paintCard(); $("cardmsg").textContent = ""; };
+    var bi = 0, bsteps = host.querySelectorAll(".bstep"), finished = false;
+    function filled(f) { return f.type === "risk" ? !!vals.risk : !!val(f.id); }
+    function showB() {
+      bsteps.forEach(function (el, i) { el.hidden = finished || i !== bi; });
+      $("bstepn").textContent = finished ? "Card ready" : "Step " + (bi + 1) + " of " + A.fields.length;
+      $("bdots").innerHTML = A.fields.map(function (f, i) {
+        return '<button type="button" data-bgo="' + i + '" aria-label="Step ' + (i + 1) + '" aria-current="' + (!finished && i === bi ? "step" : "false") + '" class="' + (filled(f) ? "done" : "") + '"></button>';
+      }).join("");
+      var last = bi === A.fields.length - 1;
+      $("bnav").innerHTML = finished ? '<button type="button" class="btn" id="bedit">Edit my answers</button><span></span>' :
+        (bi > 0 ? '<button type="button" class="btn" data-bmove="-1">Back</button>' : "<span></span>") +
+        (last ? '<button type="button" class="btn solid" id="bfinish">Finish my card</button>' : '<button type="button" class="btn solid" data-bmove="1">Next step</button>');
+      $("bhint").textContent = finished ? "Copy it into a doc, a ticket or a team chat." : (filled(A.fields[bi]) ? "" : "Type your own answer, or tap a suggestion to start.");
+      $("bdots").querySelectorAll("[data-bgo]").forEach(function (b) { b.onclick = function () { finished = false; bi = +b.dataset.bgo; showB(); focusB(); }; });
+      host.querySelectorAll("[data-bmove]").forEach(function (b) { b.onclick = function () { bi += +b.dataset.bmove; showB(); focusB(); }; });
+      var fin = $("bfinish"); if (fin) fin.onclick = function () { finished = true; showB(); $("copycard").focus(); };
+      var ed = $("bedit"); if (ed) ed.onclick = function () { finished = false; bi = 0; showB(); focusB(); };
+    }
+    function focusB() { var el = bsteps[bi] && bsteps[bi].querySelector("input, button"); if (el) el.focus(); }
+    host.addEventListener("input", function () { showDots(); });
+    host.addEventListener("click", function (e) { if (e.target.closest("[data-fill], [data-risk]")) showDots(); });
+    function showDots() { $("bdots").querySelectorAll("[data-bgo]").forEach(function (b, i) { b.classList.toggle("done", filled(A.fields[i])); }); $("bhint").textContent = finished ? "Copy it into a doc, a ticket or a team chat." : (filled(A.fields[bi]) ? "" : "Type your own answer, or tap a suggestion to start."); }
+    var oldClear = $("clearcard").onclick;
+    $("clearcard").onclick = function () { oldClear(); finished = false; bi = 0; showB(); };
     paintCard();
+    showB();
   }
 
   /* ---------- Teach: pick the best explanation, then write your own ---------- */
@@ -225,29 +250,50 @@
     W = JSON.parse(wcfgEl.textContent);
     ws = store.get(wkey) || { picks: {}, conf: {}, locked: false, reveal: false };
     var wroot = $("warmup-ui");
+    var wi = 0;
+    var dotsHtml = function (cur, states) {
+      return '<div class="sdots" role="group" aria-label="Predictions">' + W.questions.map(function (_, i) {
+        return '<button type="button" data-goto="' + i + '" aria-label="Prediction ' + (i + 1) + '" aria-current="' + (i === cur ? "step" : "false") + '" class="' + (states[i] || "") + '"></button>';
+      }).join("") + "</div>";
+    };
     var renderWarm = function () {
-      var ready = W.questions.every(function (_, i) { return ws.picks[i] !== undefined && ws.conf[i]; });
-      var h = W.questions.map(function (q, i) {
-        var p = ws.picks[i];
-        return '<div class="pq"><div class="qh"><span>Prediction ' + (i + 1) + " of " + W.questions.length + "</span>" + (ws.locked ? "<span>" + esc(ws.conf[i] || "") + "</span>" : "") + '</div><p class="q">' + esc(q.q) + '</p><div class="choices">' +
+      var n = W.questions.length, answered = function (i) { return ws.picks[i] !== undefined && !!ws.conf[i]; };
+      var ready = W.questions.every(function (_, i) { return answered(i); });
+      if (ws.locked && !ws.reveal) {
+        wroot.innerHTML = '<div class="locked"><b>Predictions locked in.</b><p>The lessons answer all ' + n + '. You’ll see how you did at the end of the station, next to your mastery check.</p><div class="row-actions"><a class="btn solid" href="#lessons">Go to the lessons</a><button type="button" class="btn" id="wreveal">Reveal answers now</button></div></div>';
+      } else {
+        var q = W.questions[wi], p = ws.picks[wi];
+        var states = W.questions.map(function (qq, i) {
+          if (ws.reveal) return ws.picks[i] === qq.a ? "ok" : "no";
+          return answered(i) ? "done" : "";
+        });
+        var h = '<div class="pq slide"><div class="qh"><span>Prediction ' + (wi + 1) + " of " + n + "</span>" + dotsHtml(wi, states) + '</div><p class="q">' + esc(q.q) + '</p><div class="choices">' +
           q.o.map(function (o, k) {
             var cls = "choice"; if (ws.reveal) cls += k === q.a ? " right" : k === p ? " wrong" : "";
-            return '<button type="button" class="' + cls + '" data-q="' + i + '" data-k="' + k + '" aria-pressed="' + (p === k) + '"' + (ws.locked ? " disabled" : "") + ">" + esc(o) + "</button>";
-          }).join("") + "</div>" +
-          (ws.locked ? (ws.reveal ? '<p class="why"><b>' + (p === q.a ? "You predicted it." : "Not this time.") + "</b> " + esc(q.why) + "</p>" : "") :
-            '<div class="conf"><span>How sure are you?</span><div class="seg" role="group" aria-label="Confidence for prediction ' + (i + 1) + '">' + ["Guessing", "Fairly sure", "Certain"].map(function (c) {
-              return '<button type="button" data-cq="' + i + '" data-c="' + c + '" aria-pressed="' + (ws.conf[i] === c) + '">' + c + "</button>";
-            }).join("") + "</div></div>") + "</div>";
-      }).join("");
-      if (!ws.locked) h += '<div class="lockbar"><p>' + (ready ? "All set. Lock in your predictions and go to the lessons." : "Pick an answer and how sure you are for each prediction.") + '</p><button type="button" class="btn solid" id="wlock"' + (ready ? "" : " disabled") + ">Lock in and start lessons</button></div>";
-      else if (!ws.reveal) h += '<div class="locked"><b>Predictions locked in.</b><p>The lessons answer all three. You’ll see how you did at the end of the station, next to your mastery check.</p><div class="row-actions"><a class="btn solid" href="#lessons">Go to the lessons</a><button type="button" class="btn" id="wreveal">Reveal answers now</button></div></div>';
-      else h += '<div class="locked"><b>Answers revealed.</b><p>Your predictions will still be compared with your mastery check at the end.</p><button type="button" class="btn" id="wreset">Start the warm-up again</button></div>';
-      wroot.innerHTML = h;
-      wroot.querySelectorAll("[data-q]").forEach(function (b) { b.onclick = function () { ws.picks[+b.dataset.q] = +b.dataset.k; store.set(wkey, ws); renderWarm(); }; });
-      wroot.querySelectorAll("[data-cq]").forEach(function (b) { b.onclick = function () { ws.conf[+b.dataset.cq] = b.dataset.c; store.set(wkey, ws); renderWarm(); }; });
+            return '<button type="button" class="' + cls + '" data-k="' + k + '" aria-pressed="' + (p === k) + '"' + (ws.locked ? " disabled" : "") + ">" + esc(o) + "</button>";
+          }).join("") + "</div>";
+        if (ws.reveal) h += '<p class="why"><b>' + (p === q.a ? "You predicted it." : "Not this time.") + "</b> " + esc(q.why) + (ws.conf[wi] ? " <span class=\"conf-was\">You said: " + esc(ws.conf[wi].toLowerCase()) + ".</span>" : "") + "</p>";
+        else h += '<div class="conf"><span>How sure are you?</span><div class="seg" role="group" aria-label="Confidence">' + ["Guessing", "Fairly sure", "Certain"].map(function (c) {
+          return '<button type="button" data-c="' + c + '" aria-pressed="' + (ws.conf[wi] === c) + '">' + c + "</button>";
+        }).join("") + "</div></div>";
+        var last = wi === n - 1;
+        h += '<div class="slide-nav">' + (wi > 0 ? '<button type="button" class="btn" data-move="-1">Back</button>' : "<span></span>");
+        if (ws.reveal) h += last ? '<button type="button" class="btn" id="wreset">Start the warm-up again</button>' : '<button type="button" class="btn solid" data-move="1">Next prediction</button>';
+        else if (!last) h += '<button type="button" class="btn solid" data-move="1"' + (answered(wi) ? "" : " disabled") + ">Next prediction</button>";
+        else h += '<button type="button" class="btn solid" id="wlock"' + (ready ? "" : " disabled") + ">Lock in and start lessons</button>";
+        h += "</div>";
+        if (!ws.reveal && !answered(wi)) h += '<p class="slide-hint">Pick an answer and how sure you are.</p>';
+        else if (!ws.reveal && last && !ready) h += '<p class="slide-hint">One earlier prediction still needs an answer or a confidence. Use the dots to jump back.</p>';
+        h += "</div>";
+        wroot.innerHTML = h;
+      }
+      wroot.querySelectorAll("[data-k]").forEach(function (b) { b.onclick = function () { ws.picks[wi] = +b.dataset.k; store.set(wkey, ws); renderWarm(); }; });
+      wroot.querySelectorAll("[data-c]").forEach(function (b) { b.onclick = function () { ws.conf[wi] = b.dataset.c; store.set(wkey, ws); renderWarm(); var nx = wroot.querySelector('[data-move="1"]:not([disabled]), #wlock:not([disabled])'); if (nx) nx.focus(); }; });
+      wroot.querySelectorAll("[data-move]").forEach(function (b) { b.onclick = function () { wi += +b.dataset.move; renderWarm(); var f = wroot.querySelector(".choice"); if (f) f.focus(); }; });
+      wroot.querySelectorAll("[data-goto]").forEach(function (b) { b.onclick = function () { wi = +b.dataset.goto; renderWarm(); }; });
       var l = $("wlock"); if (l) l.onclick = function () { ws.locked = true; store.set(wkey, ws); renderWarm(); var lt = $("lessons"); if (lt) lt.scrollIntoView({ behavior: "smooth" }); };
-      var r = $("wreveal"); if (r) r.onclick = function () { ws.reveal = true; store.set(wkey, ws); renderWarm(); };
-      var z = $("wreset"); if (z) z.onclick = function () { ws = { picks: {}, conf: {}, locked: false, reveal: false }; store.set(wkey, ws); renderWarm(); };
+      var r = $("wreveal"); if (r) r.onclick = function () { ws.reveal = true; wi = 0; store.set(wkey, ws); renderWarm(); };
+      var z = $("wreset"); if (z) z.onclick = function () { ws = { picks: {}, conf: {}, locked: false, reveal: false }; wi = 0; store.set(wkey, ws); renderWarm(); };
     };
     renderWarm();
   }

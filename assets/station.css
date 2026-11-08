@@ -250,3 +250,23 @@ table.example th { font-size: 14px; color: var(--ink-3); font-weight: 600; }
 .cmp p { margin: 6px 0 0; color: var(--ink-2); font-size: 15px; }
 .cmp.cal { border-color: var(--mustard); background: var(--mustard-soft); }
 .cmp.cal b { font-size: 24px; line-height: 1.1; margin-top: 10px; overflow-wrap: anywhere; }
+
+/* ===== v4: one-at-a-time sliders for warm-up and card builder ===== */
+.sdots { display: flex; gap: 6px; }
+.sdots button { width: 28px; height: 8px; border-radius: 4px; border: 0; padding: 0; background: #D5DAE0; cursor: pointer; position: relative; }
+.sdots button::after { content: ""; position: absolute; inset: -18px -2px; }
+.sdots button.done { background: #8FB5B3; }
+.sdots button[aria-current="step"] { background: var(--petrol); }
+.sdots button.ok { background: var(--ok); }
+.sdots button.no { background: var(--bad); }
+.pq.slide .qh { align-items: center; }
+.slide-nav { display: flex; justify-content: space-between; gap: 12px; margin-top: 18px; flex-wrap: wrap; }
+.slide-hint { margin: 10px 0 0; font-size: 14px; color: var(--ink-3); text-align: right; max-width: none; }
+.slide-hint:empty { display: none; }
+.conf-was { color: var(--ink-3); }
+.bslider { background: #fff; border: 1px solid var(--line); border-radius: 12px; padding: 22px; }
+.bslider .slide-top { display: flex; justify-content: space-between; align-items: center; gap: 12px; margin-bottom: 14px; font-size: 14px; font-weight: 600; color: var(--ink-3); }
+.bslider .bstep { border: 0; padding: 0; background: none; }
+.bslider .bstep + .bstep { margin-top: 0; }
+.bslider .bstep label { font-size: 19px; }
+.sdots button[aria-current="step"].ok, .sdots button[aria-current="step"].no { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ink); }
