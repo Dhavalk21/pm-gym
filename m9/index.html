@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M9 Metrics and North Star | PM Gym</title>
+<meta name="description" content="Good metrics, North Star metrics, metric trees and guardrails. Four short lessons, two cases and the Metric Tree Builder game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m9">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 3, Measure / M9</div>
+  <div class="title">
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#4C7BD9"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M9</text></svg>
+    <div>
+      <span class="zone-tag"><i style="background:#4C7BD9"></i>Zone 3, Measure</span>
+      <h1>Metrics and North Star</h1>
+      <p>What makes a metric useful, choosing a North Star, breaking it into inputs teams can move, and the guardrails that stop targets being gamed.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 34 minutes</span><span>2 cases</span><span>Metric Tree Builder game, 10 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>At the all-hands, the CEO announces this year's goal:</p>
+        <div class="quote">"One million registered users by December."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
+      </div>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What's the main problem with that goal?", "o": ["It should be measured monthly, not yearly", "It counts sign-ups, not value, and it only ever goes up", "One million is too ambitious"], "a": 1, "why": "Registrations say nothing about whether people get value. A team can hit the goal while the product gets worse."}, {"q": "A team gets a bonus for raising \"minutes in the app\". What's likely to happen?", "o": ["Screens get slower or stickier, and minutes rise without more value", "Users get more value", "Nothing changes"], "a": 0, "why": "When a measure becomes a target, people find the cheapest way to move it."}, {"q": "Which is the best North Star for a food delivery app?", "o": ["App opens", "Restaurants signed up", "Orders delivered on time each week"], "a": 2, "why": "It captures value for customers and restaurants, and revenue follows it."}]}</script>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+<details class="lesson" data-lesson="1"><summary><span class="ln">1</span><span class="lt"><b>What makes a good metric</b><span>Rates over totals, leading over lagging, and no vanity.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A metric is only useful if it helps you decide something. A good one is <b>understandable</b> (anyone can say what it means), <b>comparable</b> (this week against last week, one group against another), and tells you what to do when it moves. A <b>vanity metric</b> looks impressive but changes no decision.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Prefer rates and ratios to totals.</b> "Share of sign-ups who send a first invoice" beats "total sign-ups".</li><li><b>Know leading from lagging.</b> Revenue and churn lag: they report the past. Activation and weekly usage lead: they predict it.</li><li><b>Ask the decision test:</b> if this number doubled or halved tomorrow, what would we do differently? No answer means vanity.</li></ol></div><div class="part"><h4>Real example</h4><p>"Total registered users" only ever goes up, so every board slide looks like success. The same company's "share of new users still active in week four" might be falling, which is the number that tells you the product is getting worse at keeping people.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Not everything that matters can be counted.</b> Trust, brand and team health are real even when the dashboard can't show them.</li><li><b>Ratios can hide size.</b> A conversion rate that doubles on ten users is noise. Look at the counts behind every rate.</li></ul></div><div class="part drill"><h4>Drill: vanity or not?</h4><div class="check stack" data-answer="2"><p class="cq">Which metric would actually change a product decision?</p><div class="opts"><button type="button" class="opt">Total app downloads since launch</button><button type="button" class="opt">Page views on the blog</button><button type="button" class="opt">Share of new users who complete setup in their first session</button></div><p class="cfb" data-ok="Right: a rate you can compare and act on." data-no="Totals that only go up rarely change decisions. The setup completion rate does."></p></div></div></div></details>
+<details class="lesson" data-lesson="2"><summary><span class="ln">2</span><span class="lt"><b>The North Star metric</b><span>One number that captures the value customers get.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A <b>North Star metric</b> is the single number that best captures the value your product delivers to customers, and that leads to sustainable revenue. It gives every team the same direction: if your work doesn't eventually move it, ask why you're doing it. The idea was popularised by growth leader Sean Ellis and later turned into a playbook by Amplitude.</p></div><div class="part"><h4>The framework</h4><ol><li><b>It reflects customer value,</b> not just business value. Revenue is a result; the North Star is the reason people pay.</li><li><b>It leads revenue:</b> when it rises, money follows later.</li><li><b>It's measurable often,</b> ideally weekly, so teams see progress.</li><li><b>It's one number,</b> with a short list of inputs underneath (next lesson).</li></ol></div><div class="part"><h4>Real example</h4><p>Airbnb reports "nights and experiences booked" as a headline number to investors. It counts value for both sides at once: a guest got a stay and a host got paid. A team that improves search, trust or host onboarding can trace its work to it.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Some businesses need two:</b> a marketplace can watch supply and demand separately, and a company with very different products may need one per product.</li><li><b>A North Star can still be gamed or hide harm</b> on its own. That's why it needs guardrails (lesson 4).</li></ul></div><div class="part drill"><h4>Drill: pick the North Star</h4><div class="check stack" data-answer="1"><p class="cq">A food delivery app. Which is the best North Star?</p><div class="opts"><button type="button" class="opt">App installs</button><button type="button" class="opt">Orders delivered on time each week</button><button type="button" class="opt">Restaurants signed up</button></div><p class="cfb" data-ok="Right: value for customers and restaurants, and it leads revenue." data-no="On-time orders capture the value customers pay for. Installs and sign-ups don't."></p></div></div></div></details>
+<details class="lesson" data-lesson="3"><summary><span class="ln">3</span><span class="lt"><b>Metric trees and input metrics</b><span>Break the big number into parts teams can move.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Nobody can move a North Star directly. A <b>metric tree</b> breaks it into <b>input metrics</b>: smaller numbers a team can actually influence, which add up to the big one. Amazon calls them <i>controllable input metrics</i> and reviews them every week.</p></div><div class="part"><h4>The framework</h4><div class="chain"><div><small>North Star</small><b>Nights booked</b></div><div><small>= Searchers</small><b>Breadth</b></div><div><small>× Search-to-book rate</small><b>Conversion</b></div><div><small>× Nights per booking</small><b>Depth</b></div></div><p>Common ways to split: <b>breadth</b> (how many people), <b>depth</b> (how much each one gets), <b>frequency</b> (how often) and <b>efficiency</b> (how easily). Give each input an owner.</p></div><div class="part"><h4>Real example</h4><p>In <i>Working Backwards</i>, former Amazon executives Colin Bryar and Bill Carr describe choosing "number of new detail pages" as an input for selection. Teams added thousands of products, many rarely viewed or out of stock, and sales didn't rise. The metric evolved into the share of product-page views where the item was in stock and ready for fast shipping, which did move sales.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>A tree shows math, not cause.</b> Check that pushing an input actually moves the output, as Amazon did; drop inputs that don't.</li><li><b>Too many inputs</b> and nobody knows what matters. Three to five per North Star is plenty.</li></ul></div><div class="part drill"><h4>Drill: which input?</h4><div class="check stack" data-answer="0"><p class="cq">North Star: invoices paid per week. Which is an input a team can own?</p><div class="opts"><button type="button" class="opt">Share of invoices sent with an online payment link</button><button type="button" class="opt">Company revenue</button><button type="button" class="opt">Number of employees</button></div><p class="cfb" data-ok="Right: it feeds the North Star and a team can work on it." data-no="Revenue is an output, and headcount isn't connected. Payment links help invoices get paid."></p></div></div></div></details>
+<details class="lesson" data-lesson="4"><summary><span class="ln">4</span><span class="lt"><b>Guardrails and Goodhart's law</b><span>Every target gets gamed. Plan for it.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Economist Charles Goodhart's observation, in anthropologist Marilyn Strathern's popular phrasing: <b>when a measure becomes a target, it ceases to be a good measure.</b> People find the cheapest way to move a number, which isn't always the way you meant. A <b>guardrail</b> (or counter-metric) is a number that must not get worse while you push your target.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Pair every target with a guardrail:</b> speed with quality, growth with retention, engagement with opt-outs or complaints.</li><li><b>Ask "how would I cheat?"</b> before setting a target. If the answer is easy, someone will find it.</li><li><b>Watch the counts and the stories,</b> not just the number. Talk to the people behind it.</li></ol></div><div class="part"><h4>Real example</h4><p>A support team targeted on "tickets closed per hour" starts closing tickets before problems are solved. The fix isn't a new target; it's a guardrail: "tickets reopened within 7 days". Speed now only counts if it sticks.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Too many guardrails</b> freeze a team. Pick the one or two harms that are both likely and serious.</li><li><b>Guardrails need thresholds</b> agreed in advance ("no more than a 2% rise"), or every review turns into a debate.</li></ul></div><div class="part drill"><h4>Drill: find the guardrail</h4><div class="check stack" data-answer="1"><p class="cq">A team is pushed to raise "daily notifications opened". Which guardrail matters most?</p><div class="opts"><button type="button" class="opt">Number of notifications sent</button><button type="button" class="opt">Users who turn notifications off or uninstall</button><button type="button" class="opt">Notification design consistency</button></div><p class="cfb" data-ok="Right: it catches the nagging that would win this month and lose users for good." data-no="Watch opt-outs and uninstalls: more pushes can raise opens and drive people away."></p></div></div></div></details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One company that kept refining its inputs until they drove the result, and one bank whose target broke the business.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Amazon's input metrics</h3><p>Amazon reviews a deck of controllable input metrics every week. When "new detail pages" didn't lead to more sales, teams refined it step by step until it measured what customers actually experienced: the share of product views where the item was in stock and ready to ship fast. Driving that number did move sales.</p><p class="take">Lesson: start with an imperfect input, check it moves the output, and keep refining.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Wells Fargo's sales targets</h3><p>Wells Fargo pushed branch staff hard to sell more products per customer. Employees opened millions of accounts customers had never asked for. In 2016 the bank paid $185 million in fines, and the scandal cost it billions more and years of trust.</p><p class="take">Lesson: a target with no guardrail on customer harm will eventually be met in the cheapest, worst way.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Metric Tree Builder</h2>
+    <p>Three products. Pick each one's North Star, then sort metrics into inputs, guardrails and vanity. <a href="../games/metric-tree/">Open it on its own page</a> to share.</p>
+    <div id="gamebox" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Build your metric tree card</h2>
+    <p>Pick a product you know. Name the value, the North Star, the inputs under it, and the guardrail beside it. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Metric tree card", "sentence": "{product} delivers value when {value}. North Star: {ns}.", "rows": [{"label": "Inputs", "text": "{inputs}"}, {"label": "Guardrail", "text": "{guard}"}, {"label": "How it could be gamed", "text": "{gamed}"}], "fields": [{"id": "product", "label": "Which product?", "placeholder": "For example: our team-scheduling app", "blank": "Your product"}, {"id": "value", "label": "When does a customer get value?", "placeholder": "For example: a shift gets covered without a single phone call", "blank": "what happens"}, {"id": "ns", "label": "Your North Star: one number that counts that value", "placeholder": "For example: shifts filled through the app each week", "blank": "your North Star"}, {"id": "inputs", "label": "Two or three inputs teams can move", "placeholder": "For example: managers posting shifts weekly; share of shifts filled within 24 hours", "blank": "your inputs", "chips": ["Share of new users activated in week one", "Weekly active users", "Conversion from first use to repeat use"]}, {"id": "guard", "label": "One guardrail that must not get worse", "placeholder": "Tap or describe", "blank": "your guardrail", "chips": ["Support tickets per 100 users", "Notification opt-outs", "Refunds or complaints", "Page load time"]}, {"id": "gamed", "label": "How could someone hit the target the wrong way?", "placeholder": "For example: posting fake shifts that get auto-filled", "blank": "how"}]}</script>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Product:</b> a scheduling app for restaurants. A customer gets value when an open shift gets covered without anyone making phone calls.</p>
+        <p><b>North Star:</b> shifts filled through the app each week.</p>
+        <p><b>Inputs:</b> managers who post shifts each week (breadth), share of posted shifts filled within 24 hours (efficiency), staff with notifications on (reach).</p>
+        <p><b>Guardrail:</b> shifts filled but then no-show. <b>Could be gamed by:</b> counting a shift as filled the moment anyone taps "accept", even if they cancel later.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "Your CEO wants \"daily active users\" as the company goal for Ledgerly, an invoicing tool freelancers use a few times a month. Which reply would you send?", "options": ["\"Great idea, let's add daily reminders to push it up.\"", "\"Freelancers only need us when they invoice, so daily use would push us to nag them. I'd suggest invoices paid through Ledgerly each week as the North Star, with support tickets as a guardrail.\"", "\"Let's track every metric instead, to be safe.\""], "best": 1, "ok": "It explains why the metric doesn't fit how customers get value, and offers a better one with a guardrail.", "no": "The second one: match the North Star to how customers actually get value, and add a guardrail.", "prompt": "Explain to a new teammate what a North Star metric is and why it needs a guardrail.", "checks": [{"k": "value|customer", "label": "Captures customer value"}, {"k": "one|single", "label": "It's one number"}, {"k": "input|team|break", "label": "Broken into inputs teams can move"}, {"k": "guardrail|counter|not get worse|protect", "label": "Mentions a guardrail"}, {"k": "gam|cheat|goodhart|target", "label": "Mentions gaming the target"}]}</script>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M4 and M8. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+<div class="check stack" data-answer="1"><p class="cq">Which is a leading metric for a subscription app?</p><div class="opts"><button type="button" class="opt">Last quarter's revenue</button><button type="button" class="opt">Share of new users who complete a key action in week one</button><button type="button" class="opt">Annual churn rate</button></div><p class="cfb" data-ok="Right: early behaviour predicts who stays." data-no="Revenue and annual churn report the past. Week-one activation predicts it."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">What makes a good North Star metric?</p><div class="opts"><button type="button" class="opt">It's the company's revenue</button><button type="button" class="opt">It's the number the CEO likes best</button><button type="button" class="opt">It captures the value customers get, and revenue follows it</button></div><p class="cfb" data-ok="Right: customer value that leads to business results." data-no="A North Star counts customer value, which leads revenue."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">Amazon's "new detail pages" input didn't move sales. What did they do?</p><div class="opts"><button type="button" class="opt">Refined it until it measured what customers experienced, and checked it moved sales</button><button type="button" class="opt">Dropped all input metrics</button><button type="button" class="opt">Doubled the target for new pages</button></div><p class="cfb" data-ok="Right: refine inputs until they drive the output." data-no="They refined it, to in-stock product views, and checked it actually moved sales."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">From M4: you add streak reminders to raise weekly lessons. Which guardrail fits?</p><div class="opts"><button type="button" class="opt">Number of reminders sent</button><button type="button" class="opt">Users who turn off notifications or uninstall</button><button type="button" class="opt">Lesson design consistency</button></div><p class="cfb" data-ok="Right: it catches nudges turning into sludge." data-no="Watch opt-outs and uninstalls, so a nudge doesn't become sludge."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">From M8: you test a heavier, personalised home page. Which guardrail should you add?</p><div class="opts"><button type="button" class="opt">Number of features on the page</button><button type="button" class="opt">Design review score</button><button type="button" class="opt">Page load time, especially for the slowest 5% of visits</button></div><p class="cfb" data-ok="Right: speed is part of the experience." data-no="Add load time as a guardrail. Slower pages lose people, which can cancel out the gain."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>A good metric changes a decision.</b> Prefer rates to totals, and leading to lagging.</li>
+        <li><b>The North Star counts the value customers get,</b> and revenue follows it.</li>
+        <li><b>Break it into a few inputs teams can own,</b> and check they really move it.</li>
+        <li><b>Every target gets gamed.</b> Pair it with a guardrail before you start.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m8/">Previous: M8 Technical foundations</a><span>Next: M10 Instrumentation and data analysis</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/metric-tree.js"></script>
+<script>MetricTree(document.getElementById("gamebox"));</script>
+</body>
+</html>
