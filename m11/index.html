@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M11 Experimentation | PM Gym</title>
+<meta name="description" content="A/B testing: when to test, designing a trustworthy test, reading results and deciding. Four short lessons, two cases and the Ship or Kill game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m11">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 3, Measure / M11</div>
+  <div class="title">
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#4C7BD9"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M11</text></svg>
+    <div>
+      <span class="zone-tag"><i style="background:#4C7BD9"></i>Zone 3, Measure</span>
+      <h1>Experimentation</h1>
+      <p>When to A/B test and when not to, designing tests that can be trusted, reading results without fooling yourself, and turning them into decisions.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 34 minutes</span><span>2 cases</span><span>Ship or Kill game, 10 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>The CEO saw a competitor's new home page and says:</p>
+        <div class="quote">"Copy it. It obviously works for them."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
+      </div>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "How would you find out if it works for you?", "o": ["A/B test it: show a random half of visitors each version at the same time", "Compare this month with last month after launching it", "Ask five colleagues which they prefer"], "a": 0, "why": "Random assignment at the same time is the only way to separate the change's effect from seasons, campaigns and luck."}, {"q": "After 2 of 14 planned days, the test shows +8% with p = 0.03. Stop and ship?", "o": ["Yes: it's already significant", "Yes, and stop all other tests", "No: keep it running as planned. Early peeks produce many false wins"], "a": 2, "why": "Stopping at the first good-looking result is called peeking, and it makes false wins far more likely."}, {"q": "Roughly what share of ideas tested at Microsoft improved the metric they aimed at?", "o": ["Almost all of them", "About a third", "About 80%"], "a": 1, "why": "Ron Kohavi reported about a third improved, a third did nothing, a third made things worse."}]}</script>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+<details class="lesson" data-lesson="1"><summary><span class="ln">1</span><span class="lt"><b>Why experiment, and when not to</b><span>Opinions are cheap. Randomised tests settle arguments.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>When a metric moves after a launch, you rarely know whether the launch caused it: seasons, campaigns and news all move numbers too. An <b>A/B test</b> (a randomised controlled experiment) shows a random half of users the new version and the other half the old one, at the same time. Because only the version differs, a difference in results is very likely caused by the change.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Test when</b> you have enough users, the change is easy to switch on and off, and you genuinely don't know if it will help.</li><li><b>Don't test when</b> traffic is too low to ever reach a result, the change is a clear fix (a broken button), it's a big strategic bet you'll make anyway, or testing would be unethical.</li><li><b>Alternatives</b> when you can't test: before-and-after with care, rolling out region by region, or qualitative research (M5).</li></ol></div><div class="part"><h4>Real example</h4><p>Experts are bad at predicting which ideas win. Ron Kohavi, who led experimentation at Microsoft, reported that only about a third of ideas tested there improved the metric they were designed to improve. A third did nothing, and a third made things worse. Without tests, all of them would have shipped.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Tests answer "what", not "why".</b> Pair them with interviews or usability tests to understand the reason.</li><li><b>Not every decision needs a test.</b> Testing everything can slow a team down and avoid real judgement calls.</li></ul></div><div class="part drill"><h4>Drill: test or not?</h4><div class="check stack" data-answer="2"><p class="cq">Which change should you <i>not</i> A/B test?</p><div class="opts"><button type="button" class="opt">New wording on the checkout button</button><button type="button" class="opt">A different order of plans on the pricing page</button><button type="button" class="opt">Fixing a button that crashes the app for some users</button></div><p class="cfb" data-ok="Right: just fix it. Nobody needs proof that crashes are bad." data-no="Fix the crash. Testing a clear bug fix wastes time and leaves half your users with a broken app."></p></div></div></div></details>
+<details class="lesson" data-lesson="2"><summary><span class="ln">2</span><span class="lt"><b>Designing a test</b><span>Decide everything before you see a single result.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A good test is designed before it starts: what you expect, how you'll measure it, how many people you need and how long it runs. Deciding these up front stops you from moving the goalposts once results come in.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Hypothesis:</b> "We believe [change] will [effect] for [who], because [reason]."</li><li><b>One primary metric</b> that decides the test, plus guardrails that must not get worse (M9).</li><li><b>Minimum detectable effect:</b> the smallest change worth acting on. Smaller effects need more users.</li><li><b>Sample size and duration</b> from a calculator, in full weeks, so weekdays and weekends are both included.</li></ol></div><div class="part"><h4>Real example</h4><p>Your checkout converts 4% of visitors. You only care about lifts of at least 10%, from 4.0% to 4.4%. A standard sample size calculator (95% confidence, 80% power) says you need roughly 39,000 visitors in each group. With 10,000 visitors a day, that's about eight days, so you plan two full weeks.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Low-traffic products</b> may never reach enough users. Test bigger changes, or use other evidence.</li><li><b>Users can affect each other,</b> as in marketplaces and social apps, so a simple per-user split can give misleading results. Teams then split by city or by time instead.</li></ul></div><div class="part drill"><h4>Drill: which hypothesis?</h4><div class="check stack" data-answer="1"><p class="cq">Which is the best test hypothesis?</p><div class="opts"><button type="button" class="opt">"Let's see if the new design does better."</button><button type="button" class="opt">"Showing delivery dates on product pages will raise checkout completion for first-time buyers, because uncertainty about delivery is their top reason for leaving."</button><button type="button" class="opt">"The new design will increase all metrics."</button></div><p class="cfb" data-ok="Right: change, effect, who and why, all specific." data-no="A good hypothesis names the change, the expected effect, who it's for and why."></p></div></div></div></details>
+<details class="lesson" data-lesson="3"><summary><span class="ln">3</span><span class="lt"><b>Reading results</b><span>Confidence intervals, peeking, and too-good-to-be-true.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A result is <b>statistically significant</b> when a difference this big would be unlikely if the change had no real effect. The <b>p-value</b> measures that surprise; the usual bar is 0.05. A <b>confidence interval</b> is more useful: it gives the range of effects that fit the data, like "+2% to +6%".</p></div><div class="part"><h4>The framework</h4><ol><li><b>Read the interval, not just the p-value.</b> Is all of it above zero, and is the low end still worth having?</li><li><b>Don't peek and stop early.</b> Checking daily and stopping at the first p &lt; 0.05 produces many false wins.</li><li><b>Check the split.</b> If a 50/50 test ends with clearly unequal groups (a sample ratio mismatch), something is broken.</li><li><b>Beware fishing.</b> Check 20 metrics and about one will look significant by chance.</li></ol></div><div class="part"><h4>Real example</h4><p>Kohavi calls a related rule <b>Twyman's law</b>: any figure that looks interesting or different is usually wrong. When a Bing test showed an unusually large revenue jump within hours, it triggered a "too good to be true" alert, which usually means a bug. This time the result held up, but only after the team checked.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Significant isn't the same as important.</b> With millions of users, a 0.1% lift can be significant and still not worth the complexity.</li><li><b>A p-value of 0.04 doesn't mean a 96% chance the new version is better.</b> It only says how surprising the data would be if there were no difference.</li></ul></div><div class="part drill"><h4>Drill: read the result</h4><div class="check stack" data-answer="0"><p class="cq">A test shows +3% with a 95% confidence interval of -1% to +7%. What can you say?</p><div class="opts"><button type="button" class="opt">The result is inconclusive: the true effect could be negative, zero or positive</button><button type="button" class="opt">It's a clear 3% win</button><button type="button" class="opt">It's a clear loss</button></div><p class="cfb" data-ok="Right: an interval that crosses zero is inconclusive." data-no="The interval includes zero, so the true effect could be negative. It's inconclusive."></p></div></div></div></details>
+<details class="lesson" data-lesson="4"><summary><span class="ln">4</span><span class="lt"><b>Deciding, and the limits of tests</b><span>Ship, kill, or learn, and watch for short-lived effects.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>The point of a test is a decision. Agree the decision rule before the test starts: "Ship if checkout completion rises by at least 2% and refunds don't rise." Then follow it, including when your favourite idea loses.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Ship</b> when the primary metric clearly wins and guardrails hold.</li><li><b>Kill</b> when it clearly loses, when it's flat and costs money to keep, or when a guardrail breaks.</li><li><b>Keep running</b> when it hasn't reached its planned size or the effect is still shifting.</li><li><b>Fix the test</b> when the setup is broken: unequal groups, tracking errors, results fished from many segments.</li></ol></div><div class="part"><h4>Real example</h4><p><b>Novelty effects</b> fool many teams: people click new things because they're new, and the lift fades within weeks. Some companies keep a small long-term <b>holdout</b>, a group that never gets the change, to check that wins still hold months later.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Tests measure short-term behaviour.</b> Trust, brand and long-term habits move slowly and can be harmed by changes that win this week.</li><li><b>Ethics come first.</b> Users don't expect to be experimented on in ways that could harm them. Some tests need review, or shouldn't be run.</li></ul></div><div class="part drill"><h4>Drill: make the call</h4><div class="check stack" data-answer="1"><p class="cq">A test raised clicks by 20% in week one, 8% in week two and 3% in week three. What's going on?</p><div class="opts"><button type="button" class="opt">A big permanent win</button><button type="button" class="opt">Probably a novelty effect: keep watching before deciding</button><button type="button" class="opt">The test is broken</button></div><p class="cfb" data-ok="Right: the effect is fading as the change stops being new." data-no="A lift that shrinks every week is a classic novelty effect. Keep watching before you decide."></p></div></div></div></details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One small idea that a test proved was worth over $100 million, and one test that ignored what users would consent to.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Bing's ad headlines</h3><p>In 2012, a Microsoft employee suggested showing longer ad headlines on Bing. The idea sat in the backlog for months, judged low priority. When an engineer finally ran it as an A/B test, revenue rose 12%, worth over $100 million a year in the US alone, without hurting key user-experience metrics. It was checked and replicated before anyone celebrated.</p><p class="take">Lesson: experts can't reliably predict winners. Cheap tests let good ideas prove themselves.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Facebook's emotion experiment</h3><p>In 2012, Facebook researchers changed how many positive or negative posts 689,003 users saw in their News Feed, to see whether it changed the emotions in their own posts. When the study was published in 2014, it caused an outcry: users had not knowingly agreed to have their emotions influenced.</p><p class="take">Lesson: being able to run a test doesn't mean you should. Experiments that could harm people's wellbeing need consent and ethical review.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Ship or Kill</h2>
+    <p>Seven A/B test results. Make the call, then point to the line on the card that decided it. <a href="../games/ship-or-kill/">Open it on its own page</a> to share.</p>
+    <div id="gamebox" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Build your experiment plan card</h2>
+    <p>Pick a change you'd like to test. Write the hypothesis, the metrics, the size and the decision rule before any result exists. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Experiment plan card", "sentence": "We believe {change} will {effect} for {who}, because {because}.", "rows": [{"label": "Primary metric", "text": "{metric}"}, {"label": "Guardrail", "text": "{guard}"}, {"label": "Run for", "text": "{duration}"}, {"label": "We ship if", "text": "{rule}"}], "fields": [{"id": "change", "label": "What will you change?", "placeholder": "For example: showing delivery dates on product pages", "blank": "your change"}, {"id": "effect", "label": "What effect do you expect?", "placeholder": "For example: raise checkout completion", "blank": "what effect"}, {"id": "who", "label": "For whom?", "placeholder": "For example: first-time buyers", "blank": "whom"}, {"id": "because", "label": "Why do you believe it?", "placeholder": "For example: delivery uncertainty is the top reason in exit surveys", "blank": "your reason"}, {"id": "metric", "label": "Primary metric", "placeholder": "For example: checkout completion within the session", "blank": "your metric"}, {"id": "guard", "label": "Guardrail", "placeholder": "Tap or describe", "blank": "your guardrail", "chips": ["Refunds or returns", "Support contacts", "Page load time", "Unsubscribes or opt-outs"]}, {"id": "duration", "label": "How long, and how many users?", "placeholder": "For example: 14 days, about 40,000 users per group", "blank": "how long"}, {"id": "rule", "label": "Your decision rule, agreed in advance", "placeholder": "For example: completion rises at least 2% and refunds don't rise", "blank": "your rule"}]}</script>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Hypothesis:</b> We believe showing the expected delivery date on product pages will raise checkout completion for first-time buyers, because "unsure when it arrives" is the top reason in our exit survey.</p>
+        <p><b>Primary metric:</b> checkout completion. <b>Guardrail:</b> returns within 30 days.</p>
+        <p><b>Run for:</b> 14 days, about 40,000 first-time buyers per group, enough to detect a 2% change.</p>
+        <p><b>We ship if</b> completion rises at least 2% with the whole confidence interval above zero, and returns don't rise.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A director says: \"The test came back with p = 0.04. So there's a 96% chance the new version is better, right? Let's ship.\" Which reply would you send?", "options": ["\"Yes, 96% sure. Shipping today.\"", "\"Not quite. p = 0.04 means a result this big would be unusual if the change did nothing. The more useful number is the confidence interval: here +0.5% to +5%, so it's likely a real but possibly small win. It ran the full two weeks and guardrails held, so I'd ship.\"", "\"p-values are meaningless, let's ignore the test.\""], "best": 1, "ok": "It corrects the misunderstanding kindly, points to the interval, and still makes a clear decision.", "no": "The second one: explain what the p-value really says, use the interval, and still decide.", "prompt": "Explain to a stakeholder how to read an A/B test result before deciding.", "checks": [{"k": "random", "label": "Users split at random"}, {"k": "interval|range", "label": "Read the confidence interval"}, {"k": "plan|full|peek|early|duration", "label": "Ran to its planned length"}, {"k": "guardrail|refund|harm", "label": "Check guardrails"}, {"k": "significant|chance|p.value|noise", "label": "Significance and chance"}]}</script>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M5 and M10. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+<div class="check stack" data-answer="0"><p class="cq">Why does an A/B test show users the old and new versions at the same time, at random?</p><div class="opts"><button type="button" class="opt">So that only the change differs between groups, not the timing or the type of user</button><button type="button" class="opt">Because it's cheaper</button><button type="button" class="opt">So users can choose their favourite</button></div><p class="cfb" data-ok="Right: randomisation isolates the effect of the change." data-no="Random assignment at the same time means only the change differs, so it explains the difference."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">A 50/50 test ends with 52,000 users in one group and 47,000 in the other. What should you do?</p><div class="opts"><button type="button" class="opt">Ship the winner</button><button type="button" class="opt">Average the groups</button><button type="button" class="opt">Treat the result as suspect and find out why the split is uneven</button></div><p class="cfb" data-ok="Right: that's a sample ratio mismatch." data-no="An uneven split like that means something is broken. Don't trust the result until you find the cause."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">A test result is +0.1%, statistically significant, with 20 million users. Should you ship?</p><div class="opts"><button type="button" class="opt">Yes, always ship significant results</button><button type="button" class="opt">Only if a 0.1% lift is worth the added complexity and cost</button><button type="button" class="opt">No, results that small are always wrong</button></div><p class="cfb" data-ok="Right: significant doesn't mean important." data-no="Significant isn't the same as worthwhile. Decide whether 0.1% is worth what it costs."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">From M10: before launching a test, what should you check about tracking?</p><div class="opts"><button type="button" class="opt">That the primary metric's events fire correctly in both versions</button><button type="button" class="opt">That events have short names</button><button type="button" class="opt">Nothing; the testing tool handles it</button></div><p class="cfb" data-ok="Right: broken tracking in one version breaks the test." data-no="Make sure the events behind your metric fire correctly in both versions."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">From M5: an A/B test shows the new checkout loses. What's the best way to learn why?</p><div class="opts"><button type="button" class="opt">Run the same test again</button><button type="button" class="opt">Look at more segments until one wins</button><button type="button" class="opt">Watch a few users try both versions and ask what they were thinking</button></div><p class="cfb" data-ok="Right: tests tell you what; research tells you why." data-no="Tests show what happened. Watching and talking to users shows why."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Test when you're unsure and can measure it;</b> just fix the obvious.</li>
+        <li><b>Decide hypothesis, metric, guardrails, size and duration before you start.</b></li>
+        <li><b>Read the confidence interval,</b> don't peek, and distrust anything too good to be true.</li>
+        <li><b>Agree the decision rule in advance,</b> watch for novelty effects, and put ethics first.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m10/">Previous: M10 Instrumentation and data analysis</a><span>Next: AI-2 Evals and AI economics</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/ship-or-kill.js"></script>
+<script>ShipOrKill(document.getElementById("gamebox"));</script>
+</body>
+</html>
