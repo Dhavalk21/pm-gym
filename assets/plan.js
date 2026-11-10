@@ -24,7 +24,7 @@ window.PMGYM = {
     { code: "M13", zone: 3, name: "Business models and pricing", short: "Pricing", desc: "Business models, pricing and packaging, and unit economics.", game: "Price It", page: "m13/" },
     { code: "M14", zone: 4, name: "Vision and strategy", short: "Strategy", desc: "Diagnosis, guiding policy, coherent action, and real trade-offs.", game: "Strategy or Wishlist?", page: "m14/" },
     { code: "M15", zone: 4, name: "Prioritisation", short: "Prioritisation", desc: "Scoring methods and their limits, cost of delay, and saying no.", game: "Backlog Triage", page: "m15/" },
-    { code: "M16", zone: 4, name: "Roadmaps and OKRs", short: "Roadmaps", desc: "Now, next and later roadmaps, outcome goals, and showing uncertainty honestly.", game: "Roadmap Remix" },
+    { code: "M16", zone: 4, name: "Roadmaps and OKRs", short: "Roadmaps", desc: "Now, next and later roadmaps, outcome goals, and showing uncertainty honestly.", game: "Roadmap Remix", page: "m16/" },
     { code: "M17", zone: 5, name: "Execution and delivery", short: "Execution", desc: "Specs, launch plans, go-to-market, and post-launch reviews.", game: "Launch Day" },
     { code: "M18", zone: 5, name: "Communication and influence", short: "Influence", desc: "Memos, stories with data, stakeholders, and influence without authority.", game: "Stakeholder Chess" },
     { code: "AI-3", zone: 5, name: "Agents and responsible AI", short: "Agents", desc: "Agents and tool use, guardrails, trust in AI interfaces, privacy and the EU AI Act.", game: "Agent Builder" }

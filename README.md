@@ -55,7 +55,7 @@ Further reading: [Dunlosky et al., 2013, *Improving Students' Learning With Effe
 | **Design and build** | [M7 UX and design basics](https://pmgym.netlify.app/m7/), [M8 Technical foundations](https://pmgym.netlify.app/m8/) | Live |
 | **Measure** | [M9 Metrics and North Star](https://pmgym.netlify.app/m9/), [M10 Instrumentation and data analysis](https://pmgym.netlify.app/m10/), [M11 Experimentation](https://pmgym.netlify.app/m11/), [AI-2 Evals and AI economics](https://pmgym.netlify.app/ai-2/) | Live |
 | **Grow** | [M12 Growth](https://pmgym.netlify.app/m12/), [M13 Business models and pricing](https://pmgym.netlify.app/m13/) | Live |
-| **Decide** | M14 Vision and strategy, M15 Prioritisation, M16 Roadmaps and OKRs | Planned |
+| **Decide** | [M14 Vision and strategy](https://pmgym.netlify.app/m14/), [M15 Prioritisation](https://pmgym.netlify.app/m15/), [M16 Roadmaps and OKRs](https://pmgym.netlify.app/m16/) | Live |
 | **Ship and lead** | M17 Execution and delivery, M18 Communication and influence, AI-3 Agents and responsible AI | Planned |
 | **Capstone** | Ship an AI feature end to end | Planned |
 
@@ -80,6 +80,9 @@ Every game also has its own page, so you can share it with a colleague or play i
 | [Eval Arena](https://pmgym.netlify.app/games/eval-arena/) | AI-2 | Grade an AI assistant's answers, then pick the cheapest model that meets the bar | 10 min |
 | [Loop Builder](https://pmgym.netlify.app/games/loop-builder/) | M12 | Pick the growth loop that fits, then the change that makes it compound | 10 min |
 | [Price It](https://pmgym.netlify.app/games/price-it/) | M13 | Choose what a price should grow with, then diagnose unit economics | 8 min |
+| [Strategy or Wishlist?](https://pmgym.netlify.app/games/strategy-or-wishlist/) | M14 | Sort real strategies from goals and fluff, then build a strategy kernel | 8 min |
+| [Backlog Triage](https://pmgym.netlify.app/games/backlog-triage/) | M15 | Plan a 12-week quarter from competing requests, then say no well | 8 min |
+| [Roadmap Remix](https://pmgym.netlify.app/games/roadmap-remix/) | M16 | Diagnose OKRs, then build an honest Now, Next, Later roadmap | 8 min |
 
 ## Using PM Gym with your team
 
@@ -106,7 +109,7 @@ python3 -m http.server 8000   # or open index.html directly in a browser
 
 ```
 index.html            Home: Test your max, the gym floor, the session, the playground
-m1/ … m13/, ai-1/, ai-2/  One page per station
+m1/ … m16/, ai-1/, ai-2/  One page per station
 games/                A standalone page for each game
 assets/
   plan.js             Every station, its zone, game and status

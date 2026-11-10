@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M16 Roadmaps and OKRs | PM Gym</title>
+<meta name="description" content="Roadmaps and OKRs: the problems with feature-and-date roadmaps, Now Next Later, objectives and key results, and handling dates and uncertainty. Four short lessons, two cases and the Roadmap Remix game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m16">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 5, Decide / M16</div>
+  <div class="title">
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#9B6BB0"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M16</text></svg>
+    <div>
+      <span class="zone-tag"><i style="background:#9B6BB0"></i>Zone 5, Decide</span>
+      <h1>Roadmaps and OKRs</h1>
+      <p>Why feature-and-date roadmaps fail, how Now, Next, Later shows direction honestly, how to write OKRs that measure outcomes, and how to handle dates without losing trust.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 34 minutes</span><span>2 cases</span><span>Roadmap Remix game, 8 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>Your new head of product asks for next year's roadmap:</p>
+        <div class="quote">"Twelve features, one per month, with exact dates, please. Sales needs them for customers."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
+      </div>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What's the main risk of that roadmap?", "o": ["Guesses become promises, and success becomes shipping instead of outcomes", "It's too short", "It has too few features"], "a": 0, "why": "Exact dates for work nobody has designed yet become commitments, and the list crowds out learning."}, {"q": "Which is the best key result for \"Reduce late payments\"?", "o": ["Launch the reminders feature", "Run three workshops", "Average days to payment: 34 → 20"], "a": 2, "why": "Key results are measurable outcomes. Launches and workshops are tasks."}, {"q": "A legal deadline is fixed, and the full feature won't fit before it. What do you do?", "o": ["Hope it works out", "Ship the smallest version that meets the requirement on time, then improve it", "Add more engineers in the last weeks"], "a": 1, "why": "Fix the date, flex the scope. Adding people late usually slows things down."}]}</script>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+<details class="lesson" data-lesson="1"><summary><span class="ln">1</span><span class="lt"><b>Why feature-and-date roadmaps fail</b><span>False certainty turns guesses into promises.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>The classic roadmap is a timeline of features with dates. It looks reassuring, but it hides two problems. It focuses on <b>outputs</b>, not outcomes (M1), so success means shipping, not solving. And it implies <b>certainty</b> nobody has: dates for work that hasn't been designed become promises that sales, customers and leaders plan around.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Outputs crowd out outcomes:</b> the team ships the list even when learning says to change course.</li><li><b>Dates harden:</b> a rough guess in January becomes a commitment by March.</li><li><b>Estimates are optimistic:</b> people underestimate how long work takes, even when they know similar work overran. Psychologists call it the planning fallacy.</li></ol></div><div class="part"><h4>Real example</h4><p>The planning fallacy's famous example is the Sydney Opera House. Planned for completion in 1963 at a cost of about 7 million Australian dollars, it opened in 1973 for about 102 million, with a smaller scope than designed. Software roadmaps are rarely that dramatic, but the pattern is the same.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Some dates are real:</b> a legal deadline, a conference, a partner launch. Treat those differently (lesson 4).</li><li><b>Stakeholders still need to plan.</b> Removing dates without offering something better just moves the anxiety.</li></ul></div><div class="part drill"><h4>Drill: what's wrong?</h4><div class="check stack" data-answer="2"><p class="cq">A roadmap shows twelve features, each with a delivery month, for the next 18 months. What's the main risk?</p><div class="opts"><button type="button" class="opt">It's too short</button><button type="button" class="opt">It has too few features</button><button type="button" class="opt">It turns guesses into promises and measures success by shipping, not outcomes</button></div><p class="cfb" data-ok="Right: false certainty and output focus." data-no="It turns long-range guesses into promises, and judges success by features shipped."></p></div></div></div></details>
+<details class="lesson" data-lesson="2"><summary><span class="ln">2</span><span class="lt"><b>Now, Next, Later</b><span>Outcomes, with honest confidence.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>The <b>Now, Next, Later</b> roadmap, popularised by Janna Bastow of ProdPad, replaces dates with time horizons and confidence. <b>Now</b> is what the team is building. <b>Next</b> is being shaped. <b>Later</b> is the direction you're exploring. Items are written as problems or outcomes, not features.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Write items as problems or outcomes:</b> "Help new users send their first invoice sooner", not "Onboarding wizard v2".</li><li><b>Confidence falls from left to right:</b> Now is detailed and firm; Later is broad and changeable.</li><li><b>Link each item to the strategy and a goal</b> (M14, M9).</li><li><b>Show different views to different audiences:</b> detail for the team, themes for customers.</li></ol></div><div class="part"><h4>Real example</h4><p>Ledgerly's roadmap. <b>Now:</b> help new users send their first invoice sooner; reduce late payments with reminders. <b>Next:</b> instant payouts by card; payment links for a second bank. <b>Later:</b> tax estimates; Spain and Italy. Everyone can see the direction, and nobody mistakes "Later" for a promise.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>"Later" can become a dumping ground.</b> Prune it regularly; a long Later list is a wishlist (M14).</li><li><b>Some customers need dates.</b> Give ranges for Now items, and be clear that Next and Later aren't commitments.</li></ul></div><div class="part drill"><h4>Drill: where does it go?</h4><div class="check stack" data-answer="1"><p class="cq">An idea with a few interview signals, no validation and no design yet. Where does it belong?</p><div class="opts"><button type="button" class="opt">Now</button><button type="button" class="opt">Later</button><button type="button" class="opt">Next, with a delivery date</button></div><p class="cfb" data-ok="Right: low confidence belongs in Later." data-no="Low confidence and no validation means Later: a direction to explore, not a promise."></p></div></div></div></details>
+<details class="lesson" data-lesson="3"><summary><span class="ln">3</span><span class="lt"><b>OKRs</b><span>An objective that inspires, and a few results that prove it.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p><b>Objectives and key results</b> were developed by Andy Grove at Intel in the 1970s and brought to Google in 1999 by investor John Doerr, who later wrote <i>Measure What Matters</i>. The <b>objective</b> is a qualitative, inspiring direction. The <b>key results</b> are three to five measurable outcomes that show whether you got there.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Objective:</b> what you want to achieve and why it matters. "Get new freelancers to their first paid invoice faster."</li><li><b>Key results:</b> measurable outcomes with a start and a target: "Median days to first paid invoice: 21 → 12."</li><li><b>Not tasks:</b> "Launch reminders" is a way to get there, not a result.</li><li><b>Ambitious, not tied to bonuses:</b> at Google, hitting about 70% of a stretch goal is considered good.</li></ol></div><div class="part"><h4>Real example</h4><p>Compare two key results for the same objective. "Ship the onboarding redesign" is done the day it launches, whether or not anyone benefits. "Share of new accounts sending an invoice in week one: 35% → 50%" is done only when customers actually behave differently. The second leaves the team free to find the best way there.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>OKR theatre:</b> a quarterly ritual of writing goals nobody looks at again. Review progress weekly or fortnightly.</li><li><b>Sandbagging:</b> if OKRs affect pay or reviews, people set easy targets. Keep them separate.</li></ul></div><div class="part drill"><h4>Drill: fix the key result</h4><div class="check stack" data-answer="0"><p class="cq">Which is the best key result for "Reduce late payments for our freelancers"?</p><div class="opts"><button type="button" class="opt">Average days to payment: 34 → 20</button><button type="button" class="opt">Launch the reminders feature</button><button type="button" class="opt">Hold three workshops about late payments</button></div><p class="cfb" data-ok="Right: a measurable outcome with a start and a target." data-no="Key results are outcomes: average days to payment from 34 to 20. Launches are tasks."></p></div></div></div></details>
+<details class="lesson" data-lesson="4"><summary><span class="ln">4</span><span class="lt"><b>Dates, uncertainty and trust</b><span>Fix the date and flex the scope, or the other way round.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Some dates matter: a legal deadline, a trade fair, a partner's launch. For those, don't pretend you can fix everything. The classic trade-off is between <b>scope</b>, <b>time</b> and <b>resources</b>; adding people late rarely helps. So when the date is fixed, flex the scope, and when the scope is fixed, give a range.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Fixed date:</b> agree the smallest valuable version, ship that on time, and add more after.</li><li><b>Fixed scope:</b> give a range with a confidence level: "May to June, about 70% confident", and narrow it as you learn.</li><li><b>Update early and openly</b> when things change. Late surprises destroy more trust than honest uncertainty.</li><li><b>Release in small steps</b> so problems show up early, not on launch day.</li></ol></div><div class="part"><h4>Real example</h4><p>Ledgerly must support Germany's new e-invoicing format before the legal deadline. The date can't move, so the team ships the required format first, with a basic screen, months early, then improves the experience in later releases. Customers are never at risk, and the team learns from real use before the deadline.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Ranges can feel evasive</b> to people used to single dates. Explain what makes the range wider or narrower.</li><li><b>Flexing scope needs a clear minimum.</b> Agree in advance what "the smallest valuable version" is.</li></ul></div><div class="part drill"><h4>Drill: fixed date</h4><div class="check stack" data-answer="1"><p class="cq">A partner launch date is fixed and the full feature won't be ready. What do you do?</p><div class="opts"><button type="button" class="opt">Add more engineers in the last two weeks</button><button type="button" class="opt">Agree the smallest valuable version for the date, and plan the rest after</button><button type="button" class="opt">Move the partner's launch date</button></div><p class="cfb" data-ok="Right: fix the date, flex the scope." data-no="With a fixed date, flex the scope. Adding people late usually slows things down."></p></div></div></div></details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One company that adopted a simple goal system early and kept it for decades, and one launch where a fixed date and a fixed scope collided.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Google and OKRs</h3><p>In 1999, investor John Doerr taught Google's young founding team the goal-setting system he'd learned from Andy Grove at Intel: objectives and key results. Google adopted OKRs across the company and has used them ever since, with ambitious targets where hitting about 70% counts as success. The approach spread to many other technology companies.</p><p class="take">Lesson: a simple, shared way to state outcomes helps a fast-growing company stay focused, as long as it measures results, not tasks.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>HealthCare.gov's launch</h3><p>The US government's health insurance marketplace launched on 1 October 2013, a fixed date, with its full scope at once. The site was overwhelmed by errors. According to internal notes later released by Congress, only six people managed to enrol on the first day, despite millions of visits.</p><p class="take">Lesson: fixing both the date and the full scope, with little end-to-end testing, sets up failure. Fix one, flex the other, and release in steps.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Roadmap Remix</h2>
+    <p>Diagnose four OKRs, then turn a feature list into a Now, Next, Later roadmap. <a href="../games/roadmap-remix/">Open it on its own page</a> to share.</p>
+    <div id="gamebox" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Build your roadmap and OKR card</h2>
+    <p>Pick a product you know. Write one objective with key results, and sort its work into Now, Next and Later. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Roadmap and OKR card", "sentence": "Objective: {obj}.", "rows": [{"label": "Key results", "text": "{krs}"}, {"label": "Now", "text": "{now}"}, {"label": "Next", "text": "{next}"}, {"label": "Later", "text": "{later}"}], "fields": [{"id": "obj", "label": "Your objective: what you want to achieve, and why", "placeholder": "For example: get new freelancers to their first paid invoice faster", "blank": "Your objective"}, {"id": "krs", "label": "Two or three key results, each from a start to a target", "placeholder": "For example: median days to first paid invoice 21 → 12; week-one invoice rate 35% → 50%", "blank": "your key results"}, {"id": "now", "label": "Now: problems you're solving right now", "placeholder": "For example: help new users send their first invoice sooner", "blank": "now"}, {"id": "next", "label": "Next: problems you're shaping", "placeholder": "For example: instant payouts by card", "blank": "next"}, {"id": "later", "label": "Later: directions you're exploring", "placeholder": "For example: tax estimates; Spain and Italy", "blank": "later"}]}</script>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Objective:</b> get new freelancers to their first paid invoice faster.</p>
+        <p><b>Key results:</b> median days from sign-up to first paid invoice from 21 to 12; share of new accounts sending an invoice in week one from 35% to 50%; support tickets per 100 new accounts stay below 8.</p>
+        <p><b>Now:</b> help new users send their first invoice sooner; reduce late payments with reminders. <b>Next:</b> instant payouts by card; a second bank for payment links.</p>
+        <p><b>Later:</b> yearly tax estimates; expansion to Spain and Italy.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "Sales asks: \"Customers want to know exactly when instant payouts will ship. Can you give me a date?\" Which reply would you send?", "options": ["\"15 March.\" (Design hasn't started.)", "\"It's in our Next column: the bank partner is signed, but design hasn't started, so any exact date now would be a guess. I'd say 'in the first half of next year' for now, and I'll give you a narrower range in four weeks, once design is done.\"", "\"We don't do dates.\""], "best": 1, "ok": "Honest about confidence, gives a usable range, and commits to when it'll get sharper.", "no": "The second one: give an honest range, explain the uncertainty, and say when it'll get more precise.", "prompt": "Explain to a stakeholder why your roadmap shows Now, Next and Later instead of dates.", "checks": [{"k": "outcome|problem|result", "label": "Outcomes, not features"}, {"k": "confiden|certain|guess", "label": "Honest confidence"}, {"k": "now|next|later", "label": "Explains the horizons"}, {"k": "range|date|deadline", "label": "How dates are handled"}, {"k": "update|change|learn|review", "label": "Updated as you learn"}]}</script>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M9 and M15. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+<div class="check stack" data-answer="0"><p class="cq">What does the "Later" column on a Now, Next, Later roadmap mean?</p><div class="opts"><button type="button" class="opt">A direction being explored, with low confidence: not a promise</button><button type="button" class="opt">Work that's late</button><button type="button" class="opt">Work scheduled for exactly six months from now</button></div><p class="cfb" data-ok="Right: low confidence, not a commitment." data-no="Later is a direction you're exploring, with low confidence. It isn't a promise."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">Why keep OKRs separate from bonuses?</p><div class="opts"><button type="button" class="opt">Bonuses are illegal</button><button type="button" class="opt">OKRs are only for executives</button><button type="button" class="opt">Otherwise people set easy targets they're sure to hit</button></div><p class="cfb" data-ok="Right: it protects ambition." data-no="Tying OKRs to pay encourages sandbagging: easy targets instead of ambitious ones."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">What is the planning fallacy?</p><div class="opts"><button type="button" class="opt">Planning too far ahead</button><button type="button" class="opt">Underestimating how long work will take, even when similar work overran</button><button type="button" class="opt">Overestimating costs</button></div><p class="cfb" data-ok="Right: optimism about our own plans." data-no="It's the tendency to underestimate time and cost, even with evidence from past overruns."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">From M9: how should a key result relate to your metrics?</p><div class="opts"><button type="button" class="opt">It should be a list of features</button><button type="button" class="opt">It should never use numbers</button><button type="button" class="opt">It should move a metric that matters, ideally an input to the North Star</button></div><p class="cfb" data-ok="Right: key results move real metrics." data-no="Good key results move metrics that matter, often inputs to the North Star."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">From M15: what should decide which outcomes are in "Now"?</p><div class="opts"><button type="button" class="opt">Strategy, value, cost of delay and effort</button><button type="button" class="opt">Who asked most recently</button><button type="button" class="opt">Alphabetical order</button></div><p class="cfb" data-ok="Right: prioritisation decides what's Now." data-no="Prioritisation decides it: strategy first, then value, cost of delay and effort."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Feature-and-date roadmaps turn guesses into promises.</b> Plan outcomes instead.</li>
+        <li><b>Now, Next, Later shows direction with honest confidence,</b> written as problems to solve.</li>
+        <li><b>OKRs: an inspiring objective and three to five measurable outcomes,</b> not tasks.</li>
+        <li><b>When a date is fixed, flex the scope.</b> Give ranges, update early, release in steps.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m15/">Previous: M15 Prioritisation</a><span>Next zone: Ship and lead, starting with M17</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/roadmap-remix.js"></script>
+<script>RoadmapRemix(document.getElementById("gamebox"));</script>
+</body>
+</html>
