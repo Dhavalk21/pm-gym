@@ -465,3 +465,18 @@ footer.site > span { color: var(--ink-3); font-size: 15px; }
 .rm-card b { color: var(--ground); font-size: 18px; }
 .rm-card p { margin: 4px 0 0; }
 @media (max-width: 640px) { .rm-board { grid-template-columns: 1fr; } .rm-col { min-height: 0; } }
+
+/* Launch Day (M17) */
+.ld-tl { flex: 0 1 260px; min-width: 220px; list-style: none; margin: 0; padding: 0 0 0 18px; border-left: 2px solid #5F6975; display: grid; gap: 14px; }
+.ld-tl li { position: relative; }
+.ld-tl li::before { content: ""; position: absolute; left: -26px; top: 4px; width: 12px; height: 12px; border-radius: 50%; background: #17202A; border: 2px solid #5F6975; }
+.ld-tl li.now::before { background: #D07A45; border-color: #D07A45; box-shadow: 0 0 0 4px rgba(208, 122, 69, .3); }
+.ld-tl li.ok::before { background: #4CB27A; border-color: #4CB27A; }
+.ld-tl li.no::before { background: #E0535A; border-color: #E0535A; }
+.ld-tl small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--pale); }
+.ld-tl span { font-size: 15px; color: var(--ground); }
+.ld-tl li.now span { font-weight: 700; }
+.ld-sit { background: #F2F3F1; color: #17202A; border-radius: 10px; padding: 14px 16px; border-left: 6px solid #D07A45; }
+.ld-sit small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #5F6975; }
+.ld-sit p { margin: 4px 0 0; color: #17202A !important; font-size: 16px; }
+@media (max-width: 640px) { .ld-tl { display: none; } }

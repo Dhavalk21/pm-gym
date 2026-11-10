@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M17 Execution and delivery | PM Gym</title>
+<meta name="description" content="Specs, working with design and engineering, safe launches with staged rollouts, and post-launch reviews. Four short lessons, two cases and the Launch Day game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m17">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 6, Ship and lead / M17</div>
+  <div class="title">
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#D07A45"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M17</text></svg>
+    <div>
+      <span class="zone-tag"><i style="background:#D07A45"></i>Zone 6, Ship and lead</span>
+      <h1>Execution and delivery</h1>
+      <p>Specs that help the team decide, working in thin slices with design and engineering, launching safely behind a switch, and learning honestly after launch.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 33 minutes</span><span>2 cases</span><span>Launch Day game, 7 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>Launch is tomorrow at 9:00. The plan:</p>
+        <div class="quote">"Switch the new invoice editor on for all 12,000 customers at once. Support will see it when customers do."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
+      </div>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What's the biggest risk?", "o": ["No gradual rollout and no quick way back if something breaks", "The launch email isn't designed yet", "There's no launch party"], "a": 0, "why": "If everyone gets it at once with no off switch, any bug hits every customer before you can react."}, {"q": "Errors jump right after the rollout starts. What's the first move?", "o": ["Keep going and fix it later", "Wait for customer complaints", "Switch the feature off, then investigate"], "a": 2, "why": "Stop the harm first. A feature flag makes rollback a one-minute job."}, {"q": "After launch, what should the review focus on?", "o": ["Nothing: if the metric went up, skip it", "What happened, what we learned and what we'll change, without blame", "Who's to blame for the problems"], "a": 1, "why": "Blameless reviews surface the real causes, because people share honestly."}]}</script>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+<details class="lesson" data-lesson="1"><summary><span class="ln">1</span><span class="lt"><b>Specs that help, not hinder</b><span>A short document that answers why, for whom and what success looks like.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A spec, often called a PRD or one-pager, isn't a contract that tells engineers exactly what to build. It's a shared understanding of the problem, the goal and the boundaries, so the team can make good decisions without you in every conversation.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Problem and evidence:</b> who has it, how we know, how big it is.</li><li><b>Goal and success metric:</b> what will change, and how we'll measure it (M9).</li><li><b>Scope and non-goals:</b> what's in, and what we're deliberately leaving out.</li><li><b>Open questions and risks:</b> what we don't know yet, and how we'll find out.</li><li><b>Keep it alive:</b> update it as you learn; link designs and decisions.</li></ol></div><div class="part"><h4>Real example</h4><p>Amazon starts many new products by writing the press release and a list of frequently asked questions before building anything, a process described in <i>Working Backwards</i> by former executives Colin Bryar and Bill Carr. If the press release isn't exciting for customers, the product probably isn't either, and it's much cheaper to rewrite a document than a product.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Long specs don't get read.</b> If it's more than a few pages, split it or cut it.</li><li><b>Specs can't replace conversations.</b> The best ones are written with design and engineering, not handed to them.</li></ul></div><div class="part drill"><h4>Drill: what's missing?</h4><div class="check stack" data-answer="1"><p class="cq">A spec lists 30 detailed requirements, but no problem statement and no success metric. What's the risk?</p><div class="opts"><button type="button" class="opt">It's too short</button><button type="button" class="opt">The team builds exactly what's written without knowing why, or how to tell if it worked</button><button type="button" class="opt">Nothing, requirements are enough</button></div><p class="cfb" data-ok="Right: without the why, nobody can make good trade-offs." data-no="Without the problem and the metric, the team can't make good trade-offs or tell whether it worked."></p></div></div></div></details>
+<details class="lesson" data-lesson="2"><summary><span class="ln">2</span><span class="lt"><b>Working with design and engineering</b><span>One team, thin slices, shared ownership.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>The best product work happens when a PM, a designer and an engineering lead work as one small group from the start, often called the product trio. Engineers who understand the problem suggest simpler solutions; designers who hear the constraints design what can actually ship.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Involve engineering and design in discovery</b> (M5), not only in delivery.</li><li><b>Slice work thin:</b> small pieces that each deliver something usable, end to end, instead of finishing layer by layer.</li><li><b>Agree what "done" means:</b> tested, measured, documented, released.</li><li><b>Protect focus:</b> limit work in progress, and say no to mid-sprint surprises unless they're urgent.</li></ol></div><div class="part"><h4>Real example</h4><p>Instead of building the whole new invoice editor and releasing it in three months, the team ships one slice every two weeks: first a new line-item table, then templates, then the new export menu. Each slice reaches real customers behind a flag, so problems show up while they're still small.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Some work can't be sliced thin,</b> like a database migration. Then reduce risk with testing, dry runs and a rollback plan.</li><li><b>Over-collaboration slows teams down.</b> Not every decision needs a meeting; agree who decides what.</li></ul></div><div class="part drill"><h4>Drill: best way to deliver?</h4><div class="check stack" data-answer="0"><p class="cq">A big feature will take three months. What's the best delivery approach?</p><div class="opts"><button type="button" class="opt">Ship usable slices every couple of weeks, behind a feature flag</button><button type="button" class="opt">Build everything, then release it all on one day</button><button type="button" class="opt">Finish the database layer first, then the backend, then the interface</button></div><p class="cfb" data-ok="Right: thin slices surface problems early." data-no="Ship thin, usable slices. Big-bang releases hide problems until it's expensive to fix them."></p></div></div></div></details>
+<details class="lesson" data-lesson="3"><summary><span class="ln">3</span><span class="lt"><b>Launching safely</b><span>Roll out gradually, watch closely, keep an off switch.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A launch is a risk as well as a moment. Modern teams separate <b>deploying</b> code from <b>releasing</b> it to customers, using <b>feature flags</b> that turn features on for chosen groups. That allows a <b>staged rollout</b>: a small share of users first, then more, while watching for problems.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Roll out in stages:</b> internal team, 1%, 10%, 50%, 100%, with checks between each.</li><li><b>Watch the right signals:</b> errors, speed, the success metric and guardrails.</li><li><b>Keep an off switch:</b> know how to roll back in minutes, and who decides.</li><li><b>Prepare people:</b> support briefed, help articles ready, sales and marketing timed to the rollout.</li></ol></div><div class="part"><h4>Real example</h4><p>On 19 July 2024, a faulty configuration update from the security company CrowdStrike was live for 78 minutes before being withdrawn, long enough to crash millions of Windows computers, grounding flights and disrupting hospitals and banks. Microsoft estimated 8.5 million devices were affected. CrowdStrike's response included moving to staged rollouts for these updates, starting with a small "canary" group.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Not every change needs a staged rollout.</b> Small, low-risk changes can go faster; match the process to the risk.</li><li><b>Flags pile up.</b> Remove them once a feature is fully launched, or they become their own tech debt (M8).</li></ul></div><div class="part drill"><h4>Drill: launch plan</h4><div class="check stack" data-answer="2"><p class="cq">Twenty minutes into a 5% rollout, errors jump sharply. What do you do first?</p><div class="opts"><button type="button" class="opt">Roll out to 100% to get more data</button><button type="button" class="opt">Wait a day to see if it settles</button><button type="button" class="opt">Switch the feature off, tell the team, then investigate</button></div><p class="cfb" data-ok="Right: stop the harm first." data-no="Stop the harm first. With a flag, only a small group was affected and rollback takes minutes."></p></div></div></div></details>
+<details class="lesson" data-lesson="4"><summary><span class="ln">4</span><span class="lt"><b>After launch</b><span>Measure honestly, review without blame, decide what's next.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Launch isn't the finish line; it's when you start learning what you actually built. Check the agreed success metric after the agreed time, look at guardrails, listen to support and users, then decide: keep going, improve, or roll back.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Measure against the goal</b> you set in the spec, after a fair window, not on day one.</li><li><b>Hold a blameless review:</b> what happened, why, what we learned, what we'll change in the system.</li><li><b>Share the results,</b> good or bad, with the people who care.</li><li><b>Decide the next step:</b> iterate, scale up, or stop and remove it.</li></ol></div><div class="part"><h4>Real example</h4><p>Google's site reliability engineering teams popularised the <b>blameless postmortem</b>: after an incident, the review looks for gaps in systems and processes, not for someone to blame. People share honestly what happened when they aren't afraid of punishment, which is the only way to fix the real causes.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Teams rush to the next project</b> and skip the review. Put it in the calendar before launch.</li><li><b>Blameless isn't consequence-free.</b> It means fixing systems first; repeated carelessness is still a management conversation.</li></ul></div><div class="part drill"><h4>Drill: post-launch</h4><div class="check stack" data-answer="0"><p class="cq">What's the main purpose of a blameless review?</p><div class="opts"><button type="button" class="opt">To find and fix the gaps in systems and processes that allowed the problem</button><button type="button" class="opt">To decide who should be held responsible</button><button type="button" class="opt">To celebrate the launch</button></div><p class="cfb" data-ok="Right: fix the system, not the scapegoat." data-no="It finds the gaps in systems and processes. Blame makes people hide what really happened."></p></div></div></div></details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One company that writes the press release before building, and one update that reached millions of computers at once.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Amazon's press release first</h3><p>Amazon teams often start a new product by writing its press release and a list of hard questions and answers, before any code. Former executives Colin Bryar and Bill Carr describe how the process shaped products such as Kindle: the team kept rewriting the release until it described something customers would truly want.</p><p class="take">Lesson: being clear on the customer, the problem and what success looks like, before building, saves far more time than it costs.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>The CrowdStrike outage</h3><p>On 19 July 2024, a faulty configuration update from CrowdStrike, a security company, was sent to customers' Windows computers and made them crash on start-up. Microsoft estimated 8.5 million devices were affected, disrupting airlines, hospitals and banks. CrowdStrike said it would deploy such updates gradually, starting with a small canary group, and give customers more control over timing.</p><p class="take">Lesson: anything that reaches many users at once needs a staged rollout and a fast way back, however routine the change seems.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Launch Day</h2>
+    <p>Six moments of one launch, from the day before to the review. Make the call at each. <a href="../games/launch-day/">Open it on its own page</a> to share.</p>
+    <div id="gamebox" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Build your launch plan card</h2>
+    <p>Pick something you're launching, real or imagined. Plan the metric, the rollout, the way back and who needs to be ready. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Launch plan card", "sentence": "We're launching {what} for {who}.", "rows": [{"label": "Success looks like", "text": "{metric}"}, {"label": "Rollout", "text": "{rollout}"}, {"label": "If something breaks", "text": "{rollback}"}, {"label": "Who's ready", "text": "{ready}"}, {"label": "Review on", "text": "{review}"}], "fields": [{"id": "what", "label": "What are you launching?", "placeholder": "For example: the new invoice editor", "blank": "what"}, {"id": "who", "label": "For whom?", "placeholder": "For example: all 12,000 customers", "blank": "whom"}, {"id": "metric", "label": "Success metric and guardrail, with a time window", "placeholder": "For example: invoices sent per user +5% after two weeks; support tickets don't rise", "blank": "your metric"}, {"id": "rollout", "label": "Rollout steps", "placeholder": "Tap or describe", "blank": "your steps", "chips": ["Internal, then 5%, 25%, 100% over a week", "Beta customers first, then everyone", "One country first"]}, {"id": "rollback", "label": "How will you notice problems, and switch off?", "placeholder": "For example: error and save-failure alerts; one-click flag off, PM and tech lead decide", "blank": "your plan"}, {"id": "ready", "label": "Who needs to be ready?", "placeholder": "Tap or describe", "blank": "who", "chips": ["Support briefed with reply templates", "Help article published", "Marketing timed to the rollout", "Sales told what's changing"]}, {"id": "review", "label": "When is the post-launch review?", "placeholder": "For example: two weeks after 100%", "blank": "when"}]}</script>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Launching</b> the new invoice editor for all 12,000 customers.</p>
+        <p><b>Success:</b> invoices sent per user up 5% after two weeks, with support tickets per 100 users not rising.</p>
+        <p><b>Rollout:</b> internal team, then 5%, 25% and 100% over a week. <b>If something breaks:</b> alerts on save failures and errors; the PM or tech lead can switch the flag off in one click.</p>
+        <p><b>Ready:</b> support briefed with reply templates, help article live, the announcement email sent only once everyone has it. <b>Review:</b> two weeks after reaching 100%.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A VP says: \"Staged rollouts slow us down. Just launch to everyone on Monday.\" Which reply would you send?", "options": ["\"OK, everyone on Monday.\"", "\"We can still reach everyone this week. Going 5%, then 25%, then 100% costs us two or three days, and means a bug hits 600 customers instead of 12,000, with a one-click way back. That's cheap insurance for a change to how people get paid.\"", "\"We never launch to everyone.\""], "best": 1, "ok": "It respects the urgency, quantifies the cost and the protection, and still ships fast.", "no": "The second one: show that a staged rollout costs days, not weeks, and limits the damage of any bug.", "prompt": "Explain to a teammate how you'd launch a risky change safely.", "checks": [{"k": "stage|gradual|percent|%|canary|small group", "label": "Gradual rollout"}, {"k": "monitor|watch|dashboard|alert|metric", "label": "Watch the signals"}, {"k": "rollback|roll back|flag|switch off|off switch", "label": "A way back"}, {"k": "support|brief|communicat|marketing", "label": "People prepared"}, {"k": "review|learn|postmortem|retro", "label": "Review afterwards"}]}</script>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M11 and M16. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+<div class="check stack" data-answer="2"><p class="cq">What belongs in every spec?</p><div class="opts"><button type="button" class="opt">The full code design</button><button type="button" class="opt">Every pixel of the interface</button><button type="button" class="opt">The problem, the goal and success metric, scope and non-goals, and open questions</button></div><p class="cfb" data-ok="Right: the why and the boundaries." data-no="A good spec covers the problem, the goal and metric, scope and non-goals, and open questions."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">What does a feature flag let you do?</p><div class="opts"><button type="button" class="opt">Make the app faster</button><button type="button" class="opt">Deploy code without releasing it, then turn it on for chosen groups and off again</button><button type="button" class="opt">Skip testing</button></div><p class="cfb" data-ok="Right: it separates deploying from releasing." data-no="Flags separate deploying from releasing, enabling staged rollouts and quick rollbacks."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">Marketing wants to announce a feature only 25% of customers can see yet. What do you suggest?</p><div class="opts"><button type="button" class="opt">Wait until everyone has it, or target only those who do</button><button type="button" class="opt">Send it to everyone now</button><button type="button" class="opt">Never announce it</button></div><p class="cfb" data-ok="Right: time messages to the rollout." data-no="Time announcements to the rollout, or target only customers who already have it."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">From M11: day-one numbers show a 4% lift. What's wise?</p><div class="opts"><button type="button" class="opt">Announce the win to the company</button><button type="button" class="opt">Roll back</button><button type="button" class="opt">Wait for the agreed measurement window; early numbers are noisy and include novelty effects</button></div><p class="cfb" data-ok="Right: judge on the agreed window." data-no="Day-one numbers are noisy and include novelty. Judge on the agreed metric and window."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">From M16: a partner launch date is fixed and the full feature won't be ready. What do you do?</p><div class="opts"><button type="button" class="opt">Add engineers in the last week</button><button type="button" class="opt">Ship the smallest valuable version on the date, and the rest after</button><button type="button" class="opt">Ask the partner to move</button></div><p class="cfb" data-ok="Right: fix the date, flex the scope." data-no="With a fixed date, flex the scope: ship the smallest valuable version on time."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Write short specs about the why:</b> problem, goal, metric, scope and non-goals.</li>
+        <li><b>Work as one trio and ship thin slices,</b> so problems appear while they're small.</li>
+        <li><b>Launch behind a flag:</b> stage the rollout, watch the signals, keep an off switch, prepare support.</li>
+        <li><b>After launch, measure on the agreed window</b> and review without blame.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m16/">Previous: M16 Roadmaps and OKRs</a><span>Next: M18 Communication and influence</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/launch-day.js"></script>
+<script>LaunchDay(document.getElementById("gamebox"));</script>
+</body>
+</html>
