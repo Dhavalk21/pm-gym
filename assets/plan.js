@@ -26,7 +26,7 @@ window.PMGYM = {
     { code: "M15", zone: 4, name: "Prioritisation", short: "Prioritisation", desc: "Scoring methods and their limits, cost of delay, and saying no.", game: "Backlog Triage", page: "m15/" },
     { code: "M16", zone: 4, name: "Roadmaps and OKRs", short: "Roadmaps", desc: "Now, next and later roadmaps, outcome goals, and showing uncertainty honestly.", game: "Roadmap Remix", page: "m16/" },
     { code: "M17", zone: 5, name: "Execution and delivery", short: "Execution", desc: "Specs, launch plans, go-to-market, and post-launch reviews.", game: "Launch Day", page: "m17/" },
-    { code: "M18", zone: 5, name: "Communication and influence", short: "Influence", desc: "Memos, stories with data, stakeholders, and influence without authority.", game: "Stakeholder Chess" },
+    { code: "M18", zone: 5, name: "Communication and influence", short: "Influence", desc: "Memos, stories with data, stakeholders, and influence without authority.", game: "Stakeholder Chess", page: "m18/" },
     { code: "AI-3", zone: 5, name: "Agents and responsible AI", short: "Agents", desc: "Agents and tool use, guardrails, trust in AI interfaces, privacy and the EU AI Act.", game: "Agent Builder" }
   ],
   capstone: { code: "Cap", zone: 5, name: "Capstone", desc: "Ship an AI feature end to end, with an eval, a cost model and metrics.", game: "The real thing" }

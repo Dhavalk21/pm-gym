@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M18 Communication and influence | PM Gym</title>
+<meta name="description" content="Communication and influence: answer-first writing, data storytelling, stakeholder management, and influence without authority. Four short lessons, two cases and the Stakeholder Chess game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m18">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 6, Ship and lead / M18</div>
+  <div class="title">
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#D07A45"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M18</text></svg>
+    <div>
+      <span class="zone-tag"><i style="background:#D07A45"></i>Zone 6, Ship and lead</span>
+      <h1>Communication and influence</h1>
+      <p>Writing that leads with the answer, telling stories with data, managing stakeholders so nobody is surprised, and influencing people you don't manage.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 34 minutes</span><span>2 cases</span><span>Stakeholder Chess game, 8 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>Instant payouts will launch six weeks late. The CEO messages you:</p>
+        <div class="quote">"Can you send me a quick update?"</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
+      </div>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "How should your update start?", "o": ["With the answer: what changed, the impact, and whether a decision is needed", "With the full history of the project", "With an apology"], "a": 0, "why": "Busy readers decide in the first lines. Lead with the answer; details can follow."}, {"q": "The head of sales has promised this feature to prospects and can escalate to the CEO. How do you handle them?", "o": ["Add them to the monthly newsletter", "Wait until they ask", "Manage closely: tell them first, in person, with a plan for the prospects"], "a": 2, "why": "High power, high interest: manage closely, and never let them hear bad news second-hand."}, {"q": "The design lead disagrees with your plan. What's the best first step?", "o": ["Ship your version without them", "Ask what they see that you don't, and look for a shared goal", "Escalate to their manager"], "a": 1, "why": "Influence without authority starts with listening. They may know something you don't."}]}</script>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+<details class="lesson" data-lesson="1"><summary><span class="ln">1</span><span class="lt"><b>Write it down, answer first</b><span>Clear writing is clear thinking.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Much of a PM's influence travels in writing: updates, memos, decision documents, messages. Busy readers decide in the first few lines whether to keep reading, so put the <b>answer first</b>: what's happening, why it matters to them, and what you need. Details follow for anyone who wants them.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Lead with the point</b> (sometimes called BLUF, bottom line up front): the decision, change or ask.</li><li><b>Then the why:</b> the two or three reasons that matter most to this reader.</li><li><b>Then the details,</b> grouped and ordered, for those who want them.</li><li><b>End with the next step:</b> who does what, by when.</li></ol></div><div class="part"><h4>Real example</h4><p>In 2004, Jeff Bezos stopped slide presentations in Amazon's senior meetings and replaced them with narrative memos of up to six pages, read in silence at the start of each meeting. His reasoning: writing a good memo forces better thinking about what matters most and how ideas connect, which bullet points let you skip.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Not everything needs a memo.</b> Match the format to the decision: a chat message for small things, a document for big ones.</li><li><b>Answer-first can feel blunt.</b> Add a sentence of context when the news is hard, but don't bury it.</li></ul></div><div class="part drill"><h4>Drill: best opening</h4><div class="check stack" data-answer="2"><p class="cq">Which is the best first line of an update to your CEO?</p><div class="opts"><button type="button" class="opt">"As you may remember, back in March we began working with a bank partner, and…"</button><button type="button" class="opt">"Quick update on a few things."</button><button type="button" class="opt">"Instant payouts move from June to mid-July. No decision needed; impact about €20,000."</button></div><p class="cfb" data-ok="Right: the answer, the impact, and whether action is needed." data-no="Lead with the answer: what changed, the impact, and whether you need anything."></p></div></div></div></details>
+<details class="lesson" data-lesson="2"><summary><span class="ln">2</span><span class="lt"><b>Stories with data</b><span>One chart, one message, and the so-what.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Data persuades when it answers a question the audience cares about, simply. A good chart has <b>one message</b>, written as its title; the right <b>comparison</b> (against last month, a target, another group); and a clear <b>so-what</b>: what we should do because of it.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Start with the question</b> the audience has, not with the data you have.</li><li><b>Title charts with the message:</b> "Late payments fell by a third after reminders launched", not "Payment data Q2".</li><li><b>Show the comparison</b> that makes the number meaningful.</li><li><b>Pair numbers with a story:</b> one real customer makes a statistic feel real.</li></ol></div><div class="part"><h4>Real example</h4><p>In 1858, Florence Nightingale used a new kind of chart, now called her rose diagram, to show that most British soldiers who died in the Crimean War died of preventable disease, not battle wounds. The chart made one message impossible to miss, and helped win support for reforms in hospital sanitation.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>A clear story can mislead.</b> Don't cut the axis or hide inconvenient data to make the point stronger.</li><li><b>Some audiences want the detail.</b> Keep the full analysis available for those who'll check it.</li></ul></div><div class="part drill"><h4>Drill: best chart title</h4><div class="check stack" data-answer="0"><p class="cq">Which is the best chart title for a leadership update?</p><div class="opts"><button type="button" class="opt">"Late payments fell by a third after reminders launched"</button><button type="button" class="opt">"Payments dashboard, Q2"</button><button type="button" class="opt">"Chart 3: days to payment by cohort and week"</button></div><p class="cfb" data-ok="Right: the title is the message." data-no="Make the title the message. Readers should get the point before looking at the axes."></p></div></div></div></details>
+<details class="lesson" data-lesson="3"><summary><span class="ln">3</span><span class="lt"><b>Stakeholders</b><span>Know who needs what, and never let them be surprised.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A <b>stakeholder</b> is anyone affected by your work or able to affect it. A simple map, by <b>power</b> (how much they can influence the outcome) and <b>interest</b> (how much they care), helps decide how to work with each: manage closely, keep satisfied, keep informed, or just monitor.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Map them:</b> high power and high interest people get the most attention.</li><li><b>Learn what each one cares about:</b> revenue, risk, workload, customers, reputation.</li><li><b>No surprises:</b> tell people bad news before they hear it elsewhere.</li><li><b>Talk one-to-one before big meetings,</b> so meetings confirm decisions rather than start fights.</li></ol></div><div class="part"><h4>Real example</h4><p>A launch slips six weeks. The head of sales, who has promised it to prospects, hears first, in person, with a draft message for prospects. The CFO gets a two-line note on revenue impact. Support gets a reply template. Engineering gets the technical reason. Same news, four messages, nobody surprised.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Maps go stale.</b> People change roles and priorities; revisit the map each quarter.</li><li><b>Don't ignore low-power, high-interest groups.</b> Support teams and customers often see problems first.</li></ul></div><div class="part drill"><h4>Drill: map them</h4><div class="check stack" data-answer="1"><p class="cq">The head of sales can escalate to the CEO and cares a lot about your launch. How do you manage them?</p><div class="opts"><button type="button" class="opt">Monitor</button><button type="button" class="opt">Manage closely: involve early, and tell them news before anyone else</button><button type="button" class="opt">Keep them informed through the monthly newsletter</button></div><p class="cfb" data-ok="Right: high power, high interest." data-no="High power and high interest: manage closely, and never let them be surprised."></p></div></div></div></details>
+<details class="lesson" data-lesson="4"><summary><span class="ln">4</span><span class="lt"><b>Influence without authority</b><span>You lead people you don't manage. Trust is the currency.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Most PMs don't manage the engineers, designers, marketers or salespeople they depend on. Influence comes from <b>trust</b>: being credible (you know the customer and the data), reliable (you do what you say) and fair (you represent other people's concerns honestly).</p></div><div class="part"><h4>The framework</h4><ol><li><b>Listen first:</b> understand their goals, pressures and what they see that you don't.</li><li><b>Find the shared goal:</b> frame decisions around outcomes you both want.</li><li><b>Bring evidence:</b> customer stories and data persuade better than opinions (M5, M10).</li><li><b>Propose small tests</b> when you disagree, and once it's decided, commit fully.</li></ol></div><div class="part"><h4>Real example</h4><p>Amazon's leadership principles include "disagree and commit". In his 2016 letter to shareholders, Jeff Bezos described approving an Amazon Studios project he wasn't convinced about, telling the team he disagreed but would commit to it. Healthy teams argue openly, then back the decision fully, instead of quietly undermining it.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Influence isn't manipulation.</b> If you'd be uncomfortable explaining your tactics to the person, don't use them.</li><li><b>Sometimes you need to escalate.</b> Do it together and openly, after trying to resolve it directly, not behind someone's back.</li></ul></div><div class="part drill"><h4>Drill: best move</h4><div class="check stack" data-answer="2"><p class="cq">An engineering lead won't prioritise your feature. What's the best first move?</p><div class="opts"><button type="button" class="opt">Escalate to their manager</button><button type="button" class="opt">Tell them the CEO wants it</button><button type="button" class="opt">Ask what worries them about it, share the customer evidence, and look for a small first slice</button></div><p class="cfb" data-ok="Right: listen, share evidence, find a path together." data-no="Listen first, share evidence and look for a small first step. Pulling rank damages trust."></p></div></div></div></details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One company that replaced slides with written narratives, and one investigation that found a life-threatening risk buried in a slide.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Amazon's six-page memos</h3><p>On 9 June 2004, Jeff Bezos told Amazon's senior team that slide presentations were out and written narratives were in. Meetings start with everyone silently reading a memo of up to six pages, then discussing it. Bezos argued that writing a good memo is harder than making slides, because it forces you to show what matters most and how ideas connect.</p><p class="take">Lesson: clear writing exposes fuzzy thinking. Communicate in full sentences when the decision matters.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>The Columbia shuttle briefing</h3><p>In January 2003, while Columbia was in orbit, engineers briefed NASA managers on a foam strike to the shuttle's wing using dense slides. A key fact, that the foam was hundreds of times larger than anything tested, sat at the bottom of a slide with a reassuring title. The accident board later criticised NASA's endemic use of slides instead of technical papers. Columbia broke apart on re-entry.</p><p class="take">Lesson: put the most important message first and make risks impossible to miss. Format can hide what matters most.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Stakeholder Chess</h2>
+    <p>One piece of bad news: map who needs what, tailor it to three audiences, then win over someone you don't manage. <a href="../games/stakeholder-chess/">Open it on its own page</a> to share.</p>
+    <div id="gamebox" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Build your stakeholder update card</h2>
+    <p>Pick a real update you need to send. Lead with the answer, then why it matters to this person, what you need and what's next. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Stakeholder update card", "sentence": "To {who}: {headline}", "rows": [{"label": "Why it matters to them", "text": "{why}"}, {"label": "What I need", "text": "{need}"}, {"label": "Next update", "text": "{next}"}], "fields": [{"id": "who", "label": "Who is this update for?", "placeholder": "For example: the head of sales", "blank": "whom"}, {"id": "headline", "label": "The answer first: what's changed, in one sentence", "placeholder": "For example: instant payouts move from June to mid-July because the bank failed our security review.", "blank": "your headline."}, {"id": "why", "label": "Why does it matter to them, specifically?", "placeholder": "For example: three prospects were promised June; here's a draft message for each", "blank": "why"}, {"id": "need", "label": "What do you need from them?", "placeholder": "Tap or describe", "blank": "what", "chips": ["Nothing, this is for information", "A decision by Friday", "Help with a customer message", "Their team's time next sprint"]}, {"id": "next", "label": "When will they hear from you next?", "placeholder": "For example: Friday, after the bank's retest", "blank": "when"}]}</script>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>To the head of sales:</b> instant payouts move from early June to mid-July, because the bank's system failed our security review.</p>
+        <p><b>Why it matters to you:</b> three prospects were promised June. I've drafted a message for each, explaining that we put their security first, with the new date.</p>
+        <p><b>What I need:</b> twenty minutes tomorrow to adjust the messages together before you send them.</p>
+        <p><b>Next update:</b> Friday, after the bank's retest.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "A new PM asks you: \"Engineering won't prioritise my feature. How do I make them?\" Which reply would you send?", "options": ["\"Tell them the CEO wants it.\"", "\"You can't make them, and you shouldn't need to. Bring them into the problem: share the customer evidence, ask what worries them, agree on the goal, and look for a small first slice. If you still disagree, take it together to whoever owns the roadmap.\"", "\"Escalate straight to their manager.\""], "best": 1, "ok": "It builds trust instead of borrowing authority, and shows a fair path if disagreement remains.", "no": "The second one: listen, share evidence, agree the goal, start small, and escalate together if needed.", "prompt": "Explain how you'd get support for an idea from a team you don't manage.", "checks": [{"k": "listen|understand|ask|concern|worr", "label": "Listen to their concerns"}, {"k": "evidence|data|customer", "label": "Bring evidence"}, {"k": "shared|goal|together|both", "label": "Find the shared goal"}, {"k": "small|test|pilot|slice|experiment", "label": "Start small"}, {"k": "trust|commit|credib|relationship", "label": "Build trust"}]}</script>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M15 and M16. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+<div class="check stack" data-answer="0"><p class="cq">What does "answer first" mean in a written update?</p><div class="opts"><button type="button" class="opt">Put the decision, change or ask in the first line, then the reasons and details</button><button type="button" class="opt">Answer every question anyone might ask</button><button type="button" class="opt">Reply to messages quickly</button></div><p class="cfb" data-ok="Right: lead with the point." data-no="Lead with the point; reasons and details follow."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">What made Florence Nightingale's rose diagram persuasive?</p><div class="opts"><button type="button" class="opt">It was very detailed</button><button type="button" class="opt">It used many colours</button><button type="button" class="opt">It made one message impossible to miss: most deaths came from preventable disease</button></div><p class="cfb" data-ok="Right: one chart, one clear message." data-no="One clear message: most deaths were from preventable disease, which pointed to a fix."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">What does "disagree and commit" mean?</p><div class="opts"><button type="button" class="opt">Agree with whoever is most senior</button><button type="button" class="opt">Argue openly before a decision, then back it fully once it's made</button><button type="button" class="opt">Never commit until everyone agrees</button></div><p class="cfb" data-ok="Right: open debate, then full support." data-no="Argue openly, then commit fully. Quietly undermining a decision helps nobody."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">From M15: how should you say no to a stakeholder's request?</p><div class="opts"><button type="button" class="opt">Ignore it until they stop asking</button><button type="button" class="opt">Say yes and hope it works out</button><button type="button" class="opt">Acknowledge the need, explain the trade-off, offer an alternative, and say what would change your mind</button></div><p class="cfb" data-ok="Right: honest and kind." data-no="Acknowledge, explain the trade-off, offer an alternative, and say what would change it."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">From M16: sales asks for an exact date for something not yet designed. What's best?</p><div class="opts"><button type="button" class="opt">Give an honest range, explain the uncertainty, and say when it will get more precise</button><button type="button" class="opt">Give an exact date to keep them happy</button><button type="button" class="opt">Refuse to discuss timing</button></div><p class="cfb" data-ok="Right: honest ranges build trust." data-no="Give an honest range and say when you'll narrow it. False precision breaks trust later."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Write answer first:</b> the point, why it matters to the reader, what you need, what's next.</li>
+        <li><b>One chart, one message,</b> with the right comparison and a clear so-what.</li>
+        <li><b>Map stakeholders by power and interest,</b> tailor the same news to each, and never surprise them.</li>
+        <li><b>Influence through trust:</b> listen, find the shared goal, bring evidence, then disagree and commit.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m17/">Previous: M17 Execution and delivery</a><span>Next: AI-3 Agents and responsible AI</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/stakeholder-chess.js"></script>
+<script>StakeholderChess(document.getElementById("gamebox"));</script>
+</body>
+</html>
