@@ -419,3 +419,28 @@ footer.site > span { color: var(--ink-3); font-size: 15px; }
 .sw-part.no { border-color: #E0535A; }
 .sw-part.ok small, .sw-part.no small { color: #5F6975; }
 .sw-part.ok p, .sw-part.no p { color: #17202A; }
+
+/* Backlog Triage (M15) */
+.bt-strat { margin: 0 0 14px; padding: 10px 14px; border-left: 4px solid #9B6BB0; background: #222B35; border-radius: 0 8px 8px 0; color: var(--ground) !important; }
+.bt-cap { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; font-size: 15px; }
+.bt-cap span { color: var(--pale); }
+.bt-cap b { color: var(--ground); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bt-meter { flex: 1; height: 12px; background: #222B35; border: 1px solid #5F6975; border-radius: 6px; overflow: hidden; }
+.bt-meter i { display: block; height: 100%; background: #9B6BB0; transition: width 150ms; }
+.bt-meter i.over { background: #E0535A; }
+.bt-list { display: grid; gap: 8px; }
+.bt-item { display: grid; grid-template-columns: 26px minmax(0, 1fr) auto; gap: 12px; align-items: start; text-align: left; font: inherit; color: var(--ground); background: #222B35; border: 1.5px solid #5F6975; border-radius: 8px; padding: 10px 14px; cursor: pointer; }
+.bt-item:hover:not(:disabled) { border-color: var(--ground); }
+.bt-item:disabled { cursor: default; }
+.bt-item.on { border-color: #9B6BB0; background: #2B2536; }
+.bt-check { width: 22px; height: 22px; border-radius: 5px; border: 1.5px solid #9AA3AD; display: grid; place-items: center; font-weight: 700; margin-top: 1px; }
+.bt-item.on .bt-check { background: #9B6BB0; border-color: #9B6BB0; color: #17202A; }
+.bt-body b { display: block; font-size: 16px; line-height: 1.35; }
+.bt-meta { display: block; font-size: 14px; color: var(--pale); margin-top: 2px; }
+.bt-meta em { font-style: normal; color: #E3A82B; }
+.bt-wk { font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.bt-why { display: block; font-size: 14px; color: var(--pale); margin-top: 6px; }
+.bt-why strong { color: var(--ground); }
+.bt-item.right { border-color: #4CB27A; }
+.bt-item.wrong { border-color: #E0535A; }
+.rr .btn:disabled { opacity: .6; cursor: not-allowed; }
