@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M10 Instrumentation and data analysis | PM Gym</title>
+<meta name="description" content="Tracking plans, funnels, cohorts and retention, and diagnosing a metric drop. Four short lessons, two cases and the Metric Detective game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m10">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 3, Measure / M10</div>
+  <div class="title">
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#4C7BD9"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M10</text></svg>
+    <div>
+      <span class="zone-tag"><i style="background:#4C7BD9"></i>Zone 3, Measure</span>
+      <h1>Instrumentation and data analysis</h1>
+      <p>Tracking plans you can trust, funnels that show where people drop off, cohorts that show who stays, and a calm way to diagnose a metric drop.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 34 minutes</span><span>2 cases</span><span>Metric Detective game, 10 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>Weekly sign-ups dropped 20% overnight. Your manager says:</p>
+        <div class="quote">"It's the new onboarding design. Roll it back."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
+      </div>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What should you check first?", "o": ["Whether the drop is real: compare the dashboard with the database", "Which colours users dislike", "Last year's numbers for the same week"], "a": 0, "why": "A release can break tracking without changing anything for users. Check the data before the design."}, {"q": "Conversion fell, but total orders rose. What's the most likely explanation?", "o": ["The checkout broke", "Prices went up", "More new, lower-intent visitors arrived, so the mix changed"], "a": 2, "why": "When a rate falls but the total rises, check whether the mix of visitors changed."}, {"q": "What's the best way to see whether new users are sticking around better than before?", "o": ["Count page views", "Compare retention curves for each sign-up cohort", "Look at total registered users"], "a": 1, "why": "Cohorts show whether each new group of users keeps getting value, which totals hide."}]}</script>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+<details class="lesson" data-lesson="1"><summary><span class="ln">1</span><span class="lt"><b>Events and tracking plans</b><span>Decide what to measure before you need the answer.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>Product analytics runs on <b>events</b>: records that something happened, like <code>invoice_sent</code>, with <b>properties</b> that describe it (amount, currency, platform). A <b>tracking plan</b> is the shared list of which events you track, what they're called and what they mean. Without one, every team names things differently and nobody trusts the numbers.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Start from questions,</b> not from "track everything": what decisions will this data inform?</li><li><b>Name events consistently:</b> object then action, past tense, like <code>invoice_sent</code> or <code>trial_started</code>.</li><li><b>Write down a definition</b> for each: when exactly does it fire, and on which platforms?</li><li><b>Test before you release,</b> and check after: a release can silently break tracking.</li></ol></div><div class="part"><h4>Real example</h4><p>One product had <code>Signup</code> on web, <code>sign_up</code> on Android and <code>user_registered</code> on iOS, each firing at a slightly different moment. The "sign-up" chart added three different things together. A one-page tracking plan, and a week of clean-up, made the funnel trustworthy again.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Collect only what you need.</b> In the EU, GDPR and consent rules apply to tracking. Less data is also less to maintain.</li><li><b>Events show what people did, not why.</b> Pair them with interviews (M5) to understand the reason.</li></ul></div><div class="part drill"><h4>Drill: better event name?</h4><div class="check stack" data-answer="2"><p class="cq">Which is the best name for the event fired when someone finishes paying?</p><div class="opts"><button type="button" class="opt">click_button_3</button><button type="button" class="opt">Payment</button><button type="button" class="opt">order_paid</button></div><p class="cfb" data-ok="Right: object then action, clear and specific." data-no="Use object then action: order_paid. It says exactly what happened."></p></div></div></div></details>
+<details class="lesson" data-lesson="2"><summary><span class="ln">2</span><span class="lt"><b>Funnels</b><span>Find the step where people give up.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A <b>funnel</b> is a sequence of steps towards a goal, like visit, sign up, create first invoice, get paid. It shows what share of people make it from each step to the next, so you can see where most of them drop off.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Define the steps and the time window:</b> "within 7 days of sign-up".</li><li><b>Look at step-to-step conversion,</b> not just the overall rate.</li><li><b>Fix the biggest drop that matters,</b> then look again.</li><li><b>Split the funnel by segment</b> (platform, channel, new or returning) before drawing conclusions.</li></ol></div><div class="part"><h4>Real example</h4><p>Ledgerly's funnel: 1,000 sign-ups, 620 connect a bank account, 300 send a first invoice, 240 get paid. The biggest drop is between connecting a bank account and sending an invoice. Interviews show why: people don't have a client's details at hand at sign-up. Letting them save a draft and come back later becomes the next experiment.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Drop-off shows where, not why.</b> Watch sessions or talk to users to find the reason.</li><li><b>Real journeys loop and skip steps.</b> A strict funnel can undercount people who take another route.</li></ul></div><div class="part drill"><h4>Drill: which step first?</h4><div class="check stack" data-answer="1"><p class="cq">Visit to sign-up 20%, sign-up to setup 85%, setup to first use 30%, first use to repeat use 70%. Where would you dig first?</p><div class="opts"><button type="button" class="opt">Visit to sign-up</button><button type="button" class="opt">Setup to first use</button><button type="button" class="opt">First use to repeat use</button></div><p class="cfb" data-ok="Right: people who already set up and still don't use it is the biggest unexplained loss." data-no="Setup to first use: 70% of people who did the work of setting up never use it. That's the most surprising drop."></p></div></div></div></details>
+<details class="lesson" data-lesson="3"><summary><span class="ln">3</span><span class="lt"><b>Cohorts and retention</b><span>Group people by when they started, then watch who stays.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A <b>cohort</b> is a group of users who started in the same period, like everyone who signed up in the week of 3 March. <b>Retention</b> is the share of a cohort still active after one, two, four or twelve weeks. Comparing cohorts shows whether the product is getting better at keeping people, which an overall average can hide.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Define "active"</b> by the value moment, not just a login: sent an invoice, finished a lesson.</li><li><b>Plot retention curves</b> by cohort: share still active against weeks since start.</li><li><b>Look for the curve to flatten.</b> A flat tail means a group of people who keep getting value.</li><li><b>Compare cohorts</b> by start date, channel and first-week behaviour.</li></ol></div><div class="part"><h4>Real example</h4><p>Facebook's early growth team compared cohorts of users who stayed with those who left. Chamath Palihapitiya, then its head of growth, described the pattern they found: people who connected with about seven friends within their first ten days tended to stay. That became the team's activation goal, and features like friend suggestions were built around it.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Correlation isn't cause.</b> Maybe engaged people add friends, not the other way round. Test it (M11) before betting the roadmap.</li><li><b>Small cohorts are noisy.</b> Don't read much into a few dozen users.</li></ul></div><div class="part drill"><h4>Drill: read the curve</h4><div class="check stack" data-answer="0"><p class="cq">Retention for each new monthly cohort falls fast and keeps falling towards zero. What does it suggest?</p><div class="opts"><button type="button" class="opt">People aren't finding lasting value yet</button><button type="button" class="opt">Marketing is working well</button><button type="button" class="opt">The product has strong retention</button></div><p class="cfb" data-ok="Right: a curve that never flattens means nobody sticks." data-no="A curve that keeps falling to zero means people aren't finding lasting value."></p></div></div></div></details>
+<details class="lesson" data-lesson="4"><summary><span class="ln">4</span><span class="lt"><b>Diagnosing a metric drop</b><span>Is it real? When? Where? Rate or mix?</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>When a key number suddenly moves, the worst response is the first plausible story. A simple order of questions solves most cases quickly and stops you "fixing" something that wasn't broken.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Is it real?</b> Check tracking, data pipelines and definition changes. Compare with another source, like the database.</li><li><b>When did it start,</b> and what changed then? Releases, campaigns, outages, holidays.</li><li><b>Where is it?</b> Split by platform, version, country, channel, new or returning.</li><li><b>Rate or mix?</b> Did a group get worse, or did the mix of groups change?</li></ol></div><div class="part"><h4>Real example</h4><p>The mix question catches even experts. In a famous 1973 study of graduate admissions at UC Berkeley, men were admitted at a higher rate overall. Department by department, women were admitted at a similar or slightly higher rate. Women had mostly applied to departments that admitted fewer people of any gender. This is called Simpson's paradox.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Several causes can overlap.</b> A small real drop can hide inside a big tracking problem.</li><li><b>Not every wiggle needs a story.</b> Know your normal week-to-week noise before you raise the alarm.</li></ul></div><div class="part drill"><h4>Drill: what first?</h4><div class="check stack" data-answer="0"><p class="cq">Sign-ups dropped 30% overnight, right after a release. What do you check first?</p><div class="opts"><button type="button" class="opt">Whether tracking still works, by comparing with the database</button><button type="button" class="opt">Which design change users dislike</button><button type="button" class="opt">What competitors launched this week</button></div><p class="cfb" data-ok="Right: make sure the drop is real before you look for causes." data-no="First check the data is real. A release can break tracking without changing anything for users."></p></div></div></div></details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One team that used cohort data to find what made people stay, one company whose metric definition misled its customers for two years.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Facebook's "7 friends in 10 days"</h3><p>Facebook's early growth team compared cohorts of new users who stayed with those who left. The clearest difference was how quickly people connected with friends: around seven in their first ten days. The team made that their goal and built features like friend suggestions to help new users get there.</p><p class="take">Lesson: cohort analysis can turn a vague goal ("retention") into a specific behaviour a team can work on.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Facebook's video watch time</h3><p>In 2016, Facebook disclosed that for about two years its "average duration of video viewed" had left out views shorter than three seconds. According to an ad agency's letter reported by the Wall Street Journal, that overstated average viewing time by an estimated 60 to 80%. Advertisers and publishers had made decisions on the inflated number.</p><p class="take">Lesson: a metric's definition is part of the product. Write it down, check it, and make sure it measures what its name says.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Metric Detective</h2>
+    <p>Four alarming dashboards. Choose which data to look at, then name the real cause. <a href="../games/metric-detective/">Open it on its own page</a> to share.</p>
+    <div id="gamebox" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Build your tracking plan card</h2>
+    <p>Pick a product you know. Choose the journey, the events, the funnel and the cohorts, and what you'd check first if it drops. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Tracking plan card", "sentence": "To understand {journey} in {product}, we track {events}.", "rows": [{"label": "Funnel to watch", "text": "{funnel}"}, {"label": "Cohorts to compare", "text": "{cohort}"}, {"label": "If it drops, first check", "text": "{check}"}], "fields": [{"id": "product", "label": "Which product?", "placeholder": "For example: our booking app", "blank": "your product"}, {"id": "journey", "label": "Which journey matters most?", "placeholder": "For example: a new user's first booking", "blank": "which journey"}, {"id": "events", "label": "Which three to five events, named object then action?", "placeholder": "For example: account_created, search_done, booking_paid", "blank": "which events"}, {"id": "funnel", "label": "The funnel steps", "placeholder": "For example: sign-up, first search, first booking, second booking within 30 days", "blank": "which steps"}, {"id": "cohort", "label": "How will you group users into cohorts?", "placeholder": "Tap or describe", "blank": "how", "chips": ["By sign-up week", "By acquisition channel", "By what they did in week one"]}, {"id": "check", "label": "If the key number drops, what do you check first?", "placeholder": "Tap or describe", "blank": "what", "chips": ["Tracking still works, compared with the database", "What changed that day", "Which segment the drop is in"]}]}</script>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Product:</b> Ledgerly, invoicing for freelancers. <b>Journey:</b> a new user's path to getting paid for the first time.</p>
+        <p><b>Events:</b> account_created, bank_connected, invoice_sent, invoice_paid, each with a platform property.</p>
+        <p><b>Funnel:</b> sign-up, bank connected, first invoice sent, first invoice paid, all within 14 days. <b>Cohorts:</b> by sign-up week and by acquisition channel.</p>
+        <p><b>If paid invoices drop:</b> first compare invoice_paid with the payments database, then check releases that day, then split by platform and bank.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "Your manager writes: \"Sign-ups fell 20% since yesterday's release. Roll back the redesign now.\" Which reply would you send?", "options": ["\"Rolling back now.\"", "\"Before we roll back, give me 30 minutes: I'll check sign-ups in the database against the dashboard, and whether the drop is on one platform or version. If tracking broke, a rollback won't help.\"", "\"Let's wait a month and see.\""], "best": 1, "ok": "It checks the data is real and narrows it down fast, without ignoring the problem.", "no": "The second one: check the data is real and find where the drop is, quickly, before acting.", "prompt": "Explain to a teammate how you'd investigate a sudden drop in a key metric.", "checks": [{"k": "real|tracking|database|data", "label": "Check the data is real"}, {"k": "when|change|release|campaign", "label": "Find when, and what changed"}, {"k": "segment|split|platform|country|where", "label": "Narrow down where"}, {"k": "mix|rate|simpson", "label": "Rate versus mix"}, {"k": "hypothes|test|confirm", "label": "Confirm before acting"}]}</script>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M3 and M9. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+<div class="check stack" data-answer="1"><p class="cq">Why does a tracking plan matter?</p><div class="opts"><button type="button" class="opt">It makes the app faster</button><button type="button" class="opt">Everyone tracks the same events, with the same names and definitions</button><button type="button" class="opt">It replaces user interviews</button></div><p class="cfb" data-ok="Right: shared definitions make numbers trustworthy." data-no="It gives every team the same events, names and definitions, so numbers can be trusted."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">A funnel shows a big drop from "added to basket" to "paid". What does it tell you?</p><div class="opts"><button type="button" class="opt">Exactly why people leave</button><button type="button" class="opt">That the price is too high</button><button type="button" class="opt">Where people leave, so you know where to look for the reason</button></div><p class="cfb" data-ok="Right: funnels show where, not why." data-no="Funnels show where people leave. You still need to find out why."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">Conversion fell from 4% to 3%, but each segment converts the same as before. What happened?</p><div class="opts"><button type="button" class="opt">The mix of segments changed</button><button type="button" class="opt">Every segment got worse</button><button type="button" class="opt">Tracking broke</button></div><p class="cfb" data-ok="Right: a rate-versus-mix effect, like Simpson's paradox." data-no="If no segment changed, the mix did. That's the rate-versus-mix effect."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">From M9: your North Star suddenly drops 10%. Which question comes first?</p><div class="opts"><button type="button" class="opt">Which input metric should we drop?</button><button type="button" class="opt">Is the drop real, or did tracking or a definition change?</button><button type="button" class="opt">Should we change the North Star?</button></div><p class="cfb" data-ok="Right: check the data first." data-no="First check the drop is real. Then look for causes."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">From M3: retention looks flat overall. Which split is most likely to reveal something useful?</p><div class="opts"><button type="button" class="opt">By users' star sign</button><button type="button" class="opt">By the colour of the app icon</button><button type="button" class="opt">By behaviour in the first week, such as whether they completed a key action</button></div><p class="cfb" data-ok="Right: behavioural segments predict what people do." data-no="Split by behaviour, like first-week actions. Behavioural segments predict retention."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Agree a tracking plan:</b> consistent event names and written definitions, tested at every release.</li>
+        <li><b>Funnels show where people drop off,</b> not why. Split them by segment before concluding.</li>
+        <li><b>Cohorts show whether the product keeps people better over time.</b> Look for curves that flatten.</li>
+        <li><b>When a number drops:</b> is it real, when did it start, where is it, and is it rate or mix?</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m9/">Previous: M9 Metrics and North Star</a><span>Next: M11 Experimentation</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/metric-detective.js"></script>
+<script>MetricDetective(document.getElementById("gamebox"));</script>
+</body>
+</html>

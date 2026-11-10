@@ -17,7 +17,7 @@ window.PMGYM = {
     { code: "M7", zone: 1, name: "UX and design basics", short: "UX basics", desc: "User flows, usability heuristics, quick prototypes and testing with real people.", game: "Heuristic Hunt", page: "m7/" },
     { code: "M8", zone: 1, name: "Technical foundations", short: "Tech basics", desc: "APIs, data models, latency, tech debt, and build versus buy.", game: "Request Journey", page: "m8/" },
     { code: "M9", zone: 2, name: "Metrics and North Star", short: "Metrics", desc: "North Star and input metrics, metric trees, guardrails, and how targets get gamed.", game: "Metric Tree Builder", page: "m9/" },
-    { code: "M10", zone: 2, name: "Instrumentation and data analysis", short: "Data analysis", desc: "Tracking plans, funnels, cohorts, and diagnosing a metric drop.", game: "Metric Detective" },
+    { code: "M10", zone: 2, name: "Instrumentation and data analysis", short: "Data analysis", desc: "Tracking plans, funnels, cohorts, and diagnosing a metric drop.", game: "Metric Detective", page: "m10/" },
     { code: "M11", zone: 2, name: "Experimentation", short: "Experiments", desc: "Designing, reading and deciding on A/B tests, and when not to run one.", game: "Ship or Kill" },
     { code: "AI-2", zone: 2, name: "Evals and AI economics", short: "Evals", desc: "Measuring AI quality, handling hallucinations, and trading off cost and latency.", game: "Eval Arena" },
     { code: "M12", zone: 3, name: "Growth", short: "Growth", desc: "Activation, retention, growth loops and product-led growth.", game: "Loop Builder" },
