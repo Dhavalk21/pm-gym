@@ -53,7 +53,7 @@ Further reading: [Dunlosky et al., 2013, *Improving Students' Learning With Effe
 | --- | --- | --- |
 | **Understand** | [M1 Product thinking basics](https://pmgym.netlify.app/m1/), [M2 Problem framing](https://pmgym.netlify.app/m2/), [M3 Users and segmentation](https://pmgym.netlify.app/m3/), [M4 Behavioural psychology](https://pmgym.netlify.app/m4/), [M5 Product discovery](https://pmgym.netlify.app/m5/), [M6 Market and competition](https://pmgym.netlify.app/m6/), [AI-1 AI foundations for PMs](https://pmgym.netlify.app/ai-1/) | Live |
 | **Design and build** | [M7 UX and design basics](https://pmgym.netlify.app/m7/), [M8 Technical foundations](https://pmgym.netlify.app/m8/) | Live |
-| **Measure** | M9 Metrics and North Star, M10 Instrumentation and data analysis, M11 Experimentation, AI-2 Evals and AI economics | Planned |
+| **Measure** | [M9 Metrics and North Star](https://pmgym.netlify.app/m9/), [M10 Instrumentation and data analysis](https://pmgym.netlify.app/m10/), [M11 Experimentation](https://pmgym.netlify.app/m11/), [AI-2 Evals and AI economics](https://pmgym.netlify.app/ai-2/) | Live |
 | **Grow** | M12 Growth, M13 Business models and pricing | Planned |
 | **Decide** | M14 Vision and strategy, M15 Prioritisation, M16 Roadmaps and OKRs | Planned |
 | **Ship and lead** | M17 Execution and delivery, M18 Communication and influence, AI-3 Agents and responsible AI | Planned |
@@ -74,6 +74,10 @@ Every game also has its own page, so you can share it with a colleague or play i
 | [AI or Not?](https://pmgym.netlify.app/games/ai-or-not/) | AI-1 | Decide when a language model fits, when a human must check it, and when code is better | 10 min |
 | [Heuristic Hunt](https://pmgym.netlify.app/games/heuristic-hunt/) | M7 | Spot which usability rule a screen breaks, then see the fix | 8 min |
 | [Request Journey](https://pmgym.netlify.app/games/request-journey/) | M8 | Follow one tap through app, server and database, and diagnose incidents | 8 min |
+| [Metric Tree Builder](https://pmgym.netlify.app/games/metric-tree/) | M9 | Pick a North Star, then sort metrics into inputs, guardrails and vanity | 10 min |
+| [Metric Detective](https://pmgym.netlify.app/games/metric-detective/) | M10 | Choose which data to open, then name the real cause of a metric drop | 10 min |
+| [Ship or Kill](https://pmgym.netlify.app/games/ship-or-kill/) | M11 | Make the call on seven A/B test results, and find the line that decides it | 10 min |
+| [Eval Arena](https://pmgym.netlify.app/games/eval-arena/) | AI-2 | Grade an AI assistant's answers, then pick the cheapest model that meets the bar | 10 min |
 
 ## Using PM Gym with your team
 
@@ -100,7 +104,7 @@ python3 -m http.server 8000   # or open index.html directly in a browser
 
 ```
 index.html            Home: Test your max, the gym floor, the session, the playground
-m1/ … m8/, ai-1/      One page per station
+m1/ … m11/, ai-1/, ai-2/  One page per station
 games/                A standalone page for each game
 assets/
   plan.js             Every station, its zone, game and status

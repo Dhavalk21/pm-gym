@@ -343,3 +343,30 @@ footer.site > span { color: var(--ink-3); font-size: 15px; }
 .sk-row.ok { border-color: #2E7D4F; background: #E6F2EA; }
 .sk-row.no { border-color: #B42318; background: #FBEAE8; }
 @media (max-width: 560px) { .sk-row { grid-template-columns: 1fr; gap: 2px; } }
+
+/* Eval Arena (AI-2) */
+.ea-chat { flex: 0 1 440px; min-width: 260px; display: grid; gap: 10px; }
+.ea-chat > div { border-radius: 10px; padding: 12px 14px; font-size: 16px; line-height: 1.45; }
+.ea-chat small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; margin-bottom: 4px; }
+.ea-q { background: #F2F3F1; color: #17202A; margin-right: 15%; }
+.ea-q small { color: #5F6975; }
+.ea-src { background: transparent; border: 1.5px dashed #5F6975; color: var(--pale); font-size: 15px !important; }
+.ea-src small { color: var(--pale); }
+.ea-a { background: #E2EFEE; color: #17202A; margin-left: 15%; }
+.ea-a small { color: #155E63; }
+.ea-job { background: #222B35; border-radius: 8px; padding: 14px 16px; border-left: 4px solid #4C7BD9; }
+.ea-job b { font-size: 18px; color: var(--ground); }
+.ea-job p { margin: 4px 0 0; }
+.ea-req { margin-top: 10px !important; color: var(--ground) !important; }
+.ea-req small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #E3A82B; }
+.ea-models { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 10px; }
+.ea-model { text-align: left; font: inherit; cursor: pointer; border-radius: 8px; border: 1.5px solid #5F6975; background: #222B35; color: var(--ground); padding: 12px 14px; display: grid; gap: 4px; }
+.ea-model:hover:not(:disabled) { border-color: var(--ground); }
+.ea-model:disabled { cursor: default; }
+.ea-model b { font-size: 17px; margin-bottom: 4px; }
+.ea-model span { display: flex; justify-content: space-between; gap: 8px; font-size: 14px; color: var(--pale); }
+.ea-model i { font-style: normal; font-weight: 700; color: var(--ground); font-variant-numeric: tabular-nums; }
+.ea-model.ok { border-color: #4CB27A; background: #1E3A2A; }
+.ea-model.no { border-color: #E0535A; background: #3E2023; }
+.ea-model.dim { opacity: .55; }
+@media (max-width: 760px) { .ea-models { grid-template-columns: 1fr; } .ea-q { margin-right: 0; } .ea-a { margin-left: 0; } }
