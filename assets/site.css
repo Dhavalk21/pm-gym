@@ -370,3 +370,27 @@ footer.site > span { color: var(--ink-3); font-size: 15px; }
 .ea-model.no { border-color: #E0535A; background: #3E2023; }
 .ea-model.dim { opacity: .55; }
 @media (max-width: 760px) { .ea-models { grid-template-columns: 1fr; } .ea-q { margin-right: 0; } .ea-a { margin-left: 0; } }
+
+/* Loop Builder (M12) */
+.lb-loop { flex: 0 1 380px; min-width: 260px; display: grid; grid-template-columns: 1fr 1fr; gap: 10px; position: relative; }
+.lb-step { background: #F2F3F1; color: #17202A; border-radius: 8px; padding: 10px 12px; font-size: 15px; line-height: 1.35; display: flex; gap: 8px; align-items: flex-start; }
+.lb-step i { flex: none; font-style: normal; font-weight: 700; width: 22px; height: 22px; border-radius: 50%; background: #6BA368; color: #17202A; display: grid; place-items: center; font-size: 13px; }
+.lb-step:nth-child(3) { order: 4; }
+.lb-step:nth-child(4) { order: 3; }
+.lb-k { order: 5; grid-column: 1 / -1; border: 1.5px dashed #6BA368; border-radius: 8px; padding: 10px 12px; text-align: center; }
+.lb-k small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #6BA368; }
+.lb-k b { font-size: 30px; color: var(--ground); font-variant-numeric: tabular-nums; }
+.lb-k span { display: block; font-size: 14px; color: var(--pale); }
+.lb-new { font-style: normal; font-weight: 700; margin-left: auto; padding-left: 10px; white-space: nowrap; font-variant-numeric: tabular-nums; }
+.lb-chart { background: #F2F3F1; color: #17202A; border-radius: 10px; padding: 14px 16px; margin-top: 14px; }
+.lb-chart > b { display: block; font-size: 15px; line-height: 1.35; }
+.lb-bars { display: flex; align-items: flex-end; gap: 10px; height: 130px; margin-top: 10px; border-bottom: 2px solid #17202A; }
+.lb-col { flex: 1; height: 100%; display: flex; align-items: flex-end; gap: 3px; position: relative; }
+.lb-col span { flex: 1; border-radius: 3px 3px 0 0; }
+.lb-b0, .lb-key0 { background: #9AA3AD; }
+.lb-b1, .lb-key1 { background: #6BA368; }
+.lb-col small { position: absolute; bottom: -20px; left: 0; right: 0; text-align: center; font-size: 12px; color: #5F6975; }
+.lb-chart p { margin: 26px 0 0; font-size: 14px; color: #3E4A57; }
+.lb-chart p i { display: inline-block; width: 10px; height: 10px; border-radius: 2px; margin: 0 6px 0 12px; vertical-align: -1px; }
+.lb-chart p i:first-child { margin-left: 0; }
+@media (max-width: 560px) { .lb-loop { grid-template-columns: 1fr; } .lb-step:nth-child(3), .lb-step:nth-child(4) { order: 0; } }

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M12 Growth | PM Gym</title>
+<meta name="description" content="Activation, retention, growth loops and product-led growth. Four short lessons, two cases and the Loop Builder game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m12">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 4, Grow / M12</div>
+  <div class="title">
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#6BA368"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M12</text></svg>
+    <div>
+      <span class="zone-tag"><i style="background:#6BA368"></i>Zone 4, Grow</span>
+      <h1>Growth</h1>
+      <p>Getting new users to real value fast, keeping them, building loops that compound, and letting the product do the selling.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 34 minutes</span><span>2 cases</span><span>Loop Builder game, 10 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>Your app gets 50,000 sign-ups a month from ads, but 85% are gone after one week. Marketing says:</p>
+        <div class="quote">"Give us double the ad budget and we'll double growth."</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
+      </div>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "What should you do first?", "o": ["Find out why people leave in week one, and fix it", "Double the ads", "Launch a referral programme"], "a": 0, "why": "With 85% leaving in a week, more ads mostly buy short visits. Fix the bucket first."}, {"q": "Each user invites 5 friends, and 10% of invited friends join. What's the loop strength?", "o": ["5", "50", "0.5: every 100 users bring 50 more"], "a": 2, "why": "Multiply invites by conversion. Below 1, the loop amplifies other channels rather than running on its own."}, {"q": "Which product suits product-led growth best?", "o": ["Factory software that needs on-site installation", "A note-taking app people can try alone in five minutes", "A hospital's patient-records system"], "a": 1, "why": "PLG works when people can start alone, see value fast, and bring in their team."}]}</script>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+<details class="lesson" data-lesson="1"><summary><span class="ln">1</span><span class="lt"><b>Activation: the first moment of value</b><span>Get new users to the point where they get it, fast.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p><b>Activation</b> is the moment a new user first gets real value, often called the aha moment. People who reach it are far more likely to stay. Good growth teams find the specific action that predicts retention, then remove everything that slows new users down on the way to it.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Find the activation action:</b> compare users who stayed with those who left (M10). What did the stayers do early on?</li><li><b>Measure time to value:</b> how long from sign-up to that action?</li><li><b>Remove steps</b> that don't help: fewer fields, defaults, templates, sample data.</li><li><b>Guide, don't lecture:</b> one next step at a time, inside the product, not a long tour.</li></ol></div><div class="part"><h4>Real example</h4><p>Slack's team reported that once a team had exchanged about 2,000 messages, around 93% of those teams were still using Slack. That's when a team has really tried it. Onboarding focused on getting teams there: inviting teammates, creating channels and connecting tools they already used.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>The action may be a sign of value, not its cause.</b> Test whether pushing people towards it actually improves retention (M11).</li><li><b>Activation targets get gamed too</b> (M9): 2,000 automated messages wouldn't mean a team gets value.</li></ul></div><div class="part drill"><h4>Drill: find the aha</h4><div class="check stack" data-answer="1"><p class="cq">For a team task-management app, which is the best activation action to aim for?</p><div class="opts"><button type="button" class="opt">Created an account</button><button type="button" class="opt">Invited two teammates and completed a shared task in the first week</button><button type="button" class="opt">Opened the app three times</button></div><p class="cfb" data-ok="Right: it's the action that shows the team got value." data-no="Look for the action that shows real value, usually something shared, done early."></p></div></div></div></details>
+<details class="lesson" data-lesson="2"><summary><span class="ln">2</span><span class="lt"><b>Retention before acquisition</b><span>Filling a leaky bucket is the most expensive kind of growth.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>If people don't stay, every new user you pay for is a temporary visitor. <b>Retention</b> is the base of all growth: it makes every acquisition euro go further, feeds word of mouth, and makes loops possible. That's why experienced growth teams fix the leaky bucket before turning up the tap.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Measure retention at the product's natural frequency:</b> daily for messaging, weekly for groceries, yearly for tax software.</li><li><b>Look for the curve to flatten</b> (M10). A flat line means a group of people who keep getting value.</li><li><b>Improve it in three places:</b> first week (activation), ongoing value (habits, new uses), and bringing back people who left (resurrection).</li></ol></div><div class="part"><h4>Real example</h4><p>Two apps each win 10,000 new users a month. App A keeps 20% after three months; App B keeps 40%. After a year, App B has roughly twice the active users from the same marketing spend, and its users bring friends. Doubling A's ad budget would cost far more than fixing what makes people leave.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Some products are used rarely by design.</b> Judge a travel or tax app by yearly return, not daily use.</li><li><b>Retention can be bought badly:</b> hard-to-cancel subscriptions keep people paying, not valuing (M4). That's not retention, it's sludge.</li></ul></div><div class="part drill"><h4>Drill: where to invest?</h4><div class="check stack" data-answer="0"><p class="cq">Your app keeps only 5% of new users after a month. Marketing wants to double ad spend. What do you do first?</p><div class="opts"><button type="button" class="opt">Find and fix why people leave in the first weeks</button><button type="button" class="opt">Double ad spend</button><button type="button" class="opt">Launch in three new countries</button></div><p class="cfb" data-ok="Right: fix the bucket before you pour in more." data-no="With 95% leaving, more ads mostly buy temporary visitors. Fix retention first."></p></div></div></div></details>
+<details class="lesson" data-lesson="3"><summary><span class="ln">3</span><span class="lt"><b>Growth loops</b><span>Funnels end. Loops feed themselves.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A funnel takes people from step to step and stops. A <b>growth loop</b> turns the output of one group of users into the input for the next: users invite users, users create content that search engines find, or customers' profit pays for more ads. Loops compound; funnels don't.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Viral loop:</b> using the product exposes others to it (shared links, invites, documents).</li><li><b>Content loop:</b> users create content that brings new visitors (reviews, answers, templates).</li><li><b>Paid loop:</b> each customer earns back more than they cost to win, funding more ads.</li><li><b>Measure loop strength:</b> new users each user brings (invites × conversion), or euros returned per euro spent.</li></ol></div><div class="part"><h4>Real example</h4><p>Dropbox struggled to make paid search ads profitable. Its referral programme gave extra free storage to both the person inviting and the friend who joined. In April 2010 alone, users sent about 2.8 million referral invites, and Dropbox's CEO Drew Houston said the programme permanently increased sign-ups by 60%.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>A loop strength above 1 is rare</b> and doesn't last. Most loops amplify other channels rather than replacing them.</li><li><b>Loops need a product worth sharing.</b> Referral rewards can't create word of mouth that doesn't exist.</li></ul></div><div class="part drill"><h4>Drill: loop strength?</h4><div class="check stack" data-answer="2"><p class="cq">Each user invites 5 people, and 10% of invited people sign up. What's the loop strength?</p><div class="opts"><button type="button" class="opt">5</button><button type="button" class="opt">10</button><button type="button" class="opt">0.5: every 100 users bring 50 more</button></div><p class="cfb" data-ok="Right: 5 × 10% = 0.5." data-no="Multiply invites by conversion: 5 × 10% = 0.5. Every 100 users bring 50 more."></p></div></div></div></details>
+<details class="lesson" data-lesson="4"><summary><span class="ln">4</span><span class="lt"><b>Product-led growth</b><span>Let the product do the selling.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>In <b>product-led growth</b>, people try the product themselves (free, freemium or a trial) and upgrade when they hit real value, often without talking to sales. It works when a product is quick to start, shows value fast, and spreads from one user to their team.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Choose the model:</b> a free tier forever (freemium), a time-limited trial, or both.</li><li><b>Put limits where value is proven:</b> the free plan should be useful, and the paid one should be obviously better once people rely on it.</li><li><b>Spot ready-to-buy accounts</b> from usage, not forms: teams that grow fast or hit limits are product-qualified leads.</li><li><b>Add sales where it helps:</b> big companies still need security reviews and contracts.</li></ol></div><div class="part"><h4>Real example</h4><p>Slack's free plan let teams use the core product fully, but limited how much message history they could search. A team that relied on Slack soon wanted older messages, and the people asking to upgrade had already proved the value to themselves.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Free users cost money</b> in servers and support. Watch the cost of the free tier against the upgrades it produces.</li><li><b>Not every product fits.</b> Complex, regulated or top-down purchases, like hospital systems, usually need sales.</li></ul></div><div class="part drill"><h4>Drill: fits PLG?</h4><div class="check stack" data-answer="0"><p class="cq">Which product suits product-led growth best?</p><div class="opts"><button type="button" class="opt">A note-taking app people can start using alone in five minutes</button><button type="button" class="opt">A hospital's patient-records system</button><button type="button" class="opt">Factory software that needs on-site installation</button></div><p class="cfb" data-ok="Right: quick to start, quick to value, spreads to teams." data-no="Quick-to-start tools that spread from user to team suit PLG. Complex, regulated systems need sales."></p></div></div></div></details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One company that turned its users into its best growth channel, and one that spent huge sums on acquisition people didn't stay for.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Dropbox's referral programme</h3><p>Paid ads were too expensive for Dropbox's price. So it built referrals into the product: invite a friend and both of you get extra free storage, the thing users wanted most. In April 2010 alone, users sent about 2.8 million referral invites, and CEO Drew Houston said the programme permanently increased sign-ups by 60%.</p><p class="take">Lesson: the best loops reward people with more of the product's own value, and only work because the product was already worth recommending.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Quibi</h3><p>Quibi raised $1.75 billion and spent heavily on star-studded short shows for phones, launched in April 2020 with 90-day free trials. Sensor Tower estimated only about 8% of early trial users became paying subscribers. Quibi shut down six months after launch.</p><p class="take">Lesson: money can buy sign-ups, not retention. Without a reason to stay, acquisition just fills a leaky bucket faster.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Loop Builder</h2>
+    <p>Three products. Pick the growth loop that fits, then the change that makes it strongest, and watch it compound. <a href="../games/loop-builder/">Open it on its own page</a> to share.</p>
+    <div id="gamebox" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Build your growth model card</h2>
+    <p>Pick a product you know. Name the moment of value, how often people should use it, its loop, and the weakest step. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Growth model card", "sentence": "A new {product} user gets value when {aha}.", "rows": [{"label": "Natural usage frequency", "text": "{freq}"}, {"label": "Main growth loop", "text": "{loop}"}, {"label": "Weakest step", "text": "{weak}"}, {"label": "Next experiment", "text": "{exp}"}], "fields": [{"id": "product", "label": "Which product?", "placeholder": "For example: our shared shopping-list app", "blank": "your product"}, {"id": "aha", "label": "When does a new user first get real value?", "placeholder": "For example: someone else in the household ticks off an item they added", "blank": "the moment"}, {"id": "freq", "label": "How often should people naturally use it?", "placeholder": "Tap or describe", "blank": "how often", "chips": ["Daily", "Weekly", "Monthly", "A few times a year"]}, {"id": "loop", "label": "Which loop could drive growth?", "placeholder": "Tap or describe", "blank": "which loop", "chips": ["Viral: using it invites others", "Content: users create what search finds", "Paid: customers earn back their acquisition cost"]}, {"id": "weak", "label": "Which step loses the most people today?", "placeholder": "For example: only 30% invite a second person in week one", "blank": "which step"}, {"id": "exp", "label": "Your next experiment", "placeholder": "For example: ask to invite a partner right after the first list is created", "blank": "your experiment"}]}</script>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Product:</b> a shared shopping-list app. A new user gets value when someone else in the household ticks off an item they added.</p>
+        <p><b>Natural frequency:</b> weekly. <b>Main loop:</b> viral, since every list is shared with at least one other person who then sees the app.</p>
+        <p><b>Weakest step:</b> only 30% of new users invite anyone in their first week, and those who don't almost all leave.</p>
+        <p><b>Next experiment:</b> right after the first list is created, ask "Who else shops for this home?" with a one-tap invite, and measure week-four retention, not just invites.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "The CEO says: \"Growth is too slow. Let's double the ad budget next quarter.\" Which reply would you send?", "options": ["\"Great, more ads means more growth.\"", "\"Before we double ads: 70% of new users leave in their first week, so most of that spend would buy short visits. If we raise week-one activation from 30% to 45%, every euro of ads goes further. I'd run that for six weeks, then scale ads.\"", "\"Ads never work, let's stop them.\""], "best": 1, "ok": "It shows where the money would leak and offers a concrete, time-boxed alternative.", "no": "The second one: point to the leak, propose fixing activation first, then scale.", "prompt": "Explain to a colleague why retention comes before acquisition.", "checks": [{"k": "retention|stay|leav|leak|churn", "label": "People leaving"}, {"k": "activ|aha|first week|value", "label": "Activation"}, {"k": "ads|acqui|cost|spend|cac", "label": "Cost of acquisition"}, {"k": "loop|compound|word of mouth|refer|invite", "label": "Loops and word of mouth"}, {"k": "cohort|curve|measure", "label": "How you'd measure it"}]}</script>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M4 and M10. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+<div class="check stack" data-answer="2"><p class="cq">What is activation?</p><div class="opts"><button type="button" class="opt">The day a user creates an account</button><button type="button" class="opt">Sending a welcome email</button><button type="button" class="opt">The first moment a new user gets real value, which predicts whether they stay</button></div><p class="cfb" data-ok="Right: the aha moment." data-no="Activation is the first moment of real value, the one that predicts retention."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">A Dropbox-style referral programme works best when the reward is…</p><div class="opts"><button type="button" class="opt">Cash, the bigger the better</button><button type="button" class="opt">More of the product's own value, like extra storage, for both people</button><button type="button" class="opt">A discount on an unrelated product</button></div><p class="cfb" data-ok="Right: it rewards people with what they already want from the product." data-no="The best rewards are more of the product's own value, for both sides."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">Each customer costs €80 to win and earns €60 profit before leaving. What happens if you double ad spend?</p><div class="opts"><button type="button" class="opt">You lose money faster: each euro spent returns only €0.75</button><button type="button" class="opt">You double profit</button><button type="button" class="opt">Nothing changes</button></div><p class="cfb" data-ok="Right: the paid loop is broken." data-no="Each euro returns €0.75, so spending more loses money faster. Fix retention or margin first."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">From M10: what's the best way to see whether new onboarding improved retention?</p><div class="opts"><button type="button" class="opt">Total registered users</button><button type="button" class="opt">Daily active users this week</button><button type="button" class="opt">Compare retention curves of cohorts who signed up before and after the change</button></div><p class="cfb" data-ok="Right: compare cohorts." data-no="Compare cohorts before and after. Totals and this week's activity mix old and new users."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">From M4: a growth team pre-ticks "Invite all my contacts" at sign-up. What is it?</p><div class="opts"><button type="button" class="opt">A smart viral loop</button><button type="button" class="opt">A dark pattern: it spams people who never chose to invite anyone, and damages trust</button><button type="button" class="opt">Good onboarding</button></div><p class="cfb" data-ok="Right: that's sludge, not growth." data-no="It's a dark pattern. It spams people and damages trust in the product."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Find the activation moment</b> that predicts retention, and shorten the path to it.</li>
+        <li><b>Retention comes before acquisition.</b> Fix the leaky bucket before you pour in more.</li>
+        <li><b>Loops compound; funnels don't.</b> Measure loop strength and improve its weakest step.</li>
+        <li><b>Product-led growth lets people try first</b> and upgrade once they rely on it.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../ai-2/">Previous: AI-2 Evals and AI economics</a><span>Next: M13 Business models and pricing</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/loop-builder.js"></script>
+<script>LoopBuilder(document.getElementById("gamebox"));</script>
+</body>
+</html>
