@@ -405,3 +405,17 @@ footer.site > span { color: var(--ink-3); font-size: 15px; }
 .pi-card dt { color: #3E4A57; }
 .pi-card dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; white-space: nowrap; }
 .pi-card .pi-calc { background: #E8F1E6; border-color: #6BA368; }
+
+/* Strategy or Wishlist? (M14) */
+.sw-quote { flex: 0 1 440px; min-width: 260px; margin: 0; background: #F2F3F1; color: #17202A; border-radius: 10px; padding: 18px 20px; border-left: 6px solid #9B6BB0; font-size: 18px; line-height: 1.45; }
+.sw-quote small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #5F6975; margin-bottom: 6px; }
+.sw-kernel { flex: 0 1 360px; min-width: 260px; display: grid; gap: 10px; }
+.sw-part { border-radius: 8px; padding: 12px 14px; border: 1.5px dashed #5F6975; }
+.sw-part small { display: block; font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: var(--pale); }
+.sw-part p { margin: 4px 0 0; font-size: 15px; }
+.sw-part.now { border-style: solid; border-color: #9B6BB0; }
+.sw-part.ok, .sw-part.no { background: #F2F3F1; border-style: solid; }
+.sw-part.ok { border-color: #4CB27A; }
+.sw-part.no { border-color: #E0535A; }
+.sw-part.ok small, .sw-part.no small { color: #5F6975; }
+.sw-part.ok p, .sw-part.no p { color: #17202A; }
