@@ -494,3 +494,16 @@ footer.site > span { color: var(--ink-3); font-size: 15px; }
 .sc-cell span { display: block; background: #fff; border: 1.5px solid #E0E3E7; border-radius: 6px; padding: 5px 8px; font-size: 14px; margin-top: 5px; }
 .sc-cell span.ok { border-color: #2E7D4F; }
 .sc-cell span.no { border-color: #B42318; }
+
+/* Agent Builder (AI-3) */
+.ab-sheet { flex: 0 1 420px; min-width: 260px; background: #F2F3F1; color: #17202A; border-radius: 10px; padding: 14px; display: grid; gap: 6px; }
+.ab-sheet > small { font-size: 12px; font-weight: 700; letter-spacing: .04em; text-transform: uppercase; color: #5F6975; }
+.ab-row { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 10px; align-items: center; background: #fff; border: 1.5px solid #E0E3E7; border-radius: 6px; padding: 7px 10px; font-size: 14px; line-height: 1.35; }
+.ab-row.now { border-color: #D07A45; }
+.ab-row em { font-style: normal; font-weight: 700; font-size: 13px; white-space: nowrap; color: #8A939D; }
+.ab-row em.ab-act { color: #2E7D4F; }
+.ab-row em.ab-ask { color: #9A6A00; }
+.ab-row em.ab-never { color: #B42318; }
+.ab-row em.miss::after { content: " ✗"; color: #B42318; }
+.ab-note { font-size: 13px; margin-top: 14px; }
+.ab-row em.miss { white-space: normal; text-align: right; }

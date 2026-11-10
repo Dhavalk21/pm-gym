@@ -56,7 +56,7 @@ Further reading: [Dunlosky et al., 2013, *Improving Students' Learning With Effe
 | **Measure** | [M9 Metrics and North Star](https://pmgym.netlify.app/m9/), [M10 Instrumentation and data analysis](https://pmgym.netlify.app/m10/), [M11 Experimentation](https://pmgym.netlify.app/m11/), [AI-2 Evals and AI economics](https://pmgym.netlify.app/ai-2/) | Live |
 | **Grow** | [M12 Growth](https://pmgym.netlify.app/m12/), [M13 Business models and pricing](https://pmgym.netlify.app/m13/) | Live |
 | **Decide** | [M14 Vision and strategy](https://pmgym.netlify.app/m14/), [M15 Prioritisation](https://pmgym.netlify.app/m15/), [M16 Roadmaps and OKRs](https://pmgym.netlify.app/m16/) | Live |
-| **Ship and lead** | M17 Execution and delivery, M18 Communication and influence, AI-3 Agents and responsible AI | Planned |
+| **Ship and lead** | [M17 Execution and delivery](https://pmgym.netlify.app/m17/), [M18 Communication and influence](https://pmgym.netlify.app/m18/), [AI-3 Agents and responsible AI](https://pmgym.netlify.app/ai-3/) | Live |
 | **Capstone** | Ship an AI feature end to end | Planned |
 
 ## The playground
@@ -83,6 +83,9 @@ Every game also has its own page, so you can share it with a colleague or play i
 | [Strategy or Wishlist?](https://pmgym.netlify.app/games/strategy-or-wishlist/) | M14 | Sort real strategies from goals and fluff, then build a strategy kernel | 8 min |
 | [Backlog Triage](https://pmgym.netlify.app/games/backlog-triage/) | M15 | Plan a 12-week quarter from competing requests, then say no well | 8 min |
 | [Roadmap Remix](https://pmgym.netlify.app/games/roadmap-remix/) | M16 | Diagnose OKRs, then build an honest Now, Next, Later roadmap | 8 min |
+| [Launch Day](https://pmgym.netlify.app/games/launch-day/) | M17 | Make the call at six moments of a launch, from rollout to review | 7 min |
+| [Stakeholder Chess](https://pmgym.netlify.app/games/stakeholder-chess/) | M18 | Map stakeholders, tailor bad news to each audience, and win over a sceptic | 8 min |
+| [Agent Builder](https://pmgym.netlify.app/games/agent-builder/) | AI-3 | Set an AI agent's permissions, then place AI products in the EU AI Act's risk levels | 8 min |
 
 ## Using PM Gym with your team
 
@@ -109,7 +112,7 @@ python3 -m http.server 8000   # or open index.html directly in a browser
 
 ```
 index.html            Home: Test your max, the gym floor, the session, the playground
-m1/ … m16/, ai-1/, ai-2/  One page per station
+m1/ … m18/, ai-1/ … ai-3/  One page per station
 games/                A standalone page for each game
 assets/
   plan.js             Every station, its zone, game and status
