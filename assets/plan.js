@@ -21,7 +21,7 @@ window.PMGYM = {
     { code: "M11", zone: 2, name: "Experimentation", short: "Experiments", desc: "Designing, reading and deciding on A/B tests, and when not to run one.", game: "Ship or Kill", page: "m11/" },
     { code: "AI-2", zone: 2, name: "Evals and AI economics", short: "Evals", desc: "Measuring AI quality, handling hallucinations, and trading off cost and latency.", game: "Eval Arena", page: "ai-2/" },
     { code: "M12", zone: 3, name: "Growth", short: "Growth", desc: "Activation, retention, growth loops and product-led growth.", game: "Loop Builder", page: "m12/" },
-    { code: "M13", zone: 3, name: "Business models and pricing", short: "Pricing", desc: "Business models, pricing and packaging, and unit economics.", game: "Price It" },
+    { code: "M13", zone: 3, name: "Business models and pricing", short: "Pricing", desc: "Business models, pricing and packaging, and unit economics.", game: "Price It", page: "m13/" },
     { code: "M14", zone: 4, name: "Vision and strategy", short: "Strategy", desc: "Diagnosis, guiding policy, coherent action, and real trade-offs.", game: "Strategy or Wishlist?" },
     { code: "M15", zone: 4, name: "Prioritisation", short: "Prioritisation", desc: "Scoring methods and their limits, cost of delay, and saying no.", game: "Backlog Triage" },
     { code: "M16", zone: 4, name: "Roadmaps and OKRs", short: "Roadmaps", desc: "Now, next and later roadmaps, outcome goals, and showing uncertainty honestly.", game: "Roadmap Remix" },

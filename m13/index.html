@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>M13 Business models and pricing | PM Gym</title>
+<meta name="description" content="Business models, value-based pricing, packaging and tiers, and unit economics. Four short lessons, two cases and the Price It game.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/station.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28'%3E%3Crect x='0' y='12' width='28' height='4' rx='2' fill='%238A939D'/%3E%3Crect x='5' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3Crect x='18' y='3' width='5' height='22' rx='1.5' fill='%23C8232B'/%3E%3C/svg%3E">
+</head>
+<body data-station="m13">
+
+<header class="wrap top">
+  <a class="brand" href="../">
+    <svg width="28" height="28" viewBox="0 0 28 28" aria-hidden="true"><rect x="0" y="12" width="28" height="4" rx="2" fill="#8A939D"/><rect x="5" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/><rect x="18" y="3" width="5" height="22" rx="1.5" fill="#E3A82B"/></svg>
+    PM Gym
+  </a>
+  <nav aria-label="Main">
+    <a href="../#floor">Gym floor</a>
+    <a href="../#session">The session</a>
+    <a href="../#rack">Playground</a>
+    <span class="links">
+      <a class="btn sm" href="https://www.linkedin.com/in/dhavalk21/">LinkedIn</a>
+      <a class="btn sm" href="https://github.com/Dhavalk21">GitHub</a>
+      <a class="btn sm solid" href="https://topmate.io/dhaval_kareliya">Book a session</a>
+    </span>
+  </nav>
+</header>
+
+<section class="wrap" style="padding-block: 24px 40px">
+  <div class="crumbs"><a href="../#floor">Gym floor</a> / Zone 4, Grow / M13</div>
+  <div class="title">
+    <svg class="plate-badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="#6BA368"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="17" fill="#17202A">M13</text></svg>
+    <div>
+      <span class="zone-tag"><i style="background:#6BA368"></i>Zone 4, Grow</span>
+      <h1>Business models and pricing</h1>
+      <p>How products turn value into money, pricing on value, packaging plans people understand, and checking that each customer is actually profitable.</p>
+    </div>
+  </div>
+  <div class="meta"><span>4 lessons, about 34 minutes</span><span>2 cases</span><span>Price It game, 8 minutes</span><span id="lprog">0 of 4 lessons done</span></div>
+</section>
+
+<nav class="stepnav" aria-label="Session steps"><div class="wrap" id="stepnav"></div></nav>
+
+<main class="wrap">
+
+  <section id="warmup" class="block">
+    <h2>Warm-up <span class="tag">Optional, 3 minutes</span></h2>
+    <p>Make three quick predictions before the lessons, and say how sure you are. You'll see how you did at the end. <a href="#lessons">Skip to the lessons</a></p>
+    <div class="wu">
+      <div class="story">
+        <small>The situation</small>
+        <p>Ledgerly charges a flat €9 a month. The CEO wants more revenue and asks:</p>
+        <div class="quote">"Should we just raise the price to €12 for everyone?"</div>
+        <p class="science">Why predict first? Trying a question before the lesson makes the lesson stick better, even when the first guess is wrong. Rating your confidence trains you to notice what you don't know yet.</p>
+      </div>
+      <div id="warmup-ui"></div>
+    </div>
+    <script type="application/json" id="warmup-config">{"questions": [{"q": "Which approach usually captures the most value?", "o": ["Value-based: start from what customers gain", "Cost-plus: add a margin to our costs", "Match the cheapest competitor"], "a": 0, "why": "Cost and competitors are useful checks, but value-based pricing starts from what the product is worth to customers."}, {"q": "€20 a month, 75% gross margin, 5% of customers cancel each month. Roughly what's a customer's lifetime value?", "o": ["About €240", "About €20", "About €300: €15 a month divided by 5%"], "a": 2, "why": "Lifetime value ≈ monthly gross profit ÷ monthly churn: €15 ÷ 0.05 = €300."}, {"q": "Plans at €10, €25 and €60. What does the €60 plan do, even if few people buy it?", "o": ["It scares everyone away", "It makes the €25 plan look reasonable by comparison", "Nothing at all"], "a": 1, "why": "Anchoring: people judge prices against nearby options, so a premium tier shapes choices."}]}</script>
+  </section>
+
+  <section id="lessons" class="block">
+    <h2>Lessons</h2>
+    <p>Each one runs the same way: the idea, the framework, a real example, where it breaks, and a quick drill.</p>
+    <div class="lessons">
+<details class="lesson" data-lesson="1"><summary><span class="ln">1</span><span class="lt"><b>Business models</b><span>How the value you create turns into money.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>A <b>business model</b> is how a product turns the value it creates into revenue, and whether that revenue covers the cost of delivering it. The same product can be paid for in very different ways, and the choice shapes everything from features to who you build for.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Subscription:</b> a recurring fee for ongoing access. Predictable, lives or dies on retention.</li><li><b>Usage-based:</b> pay for what you use, like API calls or storage. Fair, fits when costs grow with use.</li><li><b>Transactions and marketplaces:</b> a fee or a cut of each sale.</li><li><b>Advertising:</b> users get it free; advertisers pay for their attention.</li><li><b>Freemium:</b> free for most, paid for those who need more (M12).</li></ol></div><div class="part"><h4>Real example</h4><p>Spotify runs two models side by side: a free tier paid for by advertising, and paid subscriptions without ads. The free tier is also the biggest source of future subscribers. The two models only work together because the free version is good enough to love and limited enough to upgrade from.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Who pays isn't always who uses.</b> In advertising, and often in business software, the buyer's needs can differ from the user's.</li><li><b>The model must match your costs.</b> A flat price with heavy AI or bandwidth costs per user can lose money on your best customers.</li></ul></div><div class="part drill"><h4>Drill: match the model</h4><div class="check stack" data-answer="2"><p class="cq">A developer API where every call costs you computing money. Which model fits best?</p><div class="opts"><button type="button" class="opt">A one-off licence fee</button><button type="button" class="opt">Advertising</button><button type="button" class="opt">Usage-based pricing: pay per call</button></div><p class="cfb" data-ok="Right: revenue grows with the same thing your costs do." data-no="Usage-based pricing keeps revenue in step with costs that grow with every call."></p></div></div></div></details>
+<details class="lesson" data-lesson="2"><summary><span class="ln">2</span><span class="lt"><b>Pricing on value</b><span>Price on what customers gain, not on what it cost you.</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p>There are three ways to set a price. <b>Cost-plus</b> adds a margin to your costs. <b>Competitor-based</b> copies the market. <b>Value-based</b> starts from what the product is worth to the customer. The first two are easy; the third usually captures far more, and is where good PMs start.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Understand the value:</b> time saved, money earned, risk avoided, compared with the customer's next best option.</li><li><b>Pick a value metric:</b> the unit your price grows with, like seats, invoices or minutes, which should grow as customers get more value.</li><li><b>Research willingness to pay:</b> for example the Van Westendorp questions: at what price is it too cheap to trust, a bargain, getting expensive, and too expensive to consider?</li><li><b>Test and adjust:</b> new customers first, with clear communication.</li></ol></div><div class="part"><h4>Real example</h4><p>Slack charges per active user, and its fair billing policy credits companies for members who stop using it. Customers pay as value grows, and never for people who don't use it. That fairness reduces the fear of rolling it out to a whole company.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Customers can't always say what they'd pay.</b> Use survey answers as a range, and check against real behaviour.</li><li><b>Price changes for existing customers are risky.</b> Explain why, give notice, and consider keeping old prices for a while.</li></ul></div><div class="part drill"><h4>Drill: which approach?</h4><div class="check stack" data-answer="0"><p class="cq">Your tool saves a finance team about 20 hours a month. How should you start setting the price?</p><div class="opts"><button type="button" class="opt">From the value of those 20 hours, compared with the team's alternatives</button><button type="button" class="opt">Your costs plus 30%</button><button type="button" class="opt">The cheapest competitor's price</button></div><p class="cfb" data-ok="Right: value-based pricing starts from what it's worth to them." data-no="Start from the value created. Cost and competitors are checks, not the starting point."></p></div></div></div></details>
+<details class="lesson" data-lesson="3"><summary><span class="ln">3</span><span class="lt"><b>Packaging and tiers</b><span>Good, better, best, and why the top tier exists.</span></span><span class="lmin">8 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p><b>Packaging</b> decides what goes into each plan. Most products use three tiers, often called good, better, best, so different customers can pay for what they need. The tiers also shape choices: people compare options against each other, not in isolation.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Build tiers around customer types,</b> not around leftover features: freelancer, small team, company.</li><li><b>Fence the tiers</b> with things that matter to the higher segment, like admin controls, security and support.</li><li><b>Use anchoring honestly</b> (M4): a premium tier makes the middle one look reasonable.</li><li><b>Keep it simple:</b> if customers need a call to understand your pricing page, it's too complicated.</li></ol></div><div class="part"><h4>Real example</h4><p>Behavioural economist Dan Ariely tested an old Economist offer with students: web only for $59, print only for $125, or print and web for $125. With all three, 84% chose print and web. Without the print-only option, which almost nobody chose, most picked web only. The "useless" option changed the decision.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>Decoys can turn into dark patterns</b> when they mislead. Anchoring should clarify value, not trick people.</li><li><b>Too many tiers or add-ons</b> paralyse buyers. Three plans and a custom option is usually enough.</li></ul></div><div class="part drill"><h4>Drill: tier design</h4><div class="check stack" data-answer="1"><p class="cq">What's the best way to separate a team plan from an enterprise plan?</p><div class="opts"><button type="button" class="opt">Make the team plan deliberately slow</button><button type="button" class="opt">Put things big companies need, like single sign-on, audit logs and admin controls, in the enterprise plan</button><button type="button" class="opt">Give each plan a random set of features</button></div><p class="cfb" data-ok="Right: fence tiers with what the higher segment values." data-no="Fence tiers with what bigger customers truly need, like security and admin, not by crippling the product."></p></div></div></div></details>
+<details class="lesson" data-lesson="4"><summary><span class="ln">4</span><span class="lt"><b>Unit economics</b><span>Does each customer earn more than they cost?</span></span><span class="lmin">9 min</span><span class="ldone" data-done-label></span></summary><div class="lbody"><div class="part"><h4>The idea</h4><p><b>Unit economics</b> asks whether one customer is profitable. If they aren't, growth makes losses bigger, not smaller. A few numbers tell the story, and a PM should know them for their product.</p></div><div class="part"><h4>The framework</h4><ol><li><b>Customer acquisition cost (CAC):</b> what it costs to win one customer.</li><li><b>Gross profit per customer per month:</b> revenue minus the direct cost to serve them.</li><li><b>Lifetime value (LTV):</b> monthly gross profit divided by monthly churn.</li><li><b>Checks:</b> LTV at least about three times CAC, and CAC earned back within roughly a year.</li></ol></div><div class="part"><h4>Real example</h4><p>A customer pays €20 a month at a 75% gross margin, so €15 of gross profit. If 5% of customers leave each month, the average one stays about 20 months: LTV ≈ €15 ÷ 0.05 = €300. With a CAC of €90, LTV is over three times CAC, and the cost is earned back in six months. Healthy.</p></div><div class="part"><h4>Where it breaks</h4><ul><li><b>LTV is an estimate,</b> especially for young products with little churn history. Use cohorts (M10) and be conservative.</li><li><b>Blended averages hide bad channels.</b> One ad channel can lose money on every customer while the average looks fine.</li></ul></div><div class="part drill"><h4>Drill: do the maths</h4><div class="check stack" data-answer="1"><p class="cq">€40 a month, 50% gross margin, 4% monthly churn, CAC €600. Is it healthy?</p><div class="opts"><button type="button" class="opt">Yes, LTV is €1,000, so it's fine</button><button type="button" class="opt">Not yet: LTV is about €500, less than the €600 it costs to win a customer</button><button type="button" class="opt">Yes, because revenue is €40</button></div><p class="cfb" data-ok="Right: €20 ÷ 0.04 = €500, below CAC." data-no="€40 × 50% = €20 gross profit; ÷ 4% churn = €500. That's less than €600 to win them."></p></div></div></div></details>
+    </div>
+  </section>
+
+  <section id="cases" class="block">
+    <h2>Cases</h2>
+    <p>One company that changed its whole business model and grew, and one that changed its prices so abruptly that customers left in droves.</p>
+    <div class="cases">
+      <div class="case" style="border-color: var(--green)"><small style="color: var(--green)">Got it right</small><h3>Adobe's move to subscriptions</h3><p>In 2013, Adobe stopped selling boxed Creative Suite software for a large one-off price and moved to Creative Cloud subscriptions. Revenue dipped during the switch and some customers protested. But subscriptions brought steady recurring revenue and continuous updates, and Adobe's annual revenue grew from about $4.4 billion in 2012 to over $11 billion by 2019.</p><p class="take">Lesson: a business model change can be worth a painful transition, if it matches how customers get value over time.</p></div>
+      <div class="case" style="border-color: var(--red)"><small style="color: var(--red-text)">Got it wrong</small><h3>Netflix's 2011 price change</h3><p>In July 2011, Netflix split its combined DVD and streaming plan into two separate plans, raising the price for customers who wanted both by 60%. Customers were angry about the price and the way it was announced. Netflix lost about 800,000 US subscribers in the following quarter, and its share price fell sharply.</p><p class="take">Lesson: how you change prices matters as much as what you change them to. Explain the value, give notice, and avoid surprising loyal customers.</p></div>
+    </div>
+  </section>
+
+  <section id="game" class="block">
+    <h2>Game: Price It</h2>
+    <p>Choose what three products' prices should grow with, then diagnose three businesses' unit economics. <a href="../games/price-it/">Open it on its own page</a> to share.</p>
+    <div id="gamebox" style="margin-top: 24px"></div>
+  </section>
+
+  <section id="apply" class="block">
+    <h2>Build your pricing card</h2>
+    <p>Pick a product you know. Decide who pays, what the price grows with, the tiers, and check the unit economics. Your answers stay in this browser.</p>
+    <div class="builder" id="builder"></div>
+    <script type="application/json" id="apply-config">{"title": "Pricing card", "sentence": "{product} charges {payer} per {metric}.", "rows": [{"label": "Tiers", "text": "{tiers}"}, {"label": "Price and why", "text": "{price}"}, {"label": "Unit economics check", "text": "{econ}"}], "fields": [{"id": "product", "label": "Which product?", "placeholder": "For example: our team-scheduling app", "blank": "Your product"}, {"id": "payer", "label": "Who pays?", "placeholder": "For example: restaurant owners, not the staff who use it", "blank": "whom"}, {"id": "metric", "label": "What should the price grow with?", "placeholder": "Tap or describe", "blank": "what", "chips": ["active user", "location", "transaction", "unit of usage"]}, {"id": "tiers", "label": "Your tiers, by customer type", "placeholder": "For example: Single location €29, Multi-location €79, Chains custom", "blank": "your tiers"}, {"id": "price", "label": "Why that price?", "placeholder": "For example: saves a manager about 5 hours a week, worth about €400 a month", "blank": "your reasoning"}, {"id": "econ", "label": "Lifetime value against the cost to win a customer", "placeholder": "For example: about €700 lifetime gross profit vs €150 to win, earned back in 5 months", "blank": "your numbers"}]}</script>
+    <details class="reveal">
+      <summary>Show a worked example</summary>
+      <div class="model">
+        <p><b>Product:</b> a scheduling app for restaurants. The owner pays; managers and staff use it. <b>Price grows with:</b> locations.</p>
+        <p><b>Tiers:</b> Single location €29 a month, Multi-location €79, Chains on a custom contract with integrations and support.</p>
+        <p><b>Why:</b> it saves a manager about five hours a week of phone calls and rota fixing, worth roughly €400 a month, so €29 is an easy yes.</p>
+        <p><b>Unit economics:</b> €29 at 85% margin, 3.5% monthly churn: about €700 lifetime gross profit against €150 to win a customer, earned back in about six months.</p>
+      </div>
+    </details>
+  </section>
+
+  <section id="teach" class="block">
+    <h2>Teach it</h2>
+    <p>If you can explain it simply, you understand it. Your text stays in this browser.</p>
+    <div class="teach-grid" id="teach-ui"></div>
+    <script type="application/json" id="teach-config">{"ask": "The sales lead says: \"Our competitor is €5 cheaper. Let's cut our price to match.\" Which reply would you send?", "options": ["\"Agreed, cheapest wins.\"", "\"Let's check first. A 20% price cut needs 25% more customers just to earn the same. Our customers churn less, and we save them about 6 hours a month. I'd interview the deals we lost on price; if it's a real segment, a cheaper plan with fewer features protects our main price.\"", "\"Let's raise our price instead, to look premium.\""], "best": 1, "ok": "It uses the maths, the value, and evidence, and offers a targeted alternative.", "no": "The second one: check the maths and the value, find out who's price-sensitive, and protect the main price.", "prompt": "Explain to a colleague how you'd set the price for a new plan.", "checks": [{"k": "value|worth|save", "label": "Starts from value"}, {"k": "metric|per |grow with|scale", "label": "Value metric"}, {"k": "willing|survey|interview|research", "label": "Willingness to pay"}, {"k": "tier|plan|package", "label": "Tiers"}, {"k": "ltv|cac|margin|churn|econom", "label": "Unit economics"}]}</script>
+  </section>
+
+  <section id="check" class="block" style="border-bottom: 0">
+    <h2>Mastery check</h2>
+    <p>Five questions, including one each from M12 and AI-2. They come back, mixed in, at later stations.</p>
+    <div class="mastery" id="mastery">
+<div class="check stack" data-answer="1"><p class="cq">What's a value metric?</p><div class="opts"><button type="button" class="opt">The price of the cheapest plan</button><button type="button" class="opt">The unit a price grows with, like seats, invoices or minutes, ideally in step with customer value</button><button type="button" class="opt">A customer satisfaction score</button></div><p class="cfb" data-ok="Right: it ties price to value as customers grow." data-no="It's the unit your price grows with. The best ones grow as customers get more value."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">In Ariely's Economist test, why did the print-only option matter?</p><div class="opts"><button type="button" class="opt">It made print and web look like a bargain, so far more people chose it</button><button type="button" class="opt">Most people bought it</button><button type="button" class="opt">It was cheaper than web only</button></div><p class="cfb" data-ok="Right: a decoy changes how people compare." data-no="Almost nobody chose it, but it made the combined offer look like a bargain."></p></div>
+<div class="check stack" data-answer="2"><p class="cq">Netflix lost about 800,000 subscribers after its 2011 price change. What's the main lesson?</p><div class="opts"><button type="button" class="opt">Never raise prices</button><button type="button" class="opt">Always be the cheapest</button><button type="button" class="opt">How you change prices matters: explain value, give notice, don't surprise loyal customers</button></div><p class="cfb" data-ok="Right: the change, not just the price, drove people away." data-no="The way the change was made drove people away. Explain, give notice, avoid surprises."></p></div>
+<div class="check stack" data-answer="1"><p class="cq">From M12: each customer costs €80 to win and earns €60 of lifetime gross profit. What's true?</p><div class="opts"><button type="button" class="opt">Scaling ads will fix it</button><button type="button" class="opt">The paid loop loses money: fix retention or margin before scaling</button><button type="button" class="opt">It's healthy</button></div><p class="cfb" data-ok="Right: LTV below CAC means each customer loses money." data-no="With lifetime value below acquisition cost, every new customer loses money."></p></div>
+<div class="check stack" data-answer="0"><p class="cq">From AI-2: your AI feature's model costs eat 70% of revenue. What helps most?</p><div class="opts"><button type="button" class="opt">Cut cost per request: smaller models for easy tasks, caching, limits, or usage-based pricing</button><button type="button" class="opt">Double ad spend</button><button type="button" class="opt">Add more AI features</button></div><p class="cfb" data-ok="Right: fix the cost to serve." data-no="Fix the cost to serve with cheaper models, caching and limits, or price by usage."></p></div>
+      <p class="mscore" id="mscore" aria-live="polite"></p>
+    </div>
+    <div class="takeaways">
+      <h3>Key takeaways</h3>
+      <ol>
+        <li><b>Pick a business model whose revenue grows with your costs and customers' value.</b></li>
+        <li><b>Price on value,</b> with a value metric customers understand and accept.</li>
+        <li><b>Package tiers around customer types,</b> and use anchoring to clarify, never to trick.</li>
+        <li><b>Know your unit economics:</b> lifetime value comfortably above acquisition cost, paid back within about a year.</li>
+      </ol>
+    </div>
+  </section>
+</main>
+
+<div class="wrap" style="border-top: 1px solid var(--line)">
+  <div class="pager"><a href="../m12/">Previous: M12 Growth</a><span>Next zone: Decide, starting with M14</span></div>
+</div>
+
+<script src="../assets/station.js"></script>
+<script src="../assets/price-it.js"></script>
+<script>PriceIt(document.getElementById("gamebox"));</script>
+</body>
+</html>
