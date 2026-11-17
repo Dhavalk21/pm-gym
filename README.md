@@ -98,16 +98,6 @@ Every game also has its own page, so you can share it with a colleague or play i
 
 The lessons credit their sources. Key ideas come from Marty Cagan (the four product risks), Teresa Torres (opportunity solution trees and story-based interviewing), Rob Fitzpatrick (*The Mom Test*), Clayton Christensen (jobs to be done), Jeff Bezos (one-way and two-way doors), BJ Fogg (the behaviour model), Nir Eyal (the Hook Model), April Dunford (positioning) and Geoffrey Moore (*Crossing the Chasm*). Case studies draw on public reporting. Where numbers in a game are made up for teaching, the game says so.
 
-## Running it locally
-
-Plain HTML, CSS and JavaScript. There's no build step and nothing to install.
-
-```bash
-git clone https://github.com/Dhavalk21/pm-gym.git
-cd pm-gym
-python3 -m http.server 8000   # or open index.html directly in a browser
-```
-
 ### Project structure
 
 ```
