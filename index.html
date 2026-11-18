@@ -58,12 +58,13 @@
           <p class="lead">The full roadmap, laid out as a floor plan. Six zones in the order a product gets built. Tap any station to see what it trains.</p>
         </div>
         <div class="legend">
-          <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="7" fill="#17202A"/></svg>Done</span>
+          <span><svg width="18" height="18" aria-hidden="true"><circle cx="8" cy="9" r="7" fill="#2A9D8F"/><circle cx="13" cy="5" r="5" fill="#2E7D4F" stroke="#F2F3F1" stroke-width="1.5"/><path d="M10.8 5l1.5 1.5 2.7-2.8" fill="none" stroke="#fff" stroke-width="1.5"/></svg>Done</span>
           <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6" fill="#fff" stroke="#E3A82B" stroke-width="3"/></svg>You are here</span>
           <span><svg width="16" height="16" aria-hidden="true"><circle cx="8" cy="8" r="6.5" fill="none" stroke="#5F6975" stroke-dasharray="3 2"/></svg>Not started</span>
           <span><svg width="16" height="16" aria-hidden="true"><rect x="1" y="1" width="14" height="14" rx="4" fill="#5F6975"/></svg>AI station</span>
         </div>
       </div>
+      <div class="myprog" id="myprog" aria-live="polite"></div>
       <div class="floor" id="floorplan"></div>
       <div class="detail" id="detail" aria-live="polite"></div>
     </div>
@@ -84,8 +85,9 @@
   <section id="rack" class="rack">
     <div class="wrap">
       <h2 class="h-section">Playground</h2>
-      <p class="lead">The equipment rack. One game per station, each 10 to 20 minutes, each ending in a real decision. Weight shows difficulty.</p>
-      <div class="shelf" id="shelf"></div>
+      <p class="lead">The equipment rack. One game per station, each 7 to 20 minutes, each ending in a real decision. Weight shows difficulty.</p>
+      <div class="tabs" id="racktabs" role="tablist" aria-label="Game categories"></div>
+      <div class="shelf" id="shelf" role="tabpanel"></div>
     </div>
   </section>
 </main>
@@ -100,6 +102,7 @@
 </footer>
 
 <script src="assets/plan.js"></script>
+<script src="assets/progress.js"></script>
 <script>
 (function () {
   var P = window.PMGYM, COL = P.colors, ON = P.onColors, ZN = P.zones;
@@ -181,7 +184,18 @@
   }
 
   /* ---------------- Gym floor ---------------- */
-  var selected = (P.modules.filter(function (m) { return m.status === "now"; })[0] || P.modules[0]).code;
+  var PR = window.PMGYM_PROGRESS, cur = PR.current(P.modules);
+  P.modules.forEach(function (m) { m.status = PR.isDone(m.code) ? "done" : (cur && m.code === cur.code ? "now" : "todo"); });
+  var selected = (cur || P.modules[0]).code;
+  function fmtDate(iso) { try { return new Date(iso).toLocaleDateString("en-GB", { day: "numeric", month: "short" }); } catch (e) { return ""; } }
+  function renderProgress() {
+    var n = PR.count(), t = P.modules.length, pct = Math.round(n / t * 100);
+    $("myprog").innerHTML = '<div class="mp-text"><b>' + n + ' of ' + t + ' stations done</b><span>' + (cur ? 'Next up: ' + cur.code + ' ' + esc(cur.name) : 'Every station done. Time for the capstone.') + '</span></div>' +
+      '<div class="mp-bar" role="progressbar" aria-valuemin="0" aria-valuemax="' + t + '" aria-valuenow="' + n + '"><i style="width:' + pct + '%"></i></div>' +
+      (cur ? '<a class="btn solid" href="' + cur.page + '">' + (n ? 'Continue ' : 'Start ') + cur.code + '</a>' : '') +
+      '<button type="button" class="linkish" id="mpreset">Reset my progress</button>';
+    $("mpreset").onclick = function () { var b = $("mpreset"); if (b.dataset.sure) { PR.reset(); location.reload(); } else { b.dataset.sure = "1"; b.textContent = "Sure? This clears every station's progress and notes. Click again to reset."; } };
+  }
   var FLEX = ["7 1 520px", "5 1 260px", "5 1 400px", "3 1 220px", "4 1 320px", "4 1 320px"];
 
   // On the dark floor, the black (Decide) plate is drawn in chalk white so it stays visible.
@@ -200,11 +214,12 @@
         '<div class="zone-head"><h3>' + name + '</h3><span>Zone ' + (zi + 1) + '</span></div><div class="stations">' +
         P.modules.filter(function (m) { return m.zone === zi; }).map(function (m) {
           var ai = m.code.indexOf("AI") === 0;
-          return '<button type="button" class="station" data-code="' + m.code + '" aria-pressed="' + (m.code === selected) + '" aria-label="' + esc(m.code + " " + m.name) + '">' +
-            '<span class="disc' + (ai ? " ai" : "") + '" style="' + disc(m) + '">' + m.code + '</span><small>' + esc(m.short) + '</small></button>';
+          return '<button type="button" class="station" data-code="' + m.code + '" aria-pressed="' + (m.code === selected) + '" aria-label="' + esc(m.code + " " + m.name + (m.status === "done" ? ", done" : m.status === "now" ? ", you are here" : "")) + '">' +
+            '<span class="disc' + (ai ? " ai" : "") + '" style="' + disc(m) + '">' + m.code + (m.status === "done" ? '<i class="tick" aria-hidden="true"></i>' : '') + '</span><small>' + esc(m.short) + '</small></button>';
         }).join("") + '</div></div>';
     });
     html += '<div class="platform"><small>Competition platform</small><button type="button" data-code="Cap" aria-pressed="' + (selected === "Cap") + '">Capstone: ship an AI feature end to end</button></div>';
+    renderProgress();
     $("floorplan").innerHTML = html;
     $("floorplan").querySelectorAll("[data-code]").forEach(function (b) { b.onclick = function () { selectStation(b.dataset.code); }; });
     renderDetail();
@@ -214,12 +229,13 @@
 
   function renderDetail() {
     var m = selected === "Cap" ? P.capstone : P.modules.filter(function (x) { return x.code === selected; })[0];
-    var st = m.status === "now" ? "In progress, you are here" : m.status === "done" ? "Done" : "Not started";
+    var ms = m.code !== "Cap" && PR.mastery(m.code);
+    var st = m.status === "now" ? "Up next, you are here" : m.status === "done" ? "Done, " + fmtDate(PR.doneAt(m.code)) + (ms ? " (mastery " + ms.right + "/" + ms.of + ")" : "") : "Not started";
     var code = m.code === "Cap" ? "CAP" : m.code;
     $("detail").innerHTML = '<svg class="badge" viewBox="0 0 56 56" aria-hidden="true"><circle cx="28" cy="28" r="27" fill="' + COL[m.zone] + '"/><circle cx="28" cy="28" r="20" fill="none" stroke="#17202A" stroke-opacity=".22" stroke-width="2"/><text x="28" y="34" text-anchor="middle" font-family="Barlow Condensed, sans-serif" font-weight="800" font-size="' + (code.length > 3 ? 14 : 17) + '" fill="#17202A">' + code + '</text></svg>' +
       '<div class="main"><span class="zone-tag"><i style="background:' + COL[m.zone] + '"></i>Zone ' + (m.zone + 1) + ', ' + ZN[m.zone] + '</span><h3>' + (m.code === "Cap" ? "" : m.code + " ") + esc(m.name) + '</h3><p>' + esc(m.desc) + '</p></div>' +
-      '<div class="side"><div><small>Game</small><b>' + esc(m.game) + '</b></div><div><small>Status</small><b style="color:' + (m.status === "now" ? "#155E63" : "#17202A") + '">' + st + '</b></div>' +
-      (m.page ? '<a class="btn solid" href="' + m.page + '">Enter this station</a>' : "") + '</div>';
+      '<div class="side"><div><small>Game</small><b>' + esc(m.game) + '</b></div><div><small>Status</small><b style="color:' + (m.status === "now" ? "#155E63" : m.status === "done" ? "#2E7D4F" : "#17202A") + '">' + st + '</b></div>' +
+      (m.page ? '<a class="btn ' + (m.status === "done" ? "" : "solid") + '" href="' + m.page + '">' + (m.status === "done" ? "Review this station" : "Enter this station") + '</a>' : "") + '</div>';
   }
 
   /* ---------------- Session ---------------- */
@@ -270,13 +286,23 @@
     { code: "M18", name: "Stakeholder Chess", kg: 100, min: 8, n: 4, desc: "One piece of bad news: map who needs what, tailor it to three audiences, and win over a sceptic.", status: "Play now", href: "games/stakeholder-chess/" },
     { code: "AI-3", name: "Agent Builder", kg: 100, min: 8, n: 4, desc: "Set the permissions for an AI agent that chases late payments, then place four AI products in the EU AI Act's risk levels.", status: "Play now", href: "games/agent-builder/" }
   ];
+  var rackTab = cur ? String(cur.zone) : "all";
+  function card(g) {
+    var m = P.modules.filter(function (x) { return x.code === g.code; })[0], c = COL[m.zone], plates = "", done = PR.isDone(g.code);
+    for (var i = 0; i < g.n; i++) { var h = 44 - i * 6, y = 30 - h / 2; plates += '<rect x="' + (36 - i * 11) + '" y="' + y + '" width="9" height="' + h + '" rx="2" fill="' + c + '"/><rect x="' + (75 + i * 11) + '" y="' + y + '" width="9" height="' + h + '" rx="2" fill="' + c + '"/>'; }
+    return '<div class="game"><svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><rect x="0" y="27" width="120" height="6" rx="3" fill="#8A939D"/>' + plates + '</svg>' +
+      '<small>' + g.code + ', ' + g.kg + ' kg, ' + g.min + ' minutes' + (done ? ' <span class="gdone">Station done</span>' : '') + '</small><h3>' + g.name + '</h3><p>' + g.desc + '</p>' +
+      '<a class="btn light' + (done ? '' : ' solid') + '" style="align-self:flex-start;margin-top:6px" href="' + g.href + '">' + (done ? 'Play again' : 'Play now') + '</a></div>';
+  }
   function renderRack() {
-    $("shelf").innerHTML = GAMES.map(function (g) {
-      var m = P.modules.filter(function (x) { return x.code === g.code; })[0], c = COL[m.zone], plates = "";
-      for (var i = 0; i < g.n; i++) { var h = 44 - i * 6, y = 30 - h / 2; plates += '<rect x="' + (36 - i * 11) + '" y="' + y + '" width="9" height="' + h + '" rx="2" fill="' + c + '"/><rect x="' + (75 + i * 11) + '" y="' + y + '" width="9" height="' + h + '" rx="2" fill="' + c + '"/>'; }
-      return '<div class="game"><svg viewBox="0 0 120 60" width="120" height="60" aria-hidden="true"><rect x="0" y="27" width="120" height="6" rx="3" fill="#8A939D"/>' + plates + '</svg>' +
-        '<small>' + g.code + ', ' + g.kg + ' kg, ' + g.min + ' minutes</small><h3>' + g.name + '</h3><p>' + g.desc + '</p>' + (g.href ? '<a class="btn light solid" style="align-self:flex-start;margin-top:6px" href="' + g.href + '">' + g.status + '</a>' : '<span class="status">' + g.status + '</span>') + '</div>';
+    var tabs = [["all", "All games", null]].concat(ZN.map(function (n, zi) { return [String(zi), n, COL[zi]]; }));
+    $("racktabs").innerHTML = tabs.map(function (t) {
+      var list = GAMES.filter(function (g) { return t[0] === "all" || P.modules.filter(function (x) { return x.code === g.code; })[0].zone === +t[0]; });
+      var nd = list.filter(function (g) { return PR.isDone(g.code); }).length;
+      return '<button type="button" role="tab" data-t="' + t[0] + '" aria-selected="' + (t[0] === rackTab) + '">' + (t[2] ? '<i style="background:' + t[2] + '"></i>' : '') + esc(t[1]) + '<span>' + (nd ? nd + "/" : "") + list.length + '</span></button>';
     }).join("");
+    $("racktabs").querySelectorAll("[data-t]").forEach(function (b) { b.onclick = function () { rackTab = b.dataset.t; renderRack(); $("racktabs").querySelector('[data-t="' + rackTab + '"]').focus(); }; });
+    $("shelf").innerHTML = GAMES.filter(function (g) { return rackTab === "all" || P.modules.filter(function (x) { return x.code === g.code; })[0].zone === +rackTab; }).map(card).join("");
   }
 
   renderQuiz(); renderPlates(); renderFloor(); renderSession(); renderRack();

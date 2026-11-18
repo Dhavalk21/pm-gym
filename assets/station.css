@@ -272,3 +272,18 @@ table.example th { font-size: 14px; color: var(--ink-3); font-weight: 600; }
 .sdots button[aria-current="step"].ok, .sdots button[aria-current="step"].no { box-shadow: 0 0 0 2px #fff, 0 0 0 4px var(--ink); }
 .title > div { min-width: 0; }
 @media (max-width: 640px) { .title h1 { font-size: clamp(2.2rem, 10vw, 3rem); overflow-wrap: break-word; hyphens: auto; } }
+
+/* ---------- Station complete card ---------- */
+.donecard { margin-top: 20px; max-width: 860px; display: flex; flex-wrap: wrap; align-items: center; gap: 16px 20px; background: #fff; border: 1.5px dashed #8A939D; border-radius: 10px; padding: 20px 22px; }
+.donecard > div:not(.dc-act) { flex: 1 1 280px; }
+.donecard b { font-family: var(--cond); font-size: 24px; }
+.donecard p { margin: 2px 0 0; color: var(--ink-3, #5F6975); font-size: 16px; }
+.donecard .dc-act { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.dc-ring, .dc-badge { flex: 0 0 auto; width: 48px; height: 48px; border-radius: 50%; position: relative; }
+.dc-ring { border: 3px dashed #8A939D; }
+.donecard.is-done { border: 2px solid #2E7D4F; background: #EAF4EE; }
+.dc-badge { background: #2E7D4F; }
+.dc-badge::after { content: ""; position: absolute; left: 17px; top: 9px; width: 11px; height: 22px; border: solid #fff; border-width: 0 4px 4px 0; transform: rotate(45deg); }
+.donecard.pop .dc-badge { animation: dcpop .5s ease-out; }
+@keyframes dcpop { 0% { transform: scale(.4); } 70% { transform: scale(1.15); } 100% { transform: scale(1); } }
+@media (prefers-reduced-motion: reduce) { .donecard.pop .dc-badge { animation: none; } }

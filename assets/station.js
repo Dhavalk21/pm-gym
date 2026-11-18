@@ -8,6 +8,8 @@
     get: function (k) { try { return JSON.parse(localStorage.getItem(k) || "null"); } catch (e) { return null; } },
     set: function (k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { return false; } }
   };
+  var PR = window.PMGYM_PROGRESS, CODE = station.toUpperCase();
+  if (PR) PR.visit(CODE);
   function esc(s) { return String(s == null ? "" : s).replace(/[&<>"]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]; }); }
   function copyText(text, out) {
     if (navigator.clipboard) navigator.clipboard.writeText(text).then(function () { out.textContent = "Copied."; }, function () { out.textContent = "Select the text and copy it manually."; });
@@ -342,6 +344,7 @@
           '<div><b>' + (pass ? "Station passed" : "Not yet") + '</b><p>' + (pass ? "These questions come back, mixed in, at later stations." : "Retry the ones you missed, or revisit those lessons first.") + "</p>" +
           (right < qs.length ? '<button type="button" class="btn solid" id="mretry">Retry the ones I missed</button>' : "") + "</div>" + warmCompare(right, qs.length);
         store.set("pmgym-" + station + "-mastery", { right: right, of: qs.length, at: new Date().toISOString() });
+        if (pass && PR && !PR.isDone(CODE)) { PR.markDone(CODE, "mastery"); paintDone(true); }
         var r = $("mretry");
         if (r) r.onclick = function () {
           retry = qs.map(function (_, i) { return i; }).filter(function (i) { return !picks[i]; });
@@ -366,6 +369,26 @@
     function wire(i) { wireCheck(qs[i], function (ok) { picks[i] = ok; show(); var n = $("mnext"); if (n) n.focus(); }); }
     qs.forEach(function (_, i) { wire(i); });
     show();
+  }
+
+  /* ---------- Station complete card ---------- */
+  function paintDone(fresh) {
+    var box = $("donecard"); if (!box || !PR) return;
+    var done = PR.isDone(CODE), ms = PR.mastery(CODE), next = document.querySelector(".pager a:last-child");
+    if (done) {
+      box.className = "donecard is-done" + (fresh ? " pop" : "");
+      box.innerHTML = '<span class="dc-badge" aria-hidden="true"></span><div><b>' + CODE + ' complete</b><p>' +
+        (PR.how(CODE) === "mastery" ? "You passed the mastery check" + (ms ? " with " + ms.right + " of " + ms.of : "") + ". " : "Marked complete. ") +
+        'It now shows as done on the gym floor.</p></div><div class="dc-act">' +
+        (next && next.getAttribute("href").indexOf("#") === -1 ? '<a class="btn solid" href="' + next.getAttribute("href") + '">' + next.textContent.replace(/^Next:\s*/, "Next: ") + '</a>' : '<a class="btn solid" href="../#floor">Back to the gym floor</a>') +
+        '<button type="button" class="linkish" id="dcundo">Mark as not done</button></div>';
+      $("dcundo").onclick = function () { PR.unmark(CODE); paintDone(); };
+    } else {
+      box.className = "donecard";
+      box.innerHTML = '<span class="dc-ring" aria-hidden="true"></span><div><b>Finish ' + CODE + '</b><p>Pass the mastery check (4 of 5) and this station is marked done automatically. Or mark it yourself.</p></div>' +
+        '<div class="dc-act"><button type="button" class="btn" id="dcmark">Mark station complete</button></div>';
+      $("dcmark").onclick = function () { PR.markDone(CODE, "marked"); paintDone(true); };
+    }
   }
 
   /* ---------- Key takeaways: plates load when the section comes into view ---------- */
@@ -393,4 +416,6 @@
       tio.observe(tk);
     } else tk.classList.add("in");
   }
+  var tkEl = document.querySelector(".takeaways");
+  if (tkEl && PR) { tkEl.insertAdjacentHTML("afterend", '<div class="donecard" id="donecard" aria-live="polite"></div>'); paintDone(); }
 })();

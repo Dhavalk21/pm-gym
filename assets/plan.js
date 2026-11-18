@@ -1,13 +1,13 @@
 // PM Gym: single source of truth for the plan and progress.
-// To update progress: set a module's status to "done" or "now" (one "now" at a time),
-// and set page to its station page once it exists.
+// Each learner's progress (done, "you are here") comes from assets/progress.js, saved in their browser.
+// Set page to a module's station page once it exists.
 window.PMGYM = {
   colors: ["#E3A82B", "#2A9D8F", "#4C7BD9", "#6BA368", "#9B6BB0", "#D07A45"],
   onColors: ["#17202A", "#17202A", "#17202A", "#17202A", "#17202A", "#17202A"],
   zones: ["Understand", "Design and build", "Measure", "Grow", "Decide", "Ship and lead"],
   setup: { code: "M0", name: "Setup", status: "done" },
   modules: [
-    { code: "M1", zone: 0, name: "Product thinking basics", short: "Thinking basics", desc: "Outcomes over outputs, the four risks every idea carries, and which decisions you can take back.", game: "Risk Radar", status: "now", page: "m1/" },
+    { code: "M1", zone: 0, name: "Product thinking basics", short: "Thinking basics", desc: "Outcomes over outputs, the four risks every idea carries, and which decisions you can take back.", game: "Risk Radar", page: "m1/" },
     { code: "M2", zone: 0, name: "Problem framing", short: "Problem framing", desc: "Separate problems from symptoms, write sharp problem statements, and use jobs to be done.", game: "Symptom or Problem?", page: "m2/" },
     { code: "M3", zone: 0, name: "Users and segmentation", short: "Segmentation", desc: "Segments that predict behaviour, personas and their limits, and picking who to serve first.", game: "Segment Sorter", page: "m3/" },
     { code: "M4", zone: 0, name: "Behavioural psychology", short: "Behaviour", desc: "Motivation, habits and biases, and the line where a nudge becomes a dark pattern.", game: "Nudge or Sludge", page: "m4/" },

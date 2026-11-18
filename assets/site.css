@@ -507,3 +507,25 @@ footer.site > span { color: var(--ink-3); font-size: 15px; }
 .ab-row em.miss::after { content: " ✗"; color: #B42318; }
 .ab-note { font-size: 13px; margin-top: 14px; }
 .ab-row em.miss { white-space: normal; text-align: right; }
+
+/* ---------- Learner progress (floor) ---------- */
+.myprog { margin-top: 28px; display: flex; flex-wrap: wrap; align-items: center; gap: 14px 22px; background: #fff; border: 1px solid var(--line, #D5DAE0); border-radius: 8px; padding: 16px 18px; }
+.myprog .mp-text { display: flex; flex-direction: column; min-width: 200px; }
+.myprog .mp-text b { font-family: var(--cond); font-size: 22px; line-height: 1.1; }
+.myprog .mp-text span { font-size: 15px; color: var(--ink-3, #5F6975); }
+.myprog .mp-bar { flex: 1 1 220px; height: 12px; border-radius: 6px; background: var(--petrol-soft); overflow: hidden; }
+.myprog .mp-bar i { display: block; height: 100%; background: var(--petrol); border-radius: 6px; }
+.linkish { background: none; border: 0; padding: 6px 0; color: var(--ink-3, #5F6975); text-decoration: underline; cursor: pointer; font: inherit; font-size: 14px; }
+.disc { position: relative; }
+.disc .tick { position: absolute; top: -6px; right: -6px; width: 22px; height: 22px; border-radius: 50%; background: #2E7D4F; border: 2px solid var(--floor); }
+.disc .tick::after { content: ""; position: absolute; left: 6px; top: 3px; width: 5px; height: 10px; border: solid #fff; border-width: 0 2.5px 2.5px 0; transform: rotate(45deg); }
+
+/* ---------- Playground tabs ---------- */
+.tabs { margin-top: 28px; display: flex; gap: 8px; overflow-x: auto; padding-bottom: 6px; scrollbar-width: thin; }
+.tabs button { flex: 0 0 auto; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 16px; border-radius: 999px; border: 1.5px solid #5F6975; background: transparent; color: var(--ground); font: 600 16px/1 "Barlow", sans-serif; cursor: pointer; }
+.tabs button:hover { border-color: var(--ground); }
+.tabs button[aria-selected="true"] { background: var(--ground); color: var(--ink); border-color: var(--ground); }
+.tabs button i { width: 10px; height: 10px; border-radius: 50%; }
+.tabs button span { font-weight: 500; font-size: 14px; opacity: .7; }
+.rack .shelf { margin-top: 18px; }
+.gdone { display: inline-block; margin-left: 8px; padding: 1px 8px; border-radius: 999px; background: #2E7D4F; color: #fff; font-size: 13px; font-weight: 600; }
