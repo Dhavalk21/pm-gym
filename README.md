@@ -98,30 +98,6 @@ Every game also has its own page, so you can share it with a colleague or play i
 
 The lessons credit their sources. Key ideas come from Marty Cagan (the four product risks), Teresa Torres (opportunity solution trees and story-based interviewing), Rob Fitzpatrick (*The Mom Test*), Clayton Christensen (jobs to be done), Jeff Bezos (one-way and two-way doors), BJ Fogg (the behaviour model), Nir Eyal (the Hook Model), April Dunford (positioning) and Geoffrey Moore (*Crossing the Chasm*). Case studies draw on public reporting. Where numbers in a game are made up for teaching, the game says so.
 
-## Running it locally
-
-Plain HTML, CSS and JavaScript. There's no build step and nothing to install.
-
-```bash
-git clone https://github.com/Dhavalk21/pm-gym.git
-cd pm-gym
-python3 -m http.server 8000   # or open index.html directly in a browser
-```
-
-### Project structure
-
-```
-index.html            Home: Test your max, the gym floor, the session, the playground
-m1/ … m18/, ai-1/ … ai-3/  One page per station
-games/                A standalone page for each game
-assets/
-  plan.js             Every station, its zone, game and status
-  site.css            Colours, type and shared components
-  station.css         Station page layout
-  station.js          Warm-up, lessons, card builder, teach, mastery check, takeaways
-  *.js                One file per game
-```
-
 Progress and notes are saved only in the visitor's own browser. PM Gym has no accounts, no backend and doesn't collect anyone's answers.
 
 ## Feedback
